@@ -39,7 +39,7 @@ pre-commit run --all-files
 tmpdir=$(mktemp -d)
 cd "$tmpdir"
 repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-https.xml
-repo sync -c -j1 code/cpp/bazel_examples
+repo sync -c -j1 code/c++/bazel_examples
 ```
 
 ```bash

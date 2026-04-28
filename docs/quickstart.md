@@ -17,7 +17,7 @@
 tmpdir=$(mktemp -d)
 cd "$tmpdir"
 repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-https.xml
-repo sync -c -j1 code/cpp/bazel_examples
+repo sync -c -j1 code/c++/bazel_examples
 ```
 
 当前示例仓库：`bazelbuild/examples.git`
