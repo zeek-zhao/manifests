@@ -79,13 +79,13 @@
     },
     {
       "name": "wsdjeg/vim-galore-zh_cn.git",
-      "path": "common/vim/vim-galore-zh_cn",
+      "path": "tools/vim/vim-galore-zh_cn",
       "branch": "master",
-      "topic": "common",
+      "topic": "tools",
       "platform": "gitlab",
       "language": "mixed",
       "groups": [
-        "common"
+        "tools"
       ]
     }
   ]

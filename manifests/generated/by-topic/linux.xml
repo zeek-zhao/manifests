@@ -17,4 +17,5 @@
     <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="todo/alpu" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

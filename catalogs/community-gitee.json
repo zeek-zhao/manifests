@@ -189,24 +189,24 @@
     },
     {
       "name": "zhengqingya/docker-compose.git",
-      "path": "common/docker-compose",
+      "path": "tools/docker-compose",
       "branch": "master",
-      "topic": "common",
+      "topic": "tools",
       "platform": "gitee",
       "language": "nodejs",
       "groups": [
-        "common"
+        "tools"
       ]
     },
     {
       "name": "mirrorvim/vim-fast.git",
-      "path": "common/vim/vim-fast",
+      "path": "tools/vim/vim-fast",
       "branch": "master",
-      "topic": "common",
+      "topic": "tools",
       "platform": "gitee",
       "language": "mixed",
       "groups": [
-        "common"
+        "tools"
       ]
     },
     {

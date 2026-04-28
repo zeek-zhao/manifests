@@ -56,5 +56,7 @@
     <project path="linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
     <project path="qt/qt-learn-code" remote="gitee_git" groups="owner-zeek-zhao,qt,gitee,git,c-cpp" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/cpp-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,c-cpp" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/cpp-sample" remote="github_git" groups="owner-zeek-zhao,sample,github,git,c-cpp" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/src800-bootloader" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,c-cpp" name="zeek-zhao/src800-bootloader.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="todo/alpu" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

@@ -20,8 +20,8 @@
     <project path="raspberrypi/awesome-raspberrypipico" remote="gitee_https" groups="raspberrypi,gitee,https,c-cpp" name="weidongshan/awesome-raspberrypipico.git" dest-branch="master" revision="refs/heads/master" />
     <project path="raspberrypi/pico-micropython" remote="gitee_https" groups="raspberrypi,gitee,https,python" name="weidongshan/pico-micropython.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/apollo" remote="gitee_https" groups="robot,gitee,https,c-cpp" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="common/docker-compose" remote="gitee_https" groups="common,gitee,https,nodejs" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="common/vim/vim-fast" remote="gitee_https" groups="common,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/docker-compose" remote="gitee_https" groups="tools,gitee,https,nodejs" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/gin-quasar-admin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
     <project path="vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/crudapi-admin-web" remote="gitee_https" groups="vue,gitee,https,nodejs" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
@@ -36,10 +36,11 @@
     <project path="qt/qt-learn-code" remote="gitee_git" groups="owner-zeek-zhao,qt,gitee,git,c-cpp" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/frobot" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,python" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/fron-backframe" remote="gitee_git" groups="owner-zeek-zhao,vue,gitee,git,nodejs" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/LanguageLearning" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,mixed" name="zeek-zhao/LanguageLearning.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/LanguageLearning" remote="gitee_git" groups="owner-zeek-zhao,sample,gitee,git,mixed" name="zeek-zhao/LanguageLearning.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/obsidian_old" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian_old.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/obsidian" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="todo/devops_back" remote="gitee_git" groups="owner-zeek-zhao,todo,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/src800-bootloader" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,c-cpp" name="zeek-zhao/src800-bootloader.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="todo/alpu" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

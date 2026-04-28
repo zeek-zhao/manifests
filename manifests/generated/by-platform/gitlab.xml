@@ -10,5 +10,5 @@
     <project path="rk/docs" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/docs.git" dest-branch="firefly" revision="refs/heads/firefly" />
     <project path="rk/firmware_doc" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/firmware_doc.git" dest-branch="master" revision="refs/heads/master" />
     <project path="rk/kernel" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/kernel.git" dest-branch="firefly" revision="refs/heads/firefly" />
-    <project path="common/vim/vim-galore-zh_cn" remote="gitlab_https" groups="common,gitlab,https,mixed" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab,https,mixed" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

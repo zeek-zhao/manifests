@@ -24,5 +24,4 @@
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
-    <project path="common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

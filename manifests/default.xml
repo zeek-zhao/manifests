@@ -12,7 +12,6 @@
     <include name="manifests/generated/by-platform/yoctoproject.xml" />
     <include name="manifests/generated/by-protocol/git.xml" />
     <include name="manifests/generated/by-protocol/https.xml" />
-    <include name="manifests/generated/by-topic/common.xml" />
     <include name="manifests/generated/by-topic/cpp.xml" />
     <include name="manifests/generated/by-topic/esp.xml" />
     <include name="manifests/generated/by-topic/linux.xml" />
@@ -24,5 +23,8 @@
     <include name="manifests/generated/by-topic/raspberrypi.xml" />
     <include name="manifests/generated/by-topic/rk.xml" />
     <include name="manifests/generated/by-topic/robot.xml" />
+    <include name="manifests/generated/by-topic/sample.xml" />
+    <include name="manifests/generated/by-topic/todo.xml" />
+    <include name="manifests/generated/by-topic/tools.xml" />
     <include name="manifests/generated/by-topic/vue.xml" />
 </manifest>

@@ -284,13 +284,13 @@
     },
     {
       "name": "youngyangyang04/PowerVim.git",
-      "path": "common/vim/PowerVim",
+      "path": "tools/vim/PowerVim",
       "branch": "master",
-      "topic": "common",
+      "topic": "tools",
       "platform": "github",
       "language": "mixed",
       "groups": [
-        "common"
+        "tools"
       ]
     },
     {

@@ -14,6 +14,6 @@
     <project path="robot/ZZX_RUN" remote="github_https" groups="robot,github,https,python" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,https,python" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/frobot" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,python" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/python-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,python" name="zeek-zhao/python-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/python-sample/src/ai-knowledge" remote="github_git" groups="owner-zeek-zhao,common,github,git,python" name="zeek-zhao/ai-knowledge.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/python-sample" remote="github_git" groups="owner-zeek-zhao,sample,github,git,python" name="zeek-zhao/python-sample.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/python-sample/src/ai-knowledge" remote="github_git" groups="owner-zeek-zhao,sample,github,git,python" name="zeek-zhao/ai-knowledge.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

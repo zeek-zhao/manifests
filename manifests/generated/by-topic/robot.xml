@@ -21,5 +21,4 @@
     <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,https,python" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/frobot" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,python" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

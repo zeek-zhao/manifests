@@ -3,12 +3,12 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="common/vim/vim-fast" remote="gitee_https" groups="common,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="common/vim/PowerVim" remote="github_https" groups="common,github,https,mixed" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="common/vim/vim-galore-zh_cn" remote="gitlab_https" groups="common,gitlab,https,mixed" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/standard-version" remote="github_git" groups="owner-zeek-zhao,common,github,git,mixed" name="zeek-zhao/standard-version.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/base-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,mixed" name="zeek-zhao/base-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/java-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,mixed" name="zeek-zhao/java-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/LanguageLearning" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,mixed" name="zeek-zhao/LanguageLearning.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/product-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,mixed" name="zeek-zhao/product-sample.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github,https,mixed" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab,https,mixed" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/standard-version" remote="github_git" groups="owner-zeek-zhao,sample,github,git,mixed" name="zeek-zhao/standard-version.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/base-sample" remote="github_git" groups="owner-zeek-zhao,sample,github,git,mixed" name="zeek-zhao/base-sample.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/java-sample" remote="github_git" groups="owner-zeek-zhao,sample,github,git,mixed" name="zeek-zhao/java-sample.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/LanguageLearning" remote="gitee_git" groups="owner-zeek-zhao,sample,gitee,git,mixed" name="zeek-zhao/LanguageLearning.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/product-sample" remote="github_git" groups="owner-zeek-zhao,sample,github,git,mixed" name="zeek-zhao/product-sample.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

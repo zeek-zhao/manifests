@@ -82,18 +82,6 @@
       "preferred_protocol": "git"
     },
     {
-      "name": "zeek-zhao/ros-docker-gui.git",
-      "path": "robot/ros-docker-gui",
-      "branch": "master",
-      "topic": "robot",
-      "platform": "gitee",
-      "language": "nodejs",
-      "groups": [
-        "robot"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
       "name": "zeek-zhao/fron-backframe.git",
       "path": "vue/fron-backframe",
       "branch": "master",
@@ -133,11 +121,11 @@
       "name": "zeek-zhao/obsidian-sample.git",
       "path": "sample/obsidian-sample",
       "branch": "main",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "nodejs",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -145,11 +133,11 @@
       "name": "zeek-zhao/standard-version.git",
       "path": "sample/standard-version",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "mixed",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -157,11 +145,11 @@
       "name": "zeek-zhao/base-sample.git",
       "path": "sample/base-sample",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "mixed",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -169,11 +157,11 @@
       "name": "zeek-zhao/python-sample.git",
       "path": "sample/python-sample",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "python",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -181,11 +169,11 @@
       "name": "zeek-zhao/go-sample.git",
       "path": "sample/go-sample",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "go",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -193,11 +181,11 @@
       "name": "zeek-zhao/java-sample.git",
       "path": "sample/java-sample",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "mixed",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -205,11 +193,11 @@
       "name": "zeek-zhao/ai-knowledge.git",
       "path": "sample/python-sample/src/ai-knowledge",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "python",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -217,11 +205,11 @@
       "name": "zeek-zhao/jenkins-shared-library.git",
       "path": "sample/java-sample/src/jenkins-shared-library",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "nodejs",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -229,11 +217,11 @@
       "name": "zeek-zhao/cpp-sample.git",
       "path": "sample/cpp-sample",
       "branch": "main",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "c/c++",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -241,11 +229,11 @@
       "name": "zeek-zhao/LanguageLearning.git",
       "path": "sample/LanguageLearning",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "gitee",
       "language": "mixed",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -253,11 +241,11 @@
       "name": "zeek-zhao/product-sample.git",
       "path": "sample/product-sample",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "mixed",
       "groups": [
-        "common"
+        "sample"
       ],
       "preferred_protocol": "git"
     },
@@ -265,11 +253,11 @@
       "name": "zeek-zhao/docker-sample.git",
       "path": "sample/docker-sample",
       "branch": "master",
-      "topic": "common",
+      "topic": "sample",
       "platform": "github",
       "language": "nodejs",
       "groups": [
-        "common"
+        "sample"
       ],
       "linkfiles": [
         {
@@ -295,7 +283,7 @@
       "name": "zeek-zhao/obsidian_old.git",
       "path": "todo/obsidian_old",
       "branch": "master",
-      "topic": "project",
+      "topic": "todo",
       "platform": "gitee",
       "language": "nodejs",
       "groups": [
@@ -307,7 +295,7 @@
       "name": "zeek-zhao/obsidian.git",
       "path": "todo/obsidian",
       "branch": "master",
-      "topic": "project",
+      "topic": "todo",
       "platform": "gitee",
       "language": "nodejs",
       "groups": [
@@ -319,7 +307,7 @@
       "name": "zeek-zhao/blog-img.git",
       "path": "todo/blog-img",
       "branch": "main",
-      "topic": "project",
+      "topic": "todo",
       "platform": "github",
       "language": "nodejs",
       "groups": [
@@ -329,13 +317,37 @@
     },
     {
       "name": "zeek-zhao/devops_back.git",
-      "path": "common/devops_back",
+      "path": "todo/devops_back",
       "branch": "master",
-      "topic": "common",
+      "topic": "todo",
       "platform": "gitee",
       "language": "nodejs",
       "groups": [
-        "common"
+        "todo"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/src800-bootloader.git",
+      "path": "project/src800-bootloader",
+      "branch": "master",
+      "topic": "project",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/alpu.git",
+      "path": "todo/alpu",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
       ],
       "preferred_protocol": "git"
     }

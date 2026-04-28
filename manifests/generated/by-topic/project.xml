@@ -5,7 +5,5 @@
 
     <project path="project/devops" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/obsidian" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="todo/obsidian_old" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian_old.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="todo/obsidian" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="todo/blog-img" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/src800-bootloader" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,c-cpp" name="zeek-zhao/src800-bootloader.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>
