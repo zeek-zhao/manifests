@@ -1,0 +1,48 @@
+{
+  "repositories": [
+    {
+      "name": "poky.git",
+      "path": "code/linux/yocto/poky",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "yoctoproject",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "poky-contrib.git",
+      "path": "code/linux/yocto/poky-contrib",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "yoctoproject",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "yocto-docs.git",
+      "path": "code/linux/yocto/yocto-docs",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "yoctoproject",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "meta-yocto.git",
+      "path": "code/linux/yocto/meta-yocto",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "yoctoproject",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    }
+  ]
+}

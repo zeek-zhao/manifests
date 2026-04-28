@@ -32,8 +32,17 @@ def main() -> int:
         "owners": source.get("owners", {}),
         "repositories": [],
     }
-    community_catalog = {
+    community_github_catalog = {
         "remotes": source.get("remotes", {}),
+        "repositories": [],
+    }
+    community_gitee_catalog = {
+        "repositories": [],
+    }
+    community_gitlab_catalog = {
+        "repositories": [],
+    }
+    community_yocto_catalog = {
         "repositories": [],
     }
 
@@ -44,12 +53,25 @@ def main() -> int:
         elif repo.get("topic") == "c++":
             cpp_catalog["repositories"].append(repo)
         else:
-            community_catalog["repositories"].append(repo)
+            platform = repo.get("platform")
+            if platform == "github":
+                community_github_catalog["repositories"].append(repo)
+            elif platform == "gitee":
+                community_gitee_catalog["repositories"].append(repo)
+            elif platform == "gitlab":
+                community_gitlab_catalog["repositories"].append(repo)
+            elif platform == "yoctoproject":
+                community_yocto_catalog["repositories"].append(repo)
+            else:
+                community_github_catalog["repositories"].append(repo)
 
     targets = {
         "cpp.json": cpp_catalog,
         "zeek-zhao.json": zeek_catalog,
-        "community.json": community_catalog,
+        "community-github.json": community_github_catalog,
+        "community-gitee.json": community_gitee_catalog,
+        "community-gitlab.json": community_gitlab_catalog,
+        "community-yoctoproject.json": community_yocto_catalog,
     }
     for filename, content in targets.items():
         (args.output / filename).write_text(

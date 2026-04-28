@@ -3,14 +3,14 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/c++/package-manager" remote="gitee_git" groups="owner-zeek-zhao,c++,gitee,git,c-cpp" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/qt/qt-learn-code" remote="gitee_git" groups="owner-zeek-zhao,qt,gitee,git,c-cpp" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/frobot" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,python" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/fron-backframe" remote="gitee_git" groups="owner-zeek-zhao,vue,gitee,git,nodejs" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/package-manager" remote="gitee_git" groups="owner-zeek-zhao,c++,project,gitee,git,c-cpp" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="qt/qt-learn-code" remote="gitee_git" groups="owner-zeek-zhao,qt,gitee,git,c-cpp" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/frobot" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,python" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/fron-backframe" remote="gitee_git" groups="owner-zeek-zhao,vue,gitee,git,nodejs" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/devops" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/obsidian" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/obsidian-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,nodejs" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
@@ -33,5 +33,5 @@
     <project path="todo/obsidian_old" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian_old.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/obsidian" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/blog-img" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

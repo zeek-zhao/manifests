@@ -8,12 +8,12 @@
     <project path="code/vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/vue/crudapi-admin-web" remote="gitee_https" groups="vue,gitee,https,nodejs" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/vue/datav-vue" remote="gitee_https" groups="vue,gitee,https,nodejs" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/vue/quasar-tutorial" remote="github_https" groups="vue,github,https,nodejs" name="dongwa/quasar-tutorial.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/vue/variant-form" remote="gitee_https" groups="vue,gitee,https,nodejs" name="vdpadmin/variant-form.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/vue/vxe-table" remote="gitee_https" groups="vue,gitee,https,nodejs" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/fron-backframe" remote="gitee_git" groups="owner-zeek-zhao,vue,gitee,git,nodejs" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/vue/quasar-tutorial" remote="github_https" groups="vue,github,https,nodejs" name="dongwa/quasar-tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/fron-backframe" remote="gitee_git" groups="owner-zeek-zhao,vue,gitee,git,nodejs" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/devops" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/obsidian" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/obsidian-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,nodejs" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
@@ -27,5 +27,5 @@
     <project path="todo/obsidian_old" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian_old.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/obsidian" remote="gitee_git" groups="owner-zeek-zhao,project,gitee,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/blog-img" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

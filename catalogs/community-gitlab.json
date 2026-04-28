@@ -1,0 +1,92 @@
+{
+  "repositories": [
+    {
+      "name": "firefly-linux/u-boot.git",
+      "path": "code/rk/u-boot",
+      "branch": "firefly",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "firefly-linux/docs-soc_internal.git",
+      "path": "code/rk/docs-soc_internal",
+      "branch": "firefly",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "firefly-linux/buildroot.git",
+      "path": "code/rk/buildroot",
+      "branch": "firefly",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "firefly-linux/manifests.git",
+      "path": "code/rk/manifests",
+      "branch": "master",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "firefly-linux/docs.git",
+      "path": "code/rk/docs",
+      "branch": "firefly",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "firefly-linux/firmware_doc.git",
+      "path": "code/rk/firmware_doc",
+      "branch": "master",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "firefly-linux/kernel.git",
+      "path": "code/rk/kernel",
+      "branch": "firefly",
+      "topic": "rk",
+      "platform": "gitlab",
+      "language": "c/c++",
+      "groups": [
+        "rk"
+      ]
+    },
+    {
+      "name": "wsdjeg/vim-galore-zh_cn.git",
+      "path": "code/common/vim/vim-galore-zh_cn",
+      "branch": "master",
+      "topic": "common",
+      "platform": "gitlab",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ]
+    }
+  ]
+}

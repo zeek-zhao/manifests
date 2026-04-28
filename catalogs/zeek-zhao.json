@@ -10,19 +10,20 @@
   "repositories": [
     {
       "name": "zeek-zhao/package-manager.git",
-      "path": "code/c++/package-manager",
+      "path": "project/package-manager",
       "branch": "master",
       "topic": "c++",
       "platform": "gitee",
       "language": "c/c++",
       "groups": [
-        "c++"
+        "c++",
+        "project"
       ],
       "preferred_protocol": "git"
     },
     {
       "name": "zeek-zhao/linux-driver.git",
-      "path": "code/linux/driver/linux-driver",
+      "path": "linux/driver/linux-driver",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -34,7 +35,7 @@
     },
     {
       "name": "zeek-zhao/free-rtos-demo.git",
-      "path": "code/linux/free-rtos-demo",
+      "path": "linux/free-rtos-demo",
       "branch": "main",
       "topic": "linux",
       "platform": "gitee",
@@ -46,7 +47,7 @@
     },
     {
       "name": "zeek-zhao/qt-learn-code.git",
-      "path": "code/qt/qt-learn-code",
+      "path": "qt/qt-learn-code",
       "branch": "master",
       "topic": "qt",
       "platform": "gitee",
@@ -58,7 +59,7 @@
     },
     {
       "name": "zeek-zhao/ros.git",
-      "path": "code/robot/ros",
+      "path": "robot/ros",
       "branch": "master",
       "topic": "robot",
       "platform": "gitee",
@@ -70,7 +71,7 @@
     },
     {
       "name": "zeek-zhao/frobot.git",
-      "path": "code/robot/frobot",
+      "path": "robot/frobot",
       "branch": "master",
       "topic": "robot",
       "platform": "gitee",
@@ -82,7 +83,7 @@
     },
     {
       "name": "zeek-zhao/ros-docker-gui.git",
-      "path": "code/robot/ros-docker-gui",
+      "path": "robot/ros-docker-gui",
       "branch": "master",
       "topic": "robot",
       "platform": "gitee",
@@ -94,7 +95,7 @@
     },
     {
       "name": "zeek-zhao/fron-backframe.git",
-      "path": "code/vue/fron-backframe",
+      "path": "vue/fron-backframe",
       "branch": "master",
       "topic": "vue",
       "platform": "gitee",
@@ -328,7 +329,7 @@
     },
     {
       "name": "zeek-zhao/devops_back.git",
-      "path": "code/common/devops_back",
+      "path": "common/devops_back",
       "branch": "master",
       "topic": "common",
       "platform": "gitee",

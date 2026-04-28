@@ -1,60 +1,81 @@
-# manifests-next
+# manifests
 
-`manifests-next` 是新的 repo manifest 生成工程。它使用多个 catalog 文件作为输入，统一生成 `repo init` 可直接使用的 XML 清单。
+`manifests` 是多仓库 repo manifest 管理工程。它基于多个 catalog 文件生成标准 XML 清单，支持按协议、平台、语言、主题和 owner 维度拆分使用。
 
-## 核心能力
+## 快速使用
 
-- 支持多个 catalog 文件输入
-- 支持按协议、平台、语言、主题、owner 分类生成 manifests
-- `zeek-zhao` 默认使用 SSH 协议
-- 支持可选 `linkfile` 配置
-- 支持 `pre-commit` 格式校验
+```bash
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-owner/zeek-zhao.xml
+repo sync -j30
+```
 
 ## 目录说明
 
-- `catalogs/`：多个仓库配置文件输入目录
-- `manifests/`：生成后的 repo manifests
-- `tools/`：生成、拆分和抽取脚本
-- `docs/`：设计、实现、迁移和关键字说明文档
+- `catalogs/`：仓库配置数据源，支持多个 JSON 文件
+- `manifests/`：生成后的清单目录
+- `manifests/generated/`：按维度拆分的清单
+- `manifests/examples/`：面向 `repo init` 的最小示例清单
+- `tools/`：生成和拆分脚本
+- `docs/`：设计、实现、快速上手和关键字文档
 
-## 常用命令
+## 生成与校验
 
 ```bash
-cd /home/zeek/work/.repo/manifests-next
+cd /path/to/manifests
 python3 tools/generate_manifests.py
 python3 tools/generate_manifests.py --check
 pre-commit run --all-files
 ```
 
-## 最小示例清单
-
-新工程额外提供两份面向 `repo init` 的最小示例清单，适合单仓快速拉取和对外说明：
-
-- `manifests/examples/quickstart-https.xml`：公共仓库、HTTPS 协议
-- `manifests/examples/quickstart-zeek-zhao.xml`：`zeek-zhao` 仓库、SSH 协议
-
-示例命令：
+## 常用初始化命令
 
 ```bash
-tmpdir=$(mktemp -d)
-cd "$tmpdir"
-repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-https.xml
-repo sync -c -j1 code/c++/bazel_examples
+# owner 维度：zeek-zhao（默认走 SSH）
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-owner/zeek-zhao.xml
+
+# 协议维度：仅 HTTPS
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-protocol/https.xml
+
+# 平台维度：仅 github
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-platform/github.xml
+
+# 最小示例：单仓快速拉取
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/examples/quickstart-zeek-zhao.xml
 ```
+
+## repo 常用命令
 
 ```bash
-tmpdir=$(mktemp -d)
-cd "$tmpdir"
-repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-zeek-zhao.xml
-repo sync -c -j1 sample/docker-sample
+# 并行同步
+repo sync -j30
+
+# 仅同步当前 manifest 分支，减少下载量
+repo sync -c -j30
+
+# 查看项目与路径
+repo list -f
+
+# 导出锁定版本清单
+repo manifest -r -o locked.xml
+
+# 比较两份清单
+repo diffmanifests old.xml new.xml
 ```
 
-## 从旧工程迁移
+## repo 设置建议
 
 ```bash
-cd /home/zeek/work/.repo/manifests-next
-python3 tools/split_legacy_catalog.py
-python3 tools/generate_manifests.py
+# 凭证缓存
+git config --global credential.helper store
+
+# 推荐启用 rebase 同步策略
+repo init --config-name
+git config --global pull.rebase true
 ```
 
-详细设计见 `docs/design.md`，实现说明见 `docs/implementation.md`，快速上手见 `docs/quickstart.md`，迁移说明见 `docs/migration.md`。
+## 参考文档
+
+- `docs/quickstart.md`
+- `docs/manifest-keywords.md`
+- `docs/design.md`
+- `docs/implementation.md`

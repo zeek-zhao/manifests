@@ -4,8 +4,8 @@
     <include name="manifests/_hooks.xml" />
 
     <project path="code/common/docker-compose" remote="gitee_https" groups="common,gitee,https,nodejs" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/common/vim/PowerVim" remote="github_https" groups="common,github,https,mixed" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/common/vim/vim-fast" remote="gitee_https" groups="common,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/common/vim/PowerVim" remote="github_https" groups="common,github,https,mixed" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/common/vim/vim-galore-zh_cn" remote="gitlab_https" groups="common,gitlab,https,mixed" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
     <project path="sample/obsidian-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,nodejs" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/standard-version" remote="github_git" groups="owner-zeek-zhao,common,github,git,mixed" name="zeek-zhao/standard-version.git" dest-branch="master" revision="refs/heads/master" />
@@ -24,5 +24,5 @@
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
-    <project path="code/common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="common/devops_back" remote="gitee_git" groups="owner-zeek-zhao,common,gitee,git,nodejs" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

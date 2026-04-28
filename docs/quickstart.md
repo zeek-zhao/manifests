@@ -16,8 +16,8 @@
 ```bash
 tmpdir=$(mktemp -d)
 cd "$tmpdir"
-repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-https.xml
-repo sync -c -j1 code/c++/bazel_examples
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/examples/quickstart-https.xml
+repo sync -c -j30 code/c++/bazel_examples
 ```
 
 当前示例仓库：`bazelbuild/examples.git`
@@ -29,8 +29,8 @@ repo sync -c -j1 code/c++/bazel_examples
 ```bash
 tmpdir=$(mktemp -d)
 cd "$tmpdir"
-repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-zeek-zhao.xml
-repo sync -c -j1 sample/docker-sample
+repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/examples/quickstart-zeek-zhao.xml
+repo sync -c -j30 sample/docker-sample
 ```
 
 当前示例仓库：`zeek-zhao/docker-sample.git`

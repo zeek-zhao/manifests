@@ -1,0 +1,290 @@
+{
+  "repositories": [
+    {
+      "name": "weidongshan/esp32_100ask_project.git",
+      "path": "code/esp/esp32_100ask_project",
+      "branch": "master",
+      "topic": "esp",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "esp"
+      ]
+    },
+    {
+      "name": "weidongshan/imx6ull_NoosProgramProject.git",
+      "path": "code/linux/driver/imx6ull_NoosProgramProject",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "Embedfire/embed_linux_tutorial.git",
+      "path": "code/linux/driver/embed_linux_tutorial",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "weidongshan/stm32mp157-m4.git",
+      "path": "code/linux/driver/stm32mp157-m4",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "xiebaoyou/linux-2.6.12.git",
+      "path": "code/linux/kernel/linux-2.6.12",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "AllOpenOS/linux0.11_note.git",
+      "path": "code/linux/kernel/linux0.11_note",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "weidongshan/Buildroot.git",
+      "path": "code/linux/uboot/Buildroot",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "weidongshan/lv_100ask_modules.git",
+      "path": "code/linux/lv_100ask_modules",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "weharmony/kernel_liteos_a_note.git",
+      "path": "code/openharmony/kernel_liteos_a_note",
+      "branch": "master",
+      "topic": "openharmony",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "openharmony"
+      ]
+    },
+    {
+      "name": "openatom-university/openharmony-oer.git",
+      "path": "code/openharmony/openharmony-oer",
+      "branch": "master",
+      "topic": "openharmony",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "openharmony"
+      ]
+    },
+    {
+      "name": "weidongshan/qemu.git",
+      "path": "code/qemu/qemu",
+      "branch": "master",
+      "topic": "qemu",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "qemu"
+      ]
+    },
+    {
+      "name": "weidongshan/DBoS-Desktop.git",
+      "path": "code/qt/DBoS-Desktop",
+      "branch": "master",
+      "topic": "qt",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "qt"
+      ]
+    },
+    {
+      "name": "feiyangqingyun/QWidgetDemo.git",
+      "path": "code/qt/QWidgetDemo",
+      "branch": "master",
+      "topic": "qt",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "qt"
+      ]
+    },
+    {
+      "name": "feiyangqingyun/qtkaifajingyan.git",
+      "path": "code/qt/qtkaifajingyan",
+      "branch": "master",
+      "topic": "qt",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "qt"
+      ]
+    },
+    {
+      "name": "weidongshan/awesome-raspberrypipico.git",
+      "path": "code/raspberrypi/awesome-raspberrypipico",
+      "branch": "master",
+      "topic": "raspberrypi",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "raspberrypi"
+      ]
+    },
+    {
+      "name": "weidongshan/pico-micropython.git",
+      "path": "code/raspberrypi/pico-micropython",
+      "branch": "master",
+      "topic": "raspberrypi",
+      "platform": "gitee",
+      "language": "python",
+      "groups": [
+        "raspberrypi"
+      ]
+    },
+    {
+      "name": "ApolloAuto/apollo.git",
+      "path": "code/robot/apollo",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "zhengqingya/docker-compose.git",
+      "path": "code/common/docker-compose",
+      "branch": "master",
+      "topic": "common",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "common"
+      ]
+    },
+    {
+      "name": "mirrorvim/vim-fast.git",
+      "path": "code/common/vim/vim-fast",
+      "branch": "master",
+      "topic": "common",
+      "platform": "gitee",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ]
+    },
+    {
+      "name": "junvary/gin-quasar-admin.git",
+      "path": "code/vue/gin-quasar-admin",
+      "branch": "main",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    },
+    {
+      "name": "was666/as-editor.git",
+      "path": "code/vue/as-editor",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    },
+    {
+      "name": "crudapi/crudapi-admin-web.git",
+      "path": "code/vue/crudapi-admin-web",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    },
+    {
+      "name": "pengxiaotian/datav-vue.git",
+      "path": "code/vue/datav-vue",
+      "branch": "main",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    },
+    {
+      "name": "vdpadmin/variant-form.git",
+      "path": "code/vue/variant-form",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    },
+    {
+      "name": "MTrun/vue-big-screen-plugin.git",
+      "path": "code/vue/vue-big-screen-plugin",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    },
+    {
+      "name": "xuliangzhan_admin/vxe-table.git",
+      "path": "code/vue/vxe-table",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    }
+  ]
+}

@@ -3,6 +3,6 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/esp/ESP8266-Demos" remote="github_https" groups="esp,github,https,c-cpp" name="AngelLiang/ESP8266-Demos.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/esp/esp32_100ask_project" remote="gitee_https" groups="esp,gitee,https,c-cpp" name="weidongshan/esp32_100ask_project.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/esp/ESP8266-Demos" remote="github_https" groups="esp,github,https,c-cpp" name="AngelLiang/ESP8266-Demos.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

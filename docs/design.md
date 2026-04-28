@@ -1,8 +1,8 @@
-# manifests-next 设计文档
+# manifests 设计文档
 
 ## 目标
 
-`manifests-next` 是一个独立的 manifest 生成工程，用于替代旧的手工维护方式。它需要满足以下目标：
+`manifests` 是一个独立的 manifest 生成工程，用于替代旧的手工维护方式。它需要满足以下目标：
 
 1. 支持从多个仓库配置文件生成 repo manifests。
 2. 支持按协议、平台、语言、主题、owner 等维度输出分类清单。
@@ -45,7 +45,7 @@
 ## 目录设计
 
 ```text
-manifests-next/
+manifests/
 ├── catalogs/
 │   ├── cpp.json
 │   ├── zeek-zhao.json
@@ -128,7 +128,7 @@ manifests-next/
 
 ### 旧仓库不直接覆盖
 
-新工程位于 `/home/zeek/work/.repo/manifests-next`，不直接覆盖旧目录，避免误伤当前工作树。
+工程目录可自定义，对外发布名称统一为 `manifests`。
 
 ### 协议测试依赖本机环境
 

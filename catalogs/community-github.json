@@ -1,0 +1,308 @@
+{
+  "remotes": {
+    "github": {
+      "https": "https://github.com",
+      "git": "ssh://git@github.com"
+    },
+    "gitee": {
+      "https": "https://gitee.com",
+      "git": "ssh://git@gitee.com"
+    },
+    "gitlab": {
+      "https": "https://gitlab.com",
+      "git": "ssh://git@gitlab.com"
+    },
+    "yoctoproject": {
+      "https": "https://git.yoctoproject.org",
+      "git": "ssh://git@git.yoctoproject.org"
+    }
+  },
+  "repositories": [
+    {
+      "name": "AngelLiang/ESP8266-Demos.git",
+      "path": "code/esp/ESP8266-Demos",
+      "branch": "master",
+      "topic": "esp",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "esp"
+      ]
+    },
+    {
+      "name": "sunym1993/flash-linux0.11-talk.git",
+      "path": "code/linux/kernel/flash-linux0.11-talk",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ]
+    },
+    {
+      "name": "armink/EasyLogger.git",
+      "path": "code/log/EasyLogger",
+      "branch": "master",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "abumq/easyloggingpp.git",
+      "path": "code/log/easyloggingpp",
+      "branch": "master",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "gabime/spdlog.git",
+      "path": "code/log/spdlog",
+      "branch": "v2.x",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "Fibird/spdlog_demo.git",
+      "path": "code/log/spdlog_demo",
+      "branch": "master",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "facontidavide/PlotJuggler.git",
+      "path": "code/log/PlotJuggler",
+      "branch": "main",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "ros-visualization/rqt_plot.git",
+      "path": "code/log/rqt_plot",
+      "branch": "master",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "ros/rosconsole.git",
+      "path": "code/log/rosconsole",
+      "branch": "noetic-devel",
+      "topic": "log",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "log"
+      ]
+    },
+    {
+      "name": "huchunxu/ros_21_tutorials.git",
+      "path": "code/robot/ros_21_tutorials",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "huchunxu/ros_exploring.git",
+      "path": "code/robot/ros_exploring",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ROBOTIS-GIT/DynamixelSDK.git",
+      "path": "code/robot/ROBOTIS-GIT/DynamixelSDK",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ROBOTIS-GIT/hls_lfcd_lds_driver.git",
+      "path": "code/robot/ROBOTIS-GIT/hls_lfcd_lds_driver",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ROBOTIS-GIT/turtlebot3_msgs.git",
+      "path": "code/robot/ROBOTIS-GIT/turtlebot3_msgs",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ROBOTIS-GIT/turtlebot3_simulations.git",
+      "path": "code/robot/ROBOTIS-GIT/turtlebot3_simulations",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ros2/demos.git",
+      "path": "code/robot/ros2/demos",
+      "branch": "rolling",
+      "topic": "robot",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ros2/examples.git",
+      "path": "code/robot/ros2/examples",
+      "branch": "rolling",
+      "topic": "robot",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "6-robot/wpr_simulation.git",
+      "path": "code/robot/6-robot/wpr_simulation",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "6-robot/wpb_home.git",
+      "path": "code/robot/6-robot/wpb_home",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "6-robot/wpb_cv.git",
+      "path": "code/robot/6-robot/wpb_cv",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "kkmd66/ZZX_RUN.git",
+      "path": "code/robot/ZZX_RUN",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "t-thanh/autoware2020-course.git",
+      "path": "code/robot/autoware2020-course",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "autowarefoundation/autoware.git",
+      "path": "code/robot/autoware",
+      "branch": "main",
+      "topic": "robot",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "ChenJiahao031008/Autodrive_Toolchain.git",
+      "path": "code/robot/Autodrive_Toolchain",
+      "branch": "main",
+      "topic": "robot",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "robot"
+      ]
+    },
+    {
+      "name": "youngyangyang04/PowerVim.git",
+      "path": "code/common/vim/PowerVim",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ]
+    },
+    {
+      "name": "dongwa/quasar-tutorial.git",
+      "path": "code/vue/quasar-tutorial",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ]
+    }
+  ]
+}
