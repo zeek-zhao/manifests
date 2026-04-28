@@ -3,19 +3,19 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github,https,c-cpp" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="todo/alpu" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject" name="poky.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/linux-driver" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/free-rtos-demo" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="todo/alpu" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

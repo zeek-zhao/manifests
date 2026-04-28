@@ -106,6 +106,18 @@ class BuildRenderPlanTest(unittest.TestCase):
         self.assertIn('include name="manifests/generated/by-owner/zeek-zhao.xml"', default_manifest)
         self.assertIn('include name="manifests/generated/by-topic/cpp.xml"', default_manifest)
 
+    def test_project_groups_only_contain_groups_platform_topic(self) -> None:
+        merged = merge_catalogs([CATALOG_CPP, CATALOG_ZEEK])
+        plan = build_render_plan(merged)
+
+        owner_manifest = plan["manifests/generated/by-owner/zeek-zhao.xml"]
+
+        self.assertIn('groups="common,github"', owner_manifest)
+        self.assertNotIn('owner-zeek-zhao', owner_manifest)
+        self.assertNotIn(',git,', owner_manifest)
+        self.assertNotIn(',https,', owner_manifest)
+        self.assertNotIn(',nodejs', owner_manifest)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -80,11 +80,8 @@ def get_effective_protocol(config: Dict, repo: Dict, requested_protocol: str = N
 
 
 def build_groups(config: Dict, repo: Dict, protocol: str) -> List[str]:
-    owner_name = get_owner(repo["name"])
-    owner_groups = config.get("owners", {}).get(owner_name, {}).get("groups", [])
     repo_groups = repo.get("groups", [])
-    language_group = slugify(repo["language"])
-    return unique(owner_groups + repo_groups + [repo["platform"], protocol, language_group])
+    return unique(repo_groups + [repo["platform"], repo["topic"]])
 
 
 def build_project_entry(config: Dict, repo: Dict, requested_protocol: str = None) -> Dict:

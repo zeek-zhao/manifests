@@ -3,5 +3,5 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="sample/go-sample" remote="github_git" groups="owner-zeek-zhao,sample,github,git,go" name="zeek-zhao/go-sample.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/go-sample" remote="github_git" groups="sample,github" name="zeek-zhao/go-sample.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

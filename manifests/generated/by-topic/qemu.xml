@@ -3,5 +3,5 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="qemu/qemu" remote="gitee_https" groups="qemu,gitee,https,c-cpp" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qemu/qemu" remote="gitee_https" groups="qemu,gitee" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

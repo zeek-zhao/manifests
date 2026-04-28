@@ -3,11 +3,11 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="log/EasyLogger" remote="github_https" groups="log,github,https,c-cpp" name="armink/EasyLogger.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="log/easyloggingpp" remote="github_https" groups="log,github,https,c-cpp" name="abumq/easyloggingpp.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="log/spdlog" remote="github_https" groups="log,github,https,c-cpp" name="gabime/spdlog.git" dest-branch="v2.x" revision="refs/heads/v2.x" />
-    <project path="log/spdlog_demo" remote="github_https" groups="log,github,https,c-cpp" name="Fibird/spdlog_demo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="log/PlotJuggler" remote="github_https" groups="log,github,https,c-cpp" name="facontidavide/PlotJuggler.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="log/rqt_plot" remote="github_https" groups="log,github,https,c-cpp" name="ros-visualization/rqt_plot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="log/rosconsole" remote="github_https" groups="log,github,https,c-cpp" name="ros/rosconsole.git" dest-branch="noetic-devel" revision="refs/heads/noetic-devel" />
+    <project path="log/EasyLogger" remote="github_https" groups="log,github" name="armink/EasyLogger.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="log/easyloggingpp" remote="github_https" groups="log,github" name="abumq/easyloggingpp.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="log/spdlog" remote="github_https" groups="log,github" name="gabime/spdlog.git" dest-branch="v2.x" revision="refs/heads/v2.x" />
+    <project path="log/spdlog_demo" remote="github_https" groups="log,github" name="Fibird/spdlog_demo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="log/PlotJuggler" remote="github_https" groups="log,github" name="facontidavide/PlotJuggler.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="log/rqt_plot" remote="github_https" groups="log,github" name="ros-visualization/rqt_plot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="log/rosconsole" remote="github_https" groups="log,github" name="ros/rosconsole.git" dest-branch="noetic-devel" revision="refs/heads/noetic-devel" />
 </manifest>

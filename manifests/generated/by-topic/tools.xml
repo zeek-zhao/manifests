@@ -3,8 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="tools/docker-compose" remote="gitee_https" groups="tools,gitee,https,nodejs" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github,https,mixed" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab,https,mixed" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/docker-compose" remote="gitee_https" groups="tools,gitee" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>
