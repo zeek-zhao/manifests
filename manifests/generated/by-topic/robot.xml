@@ -3,22 +3,22 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/robot/apollo" remote="gitee_https" groups="robot,gitee,https,c-cpp" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ros_21_tutorials" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ros_exploring" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_exploring.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ROBOTIS-GIT/DynamixelSDK" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/DynamixelSDK.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ROBOTIS-GIT/hls_lfcd_lds_driver" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/hls_lfcd_lds_driver.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ROBOTIS-GIT/turtlebot3_msgs" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/turtlebot3_msgs.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ROBOTIS-GIT/turtlebot3_simulations" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/turtlebot3_simulations.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ros2/demos" remote="github_https" groups="robot,github,https,c-cpp" name="ros2/demos.git" dest-branch="rolling" revision="refs/heads/rolling" />
-    <project path="code/robot/ros2/examples" remote="github_https" groups="robot,github,https,c-cpp" name="ros2/examples.git" dest-branch="rolling" revision="refs/heads/rolling" />
-    <project path="code/robot/6-robot/wpr_simulation" remote="github_https" groups="robot,github,https,python" name="6-robot/wpr_simulation.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/6-robot/wpb_home" remote="github_https" groups="robot,github,https,python" name="6-robot/wpb_home.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/6-robot/wpb_cv" remote="github_https" groups="robot,github,https,python" name="6-robot/wpb_cv.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/ZZX_RUN" remote="github_https" groups="robot,github,https,python" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/autoware2020-course" remote="github_https" groups="robot,github,https,c-cpp" name="t-thanh/autoware2020-course.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/autoware" remote="github_https" groups="robot,github,https,c-cpp" name="autowarefoundation/autoware.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,https,python" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/apollo" remote="gitee_https" groups="robot,gitee,https,c-cpp" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros_21_tutorials" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros_exploring" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_exploring.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/DynamixelSDK" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/DynamixelSDK.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/hls_lfcd_lds_driver" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/hls_lfcd_lds_driver.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/turtlebot3_msgs" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/turtlebot3_msgs.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/turtlebot3_simulations" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/turtlebot3_simulations.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros2/demos" remote="github_https" groups="robot,github,https,c-cpp" name="ros2/demos.git" dest-branch="rolling" revision="refs/heads/rolling" />
+    <project path="robot/ros2/examples" remote="github_https" groups="robot,github,https,c-cpp" name="ros2/examples.git" dest-branch="rolling" revision="refs/heads/rolling" />
+    <project path="robot/6-robot/wpr_simulation" remote="github_https" groups="robot,github,https,python" name="6-robot/wpr_simulation.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/6-robot/wpb_home" remote="github_https" groups="robot,github,https,python" name="6-robot/wpb_home.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/6-robot/wpb_cv" remote="github_https" groups="robot,github,https,python" name="6-robot/wpb_cv.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ZZX_RUN" remote="github_https" groups="robot,github,https,python" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/autoware2020-course" remote="github_https" groups="robot,github,https,c-cpp" name="t-thanh/autoware2020-course.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/autoware" remote="github_https" groups="robot,github,https,c-cpp" name="autowarefoundation/autoware.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,https,python" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/frobot" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,python" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/ros-docker-gui" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,nodejs" name="zeek-zhao/ros-docker-gui.git" dest-branch="master" revision="refs/heads/master" />

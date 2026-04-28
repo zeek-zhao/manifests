@@ -3,13 +3,13 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/vue/gin-quasar-admin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/crudapi-admin-web" remote="gitee_https" groups="vue,gitee,https,nodejs" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/datav-vue" remote="gitee_https" groups="vue,gitee,https,nodejs" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/vue/variant-form" remote="gitee_https" groups="vue,gitee,https,nodejs" name="vdpadmin/variant-form.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/vxe-table" remote="gitee_https" groups="vue,gitee,https,nodejs" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/quasar-tutorial" remote="github_https" groups="vue,github,https,nodejs" name="dongwa/quasar-tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/gin-quasar-admin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/crudapi-admin-web" remote="gitee_https" groups="vue,gitee,https,nodejs" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/datav-vue" remote="gitee_https" groups="vue,gitee,https,nodejs" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/variant-form" remote="gitee_https" groups="vue,gitee,https,nodejs" name="vdpadmin/variant-form.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/vxe-table" remote="gitee_https" groups="vue,gitee,https,nodejs" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/quasar-tutorial" remote="github_https" groups="vue,github,https,nodejs" name="dongwa/quasar-tutorial.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/fron-backframe" remote="gitee_git" groups="owner-zeek-zhao,vue,gitee,git,nodejs" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

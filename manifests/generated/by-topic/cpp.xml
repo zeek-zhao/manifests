@@ -3,11 +3,11 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/c++/CGraph" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/c++/CThreadPool" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/c++/C-C-" remote="github_https" groups="c++,github,https,c-cpp" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/c++/cmake-examples" remote="gitee_https" groups="c++,gitee,https,c-cpp" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/c++/examples_CMake" remote="github_https" groups="c++,github,https,c-cpp" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/c++/bazel_examples" remote="github_https" groups="c++,github,https,c-cpp" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/CGraph" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/CThreadPool" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/C-C-" remote="github_https" groups="c++,github,https,c-cpp" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/cmake-examples" remote="gitee_https" groups="c++,gitee,https,c-cpp" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="c++/examples_CMake" remote="github_https" groups="c++,github,https,c-cpp" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="c++/bazel_examples" remote="github_https" groups="c++,github,https,c-cpp" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/package-manager" remote="gitee_git" groups="owner-zeek-zhao,c++,project,gitee,git,c-cpp" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

@@ -3,5 +3,5 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/c++/bazel_examples" remote="github_https" groups="c++,github,https,c-cpp" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/bazel_examples" remote="github_https" groups="c++,github,https,c-cpp" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

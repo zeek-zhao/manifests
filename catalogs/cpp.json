@@ -2,7 +2,7 @@
   "repositories": [
     {
       "name": "ChunelFeng/CGraph.git",
-      "path": "code/c++/CGraph",
+      "path": "c++/CGraph",
       "branch": "main",
       "topic": "c++",
       "platform": "github",
@@ -13,7 +13,7 @@
     },
     {
       "name": "ChunelFeng/CThreadPool.git",
-      "path": "code/c++/CThreadPool",
+      "path": "c++/CThreadPool",
       "branch": "main",
       "topic": "c++",
       "platform": "github",
@@ -24,7 +24,7 @@
     },
     {
       "name": "tangtangcoding/C-C-.git",
-      "path": "code/c++/C-C-",
+      "path": "c++/C-C-",
       "branch": "main",
       "topic": "c++",
       "platform": "github",
@@ -35,7 +35,7 @@
     },
     {
       "name": "fatezrl/cmake-examples.git",
-      "path": "code/c++/cmake-examples",
+      "path": "c++/cmake-examples",
       "branch": "master",
       "topic": "c++",
       "platform": "gitee",
@@ -46,7 +46,7 @@
     },
     {
       "name": "jacking75/examples_CMake.git",
-      "path": "code/c++/examples_CMake",
+      "path": "c++/examples_CMake",
       "branch": "master",
       "topic": "c++",
       "platform": "github",
@@ -57,7 +57,7 @@
     },
     {
       "name": "bazelbuild/examples.git",
-      "path": "code/c++/bazel_examples",
+      "path": "c++/bazel_examples",
       "branch": "main",
       "topic": "c++",
       "platform": "github",

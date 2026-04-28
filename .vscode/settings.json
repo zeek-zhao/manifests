@@ -1,0 +1,29 @@
+{
+  "commentTranslate.source": "Bing",
+  "commentTranslate.targetLanguage": "zh-CN",
+  "commentTranslate.hover.enabled": true,
+  "commentTranslate.hover.concise": false,
+  "commentTranslate.hover.string": true,
+  "commentTranslate.hover.variable": true,
+  "commentTranslate.multiLineMerge": true,
+  "vscode-office.editorLanguage": "zh_CN",
+  "vscode-office.previewCode": false,
+  "vscode-office.viewAbsoluteLocal": false,
+  "workbench.editorAssociations": {
+    "*.md": "default"
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/*.xlsx": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "node_modules/*/**": true
+  },
+  "git.enabled": true,
+  "git.autorefresh": false,
+  "search.followSymlinks": false,
+  "C_Cpp.intelliSenseEngine": "Disabled"
+}

@@ -20,7 +20,7 @@
   "repositories": [
     {
       "name": "AngelLiang/ESP8266-Demos.git",
-      "path": "code/esp/ESP8266-Demos",
+      "path": "esp/ESP8266-Demos",
       "branch": "master",
       "topic": "esp",
       "platform": "github",
@@ -31,7 +31,7 @@
     },
     {
       "name": "sunym1993/flash-linux0.11-talk.git",
-      "path": "code/linux/kernel/flash-linux0.11-talk",
+      "path": "linux/kernel/flash-linux0.11-talk",
       "branch": "main",
       "topic": "linux",
       "platform": "github",
@@ -42,7 +42,7 @@
     },
     {
       "name": "armink/EasyLogger.git",
-      "path": "code/log/EasyLogger",
+      "path": "log/EasyLogger",
       "branch": "master",
       "topic": "log",
       "platform": "github",
@@ -53,7 +53,7 @@
     },
     {
       "name": "abumq/easyloggingpp.git",
-      "path": "code/log/easyloggingpp",
+      "path": "log/easyloggingpp",
       "branch": "master",
       "topic": "log",
       "platform": "github",
@@ -64,7 +64,7 @@
     },
     {
       "name": "gabime/spdlog.git",
-      "path": "code/log/spdlog",
+      "path": "log/spdlog",
       "branch": "v2.x",
       "topic": "log",
       "platform": "github",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Fibird/spdlog_demo.git",
-      "path": "code/log/spdlog_demo",
+      "path": "log/spdlog_demo",
       "branch": "master",
       "topic": "log",
       "platform": "github",
@@ -86,7 +86,7 @@
     },
     {
       "name": "facontidavide/PlotJuggler.git",
-      "path": "code/log/PlotJuggler",
+      "path": "log/PlotJuggler",
       "branch": "main",
       "topic": "log",
       "platform": "github",
@@ -97,7 +97,7 @@
     },
     {
       "name": "ros-visualization/rqt_plot.git",
-      "path": "code/log/rqt_plot",
+      "path": "log/rqt_plot",
       "branch": "master",
       "topic": "log",
       "platform": "github",
@@ -108,7 +108,7 @@
     },
     {
       "name": "ros/rosconsole.git",
-      "path": "code/log/rosconsole",
+      "path": "log/rosconsole",
       "branch": "noetic-devel",
       "topic": "log",
       "platform": "github",
@@ -119,7 +119,7 @@
     },
     {
       "name": "huchunxu/ros_21_tutorials.git",
-      "path": "code/robot/ros_21_tutorials",
+      "path": "robot/ros_21_tutorials",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -130,7 +130,7 @@
     },
     {
       "name": "huchunxu/ros_exploring.git",
-      "path": "code/robot/ros_exploring",
+      "path": "robot/ros_exploring",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -141,7 +141,7 @@
     },
     {
       "name": "ROBOTIS-GIT/DynamixelSDK.git",
-      "path": "code/robot/ROBOTIS-GIT/DynamixelSDK",
+      "path": "robot/ROBOTIS-GIT/DynamixelSDK",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -152,7 +152,7 @@
     },
     {
       "name": "ROBOTIS-GIT/hls_lfcd_lds_driver.git",
-      "path": "code/robot/ROBOTIS-GIT/hls_lfcd_lds_driver",
+      "path": "robot/ROBOTIS-GIT/hls_lfcd_lds_driver",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -163,7 +163,7 @@
     },
     {
       "name": "ROBOTIS-GIT/turtlebot3_msgs.git",
-      "path": "code/robot/ROBOTIS-GIT/turtlebot3_msgs",
+      "path": "robot/ROBOTIS-GIT/turtlebot3_msgs",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -174,7 +174,7 @@
     },
     {
       "name": "ROBOTIS-GIT/turtlebot3_simulations.git",
-      "path": "code/robot/ROBOTIS-GIT/turtlebot3_simulations",
+      "path": "robot/ROBOTIS-GIT/turtlebot3_simulations",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -185,7 +185,7 @@
     },
     {
       "name": "ros2/demos.git",
-      "path": "code/robot/ros2/demos",
+      "path": "robot/ros2/demos",
       "branch": "rolling",
       "topic": "robot",
       "platform": "github",
@@ -196,7 +196,7 @@
     },
     {
       "name": "ros2/examples.git",
-      "path": "code/robot/ros2/examples",
+      "path": "robot/ros2/examples",
       "branch": "rolling",
       "topic": "robot",
       "platform": "github",
@@ -207,7 +207,7 @@
     },
     {
       "name": "6-robot/wpr_simulation.git",
-      "path": "code/robot/6-robot/wpr_simulation",
+      "path": "robot/6-robot/wpr_simulation",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -218,7 +218,7 @@
     },
     {
       "name": "6-robot/wpb_home.git",
-      "path": "code/robot/6-robot/wpb_home",
+      "path": "robot/6-robot/wpb_home",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -229,7 +229,7 @@
     },
     {
       "name": "6-robot/wpb_cv.git",
-      "path": "code/robot/6-robot/wpb_cv",
+      "path": "robot/6-robot/wpb_cv",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -240,7 +240,7 @@
     },
     {
       "name": "kkmd66/ZZX_RUN.git",
-      "path": "code/robot/ZZX_RUN",
+      "path": "robot/ZZX_RUN",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -251,7 +251,7 @@
     },
     {
       "name": "t-thanh/autoware2020-course.git",
-      "path": "code/robot/autoware2020-course",
+      "path": "robot/autoware2020-course",
       "branch": "master",
       "topic": "robot",
       "platform": "github",
@@ -262,7 +262,7 @@
     },
     {
       "name": "autowarefoundation/autoware.git",
-      "path": "code/robot/autoware",
+      "path": "robot/autoware",
       "branch": "main",
       "topic": "robot",
       "platform": "github",
@@ -273,7 +273,7 @@
     },
     {
       "name": "ChenJiahao031008/Autodrive_Toolchain.git",
-      "path": "code/robot/Autodrive_Toolchain",
+      "path": "robot/Autodrive_Toolchain",
       "branch": "main",
       "topic": "robot",
       "platform": "github",
@@ -284,7 +284,7 @@
     },
     {
       "name": "youngyangyang04/PowerVim.git",
-      "path": "code/common/vim/PowerVim",
+      "path": "common/vim/PowerVim",
       "branch": "master",
       "topic": "common",
       "platform": "github",
@@ -295,7 +295,7 @@
     },
     {
       "name": "dongwa/quasar-tutorial.git",
-      "path": "code/vue/quasar-tutorial",
+      "path": "vue/quasar-tutorial",
       "branch": "master",
       "topic": "vue",
       "platform": "github",

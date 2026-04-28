@@ -2,7 +2,7 @@
   "repositories": [
     {
       "name": "firefly-linux/u-boot.git",
-      "path": "code/rk/u-boot",
+      "path": "rk/u-boot",
       "branch": "firefly",
       "topic": "rk",
       "platform": "gitlab",
@@ -13,7 +13,7 @@
     },
     {
       "name": "firefly-linux/docs-soc_internal.git",
-      "path": "code/rk/docs-soc_internal",
+      "path": "rk/docs-soc_internal",
       "branch": "firefly",
       "topic": "rk",
       "platform": "gitlab",
@@ -24,7 +24,7 @@
     },
     {
       "name": "firefly-linux/buildroot.git",
-      "path": "code/rk/buildroot",
+      "path": "rk/buildroot",
       "branch": "firefly",
       "topic": "rk",
       "platform": "gitlab",
@@ -35,7 +35,7 @@
     },
     {
       "name": "firefly-linux/manifests.git",
-      "path": "code/rk/manifests",
+      "path": "rk/manifests",
       "branch": "master",
       "topic": "rk",
       "platform": "gitlab",
@@ -46,7 +46,7 @@
     },
     {
       "name": "firefly-linux/docs.git",
-      "path": "code/rk/docs",
+      "path": "rk/docs",
       "branch": "firefly",
       "topic": "rk",
       "platform": "gitlab",
@@ -57,7 +57,7 @@
     },
     {
       "name": "firefly-linux/firmware_doc.git",
-      "path": "code/rk/firmware_doc",
+      "path": "rk/firmware_doc",
       "branch": "master",
       "topic": "rk",
       "platform": "gitlab",
@@ -68,7 +68,7 @@
     },
     {
       "name": "firefly-linux/kernel.git",
-      "path": "code/rk/kernel",
+      "path": "rk/kernel",
       "branch": "firefly",
       "topic": "rk",
       "platform": "gitlab",
@@ -79,7 +79,7 @@
     },
     {
       "name": "wsdjeg/vim-galore-zh_cn.git",
-      "path": "code/common/vim/vim-galore-zh_cn",
+      "path": "common/vim/vim-galore-zh_cn",
       "branch": "master",
       "topic": "common",
       "platform": "gitlab",

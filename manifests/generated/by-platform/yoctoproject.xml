@@ -3,8 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

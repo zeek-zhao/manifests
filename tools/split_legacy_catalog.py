@@ -13,6 +13,12 @@ def get_owner(repo_name: str) -> str:
     return owner
 
 
+def normalize_path(path: str) -> str:
+    if path.startswith("code/"):
+        return path[len("code/"):]
+    return path
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Split legacy repositories.json into multiple catalog files.")
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
@@ -47,6 +53,8 @@ def main() -> int:
     }
 
     for repo in source.get("repositories", []):
+        repo = dict(repo)
+        repo["path"] = normalize_path(repo["path"])
         owner = get_owner(repo["name"])
         if owner == "zeek-zhao":
             zeek_catalog["repositories"].append(repo)

@@ -2,7 +2,7 @@
   "repositories": [
     {
       "name": "weidongshan/esp32_100ask_project.git",
-      "path": "code/esp/esp32_100ask_project",
+      "path": "esp/esp32_100ask_project",
       "branch": "master",
       "topic": "esp",
       "platform": "gitee",
@@ -13,7 +13,7 @@
     },
     {
       "name": "weidongshan/imx6ull_NoosProgramProject.git",
-      "path": "code/linux/driver/imx6ull_NoosProgramProject",
+      "path": "linux/driver/imx6ull_NoosProgramProject",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Embedfire/embed_linux_tutorial.git",
-      "path": "code/linux/driver/embed_linux_tutorial",
+      "path": "linux/driver/embed_linux_tutorial",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -35,7 +35,7 @@
     },
     {
       "name": "weidongshan/stm32mp157-m4.git",
-      "path": "code/linux/driver/stm32mp157-m4",
+      "path": "linux/driver/stm32mp157-m4",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -46,7 +46,7 @@
     },
     {
       "name": "xiebaoyou/linux-2.6.12.git",
-      "path": "code/linux/kernel/linux-2.6.12",
+      "path": "linux/kernel/linux-2.6.12",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -57,7 +57,7 @@
     },
     {
       "name": "AllOpenOS/linux0.11_note.git",
-      "path": "code/linux/kernel/linux0.11_note",
+      "path": "linux/kernel/linux0.11_note",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -68,7 +68,7 @@
     },
     {
       "name": "weidongshan/Buildroot.git",
-      "path": "code/linux/uboot/Buildroot",
+      "path": "linux/uboot/Buildroot",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -79,7 +79,7 @@
     },
     {
       "name": "weidongshan/lv_100ask_modules.git",
-      "path": "code/linux/lv_100ask_modules",
+      "path": "linux/lv_100ask_modules",
       "branch": "master",
       "topic": "linux",
       "platform": "gitee",
@@ -90,7 +90,7 @@
     },
     {
       "name": "weharmony/kernel_liteos_a_note.git",
-      "path": "code/openharmony/kernel_liteos_a_note",
+      "path": "openharmony/kernel_liteos_a_note",
       "branch": "master",
       "topic": "openharmony",
       "platform": "gitee",
@@ -101,7 +101,7 @@
     },
     {
       "name": "openatom-university/openharmony-oer.git",
-      "path": "code/openharmony/openharmony-oer",
+      "path": "openharmony/openharmony-oer",
       "branch": "master",
       "topic": "openharmony",
       "platform": "gitee",
@@ -112,7 +112,7 @@
     },
     {
       "name": "weidongshan/qemu.git",
-      "path": "code/qemu/qemu",
+      "path": "qemu/qemu",
       "branch": "master",
       "topic": "qemu",
       "platform": "gitee",
@@ -123,7 +123,7 @@
     },
     {
       "name": "weidongshan/DBoS-Desktop.git",
-      "path": "code/qt/DBoS-Desktop",
+      "path": "qt/DBoS-Desktop",
       "branch": "master",
       "topic": "qt",
       "platform": "gitee",
@@ -134,7 +134,7 @@
     },
     {
       "name": "feiyangqingyun/QWidgetDemo.git",
-      "path": "code/qt/QWidgetDemo",
+      "path": "qt/QWidgetDemo",
       "branch": "master",
       "topic": "qt",
       "platform": "gitee",
@@ -145,7 +145,7 @@
     },
     {
       "name": "feiyangqingyun/qtkaifajingyan.git",
-      "path": "code/qt/qtkaifajingyan",
+      "path": "qt/qtkaifajingyan",
       "branch": "master",
       "topic": "qt",
       "platform": "gitee",
@@ -156,7 +156,7 @@
     },
     {
       "name": "weidongshan/awesome-raspberrypipico.git",
-      "path": "code/raspberrypi/awesome-raspberrypipico",
+      "path": "raspberrypi/awesome-raspberrypipico",
       "branch": "master",
       "topic": "raspberrypi",
       "platform": "gitee",
@@ -167,7 +167,7 @@
     },
     {
       "name": "weidongshan/pico-micropython.git",
-      "path": "code/raspberrypi/pico-micropython",
+      "path": "raspberrypi/pico-micropython",
       "branch": "master",
       "topic": "raspberrypi",
       "platform": "gitee",
@@ -178,7 +178,7 @@
     },
     {
       "name": "ApolloAuto/apollo.git",
-      "path": "code/robot/apollo",
+      "path": "robot/apollo",
       "branch": "master",
       "topic": "robot",
       "platform": "gitee",
@@ -189,7 +189,7 @@
     },
     {
       "name": "zhengqingya/docker-compose.git",
-      "path": "code/common/docker-compose",
+      "path": "common/docker-compose",
       "branch": "master",
       "topic": "common",
       "platform": "gitee",
@@ -200,7 +200,7 @@
     },
     {
       "name": "mirrorvim/vim-fast.git",
-      "path": "code/common/vim/vim-fast",
+      "path": "common/vim/vim-fast",
       "branch": "master",
       "topic": "common",
       "platform": "gitee",
@@ -211,7 +211,7 @@
     },
     {
       "name": "junvary/gin-quasar-admin.git",
-      "path": "code/vue/gin-quasar-admin",
+      "path": "vue/gin-quasar-admin",
       "branch": "main",
       "topic": "vue",
       "platform": "gitee",
@@ -222,7 +222,7 @@
     },
     {
       "name": "was666/as-editor.git",
-      "path": "code/vue/as-editor",
+      "path": "vue/as-editor",
       "branch": "master",
       "topic": "vue",
       "platform": "gitee",
@@ -233,7 +233,7 @@
     },
     {
       "name": "crudapi/crudapi-admin-web.git",
-      "path": "code/vue/crudapi-admin-web",
+      "path": "vue/crudapi-admin-web",
       "branch": "master",
       "topic": "vue",
       "platform": "gitee",
@@ -244,7 +244,7 @@
     },
     {
       "name": "pengxiaotian/datav-vue.git",
-      "path": "code/vue/datav-vue",
+      "path": "vue/datav-vue",
       "branch": "main",
       "topic": "vue",
       "platform": "gitee",
@@ -255,7 +255,7 @@
     },
     {
       "name": "vdpadmin/variant-form.git",
-      "path": "code/vue/variant-form",
+      "path": "vue/variant-form",
       "branch": "master",
       "topic": "vue",
       "platform": "gitee",
@@ -266,7 +266,7 @@
     },
     {
       "name": "MTrun/vue-big-screen-plugin.git",
-      "path": "code/vue/vue-big-screen-plugin",
+      "path": "vue/vue-big-screen-plugin",
       "branch": "master",
       "topic": "vue",
       "platform": "gitee",
@@ -277,7 +277,7 @@
     },
     {
       "name": "xuliangzhan_admin/vxe-table.git",
-      "path": "code/vue/vxe-table",
+      "path": "vue/vxe-table",
       "branch": "master",
       "topic": "vue",
       "platform": "gitee",

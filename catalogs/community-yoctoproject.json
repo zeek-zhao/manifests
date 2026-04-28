@@ -2,7 +2,7 @@
   "repositories": [
     {
       "name": "poky.git",
-      "path": "code/linux/yocto/poky",
+      "path": "linux/yocto/poky",
       "branch": "master",
       "topic": "linux",
       "platform": "yoctoproject",
@@ -13,7 +13,7 @@
     },
     {
       "name": "poky-contrib.git",
-      "path": "code/linux/yocto/poky-contrib",
+      "path": "linux/yocto/poky-contrib",
       "branch": "master",
       "topic": "linux",
       "platform": "yoctoproject",
@@ -24,7 +24,7 @@
     },
     {
       "name": "yocto-docs.git",
-      "path": "code/linux/yocto/yocto-docs",
+      "path": "linux/yocto/yocto-docs",
       "branch": "master",
       "topic": "linux",
       "platform": "yoctoproject",
@@ -35,7 +35,7 @@
     },
     {
       "name": "meta-yocto.git",
-      "path": "code/linux/yocto/meta-yocto",
+      "path": "linux/yocto/meta-yocto",
       "branch": "master",
       "topic": "linux",
       "platform": "yoctoproject",

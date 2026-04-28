@@ -3,33 +3,33 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/esp/esp32_100ask_project" remote="gitee_https" groups="esp,gitee,https,c-cpp" name="weidongshan/esp32_100ask_project.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/qemu/qemu" remote="gitee_https" groups="qemu,gitee,https,c-cpp" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/raspberrypi/awesome-raspberrypipico" remote="gitee_https" groups="raspberrypi,gitee,https,c-cpp" name="weidongshan/awesome-raspberrypipico.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/raspberrypi/pico-micropython" remote="gitee_https" groups="raspberrypi,gitee,https,python" name="weidongshan/pico-micropython.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/robot/apollo" remote="gitee_https" groups="robot,gitee,https,c-cpp" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/common/docker-compose" remote="gitee_https" groups="common,gitee,https,nodejs" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/common/vim/vim-fast" remote="gitee_https" groups="common,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/gin-quasar-admin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/crudapi-admin-web" remote="gitee_https" groups="vue,gitee,https,nodejs" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/datav-vue" remote="gitee_https" groups="vue,gitee,https,nodejs" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="code/vue/variant-form" remote="gitee_https" groups="vue,gitee,https,nodejs" name="vdpadmin/variant-form.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/vue/vxe-table" remote="gitee_https" groups="vue,gitee,https,nodejs" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/c++/cmake-examples" remote="gitee_https" groups="c++,gitee,https,c-cpp" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="esp/esp32_100ask_project" remote="gitee_https" groups="esp,gitee,https,c-cpp" name="weidongshan/esp32_100ask_project.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qemu/qemu" remote="gitee_https" groups="qemu,gitee,https,c-cpp" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="raspberrypi/awesome-raspberrypipico" remote="gitee_https" groups="raspberrypi,gitee,https,c-cpp" name="weidongshan/awesome-raspberrypipico.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="raspberrypi/pico-micropython" remote="gitee_https" groups="raspberrypi,gitee,https,python" name="weidongshan/pico-micropython.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/apollo" remote="gitee_https" groups="robot,gitee,https,c-cpp" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="common/docker-compose" remote="gitee_https" groups="common,gitee,https,nodejs" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="common/vim/vim-fast" remote="gitee_https" groups="common,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/gin-quasar-admin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/crudapi-admin-web" remote="gitee_https" groups="vue,gitee,https,nodejs" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/datav-vue" remote="gitee_https" groups="vue,gitee,https,nodejs" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/variant-form" remote="gitee_https" groups="vue,gitee,https,nodejs" name="vdpadmin/variant-form.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/vxe-table" remote="gitee_https" groups="vue,gitee,https,nodejs" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="c++/cmake-examples" remote="gitee_https" groups="c++,gitee,https,c-cpp" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/package-manager" remote="gitee_git" groups="owner-zeek-zhao,c++,project,gitee,git,c-cpp" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />

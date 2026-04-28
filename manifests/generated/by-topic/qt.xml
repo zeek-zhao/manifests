@@ -3,8 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="code/qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="code/qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/qt-learn-code" remote="gitee_git" groups="owner-zeek-zhao,qt,gitee,git,c-cpp" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>
