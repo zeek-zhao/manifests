@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="generated/by-language/c-cpp.xml" />
+    <include name="generated/by-language/go.xml" />
+    <include name="generated/by-language/mixed.xml" />
+    <include name="generated/by-language/nodejs.xml" />
+    <include name="generated/by-language/python.xml" />
+    <include name="generated/by-owner/zeek-zhao.xml" />
+    <include name="generated/by-platform/gitee.xml" />
+    <include name="generated/by-platform/github.xml" />
+    <include name="generated/by-platform/gitlab.xml" />
+    <include name="generated/by-platform/yoctoproject.xml" />
+    <include name="generated/by-protocol/git.xml" />
+    <include name="generated/by-protocol/https.xml" />
+    <include name="generated/by-topic/common.xml" />
+    <include name="generated/by-topic/cpp.xml" />
+    <include name="generated/by-topic/esp.xml" />
+    <include name="generated/by-topic/linux.xml" />
+    <include name="generated/by-topic/log.xml" />
+    <include name="generated/by-topic/openharmony.xml" />
+    <include name="generated/by-topic/project.xml" />
+    <include name="generated/by-topic/qemu.xml" />
+    <include name="generated/by-topic/qt.xml" />
+    <include name="generated/by-topic/raspberrypi.xml" />
+    <include name="generated/by-topic/rk.xml" />
+    <include name="generated/by-topic/robot.xml" />
+    <include name="generated/by-topic/vue.xml" />
+</manifest>

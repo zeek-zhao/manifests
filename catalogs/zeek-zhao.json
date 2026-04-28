@@ -1,0 +1,342 @@
+{
+  "owners": {
+    "zeek-zhao": {
+      "preferred_protocol": "git",
+      "groups": [
+        "owner-zeek-zhao"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "name": "zeek-zhao/package-manager.git",
+      "path": "code/c++/package-manager",
+      "branch": "master",
+      "topic": "c++",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "c++"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/linux-driver.git",
+      "path": "code/linux/driver/linux-driver",
+      "branch": "master",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/free-rtos-demo.git",
+      "path": "code/linux/free-rtos-demo",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "linux"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/qt-learn-code.git",
+      "path": "code/qt/qt-learn-code",
+      "branch": "master",
+      "topic": "qt",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "qt"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/ros.git",
+      "path": "code/robot/ros",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "gitee",
+      "language": "c/c++",
+      "groups": [
+        "robot"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/frobot.git",
+      "path": "code/robot/frobot",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "gitee",
+      "language": "python",
+      "groups": [
+        "robot"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/ros-docker-gui.git",
+      "path": "code/robot/ros-docker-gui",
+      "branch": "master",
+      "topic": "robot",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "robot"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/fron-backframe.git",
+      "path": "code/vue/fron-backframe",
+      "branch": "master",
+      "topic": "vue",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/devops.git",
+      "path": "project/devops",
+      "branch": "master",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/obsidian.git",
+      "path": "project/obsidian",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/obsidian-sample.git",
+      "path": "sample/obsidian-sample",
+      "branch": "main",
+      "topic": "common",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/standard-version.git",
+      "path": "sample/standard-version",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/base-sample.git",
+      "path": "sample/base-sample",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/python-sample.git",
+      "path": "sample/python-sample",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/go-sample.git",
+      "path": "sample/go-sample",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "go",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/java-sample.git",
+      "path": "sample/java-sample",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/ai-knowledge.git",
+      "path": "sample/python-sample/src/ai-knowledge",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/jenkins-shared-library.git",
+      "path": "sample/java-sample/src/jenkins-shared-library",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/cpp-sample.git",
+      "path": "sample/cpp-sample",
+      "branch": "main",
+      "topic": "common",
+      "platform": "github",
+      "language": "c/c++",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/LanguageLearning.git",
+      "path": "sample/LanguageLearning",
+      "branch": "master",
+      "topic": "common",
+      "platform": "gitee",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/product-sample.git",
+      "path": "sample/product-sample",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/docker-sample.git",
+      "path": "sample/docker-sample",
+      "branch": "master",
+      "topic": "common",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "common"
+      ],
+      "linkfiles": [
+        {
+          "src": ".",
+          "dest": "sample/cpp-sample/docker"
+        },
+        {
+          "src": ".",
+          "dest": "sample/python-sample/docker"
+        },
+        {
+          "src": ".",
+          "dest": "sample/java-sample/docker"
+        },
+        {
+          "src": ".",
+          "dest": "sample/go-sample/docker"
+        }
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/obsidian_old.git",
+      "path": "todo/obsidian_old",
+      "branch": "master",
+      "topic": "project",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/obsidian.git",
+      "path": "todo/obsidian",
+      "branch": "master",
+      "topic": "project",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/blog-img.git",
+      "path": "todo/blog-img",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/devops_back.git",
+      "path": "code/common/devops_back",
+      "branch": "master",
+      "topic": "common",
+      "platform": "gitee",
+      "language": "nodejs",
+      "groups": [
+        "common"
+      ],
+      "preferred_protocol": "git"
+    }
+  ]
+}

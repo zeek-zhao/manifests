@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="_remotes.xml" />
+    <include name="_hooks.xml" />
+
+    <project path="code/esp/ESP8266-Demos" remote="github_https" groups="esp,github,https,c-cpp" name="AngelLiang/ESP8266-Demos.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/esp/esp32_100ask_project" remote="gitee_https" groups="esp,gitee,https,c-cpp" name="weidongshan/esp32_100ask_project.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github,https,c-cpp" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/log/EasyLogger" remote="github_https" groups="log,github,https,c-cpp" name="armink/EasyLogger.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/log/easyloggingpp" remote="github_https" groups="log,github,https,c-cpp" name="abumq/easyloggingpp.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/log/spdlog" remote="github_https" groups="log,github,https,c-cpp" name="gabime/spdlog.git" dest-branch="v2.x" revision="refs/heads/v2.x" />
+    <project path="code/log/spdlog_demo" remote="github_https" groups="log,github,https,c-cpp" name="Fibird/spdlog_demo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/log/PlotJuggler" remote="github_https" groups="log,github,https,c-cpp" name="facontidavide/PlotJuggler.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/log/rqt_plot" remote="github_https" groups="log,github,https,c-cpp" name="ros-visualization/rqt_plot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/log/rosconsole" remote="github_https" groups="log,github,https,c-cpp" name="ros/rosconsole.git" dest-branch="noetic-devel" revision="refs/heads/noetic-devel" />
+    <project path="code/openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/qemu/qemu" remote="gitee_https" groups="qemu,gitee,https,c-cpp" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,https,c-cpp" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/raspberrypi/awesome-raspberrypipico" remote="gitee_https" groups="raspberrypi,gitee,https,c-cpp" name="weidongshan/awesome-raspberrypipico.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/rk/u-boot" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/u-boot.git" dest-branch="firefly" revision="refs/heads/firefly" />
+    <project path="code/rk/docs-soc_internal" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/docs-soc_internal.git" dest-branch="firefly" revision="refs/heads/firefly" />
+    <project path="code/rk/buildroot" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/buildroot.git" dest-branch="firefly" revision="refs/heads/firefly" />
+    <project path="code/rk/manifests" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/manifests.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/rk/docs" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/docs.git" dest-branch="firefly" revision="refs/heads/firefly" />
+    <project path="code/rk/firmware_doc" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/firmware_doc.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/rk/kernel" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/kernel.git" dest-branch="firefly" revision="refs/heads/firefly" />
+    <project path="code/robot/ros_21_tutorials" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/robot/ros_exploring" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_exploring.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/robot/ros2/demos" remote="github_https" groups="robot,github,https,c-cpp" name="ros2/demos.git" dest-branch="rolling" revision="refs/heads/rolling" />
+    <project path="code/robot/ros2/examples" remote="github_https" groups="robot,github,https,c-cpp" name="ros2/examples.git" dest-branch="rolling" revision="refs/heads/rolling" />
+    <project path="code/robot/apollo" remote="gitee_https" groups="robot,gitee,https,c-cpp" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/robot/autoware2020-course" remote="github_https" groups="robot,github,https,c-cpp" name="t-thanh/autoware2020-course.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/robot/autoware" remote="github_https" groups="robot,github,https,c-cpp" name="autowarefoundation/autoware.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/c++/CGraph" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/c++/CThreadPool" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/c++/C-C-" remote="github_https" groups="c++,github,https,c-cpp" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/c++/cmake-examples" remote="gitee_https" groups="c++,gitee,https,c-cpp" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/c++/examples_CMake" remote="github_https" groups="c++,github,https,c-cpp" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/c++/bazel_examples" remote="github_https" groups="c++,github,https,c-cpp" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/c++/package-manager" remote="gitee_git" groups="owner-zeek-zhao,c++,gitee,git,c-cpp" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/linux/free-rtos-demo" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="code/qt/qt-learn-code" remote="gitee_git" groups="owner-zeek-zhao,qt,gitee,git,c-cpp" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="code/robot/ros" remote="gitee_git" groups="owner-zeek-zhao,robot,gitee,git,c-cpp" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/cpp-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,c-cpp" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>

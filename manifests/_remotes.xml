@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- 使用 Git over SSH 协议 -->
+    <remote name="gitee_git" fetch="ssh://git@gitee.com" pushurl="ssh://git@gitee.com" />
+    <remote name="github_git" fetch="ssh://git@github.com" pushurl="ssh://git@github.com" />
+    <remote name="gitlab_git" fetch="ssh://git@gitlab.com" pushurl="ssh://git@gitlab.com" />
+    <remote name="yoctoproject_git" fetch="ssh://git@git.yoctoproject.org" pushurl="ssh://git@git.yoctoproject.org" />
+
+    <!-- 使用 HTTPS 协议 -->
+    <remote name="gitee_https" fetch="https://gitee.com" />
+    <remote name="github_https" fetch="https://github.com" />
+    <remote name="gitlab_https" fetch="https://gitlab.com" />
+    <remote name="yoctoproject_https" fetch="https://git.yoctoproject.org" />
+</manifest>
