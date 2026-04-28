@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="code/c++/CGraph" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
     <project path="code/c++/CThreadPool" remote="github_https" groups="c++,github,https,c-cpp" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />

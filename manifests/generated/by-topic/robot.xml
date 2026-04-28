@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="code/robot/ros_21_tutorials" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/robot/ros_exploring" remote="github_https" groups="robot,github,https,c-cpp" name="huchunxu/ros_exploring.git" dest-branch="master" revision="refs/heads/master" />

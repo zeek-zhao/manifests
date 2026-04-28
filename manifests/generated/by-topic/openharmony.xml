@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="code/openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,https,c-cpp" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />

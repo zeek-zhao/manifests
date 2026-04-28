@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="code/rk/u-boot" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/u-boot.git" dest-branch="firefly" revision="refs/heads/firefly" />
     <project path="code/rk/docs-soc_internal" remote="gitlab_https" groups="rk,gitlab,https,c-cpp" name="firefly-linux/docs-soc_internal.git" dest-branch="firefly" revision="refs/heads/firefly" />

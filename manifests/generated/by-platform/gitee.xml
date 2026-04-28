@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="code/esp/esp32_100ask_project" remote="gitee_https" groups="esp,gitee,https,c-cpp" name="weidongshan/esp32_100ask_project.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,https,c-cpp" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="code/linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,https,c-cpp" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="_remotes.xml" />
-    <include name="_hooks.xml" />
+    <include name="../../_remotes.xml" />
+    <include name="../../_hooks.xml" />
 
     <project path="project/devops" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/obsidian" remote="github_git" groups="owner-zeek-zhao,project,github,git,nodejs" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
