@@ -75,6 +75,18 @@ class MergeCatalogsTest(unittest.TestCase):
 
 
 class BuildRenderPlanTest(unittest.TestCase):
+    def test_quickstart_example_manifests_are_generated(self) -> None:
+        merged = merge_catalogs([CATALOG_CPP, CATALOG_ZEEK])
+        plan = build_render_plan(merged)
+
+        https_example = plan["manifests/examples/quickstart-https.xml"]
+        ssh_example = plan["manifests/examples/quickstart-zeek-zhao.xml"]
+
+        self.assertIn('name="bazelbuild/examples.git"', https_example)
+        self.assertIn('remote="github_https"', https_example)
+        self.assertIn('name="zeek-zhao/docker-sample.git"', ssh_example)
+        self.assertIn('remote="github_git"', ssh_example)
+
     def test_linkfiles_are_rendered_when_present(self) -> None:
         merged = merge_catalogs([CATALOG_CPP, CATALOG_ZEEK])
         plan = build_render_plan(merged)

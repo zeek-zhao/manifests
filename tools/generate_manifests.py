@@ -10,6 +10,16 @@ CATALOGS_DIR = PROJECT_ROOT / "catalogs"
 MANIFEST_ROOT = PROJECT_ROOT / "manifests"
 DEFAULT_PROTOCOL = "https"
 INCLUDE_HEADERS = ["manifests/_remotes.xml", "manifests/_hooks.xml"]
+QUICKSTART_EXAMPLES = {
+    "manifests/examples/quickstart-https.xml": {
+        "repo_name": "bazelbuild/examples.git",
+        "protocol": "https",
+    },
+    "manifests/examples/quickstart-zeek-zhao.xml": {
+        "repo_name": "zeek-zhao/docker-sample.git",
+        "protocol": "git",
+    },
+}
 
 
 def slugify(value: str) -> str:
@@ -89,6 +99,13 @@ def build_project_entry(config: Dict, repo: Dict, requested_protocol: str = None
         "revision": f"refs/heads/{branch}",
         "linkfiles": repo.get("linkfiles", []),
     }
+
+
+def find_repository(config: Dict, repo_name: str) -> Dict:
+    for repo in config.get("repositories", []):
+        if repo["name"] == repo_name:
+            return repo
+    raise KeyError(repo_name)
 
 
 def render_project(project: Dict) -> List[str]:
@@ -212,6 +229,11 @@ def build_render_plan(config: Dict) -> Dict[str, str]:
         path = f"manifests/generated/by-owner/{owner}.xml"
         plan[path] = render_xml_manifest(projects)
         include_index.append(f"generated/by-owner/{owner}.xml")
+
+    for path, example in QUICKSTART_EXAMPLES.items():
+        repo = find_repository(config, example["repo_name"])
+        project = build_project_entry(config, repo, example["protocol"])
+        plan[path] = render_xml_manifest([project])
 
     plan["manifests/default.xml"] = render_index_manifest(
         sorted(f"manifests/{path}" for path in include_index)

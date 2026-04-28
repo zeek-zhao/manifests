@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="sample/docker-sample" remote="github_git" groups="owner-zeek-zhao,common,github,git,nodejs" name="zeek-zhao/docker-sample.git" dest-branch="master" revision="refs/heads/master" >
+        <linkfile src="." dest="sample/cpp-sample/docker" />
+        <linkfile src="." dest="sample/python-sample/docker" />
+        <linkfile src="." dest="sample/java-sample/docker" />
+        <linkfile src="." dest="sample/go-sample/docker" />
+    </project>
+</manifest>

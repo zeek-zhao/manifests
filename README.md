@@ -26,6 +26,29 @@ python3 tools/generate_manifests.py --check
 pre-commit run --all-files
 ```
 
+## 最小示例清单
+
+新工程额外提供两份面向 `repo init` 的最小示例清单，适合单仓快速拉取和对外说明：
+
+- `manifests/examples/quickstart-https.xml`：公共仓库、HTTPS 协议
+- `manifests/examples/quickstart-zeek-zhao.xml`：`zeek-zhao` 仓库、SSH 协议
+
+示例命令：
+
+```bash
+tmpdir=$(mktemp -d)
+cd "$tmpdir"
+repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-https.xml
+repo sync -c -j1 code/cpp/bazel_examples
+```
+
+```bash
+tmpdir=$(mktemp -d)
+cd "$tmpdir"
+repo init -u file:///home/zeek/work/.repo/manifests-next -b master -m manifests/examples/quickstart-zeek-zhao.xml
+repo sync -c -j1 sample/docker-sample
+```
+
 ## 从旧工程迁移
 
 ```bash
@@ -34,4 +57,4 @@ python3 tools/split_legacy_catalog.py
 python3 tools/generate_manifests.py
 ```
 
-详细设计见 `docs/design.md`，实现说明见 `docs/implementation.md`，迁移说明见 `docs/migration.md`。
+详细设计见 `docs/design.md`，实现说明见 `docs/implementation.md`，快速上手见 `docs/quickstart.md`，迁移说明见 `docs/migration.md`。
