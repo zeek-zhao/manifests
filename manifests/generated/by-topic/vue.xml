@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="../../_remotes.xml" />
-    <include name="../../_hooks.xml" />
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
 
     <project path="code/vue/gin-quasar-admin" remote="gitee_https" groups="vue,gitee,https,nodejs" name="junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
     <project path="code/vue/as-editor" remote="gitee_https" groups="vue,gitee,https,nodejs" name="was666/as-editor.git" dest-branch="master" revision="refs/heads/master" />

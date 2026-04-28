@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="../../_remotes.xml" />
-    <include name="../../_hooks.xml" />
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
 
     <project path="code/c++/package-manager" remote="gitee_git" groups="owner-zeek-zhao,c++,gitee,git,c-cpp" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/linux/driver/linux-driver" remote="gitee_git" groups="owner-zeek-zhao,linux,gitee,git,c-cpp" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />

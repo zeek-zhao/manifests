@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="../../_remotes.xml" />
-    <include name="../../_hooks.xml" />
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
 
     <project path="code/raspberrypi/pico-micropython" remote="gitee_https" groups="raspberrypi,gitee,https,python" name="weidongshan/pico-micropython.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/robot/ROBOTIS-GIT/DynamixelSDK" remote="github_https" groups="robot,github,https,python" name="ROBOTIS-GIT/DynamixelSDK.git" dest-branch="master" revision="refs/heads/master" />

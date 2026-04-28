@@ -9,7 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CATALOGS_DIR = PROJECT_ROOT / "catalogs"
 MANIFEST_ROOT = PROJECT_ROOT / "manifests"
 DEFAULT_PROTOCOL = "https"
-INCLUDE_HEADERS = ["_remotes.xml", "_hooks.xml"]
+INCLUDE_HEADERS = ["manifests/_remotes.xml", "manifests/_hooks.xml"]
 
 
 def slugify(value: str) -> str:
@@ -111,10 +111,10 @@ def render_project(project: Dict) -> List[str]:
     return lines
 
 
-def render_xml_manifest(projects: List[Dict], include_prefix: str) -> str:
+def render_xml_manifest(projects: List[Dict]) -> str:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<manifest>']
     for include_name in INCLUDE_HEADERS:
-        lines.append(f'    <include name="{include_prefix}{include_name}" />')
+        lines.append(f'    <include name="{include_name}" />')
     if projects:
         lines.append("")
     for project in projects:
@@ -136,7 +136,7 @@ def render_hooks() -> str:
         [
             '<?xml version="1.0" encoding="UTF-8"?>',
             '<manifest>',
-            '    <include name="_remotes.xml" />',
+            '    <include name="manifests/_remotes.xml" />',
             '</manifest>',
             '',
         ]
@@ -167,7 +167,6 @@ def render_remotes(config: Dict) -> str:
 
 def build_render_plan(config: Dict) -> Dict[str, str]:
     plan: Dict[str, str] = {}
-    nested_include_prefix = "../../"
     by_protocol: Dict[str, List[Dict]] = defaultdict(list)
     by_platform: Dict[str, List[Dict]] = defaultdict(list)
     by_language: Dict[str, List[Dict]] = defaultdict(list)
@@ -191,30 +190,32 @@ def build_render_plan(config: Dict) -> Dict[str, str]:
     include_index: List[str] = []
     for protocol, projects in sorted(by_protocol.items()):
         path = f"manifests/generated/by-protocol/{protocol}.xml"
-        plan[path] = render_xml_manifest(projects, nested_include_prefix)
+        plan[path] = render_xml_manifest(projects)
         include_index.append(f"generated/by-protocol/{protocol}.xml")
 
     for platform, projects in sorted(by_platform.items()):
         path = f"manifests/generated/by-platform/{platform}.xml"
-        plan[path] = render_xml_manifest(projects, nested_include_prefix)
+        plan[path] = render_xml_manifest(projects)
         include_index.append(f"generated/by-platform/{platform}.xml")
 
     for language, projects in sorted(by_language.items()):
         path = f"manifests/generated/by-language/{language}.xml"
-        plan[path] = render_xml_manifest(projects, nested_include_prefix)
+        plan[path] = render_xml_manifest(projects)
         include_index.append(f"generated/by-language/{language}.xml")
 
     for topic, projects in sorted(by_topic.items()):
         path = f"manifests/generated/by-topic/{topic}.xml"
-        plan[path] = render_xml_manifest(projects, nested_include_prefix)
+        plan[path] = render_xml_manifest(projects)
         include_index.append(f"generated/by-topic/{topic}.xml")
 
     for owner, projects in sorted(by_owner.items()):
         path = f"manifests/generated/by-owner/{owner}.xml"
-        plan[path] = render_xml_manifest(projects, nested_include_prefix)
+        plan[path] = render_xml_manifest(projects)
         include_index.append(f"generated/by-owner/{owner}.xml")
 
-    plan["manifests/default.xml"] = render_index_manifest(sorted(include_index))
+    plan["manifests/default.xml"] = render_index_manifest(
+        sorted(f"manifests/{path}" for path in include_index)
+    )
     return plan
 
 

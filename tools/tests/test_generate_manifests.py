@@ -81,6 +81,7 @@ class BuildRenderPlanTest(unittest.TestCase):
 
         owner_manifest = plan["manifests/generated/by-owner/zeek-zhao.xml"]
 
+        self.assertIn('include name="manifests/_remotes.xml"', owner_manifest)
         self.assertIn('<linkfile src="." dest="sample/cpp-sample/docker" />', owner_manifest)
         self.assertIn('remote="github_git"', owner_manifest)
 
@@ -90,8 +91,8 @@ class BuildRenderPlanTest(unittest.TestCase):
 
         default_manifest = plan["manifests/default.xml"]
 
-        self.assertIn('include name="generated/by-owner/zeek-zhao.xml"', default_manifest)
-        self.assertIn('include name="generated/by-topic/cpp.xml"', default_manifest)
+        self.assertIn('include name="manifests/generated/by-owner/zeek-zhao.xml"', default_manifest)
+        self.assertIn('include name="manifests/generated/by-topic/cpp.xml"', default_manifest)
 
 
 if __name__ == "__main__":

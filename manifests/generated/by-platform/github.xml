@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="../../_remotes.xml" />
-    <include name="../../_hooks.xml" />
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
 
     <project path="code/esp/ESP8266-Demos" remote="github_https" groups="esp,github,https,c-cpp" name="AngelLiang/ESP8266-Demos.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github,https,c-cpp" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />

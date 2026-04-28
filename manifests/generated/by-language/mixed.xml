@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <include name="../../_remotes.xml" />
-    <include name="../../_hooks.xml" />
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
 
     <project path="code/common/vim/PowerVim" remote="github_https" groups="common,github,https,mixed" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
     <project path="code/common/vim/vim-fast" remote="gitee_https" groups="common,gitee,https,mixed" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
