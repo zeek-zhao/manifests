@@ -108,7 +108,19 @@
     {
       "name": "zeek-zhao/obsidian.git",
       "path": "project/obsidian",
-      "branch": "main",
+      "branch": "obsidian",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/obsidian.git",
+      "path": "project/obsidian-md",
+      "branch": "markdown",
       "topic": "project",
       "platform": "github",
       "language": "nodejs",
@@ -280,30 +292,6 @@
       "preferred_protocol": "git"
     },
     {
-      "name": "zeek-zhao/obsidian_old.git",
-      "path": "todo/obsidian_old",
-      "branch": "master",
-      "topic": "todo",
-      "platform": "gitee",
-      "language": "nodejs",
-      "groups": [
-        "project"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
-      "name": "zeek-zhao/obsidian.git",
-      "path": "todo/obsidian",
-      "branch": "master",
-      "topic": "todo",
-      "platform": "gitee",
-      "language": "nodejs",
-      "groups": [
-        "project"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
       "name": "zeek-zhao/blog-img.git",
       "path": "todo/blog-img",
       "branch": "main",
@@ -312,18 +300,6 @@
       "language": "nodejs",
       "groups": [
         "project"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
-      "name": "zeek-zhao/devops_back.git",
-      "path": "todo/devops_back",
-      "branch": "master",
-      "topic": "todo",
-      "platform": "gitee",
-      "language": "nodejs",
-      "groups": [
-        "todo"
       ],
       "preferred_protocol": "git"
     },

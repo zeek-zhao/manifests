@@ -4,6 +4,7 @@
     <include name="manifests/_hooks.xml" />
 
     <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
+    <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="project/src800-bootloader" remote="gitee_git" groups="project,gitee" name="zeek-zhao/src800-bootloader.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

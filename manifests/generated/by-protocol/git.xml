@@ -11,7 +11,8 @@
     <project path="robot/frobot" remote="gitee_git" groups="robot,gitee" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/fron-backframe" remote="gitee_git" groups="vue,gitee" name="zeek-zhao/fron-backframe.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
+    <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="sample/obsidian-sample" remote="github_git" groups="sample,github" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/standard-version" remote="github_git" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="master" revision="refs/heads/master" />
     <project path="sample/base-sample" remote="github_git" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="master" revision="refs/heads/master" />
@@ -29,10 +30,7 @@
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
-    <project path="todo/obsidian_old" remote="gitee_git" groups="project,gitee,todo" name="zeek-zhao/obsidian_old.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="todo/obsidian" remote="gitee_git" groups="project,gitee,todo" name="zeek-zhao/obsidian.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/blog-img" remote="github_git" groups="project,github,todo" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="todo/devops_back" remote="gitee_git" groups="todo,gitee" name="zeek-zhao/devops_back.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/src800-bootloader" remote="gitee_git" groups="project,gitee" name="zeek-zhao/src800-bootloader.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/alpu" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>
