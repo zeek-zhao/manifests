@@ -19,6 +19,6 @@
     <project path="robot/autoware2020-course" remote="github_https" groups="robot,github" name="t-thanh/autoware2020-course.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/autoware" remote="github_https" groups="robot,github" name="autowarefoundation/autoware.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="robot/ros" remote="gitee_git" groups="robot,gitee" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/frobot" remote="gitee_git" groups="robot,gitee" name="zeek-zhao/frobot.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ros" remote="github_git" groups="robot,github" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/frobot" remote="github_git" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

@@ -6,9 +6,9 @@
     <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
     <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
     <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/standard-version" remote="github_git" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/base-sample" remote="github_git" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/java-sample" remote="github_git" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/LanguageLearning" remote="gitee_git" groups="sample,gitee" name="zeek-zhao/LanguageLearning.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/product-sample" remote="github_git" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/standard-version" remote="github_git" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/base-sample" remote="github_git" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/java-sample" remote="github_git" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/LanguageLearning" remote="github_git" groups="sample,github" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/product-sample" remote="github_git" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

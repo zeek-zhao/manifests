@@ -15,7 +15,7 @@
     <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/linux-driver" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/free-rtos-demo" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/free-rtos-demo" remote="github_git" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
     <project path="todo/alpu" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

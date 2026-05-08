@@ -11,9 +11,9 @@
     {
       "name": "zeek-zhao/package-manager.git",
       "path": "project/package-manager",
-      "branch": "master",
+      "branch": "main",
       "topic": "c++",
-      "platform": "gitee",
+      "platform": "github",
       "language": "c/c++",
       "groups": [
         "c++",
@@ -24,9 +24,9 @@
     {
       "name": "zeek-zhao/linux-driver.git",
       "path": "linux/driver/linux-driver",
-      "branch": "master",
+      "branch": "main",
       "topic": "linux",
-      "platform": "gitee",
+      "platform": "github",
       "language": "c/c++",
       "groups": [
         "linux"
@@ -38,7 +38,7 @@
       "path": "linux/free-rtos-demo",
       "branch": "main",
       "topic": "linux",
-      "platform": "gitee",
+      "platform": "github",
       "language": "c/c++",
       "groups": [
         "linux"
@@ -48,9 +48,9 @@
     {
       "name": "zeek-zhao/qt-learn-code.git",
       "path": "qt/qt-learn-code",
-      "branch": "master",
+      "branch": "main",
       "topic": "qt",
-      "platform": "gitee",
+      "platform": "github",
       "language": "c/c++",
       "groups": [
         "qt"
@@ -60,9 +60,9 @@
     {
       "name": "zeek-zhao/ros.git",
       "path": "robot/ros",
-      "branch": "master",
+      "branch": "main",
       "topic": "robot",
-      "platform": "gitee",
+      "platform": "github",
       "language": "c/c++",
       "groups": [
         "robot"
@@ -72,9 +72,9 @@
     {
       "name": "zeek-zhao/frobot.git",
       "path": "robot/frobot",
-      "branch": "master",
+      "branch": "main",
       "topic": "robot",
-      "platform": "gitee",
+      "platform": "github",
       "language": "python",
       "groups": [
         "robot"
@@ -84,9 +84,9 @@
     {
       "name": "zeek-zhao/fron-backframe.git",
       "path": "vue/fron-backframe",
-      "branch": "master",
+      "branch": "main",
       "topic": "vue",
-      "platform": "gitee",
+      "platform": "github",
       "language": "nodejs",
       "groups": [
         "vue"
@@ -96,10 +96,34 @@
     {
       "name": "zeek-zhao/devops.git",
       "path": "project/devops",
-      "branch": "master",
+      "branch": "main",
       "topic": "project",
       "platform": "github",
       "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/fron-backframe-refactor.git",
+      "path": "project/fron-backframe-refactor",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/poky.git",
+      "path": "project/poky",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "c/c++",
       "groups": [
         "project"
       ],
@@ -142,9 +166,45 @@
       "preferred_protocol": "git"
     },
     {
+      "name": "zeek-zhao/database-sample.git",
+      "path": "sample/database-sample",
+      "branch": "main",
+      "topic": "sample",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "sample"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/vue-sample.git",
+      "path": "sample/vue-sample",
+      "branch": "main",
+      "topic": "sample",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "sample"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/rust-sample.git",
+      "path": "sample/rust-sample",
+      "branch": "main",
+      "topic": "sample",
+      "platform": "github",
+      "language": "rust",
+      "groups": [
+        "sample"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
       "name": "zeek-zhao/standard-version.git",
       "path": "sample/standard-version",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "mixed",
@@ -156,7 +216,7 @@
     {
       "name": "zeek-zhao/base-sample.git",
       "path": "sample/base-sample",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "mixed",
@@ -168,7 +228,7 @@
     {
       "name": "zeek-zhao/python-sample.git",
       "path": "sample/python-sample",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "python",
@@ -180,7 +240,7 @@
     {
       "name": "zeek-zhao/go-sample.git",
       "path": "sample/go-sample",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "go",
@@ -192,7 +252,7 @@
     {
       "name": "zeek-zhao/java-sample.git",
       "path": "sample/java-sample",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "mixed",
@@ -204,7 +264,7 @@
     {
       "name": "zeek-zhao/ai-knowledge.git",
       "path": "sample/python-sample/src/ai-knowledge",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "python",
@@ -216,7 +276,7 @@
     {
       "name": "zeek-zhao/jenkins-shared-library.git",
       "path": "sample/java-sample/src/jenkins-shared-library",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "nodejs",
@@ -240,9 +300,9 @@
     {
       "name": "zeek-zhao/LanguageLearning.git",
       "path": "sample/LanguageLearning",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
-      "platform": "gitee",
+      "platform": "github",
       "language": "mixed",
       "groups": [
         "sample"
@@ -252,7 +312,7 @@
     {
       "name": "zeek-zhao/product-sample.git",
       "path": "sample/product-sample",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "mixed",
@@ -264,7 +324,7 @@
     {
       "name": "zeek-zhao/docker-sample.git",
       "path": "sample/docker-sample",
-      "branch": "master",
+      "branch": "main",
       "topic": "sample",
       "platform": "github",
       "language": "nodejs",
@@ -306,9 +366,9 @@
     {
       "name": "zeek-zhao/src800-bootloader.git",
       "path": "project/src800-bootloader",
-      "branch": "master",
+      "branch": "main",
       "topic": "project",
-      "platform": "gitee",
+      "platform": "github",
       "language": "c/c++",
       "groups": [
         "project"

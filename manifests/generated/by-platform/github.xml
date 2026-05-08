@@ -34,24 +34,38 @@
     <project path="c++/C-C-" remote="github_https" groups="c++,github" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/examples_CMake" remote="github_https" groups="c++,github" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="c++,github" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/package-manager" remote="github_git" groups="c++,project,github" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/free-rtos-demo" remote="github_git" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="qt/qt-learn-code" remote="github_git" groups="qt,github" name="zeek-zhao/qt-learn-code.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/ros" remote="github_git" groups="robot,github" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/frobot" remote="github_git" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/fron-backframe" remote="github_git" groups="vue,github" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe-refactor" remote="github_git" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/poky" remote="github_git" groups="project,github" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
     <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="sample/obsidian-sample" remote="github_git" groups="sample,github" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/standard-version" remote="github_git" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/base-sample" remote="github_git" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/python-sample" remote="github_git" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/go-sample" remote="github_git" groups="sample,github" name="zeek-zhao/go-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/java-sample" remote="github_git" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/python-sample/src/ai-knowledge" remote="github_git" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/java-sample/src/jenkins-shared-library" remote="github_git" groups="sample,github" name="zeek-zhao/jenkins-shared-library.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/database-sample" remote="github_git" groups="sample,github" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/vue-sample" remote="github_git" groups="sample,github" name="zeek-zhao/vue-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/rust-sample" remote="github_git" groups="sample,github" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/standard-version" remote="github_git" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/base-sample" remote="github_git" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample" remote="github_git" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/go-sample" remote="github_git" groups="sample,github" name="zeek-zhao/go-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/java-sample" remote="github_git" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample/src/ai-knowledge" remote="github_git" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/java-sample/src/jenkins-shared-library" remote="github_git" groups="sample,github" name="zeek-zhao/jenkins-shared-library.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/cpp-sample" remote="github_git" groups="sample,github" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/product-sample" remote="github_git" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/docker-sample" remote="github_git" groups="sample,github" name="zeek-zhao/docker-sample.git" dest-branch="master" revision="refs/heads/master" >
+    <project path="sample/LanguageLearning" remote="github_git" groups="sample,github" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/product-sample" remote="github_git" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/docker-sample" remote="github_git" groups="sample,github" name="zeek-zhao/docker-sample.git" dest-branch="main" revision="refs/heads/main" >
         <linkfile src="." dest="sample/cpp-sample/docker" />
         <linkfile src="." dest="sample/python-sample/docker" />
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
     <project path="todo/blog-img" remote="github_git" groups="project,github,todo" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/src800-bootloader" remote="github_git" groups="project,github" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

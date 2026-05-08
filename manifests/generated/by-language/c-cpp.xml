@@ -51,12 +51,13 @@
     <project path="c++/cmake-examples" remote="gitee_https" groups="c++,gitee" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/examples_CMake" remote="github_https" groups="c++,github" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="c++,github" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/package-manager" remote="gitee_git" groups="c++,project,gitee" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/linux-driver" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/linux-driver.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/free-rtos-demo" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="qt/qt-learn-code" remote="gitee_git" groups="qt,gitee" name="zeek-zhao/qt-learn-code.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ros" remote="gitee_git" groups="robot,gitee" name="zeek-zhao/ros.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/package-manager" remote="github_git" groups="c++,project,github" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/free-rtos-demo" remote="github_git" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="qt/qt-learn-code" remote="github_git" groups="qt,github" name="zeek-zhao/qt-learn-code.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/ros" remote="github_git" groups="robot,github" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/poky" remote="github_git" groups="project,github" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/cpp-sample" remote="github_git" groups="sample,github" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/src800-bootloader" remote="gitee_git" groups="project,gitee" name="zeek-zhao/src800-bootloader.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/src800-bootloader" remote="github_git" groups="project,github" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
     <project path="todo/alpu" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

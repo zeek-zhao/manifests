@@ -9,5 +9,5 @@
     <project path="c++/cmake-examples" remote="gitee_https" groups="c++,gitee" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/examples_CMake" remote="github_https" groups="c++,github" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="c++,github" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/package-manager" remote="gitee_git" groups="c++,project,gitee" name="zeek-zhao/package-manager.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/package-manager" remote="github_git" groups="c++,project,github" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

@@ -5,6 +5,7 @@
     <include name="manifests/generated/by-language/mixed.xml" />
     <include name="manifests/generated/by-language/nodejs.xml" />
     <include name="manifests/generated/by-language/python.xml" />
+    <include name="manifests/generated/by-language/rust.xml" />
     <include name="manifests/generated/by-owner/zeek-zhao.xml" />
     <include name="manifests/generated/by-platform/gitee.xml" />
     <include name="manifests/generated/by-platform/github.xml" />

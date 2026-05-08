@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="sample/rust-sample" remote="github_git" groups="sample,github" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>
