@@ -9,6 +9,30 @@
   },
   "repositories": [
     {
+      "name": "zeek-zhao/PromWatch.git",
+      "path": "project/PromWatch",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "github",
+      "language": "linux",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/jenkins.git",
+      "path": "project/jenkins",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "github",
+      "language": "linux",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
       "name": "zeek-zhao/package-manager.git",
       "path": "project/package-manager",
       "branch": "main",

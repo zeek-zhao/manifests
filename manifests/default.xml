@@ -2,6 +2,7 @@
 <manifest>
     <include name="manifests/generated/by-language/c-cpp.xml" />
     <include name="manifests/generated/by-language/go.xml" />
+    <include name="manifests/generated/by-language/linux.xml" />
     <include name="manifests/generated/by-language/mixed.xml" />
     <include name="manifests/generated/by-language/nodejs.xml" />
     <include name="manifests/generated/by-language/python.xml" />

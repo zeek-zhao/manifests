@@ -3,6 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
+    <project path="project/PromWatch" remote="github_git" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/jenkins" remote="github_git" groups="project,github,linux" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/package-manager" remote="github_git" groups="c++,project,github" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/free-rtos-demo" remote="github_git" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
