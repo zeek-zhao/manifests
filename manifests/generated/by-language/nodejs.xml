@@ -12,9 +12,10 @@
     <project path="vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/vxe-table" remote="gitee_https" groups="vue,gitee" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/quasar-tutorial" remote="github_https" groups="vue,github" name="dongwa/quasar-tutorial.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="vue/fron-backframe" remote="github_git" groups="vue,github" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe" remote="github_git" groups="vue,github,project" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/fron-backframe-refactor" remote="github_git" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/FlexDev-Ent" remote="github_git" groups="project,github" name="zeek-zhao/FlexDev-Ent.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
     <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="sample/obsidian-sample" remote="github_git" groups="sample,github" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />

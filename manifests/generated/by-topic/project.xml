@@ -3,8 +3,10 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe" remote="github_git" groups="vue,github,project" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/fron-backframe-refactor" remote="github_git" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/FlexDev-Ent" remote="github_git" groups="project,github" name="zeek-zhao/FlexDev-Ent.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/poky" remote="github_git" groups="project,github" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
     <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />

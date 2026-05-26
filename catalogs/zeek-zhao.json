@@ -21,6 +21,42 @@
       "preferred_protocol": "git"
     },
     {
+      "name": "zeek-zhao/fron-backframe.git",
+      "path": "project/fron-backframe",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "vue"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/fron-backframe-refactor.git",
+      "path": "project/fron-backframe-refactor",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/FlexDev-Ent.git",
+      "path": "project/FlexDev-Ent",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
       "name": "zeek-zhao/jenkins.git",
       "path": "project/jenkins",
       "branch": "main",
@@ -106,32 +142,8 @@
       "preferred_protocol": "git"
     },
     {
-      "name": "zeek-zhao/fron-backframe.git",
-      "path": "vue/fron-backframe",
-      "branch": "main",
-      "topic": "vue",
-      "platform": "github",
-      "language": "nodejs",
-      "groups": [
-        "vue"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
       "name": "zeek-zhao/devops.git",
       "path": "project/devops",
-      "branch": "main",
-      "topic": "project",
-      "platform": "github",
-      "language": "nodejs",
-      "groups": [
-        "project"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
-      "name": "zeek-zhao/fron-backframe-refactor.git",
-      "path": "project/fron-backframe-refactor",
       "branch": "main",
       "topic": "project",
       "platform": "github",
