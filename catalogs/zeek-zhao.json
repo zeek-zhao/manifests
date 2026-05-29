@@ -178,6 +178,18 @@
       "preferred_protocol": "git"
     },
     {
+      "name": "zeek-zhao/attachments.git",
+      "path": "project/obsidian/attachments",
+      "branch": "main",
+      "topic": "project",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
       "name": "zeek-zhao/obsidian.git",
       "path": "project/obsidian-md",
       "branch": "markdown",

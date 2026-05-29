@@ -17,6 +17,7 @@
     <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/poky" remote="github_git" groups="project,github" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
+    <project path="project/obsidian/attachments" remote="github_git" groups="project,github" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="sample/obsidian-sample" remote="github_git" groups="sample,github" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/database-sample" remote="github_git" groups="sample,github" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
