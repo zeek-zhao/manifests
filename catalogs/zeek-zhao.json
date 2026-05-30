@@ -9,6 +9,30 @@
   },
   "repositories": [
     {
+      "name": "zeek-zhao/manifests.git",
+      "path": "project/manifests",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "github",
+      "language": "linux",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/nas-server.git",
+      "path": "project/nas-server",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "github",
+      "language": "linux",
+      "groups": [
+        "project"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
       "name": "zeek-zhao/PromWatch.git",
       "path": "project/PromWatch",
       "branch": "main",

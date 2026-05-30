@@ -3,6 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
+    <project path="project/manifests" remote="github_git" groups="project,github,linux" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/nas-server" remote="github_git" groups="project,github,linux" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/PromWatch" remote="github_git" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/fron-backframe" remote="github_git" groups="vue,github,project" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/fron-backframe-refactor" remote="github_git" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />

@@ -15,6 +15,8 @@
     <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/manifests" remote="github_git" groups="project,github,linux" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/nas-server" remote="github_git" groups="project,github,linux" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/PromWatch" remote="github_git" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/jenkins" remote="github_git" groups="project,github,linux" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />

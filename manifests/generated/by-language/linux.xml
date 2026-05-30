@@ -3,6 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
+    <project path="project/manifests" remote="github_git" groups="project,github,linux" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/nas-server" remote="github_git" groups="project,github,linux" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/PromWatch" remote="github_git" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/jenkins" remote="github_git" groups="project,github,linux" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

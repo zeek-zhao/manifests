@@ -34,6 +34,8 @@
     <project path="c++/C-C-" remote="github_https" groups="c++,github" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/examples_CMake" remote="github_https" groups="c++,github" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="c++,github" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/manifests" remote="github_git" groups="project,github,linux" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/nas-server" remote="github_git" groups="project,github,linux" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/PromWatch" remote="github_git" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/fron-backframe" remote="github_git" groups="vue,github,project" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/fron-backframe-refactor" remote="github_git" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
