@@ -26,7 +26,6 @@
     <include name="manifests/generated/by-topic/rk.xml" />
     <include name="manifests/generated/by-topic/robot.xml" />
     <include name="manifests/generated/by-topic/sample.xml" />
-    <include name="manifests/generated/by-topic/todo.xml" />
     <include name="manifests/generated/by-topic/tools.xml" />
     <include name="manifests/generated/by-topic/vue.xml" />
 </manifest>

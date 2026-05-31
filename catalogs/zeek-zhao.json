@@ -424,18 +424,6 @@
       "preferred_protocol": "git"
     },
     {
-      "name": "zeek-zhao/blog-img.git",
-      "path": "todo/blog-img",
-      "branch": "main",
-      "topic": "todo",
-      "platform": "github",
-      "language": "nodejs",
-      "groups": [
-        "project"
-      ],
-      "preferred_protocol": "git"
-    },
-    {
       "name": "zeek-zhao/src800-bootloader.git",
       "path": "project/src800-bootloader",
       "branch": "main",

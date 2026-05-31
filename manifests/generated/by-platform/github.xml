@@ -72,6 +72,5 @@
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
-    <project path="todo/blog-img" remote="github_git" groups="project,github,todo" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/src800-bootloader" remote="github_git" groups="project,github" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
