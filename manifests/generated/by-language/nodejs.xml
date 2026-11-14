@@ -29,4 +29,8 @@
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
+    <project path="blog/hexo-engine" remote="github_git" groups="blog,github" name="zeek-zhao/hexo-engine.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/pagepipe" remote="github_git" groups="blog,github" name="zeek-zhao/PagePipe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/kuaidian" remote="github_git" groups="app,github" name="zeek-zhao/kuaidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/link-manager" remote="github_git" groups="app,github" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

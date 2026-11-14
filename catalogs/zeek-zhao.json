@@ -446,6 +446,186 @@
         "linux"
       ],
       "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/ai-obsidian.git",
+      "path": "blog/ai-obsidian",
+      "branch": "main",
+      "topic": "blog",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "blog"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/hexo-engine.git",
+      "path": "blog/hexo-engine",
+      "branch": "main",
+      "topic": "blog",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "blog"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/zeek-zhao.github.io.git",
+      "path": "blog/zeek-zhao.github.io",
+      "branch": "main",
+      "topic": "blog",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "blog"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/PagePipe.git",
+      "path": "blog/pagepipe",
+      "branch": "main",
+      "topic": "blog",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "blog"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/meetnote.git",
+      "path": "ai/meetnote",
+      "branch": "main",
+      "topic": "ai",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "ai"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/ai-workflow.git",
+      "path": "ai/ai-workflow",
+      "branch": "main",
+      "topic": "ai",
+      "platform": "github",
+      "language": "linux",
+      "groups": [
+        "ai"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/kuaidian.git",
+      "path": "app/kuaidian",
+      "branch": "main",
+      "topic": "app",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "app"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/linkManager.git",
+      "path": "app/link-manager",
+      "branch": "main",
+      "topic": "app",
+      "platform": "github",
+      "language": "nodejs",
+      "groups": [
+        "app"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/WorthTrack.git",
+      "path": "app/worth-track",
+      "branch": "main",
+      "topic": "app",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "app"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/orgflow-devops.git",
+      "path": "devops/orgflow-devops",
+      "branch": "main",
+      "topic": "devops",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "devops"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/orgflow-devops1.git",
+      "path": "devops/orgflow-devops1",
+      "branch": "main",
+      "topic": "devops",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "devops"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/orgflow-jenkins.git",
+      "path": "devops/orgflow-jenkins",
+      "branch": "main",
+      "topic": "devops",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "devops"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/srvkit.git",
+      "path": "ops/srvkit",
+      "branch": "main",
+      "topic": "ops",
+      "platform": "github",
+      "language": "python",
+      "groups": [
+        "ops"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/yp-distro.git",
+      "path": "linux/yocto/yp-distro",
+      "branch": "main",
+      "topic": "linux",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "linux"
+      ],
+      "preferred_protocol": "git"
+    },
+    {
+      "name": "zeek-zhao/devbox.git",
+      "path": "sample/devbox",
+      "branch": "main",
+      "topic": "sample",
+      "platform": "github",
+      "language": "mixed",
+      "groups": [
+        "sample"
+      ],
+      "preferred_protocol": "git"
     }
   ]
 }

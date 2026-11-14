@@ -11,4 +11,8 @@
     <project path="sample/java-sample" remote="github_git" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/LanguageLearning" remote="github_git" groups="sample,github" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/product-sample" remote="github_git" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/zeek-zhao.github.io" remote="github_git" groups="blog,github" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/worth-track" remote="github_git" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/yocto/yp-distro" remote="github_git" groups="linux,github" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/devbox" remote="github_git" groups="sample,github" name="zeek-zhao/devbox.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
