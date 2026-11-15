@@ -73,4 +73,19 @@
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
     <project path="project/src800-bootloader" remote="github_git" groups="project,github" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/ai-obsidian" remote="github_git" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/hexo-engine" remote="github_git" groups="blog,github" name="zeek-zhao/hexo-engine.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/zeek-zhao.github.io" remote="github_git" groups="blog,github" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/pagepipe" remote="github_git" groups="blog,github" name="zeek-zhao/PagePipe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/meetnote" remote="github_git" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/ai-workflow" remote="github_git" groups="ai,github" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/kuaidian" remote="github_git" groups="app,github" name="zeek-zhao/kuaidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/link-manager" remote="github_git" groups="app,github" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/worth-track" remote="github_git" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-jenkins" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ops/srvkit" remote="github_git" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/yocto/yp-distro" remote="github_git" groups="linux,github" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/devbox" remote="github_git" groups="sample,github" name="zeek-zhao/devbox.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

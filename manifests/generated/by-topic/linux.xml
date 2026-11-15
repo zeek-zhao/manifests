@@ -22,4 +22,5 @@
     <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/free-rtos-demo" remote="github_git" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
     <project path="todo/alpu" remote="gitee_git" groups="linux,gitee" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/yp-distro" remote="github_git" groups="linux,github" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
