@@ -7,7 +7,7 @@
 | 日期 | 2026-11-28 |
 | 编制 | AI Agent (zeek.zhao) |
 | 审核 | 待用户验收 |
-| 状态 | 执行完成（本地验收通过，待推送后 CI 确认） |
+| 状态 | 已完成（提交 eb9f935 + dd24b79 已推送，CI push/pull_request 双绿） |
 | 关联 | TSK-20261128-004 / PLN-20261128-004 / DSN-20261128-001 v0.5 |
 
 ## 执行过程
@@ -25,6 +25,9 @@
 11. `.pre-commit-config.yaml` 新增 3 个本地钩子：generate-manifests-excel-check / validate-manifests-xlsx / catalog-markdown-check。
 12. `tools/enrich_catalog.py` 退役删除（D6）；确认无代码引用，仅历史文档保留提及。
 13. README / docs/design / docs/implementation / docs/quickstart 四件套改写为 Excel 单一事实来源叙述。
+14. 行序回退事故与恢复：sync dry-run 验证前的 `git checkout -- catalogs/manifests.xlsx` 将尚未提交的「重排+normalize」版本回退到 26fe4bb（行序回退、格式回退，知识列无损）；重写临时脚本重排（首版误把 `manifests-excel-snapshot.json` 计入 JSON 源导致 240 条重复断言失败，排除快照后按文件字母序匹配 120 行）并重新 normalize，字节一致恢复后随 eb9f935 提交。教训：跨命令依赖的工作树改动应及时提交，验证间隙禁止 checkout 回退。
+15. CI 首跑失败（run 46053898835/46053906708）：runner 未安装 openpyxl，generate-manifests-excel-check / validate-manifests-xlsx / catalog-markdown-check 三个新钩子全部报缺依赖；ci.yml 安装步骤追加 openpyxl（dd24b79）后 push/pull_request 双绿（run 46054054691/46054061509）。
+16. 最终验收：`--excel` 与 JSON 数据源输出逐字节一致；`--check` 双模式、`validate_manifests_xlsx.py`、`catalog_to_markdown.py --check` 通过；pre-commit 10 钩子全过；CI 双绿。
 
 ## 风险与残留
 
