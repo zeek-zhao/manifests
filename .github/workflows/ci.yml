@@ -16,8 +16,8 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pre-commit
-        run: python -m pip install --upgrade pip pre-commit
+      - name: Install pre-commit and openpyxl
+        run: python -m pip install --upgrade pip pre-commit openpyxl
 
       - name: Generate manifests check
         run: python3 tools/generate_manifests.py --check
