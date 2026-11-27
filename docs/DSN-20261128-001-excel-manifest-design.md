@@ -3,10 +3,10 @@
 | 文档属性 | 内容 |
 |---|---|
 | 编号 | DSN-20261128-001 |
-| 版本 | v0.3（待复核；D1–D6、D8–D10 已确认；D7 不采纳砍列反转为扩充） |
+| 版本 | v0.4（待复核；CI 触发链路按用户反馈修订，其余同 v0.3） |
 | 日期 | 2026-11-28 |
 | 编制 | AI Agent (zeek.zhao) |
-| 审核 | 用户（v0.3 复核中） |
+| 审核 | 用户（v0.4 复核中） |
 | 状态 | 待复核（复核通过后进入第二阶段实施） |
 
 ## 0. 修订记录
@@ -16,6 +16,7 @@
 | v0.1 | 2026-11-28 | 初稿：7-sheet 结构（repos_external / repos_self / overrides_self / remotes / owners / enums / config） | 用户初始需求 |
 | v0.2 | 2026-11-28 | 精简为 4-sheet；自有仓库并入主表由自动化维护（人工仅配 path 与 linkfiles 两项）；remotes 表升级 fetch/push URL 映射并考虑代理；新增 readme 说明 sheet；砍除 3 个管理列；决策点 D1–D6 确认落档 | 用户修订反馈；v0.1 决策点 D1–D6 全部同意 |
 | v0.3 | 2026-11-28 | ①不采纳砍除管理列（D7 反转），主表扩充仓库描述信息（新增 purpose/contents/relations，恢复 visibility/category/suggested_action），目标「不打开仓库即知其用途」；②D8/D9/D10 确认落档；③新增双 CI 工作流设计（全量自动化 + 手动仅更新工作簿） | 用户 v0.3 反馈 |
+| v0.4 | 2026-11-28 | 仅修订 §11 双 CI 工作流触发链路：手动流改为「基于主分支创建 Excel 分支→单提交推送→人工修改后合并回主分支并删分支」；全量流改为「合并完成后人工手动触发」，移除 push 自动触发；哈希机制降级为幂等辅助。其余内容保持 v0.3 不变 | 用户触发链路反馈 |
 
 ## 1. 背景与目标
 
@@ -193,49 +194,73 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 | D8（新） | 4-sheet 结构：owners/enums 并入 config/readme | **已确认采纳** |
 | D9（新） | 仓库行不设 URL 覆盖列，fetch/push 全走 remotes 平台映射表 | **已确认采纳** |
 | D10（新） | 自有行 branch 以 API default_branch 为准；需特殊分支时以同 repo 人工行表达 | **已确认采纳** |
-| D11（新） | CI 双工作流设计（全量自动化 excel-sync + 手动 excel-validate，含幂等收敛机制） | 本版新增，**待复核**（见 §11） |
+| D11（新） | CI 双工作流设计（全量自动化 excel-sync + 手动 excel-validate，含幂等收敛机制） | **触发链路已按用户 v0.4 反馈修订**（§11.1–§11.5：Excel 分支流转 + 合并后人工触发全量流），修订版待复核 |
 
-## 11. CI 工作流设计（v0.3 新增，两个工作流）
+## 11. CI 工作流设计（v0.4：触发链路按用户反馈修订）
 
-现有 `.github/workflows/ci.yml`（pre-commit + 生成一致性检查）保持不变；新增以下两个工作流，与 ci.yml 分工互补。
+现有 `.github/workflows/ci.yml`（pre-commit + 生成一致性检查）保持不变；新增以下两个工作流，与 ci.yml 分工互补。**两个工作流均仅手动触发**，流转链路完全由人工控制。
 
-### 11.1 `excel-sync.yml` — 全量自动化工作流
+### 11.1 `excel-validate.yml` — 手动工作流（仅更新 Excel 工作簿本身）
+
+**职责**：基于主分支创建 Excel 分支并推送规范化结果，供用户拉取修改；**不触发仓库信息抓取**（不调 GitHub API、不改自有行数据）、不重建 manifest、**不做合并**。
+
+| 项 | 设计 |
+|---|---|
+| 触发 | 仅 `workflow_dispatch`（人工手动） |
+| base 分支 | 主分支（默认 `main`，dispatch 入参 `base_branch` 可指定） |
+| 步骤 | ① 基于 base 分支创建 Excel 分支（命名 `excel/update-<YYYYMMDD-HHmm>`，同名已存在则报错不覆盖）→ ② 工作簿结构与规则校验（sheet/列名齐全、§9 全部规则、readme 字段字典与实际列一致性）→ ③ 规范化处理（列宽/冻结首行/下拉校验重刷，openpyxl 原位更新）→ ④ 可选导出 JSON 快照（`--export-json`，D1 方案）→ ⑤ **产生且仅产生一个提交**「chore(excel): validate & normalize workbook」推送到 Excel 分支 → 结束 |
+| 边界 | 不合并回主分支（由用户完成）；不在 base 分支上产生提交；不删除分支（用户还要在其上修改） |
+
+### 11.2 `excel-sync.yml` — 全量自动化工作流（人工在合并完成后触发）
 
 **职责**：自动完成所有仓库信息的获取与 manifest 更新。
 
 | 项 | 设计 |
 |---|---|
-| 触发 | ①push 到当前分支且 `catalogs/manifests.xlsx` sha256 与上次记录不同；②`workflow_dispatch` 手动全量跑 |
-| 步骤 | checkout → 计算 Excel 哈希并与 `.github/.excel-hash` 记录比对（dispatch 触发时跳过比对直接全量）→ `sync_self_repos.py` 按 §8 策略更新主表自有行（GitHub API，TOKEN 临时注入）→ 生成器 `--excel` 重建全部 manifest → `--check` 校验生成物一致 → §9 规则校验（违规列出行号失败退出）→ Excel 或 manifest 有变更则自动提交「chore(manifest): regenerate from excel」并推送 → 更新哈希记录 |
-| 幂等收敛（防循环） | 自动提交带 `[skip ci]` 标记；生成器输出确定性（同输入必同输出），故下一轮哈希与产物均无差异，不会二次触发 |
-| 失败处理 | 任一步骤失败即红，不改哈希记录，PR/commit 上直接可见；仓库信息抓取失败（API 限流）时保留旧数据不写入半成品 |
+| 触发 | 仅 `workflow_dispatch`（人工手动；**前置条件**：用户已将 Excel 分支合并回主分支并删除该分支） |
+| 步骤 | checkout → `sync_self_repos.py` 按 §8 策略更新主表自有行（GitHub API，TOKEN 临时注入）→ 生成器 `--excel` 重建全部 manifest → `--check` 校验生成物一致 → §9 规则校验（违规列出行号失败退出）→ Excel 或 manifest 有变更则自动提交「chore(manifest): regenerate from excel」并推送（无变更则跳过提交）→ 更新哈希记录 `.github/.excel-hash` |
+| 幂等机制 | 哈希检测**不再是触发条件**（v0.4 移除 push 自动触发），仅作内部幂等辅助：记录上次全量处理后的工作簿状态，重复 dispatch 且无变化时快速跳过重建；自动提交仍带 `[skip ci]`（防御未来误恢复自动触发产生循环） |
+| 失败处理 | 任一步骤失败即红，不改哈希记录；仓库信息抓取失败（API 限流）时保留旧数据不写入半成品 |
 
-### 11.2 `excel-validate.yml` — 手动工作流（仅更新 Excel 工作簿本身）
+### 11.3 触发链路与流转步骤（合并前后的触发关系）
 
-**职责**：人工编辑工作簿（结构/说明/配置/描述列）后手动触发，只处理工作簿本身，**不触发仓库信息抓取**（不调 GitHub API、不改自有行数据）。
+```
+[人工] 触发 excel-validate（选 base 分支）
+   └─ CI：基于 base 创建 excel/update-<ts> 分支 → 校验+规范化 → 单提交推送（不合并）
+[人工] 拉取 Excel 分支 → 手动修改 Excel → 推送到 Excel 分支
+[人工] 将 Excel 分支合并回主分支（base）→ 删除该 Excel 分支
+[人工] 触发 excel-sync（此时才抓取仓库信息）
+   └─ CI：sync_self_repos 更新自有行 → 重建 manifest → 校验 → 有变更则自动提交推送
+```
 
-| 项 | 设计 |
+时序约束：**excel-sync 只允许在 Excel 分支合并、删除之后人工触发**；工作簿的规范化与人工修改全部经由 Excel 分支流转，主分支上只出现「合并提交 + sync 自动提交」两类工作簿相关提交。
+
+### 11.4 Excel 分支的创建与清理
+
+| 环节 | 责任方 | 规则 |
+|---|---|---|
+| 创建 | CI（excel-validate） | 基于 base 分支；命名 `excel/update-<YYYYMMDD-HHmm>`；同名已存在即失败退出，不覆盖 |
+| 修改 | 用户 | 拉取分支后手动编辑工作簿，仅此分支，不在其上做开发内容 |
+| 合并 | 用户 | 修改推送后由用户合并回 base（普通 merge，合并提交人须符合 §2 提交身份规范） |
+| 删除 | 用户 | 合并完成后用户删除该 Excel 分支（CI 永不删除——分支上还承载用户未合并的修改） |
+
+### 11.5 触发设计改动理由（v0.3 → v0.4）
+
+| 改动 | 理由 |
 |---|---|
-| 触发 | 仅 `workflow_dispatch`（人工手动） |
-| 步骤 | checkout → 工作簿结构与规则校验（sheet/列名齐全、§9 全部规则、readme 字段字典与实际列一致性）→ 规范化处理（列宽/冻结首行/下拉校验重刷，用 openpyxl 原位更新）→ 可选导出 JSON 快照（`--export-json`，D1 方案）→ 有变更则自动提交「chore(excel): validate & normalize workbook」 |
-| 边界 | 不执行 sync_self_repos.py，不重建 manifest XML（重建职责归 excel-sync 与本地生成器） |
-
-### 11.3 两个工作流分工理由
-
-| 设计点 | 理由 |
-|---|---|
-| 拆成两个而非一个 | 全量流含 API 抓取（依赖密钥、有限流风险、耗时），日常改描述列/配置不需要；手动流轻量秒级完成 |
-| 手动流不改自有行 | 避免「人工想只改 readme 说明，却意外触发 API 抓取覆盖自有行数据」的误操作面 |
-| 哈希记录放仓库内（`.github/.excel-hash`） | CI 环境无状态，随仓库版本化，回滚分支时哈希记录同步回滚，语义自洽 |
+| 全量流移除「push+哈希变化自动触发」，改为仅人工 dispatch | 用户明确要求「合并完成后由我手动触发」——把执行时机完全交给人工，避免人工还在 Excel 分支上流转时，push 自动触发让 CI 在主分支上跑旧数据或与人工修改竞争 |
+| 手动流从「就地提交 base」改为「base 建分支+单提交推送+不合并」 | CI 产生的规范化结果先落隔离分支，经人工拉取、修改、审核后才进主分支，避免未审核变更直接污染主干；单提交保证拉取与合并干净无噪音 |
+| 分支删除责任归用户而非 CI | 分支上承载用户未合并的修改，CI 删除会丢工作区；用户合并后自行清理 |
+| 哈希机制降级为内部幂等辅助 | 触发权移交人工后，push 自动比对失去意义；保留哈希记录用于重复 dispatch 快速跳过，防重复重建 |
 
 ## 12. 第二阶段实施预告（本版复核通过后另行确认任务书）
 
 1. **自动化**：`tools/sync_self_repos.py` 按 §8 策略更新主表自有行（GitHub API：仓库+分支+描述+可见性）；
 2. **生成器改造**：`generate_manifests.py` 增加 `--excel` 读取（openpyxl，D1）、remotes 代理规则（§4）、quickstart 从 config 表读取；
-3. **工作流落地**：新增 `excel-sync.yml` 与 `excel-validate.yml`（§11 设计），改造现有 ci.yml 增加哈希检测联动；
+3. **工作流落地**：新增 `excel-validate.yml`（建 Excel 分支+单提交）与 `excel-sync.yml`（合并后人工触发的全量流，§11 设计），现有 ci.yml 保持不变；
 4. **校验闭环**：§9 规则全部落进生成器与 CI，违规失败并列出行号；
 5. **文档**：README/design/implementation/quickstart 同步改写为 Excel 工作流。
 
 ## 13. 影响面（第二阶段实施时同步修改）
 
-`tools/generate_manifests.py`（读 Excel + remotes 代理规则 + quickstart 从 config 表读取）、`tools/sync_self_repos.py`（新增）、`tools/enrich_catalog.py`（退役，D6）、`tools/catalog_to_markdown.py`（适配 Excel 或读快照）、`.github/workflows/excel-sync.yml` 与 `excel-validate.yml`（新增，§11）、`.github/workflows/ci.yml`（哈希联动）、`.github/.excel-hash`（新增哈希记录）、`.pre-commit-config.yaml`（Excel 校验钩子）、`README.md`、`docs/design.md`、`docs/implementation.md`、`docs/quickstart.md`。
+`tools/generate_manifests.py`（读 Excel + remotes 代理规则 + quickstart 从 config 表读取）、`tools/sync_self_repos.py`（新增）、`tools/enrich_catalog.py`（退役，D6）、`tools/catalog_to_markdown.py`（适配 Excel 或读快照）、`.github/workflows/excel-sync.yml` 与 `excel-validate.yml`（新增，§11）、`.github/.excel-hash`（新增哈希记录，幂等辅助）、`.pre-commit-config.yaml`（Excel 校验钩子）、`README.md`、`docs/design.md`、`docs/implementation.md`、`docs/quickstart.md`。
