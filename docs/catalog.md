@@ -7,17 +7,17 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 
 | path | 分类 | 可见性 | 描述 | 建议动作 |
 | --- | --- | --- | --- | --- |
-| project/ROS-Academy-for-Beginners |   | public | 中国大学MOOC《机器人操作系统入门》课程代码示例 |   |
-| project/ai-book |   | private |   |   |
-| project/ai-docker |   | public |   |   |
-| project/ai-mcp |   | public |   |   |
-| project/ai-server |   | private |   |   |
-| project/ai-tools |   | private |   |   |
-| project/backup |   | private |   |   |
-| project/jenkins-Shared-Library1 |   | public | 旧版 Jenkins 共享库（已归档，现行版本见 jenkins-shared-library） |   |
-| project/ros_21_tutorials |   | public | 《古月 · ROS入门21讲》课件&源码 |   |
-| project/tabharbor |   | public | TabHarbor v2 — Chrome MV3 标签管理扩展：窗口/分组/标签三层树 · 严格实时同步 · TDD+BDD 闭环 |   |
-| project/wf4-selftest |   | private | WF4 工作流自检仓库（issue→分支→验收→PR→合并 全链路验证，可随时删除） |   |
+| project/ROS-Academy-for-Beginners |   | 与《古月·ROS入门21讲》系列同属 ROS 入门教学线；自有副本对应上游 huchunxu 课程体系 | 中国大学MOOC《机器人操作系统入门》课程代码示例 |   |
+| project/ai-book |   | ai- 前缀系列仓之一；与 ai-mcp/ai-server/ai-tools 构成个人 AI 工作线 |   |   |
+| project/ai-docker |   | ai- 系列；为 ai-server 等提供容器环境，与 docker-sample 同属容器参考线 |   |   |
+| project/ai-mcp |   | ai- 系列核心组件；与 ai-server 集成提供工具调用能力 |   |   |
+| project/ai-server |   | ai- 系列；部署依托 ai-docker 镜像 |   |   |
+| project/ai-tools |   | ai- 系列；服务个人 AI 工作流的支撑工具 |   |   |
+| project/backup |   | ops 线；与 devbox（个人环境定义）互补 |   |   |
+| project/jenkins-Shared-Library1 |   | 现行版本为 zeek-zhao/jenkins-shared-library.git；devops/CI 线 | 旧版 Jenkins 共享库（已归档，现行版本见 jenkins-shared-library） |   |
+| project/ros_21_tutorials |   | 外部上游 huchunxu/ros_21_tutorials.git 的自有副本；与 ROS-Academy-for-Beginners 同属 ROS 教学线 | 《古月 · ROS入门21讲》课件&源码 |   |
+| project/tabharbor |   | 独立浏览器工具产品线；无仓库间依赖 | TabHarbor v2 — Chrome MV3 标签管理扩展：窗口/分组/标签三层树 · 严格实时同步 · TDD+BDD 闭环 |   |
+| project/wf4-selftest |   | 服务 jenkins/workflow 工程线验证；可随时删除 | WF4 工作流自检仓库（issue→分支→验收→PR→合并 全链路验证，可随时删除） |   |
 | ai/ai-workflow | AI应用与工具 | private | bash + WSL 可组合的 Git / 开发 / 合入工作流脚本集 | 保留 |
 | ai/meetnote | AI应用与工具 | private | 个人跨端会议实时转写与纪要生成（Win/Linux/Android + Docker 后端） | 保留 |
 | sample/python-sample/src/ai-knowledge | AI应用与工具 | private | AI 知识整理示例工程（catalog 中挂 python-sample 子路径） | 待确认：定位待明确 |
