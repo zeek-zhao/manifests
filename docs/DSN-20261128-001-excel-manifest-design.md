@@ -3,11 +3,11 @@
 | 文档属性 | 内容 |
 |---|---|
 | 编号 | DSN-20261128-001 |
-| 版本 | v0.4（待复核；CI 触发链路按用户反馈修订，其余同 v0.3） |
+| 版本 | v0.5（定稿；D1–D11 全部经用户确认，哈希机制按 Mirror 同步反馈移除） |
 | 日期 | 2026-11-28 |
 | 编制 | AI Agent (zeek.zhao) |
-| 审核 | 用户（v0.4 复核中） |
-| 状态 | 待复核（复核通过后进入第二阶段实施） |
+| 审核 | 用户（v0.4 触发链路已复核「其他没问题」；v0.5 仅执行移除哈希指令） |
+| 状态 | 设计定稿（待用户确认进入第二阶段实施） |
 
 ## 0. 修订记录
 
@@ -17,6 +17,7 @@
 | v0.2 | 2026-11-28 | 精简为 4-sheet；自有仓库并入主表由自动化维护（人工仅配 path 与 linkfiles 两项）；remotes 表升级 fetch/push URL 映射并考虑代理；新增 readme 说明 sheet；砍除 3 个管理列；决策点 D1–D6 确认落档 | 用户修订反馈；v0.1 决策点 D1–D6 全部同意 |
 | v0.3 | 2026-11-28 | ①不采纳砍除管理列（D7 反转），主表扩充仓库描述信息（新增 purpose/contents/relations，恢复 visibility/category/suggested_action），目标「不打开仓库即知其用途」；②D8/D9/D10 确认落档；③新增双 CI 工作流设计（全量自动化 + 手动仅更新工作簿） | 用户 v0.3 反馈 |
 | v0.4 | 2026-11-28 | 仅修订 §11 双 CI 工作流触发链路：手动流改为「基于主分支创建 Excel 分支→单提交推送→人工修改后合并回主分支并删分支」；全量流改为「合并完成后人工手动触发」，移除 push 自动触发；哈希机制降级为幂等辅助。其余内容保持 v0.3 不变 | 用户触发链路反馈 |
+| v0.5 | 2026-11-28 | 移除哈希记录机制（`.github/.excel-hash` 及幂等比对）：仓库经 Mirror 方式同步（同步所有分支），仓库内维护哈希记录无意义；幂等改用「全量重建后 git diff 无变化即跳过提交」的天然机制。v0.4 触发链路其余内容经用户复核确认 | 用户反馈（Mirror 同步） |
 
 ## 1. 背景与目标
 
@@ -121,7 +122,7 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 
 | 区块 | 内容 |
 |---|---|
-| A 工作簿设计说明 | 本工作簿用途（manifest 单一事实来源）、4-sheet 分工、更新流程概述（修改推送 → 哈希检测 → 自动重建 manifest → CI 校验）、版本与修订日期 |
+| A 工作簿设计说明 | 本工作簿用途（manifest 单一事实来源）、4-sheet 分工、更新流程概述（触发 excel-validate 建 Excel 分支 → 人工拉取修改并合并回主分支 → 删分支 → 人工触发 excel-sync 全量重建 → CI 校验）、版本与修订日期 |
 | B 字段字典 | 全部 sheet × 全部列：列名 / 含义 / 用途（映射哪个 manifest 字段或管理用途）/ 人工填 or 自动生成 / 格式约束 / 填写示例（与本文档 §3–§5 同源，Excel 侧为操作视图） |
 | C 填写指引 | ①新增外部仓库：在 repos 表按 §3 列顺序填一行，platform 必须是 remotes 表已有平台名；②自有仓库配置：仅在自动化生成的行上填 path 与 linkfiles 两列，其余列不要手改（下次同步会被刷新）；③代理开关：config.use_proxy_https=TRUE 且 remotes 表对应平台填 proxy_https_url 才生效；④常见校验错误对照（path 重复、platform 未登记、name 格式错误）；⑤描述列分工：description/visibility 由自动化填充（自有行），purpose/contents/relations/category/suggested_action 为人工知识沉淀列，自动化永不覆盖 |
 
@@ -194,7 +195,7 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 | D8（新） | 4-sheet 结构：owners/enums 并入 config/readme | **已确认采纳** |
 | D9（新） | 仓库行不设 URL 覆盖列，fetch/push 全走 remotes 平台映射表 | **已确认采纳** |
 | D10（新） | 自有行 branch 以 API default_branch 为准；需特殊分支时以同 repo 人工行表达 | **已确认采纳** |
-| D11（新） | CI 双工作流设计（全量自动化 excel-sync + 手动 excel-validate，含幂等收敛机制） | **触发链路已按用户 v0.4 反馈修订**（§11.1–§11.5：Excel 分支流转 + 合并后人工触发全量流），修订版待复核 |
+| D11（新） | CI 双工作流设计（全量自动化 excel-sync + 手动 excel-validate） | **已确认**（v0.4 触发链路经用户复核「其他没问题」；v0.5 按 Mirror 同步反馈移除哈希机制） |
 
 ## 11. CI 工作流设计（v0.4：触发链路按用户反馈修订）
 
@@ -218,9 +219,9 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 | 项 | 设计 |
 |---|---|
 | 触发 | 仅 `workflow_dispatch`（人工手动；**前置条件**：用户已将 Excel 分支合并回主分支并删除该分支） |
-| 步骤 | checkout → `sync_self_repos.py` 按 §8 策略更新主表自有行（GitHub API，TOKEN 临时注入）→ 生成器 `--excel` 重建全部 manifest → `--check` 校验生成物一致 → §9 规则校验（违规列出行号失败退出）→ Excel 或 manifest 有变更则自动提交「chore(manifest): regenerate from excel」并推送（无变更则跳过提交）→ 更新哈希记录 `.github/.excel-hash` |
-| 幂等机制 | 哈希检测**不再是触发条件**（v0.4 移除 push 自动触发），仅作内部幂等辅助：记录上次全量处理后的工作簿状态，重复 dispatch 且无变化时快速跳过重建；自动提交仍带 `[skip ci]`（防御未来误恢复自动触发产生循环） |
-| 失败处理 | 任一步骤失败即红，不改哈希记录；仓库信息抓取失败（API 限流）时保留旧数据不写入半成品 |
+| 步骤 | checkout → `sync_self_repos.py` 按 §8 策略更新主表自有行（GitHub API，TOKEN 临时注入）→ 生成器 `--excel` 重建全部 manifest → `--check` 校验生成物一致 → §9 规则校验（违规列出行号失败退出）→ `git diff` 判断产物：Excel 或 manifest 有变更则自动提交「chore(manifest): regenerate from excel」并推送，无变更则跳过提交 |
+| 幂等机制 | **不维护哈希记录**（v0.5 移除）：仓库经 Mirror 方式同步所有分支，仓库内哈希记录文件不可靠亦无意义；幂等由「全量重建确定性输出 + git diff 无变化即跳过提交」天然保证；自动提交仍带 `[skip ci]`（防御未来误恢复自动触发产生循环） |
+| 失败处理 | 任一步骤失败即红；仓库信息抓取失败（API 限流）时保留旧数据不写入半成品 |
 
 ### 11.3 触发链路与流转步骤（合并前后的触发关系）
 
@@ -251,7 +252,7 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 | 全量流移除「push+哈希变化自动触发」，改为仅人工 dispatch | 用户明确要求「合并完成后由我手动触发」——把执行时机完全交给人工，避免人工还在 Excel 分支上流转时，push 自动触发让 CI 在主分支上跑旧数据或与人工修改竞争 |
 | 手动流从「就地提交 base」改为「base 建分支+单提交推送+不合并」 | CI 产生的规范化结果先落隔离分支，经人工拉取、修改、审核后才进主分支，避免未审核变更直接污染主干；单提交保证拉取与合并干净无噪音 |
 | 分支删除责任归用户而非 CI | 分支上承载用户未合并的修改，CI 删除会丢工作区；用户合并后自行清理 |
-| 哈希机制降级为内部幂等辅助 | 触发权移交人工后，push 自动比对失去意义；保留哈希记录用于重复 dispatch 快速跳过，防重复重建 |
+| 哈希机制整体移除（v0.5） | 用户指出：仓库经 Mirror 方式同步（同步所有分支），仓库内维护哈希记录无意义；改用 git diff 判空实现幂等，机制更简单且不受 Mirror 同步影响 |
 
 ## 12. 第二阶段实施预告（本版复核通过后另行确认任务书）
 
@@ -263,4 +264,4 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 
 ## 13. 影响面（第二阶段实施时同步修改）
 
-`tools/generate_manifests.py`（读 Excel + remotes 代理规则 + quickstart 从 config 表读取）、`tools/sync_self_repos.py`（新增）、`tools/enrich_catalog.py`（退役，D6）、`tools/catalog_to_markdown.py`（适配 Excel 或读快照）、`.github/workflows/excel-sync.yml` 与 `excel-validate.yml`（新增，§11）、`.github/.excel-hash`（新增哈希记录，幂等辅助）、`.pre-commit-config.yaml`（Excel 校验钩子）、`README.md`、`docs/design.md`、`docs/implementation.md`、`docs/quickstart.md`。
+`tools/generate_manifests.py`（读 Excel + remotes 代理规则 + quickstart 从 config 表读取）、`tools/sync_self_repos.py`（新增）、`tools/enrich_catalog.py`（退役，D6）、`tools/catalog_to_markdown.py`（适配 Excel 或读快照）、`.github/workflows/excel-sync.yml` 与 `excel-validate.yml`（新增，§11）、`.pre-commit-config.yaml`（Excel 校验钩子）、`README.md`、`docs/design.md`、`docs/implementation.md`、`docs/quickstart.md`。
