@@ -13,13 +13,13 @@
     <project path="robot/6-robot/wpb_cv" remote="github_https" groups="robot,github" name="6-robot/wpb_cv.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/ZZX_RUN" remote="github_https" groups="robot,github" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="robot/frobot" remote="github_git" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample" remote="github_git" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample/src/ai-knowledge" remote="github_git" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/ai-obsidian" remote="github_git" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ai/meetnote" remote="github_git" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-devops" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/frobot" remote="github_https" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample" remote="github_https" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample/src/ai-knowledge" remote="github_https" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/ai-obsidian" remote="github_https" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/meetnote" remote="github_https" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops" remote="github_https" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-jenkins" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ops/srvkit" remote="github_git" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ops/srvkit" remote="github_https" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

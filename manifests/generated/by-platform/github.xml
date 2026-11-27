@@ -34,58 +34,69 @@
     <project path="c++/C-C-" remote="github_https" groups="c++,github" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/examples_CMake" remote="github_https" groups="c++,github" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="c++,github" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/manifests" remote="github_git" groups="project,github,linux" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/nas-server" remote="github_git" groups="project,github,linux" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/PromWatch" remote="github_git" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/fron-backframe" remote="github_git" groups="vue,github,project" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/fron-backframe-refactor" remote="github_git" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/FlexDev-Ent" remote="github_git" groups="project,github" name="zeek-zhao/FlexDev-Ent.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/jenkins" remote="github_git" groups="project,github,linux" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/package-manager" remote="github_git" groups="c++,project,github" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="linux/driver/linux-driver" remote="github_git" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="linux/free-rtos-demo" remote="github_git" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="qt/qt-learn-code" remote="github_git" groups="qt,github" name="zeek-zhao/qt-learn-code.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="robot/ros" remote="github_git" groups="robot,github" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="robot/frobot" remote="github_git" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/devops" remote="github_git" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/poky" remote="github_git" groups="project,github" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/obsidian" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="obsidian" revision="refs/heads/obsidian" />
-    <project path="project/obsidian/attachments" remote="github_git" groups="project,github" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/manifests" remote="github_https" groups="project,github,linux" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/nas-server" remote="github_https" groups="project,github,linux" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/PromWatch" remote="github_https" groups="project,github,linux" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe" remote="github_https" groups="vue,github,project" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe-refactor" remote="github_https" groups="project,github" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/FlexDev-Ent" remote="github_https" groups="project,github" name="zeek-zhao/FlexDev-Ent.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/jenkins" remote="github_https" groups="project,github,linux" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/package-manager" remote="github_https" groups="c++,project,github" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/driver/linux-driver" remote="github_https" groups="linux,github" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/free-rtos-demo" remote="github_https" groups="linux,github" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="qt/qt-learn-code" remote="github_https" groups="qt,github" name="zeek-zhao/qt-learn-code.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/ros" remote="github_https" groups="robot,github" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/frobot" remote="github_https" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/devops" remote="github_https" groups="project,github" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/poky" remote="github_https" groups="project,github" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian" remote="github_https" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian/attachments" remote="github_https" groups="project,github" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian-md" remote="github_git" groups="project,github" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
-    <project path="sample/obsidian-sample" remote="github_git" groups="sample,github" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/database-sample" remote="github_git" groups="sample,github" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/vue-sample" remote="github_git" groups="sample,github" name="zeek-zhao/vue-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/rust-sample" remote="github_git" groups="sample,github" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/standard-version" remote="github_git" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/base-sample" remote="github_git" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample" remote="github_git" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/go-sample" remote="github_git" groups="sample,github" name="zeek-zhao/go-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/java-sample" remote="github_git" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample/src/ai-knowledge" remote="github_git" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/java-sample/src/jenkins-shared-library" remote="github_git" groups="sample,github" name="zeek-zhao/jenkins-shared-library.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/cpp-sample" remote="github_git" groups="sample,github" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/LanguageLearning" remote="github_git" groups="sample,github" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/product-sample" remote="github_git" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/docker-sample" remote="github_git" groups="sample,github" name="zeek-zhao/docker-sample.git" dest-branch="main" revision="refs/heads/main" >
+    <project path="sample/obsidian-sample" remote="github_https" groups="sample,github" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/database-sample" remote="github_https" groups="sample,github" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/vue-sample" remote="github_https" groups="sample,github" name="zeek-zhao/vue-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/rust-sample" remote="github_https" groups="sample,github" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/standard-version" remote="github_https" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/base-sample" remote="github_https" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample" remote="github_https" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/go-sample" remote="github_https" groups="sample,github" name="zeek-zhao/go-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/java-sample" remote="github_https" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample/src/ai-knowledge" remote="github_https" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/java-sample/src/jenkins-shared-library" remote="github_https" groups="sample,github" name="zeek-zhao/jenkins-shared-library.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/cpp-sample" remote="github_https" groups="sample,github" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/LanguageLearning" remote="github_https" groups="sample,github" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/product-sample" remote="github_https" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/docker-sample" remote="github_https" groups="sample,github" name="zeek-zhao/docker-sample.git" dest-branch="main" revision="refs/heads/main" >
         <linkfile src="." dest="sample/cpp-sample/docker" />
         <linkfile src="." dest="sample/python-sample/docker" />
         <linkfile src="." dest="sample/java-sample/docker" />
         <linkfile src="." dest="sample/go-sample/docker" />
     </project>
-    <project path="project/src800-bootloader" remote="github_git" groups="project,github" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/ai-obsidian" remote="github_git" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/hexo-engine" remote="github_git" groups="blog,github" name="zeek-zhao/hexo-engine.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/zeek-zhao.github.io" remote="github_git" groups="blog,github" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/pagepipe" remote="github_git" groups="blog,github" name="zeek-zhao/PagePipe.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ai/meetnote" remote="github_git" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ai/ai-workflow" remote="github_git" groups="ai,github" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="app/kuaidian" remote="github_git" groups="app,github" name="zeek-zhao/kuaidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="app/link-manager" remote="github_git" groups="app,github" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="app/worth-track" remote="github_git" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-devops" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/src800-bootloader" remote="github_https" groups="project,github" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/ai-obsidian" remote="github_https" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/hexo-engine" remote="github_https" groups="blog,github" name="zeek-zhao/hexo-engine.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/zeek-zhao.github.io" remote="github_https" groups="blog,github" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/pagepipe" remote="github_https" groups="blog,github" name="zeek-zhao/PagePipe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/meetnote" remote="github_https" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/ai-workflow" remote="github_https" groups="ai,github" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/kuaidian" remote="github_https" groups="app,github" name="zeek-zhao/kuaidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/link-manager" remote="github_https" groups="app,github" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/worth-track" remote="github_https" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops" remote="github_https" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-jenkins" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ops/srvkit" remote="github_git" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="linux/yocto/yp-distro" remote="github_git" groups="linux,github" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/devbox" remote="github_git" groups="sample,github" name="zeek-zhao/devbox.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ops/srvkit" remote="github_https" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/yocto/yp-distro" remote="github_https" groups="linux,github" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/devbox" remote="github_https" groups="sample,github" name="zeek-zhao/devbox.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ROS-Academy-for-Beginners" remote="github_https" groups="github" name="zeek-zhao/ROS-Academy-for-Beginners.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/ai-book" remote="github_https" groups="github" name="zeek-zhao/ai-book.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-docker" remote="github_https" groups="github" name="zeek-zhao/ai-docker.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-mcp" remote="github_https" groups="github" name="zeek-zhao/ai-mcp.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-server" remote="github_https" groups="github" name="zeek-zhao/ai-server.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-tools" remote="github_https" groups="github" name="zeek-zhao/ai-tools.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/backup" remote="github_https" groups="github" name="zeek-zhao/backup.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/jenkins-Shared-Library1" remote="github_https" groups="github" name="zeek-zhao/jenkins-Shared-Library1.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ros_21_tutorials" remote="github_https" groups="github" name="zeek-zhao/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/tabharbor" remote="github_https" groups="github" name="zeek-zhao/tabharbor.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/wf4-selftest" remote="github_https" groups="github" name="zeek-zhao/wf4-selftest.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

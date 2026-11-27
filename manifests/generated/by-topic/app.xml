@@ -3,7 +3,7 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="app/kuaidian" remote="github_git" groups="app,github" name="zeek-zhao/kuaidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="app/link-manager" remote="github_git" groups="app,github" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="app/worth-track" remote="github_git" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/kuaidian" remote="github_https" groups="app,github" name="zeek-zhao/kuaidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/link-manager" remote="github_https" groups="app,github" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/worth-track" remote="github_https" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
