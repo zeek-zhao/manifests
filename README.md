@@ -1,6 +1,6 @@
 # manifests
 
-`manifests` 是多仓库 repo manifest 管理工程。它基于多个 catalog 文件生成标准 XML 清单，支持按协议、平台、语言、主题和 owner 维度拆分使用。
+`manifests` 是多仓库 repo manifest 管理工程。它基于 `catalogs/manifests.xlsx`（Excel 单一事实来源）生成标准 XML 清单，支持按协议、平台、语言、主题和 owner 维度拆分使用。
 
 ## 快速使用
 
@@ -11,19 +11,22 @@ repo sync -j30
 
 ## 目录说明
 
-- `catalogs/`：仓库配置数据源，支持多个 JSON 文件
+- `catalogs/`：仓库配置数据源，`manifests.xlsx` 为单一事实来源（过渡期旧 JSON 保留只读）
 - `manifests/`：生成后的清单目录
 - `manifests/generated/`：按维度拆分的清单
 - `manifests/examples/`：面向 `repo init` 的最小示例清单
-- `tools/`：生成和拆分脚本
+- `tools/`：生成、校验、Excel 数据源与自有仓库同步脚本
 - `docs/`：设计、实现、快速上手和关键字文档
 
 ## 生成与校验
 
 ```bash
 cd /path/to/manifests
-python3 tools/generate_manifests.py
-python3 tools/generate_manifests.py --check
+python3 tools/generate_manifests.py --excel            # 从 Excel 生成 manifests/
+python3 tools/generate_manifests.py --excel --check
+python3 tools/validate_manifests_xlsx.py              # Excel 结构与规则校验
+python3 tools/catalog_to_markdown.py                  # 重生成 docs/catalog.md
+GH_TOKEN=<PAT> python3 tools/sync_self_repos.py --dry-run  # 自有仓库事实同步（预览）
 pre-commit run --all-files
 ```
 
@@ -33,7 +36,10 @@ pre-commit run --all-files
 
 - pre-commit-hooks：check-xml、check-json、行尾与空白规范
 - pretty-format-json：统一 JSON 格式（2 空格，保持原 key 顺序）
-- 本地钩子 generate-manifests-check：执行 python3 tools/generate_manifests.py --check
+- 本地钩子 generate-manifests-check：JSON 数据源生成一致性检查（过渡期）
+- 本地钩子 generate-manifests-excel-check：Excel 数据源生成一致性检查
+- 本地钩子 validate-manifests-xlsx：catalogs/manifests.xlsx 结构与规则校验
+- 本地钩子 catalog-markdown-check：docs/catalog.md 与 Excel 数据一致
 
 首次安装与启用：
 
@@ -55,7 +61,7 @@ pre-commit run generate-manifests-check --all-files
 pre-commit autoupdate
 ```
 
-当 JSON 被自动格式化后，重新 git add 再提交即可。
+当 JSON/Markdown 被钩子自动格式化后，重新 git add 再提交即可。
 
 ## 常用初始化命令
 

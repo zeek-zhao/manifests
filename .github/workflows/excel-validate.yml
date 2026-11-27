@@ -1,0 +1,77 @@
+name: excel-validate
+
+# DSN §11: manual entry point. Validates & normalizes catalogs/manifests.xlsx,
+# publishes the result on a throwaway excel/update-* branch. The branch is
+# NEVER merged or deleted by CI - the user pulls it, edits the Excel by hand,
+# pushes, merges back into the base branch and deletes the branch.
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        description: "Base branch to fork the excel/update-* branch from"
+        required: false
+        default: main
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.base_branch }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install openpyxl
+        run: python -m pip install openpyxl
+
+      - name: Create excel/update branch (fails when the name already exists)
+        id: branch
+        run: |
+          STAMP=$(date -u +%Y%m%d-%H%M)
+          BRANCH="excel/update-${STAMP}"
+          if git ls-remote --heads origin "${BRANCH}" | grep -q .; then
+            echo "::error::Branch ${BRANCH} already exists; rerun later or delete it first."
+            exit 1
+          fi
+          git checkout -b "${BRANCH}"
+          echo "branch=${BRANCH}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate & normalize workbook
+        run: python3 tools/validate_manifests_xlsx.py --normalize
+
+      - name: Commit normalization (skipped when nothing changed)
+        run: |
+          git config user.name "zeek.zhao"
+          git config user.email "zeek.zhao@foxmail.com"
+          if git diff --quiet; then
+            echo "Workbook already normalized; nothing to commit."
+          else
+            git add catalogs/manifests.xlsx
+            git commit -m "chore(excel): validate & normalize workbook"
+          fi
+
+      - name: Push update branch (no merge, no delete)
+        run: git push origin HEAD
+
+      - name: Next steps
+        run: |
+          {
+            echo "### excel-validate"
+            echo ""
+            echo "Update branch: \`${{ steps.branch.outputs.branch }}\`"
+            echo ""
+            echo "1. \`git fetch && git checkout ${{ steps.branch.outputs.branch }}\`"
+            echo "2. Edit \`catalogs/manifests.xlsx\` by hand and push to the branch."
+            echo "3. Merge the branch back into \`${{ github.event.inputs.base_branch }}\`, then delete it."
+            echo "4. Trigger **excel-sync** to refresh self-repo facts and regenerate manifests."
+          } >> "$GITHUB_STEP_SUMMARY"

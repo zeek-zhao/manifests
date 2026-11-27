@@ -14,8 +14,26 @@ repos:
 -   repo: local
     hooks:
     -   id: generate-manifests-check
-        name: generate manifests check
+        name: generate manifests check (json)
         entry: python3 tools/generate_manifests.py --check
         language: system
         pass_filenames: false
         files: '^(catalogs/.*\.json|manifests/_remotes\.xml|manifests/default\.xml|manifests/generated/.*\.xml)$'
+    -   id: generate-manifests-excel-check
+        name: generate manifests check (excel)
+        entry: python3 tools/generate_manifests.py --excel --check
+        language: system
+        pass_filenames: false
+        files: '^catalogs/manifests\.xlsx$'
+    -   id: validate-manifests-xlsx
+        name: validate manifests.xlsx
+        entry: python3 tools/validate_manifests_xlsx.py
+        language: system
+        pass_filenames: false
+        files: '^catalogs/manifests\.xlsx$'
+    -   id: catalog-markdown-check
+        name: catalog.md check
+        entry: python3 tools/catalog_to_markdown.py --check
+        language: system
+        pass_filenames: false
+        files: '^(catalogs/manifests\.xlsx|docs/catalog\.md)$'

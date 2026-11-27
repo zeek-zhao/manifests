@@ -9,12 +9,13 @@
 3. 将 `zeek-zhao` 仓库默认配置为 SSH 协议，确保 pull 和 push 一致走 SSH。
 4. 支持可选 `linkfile` 配置；未配置时不生成相关 XML。
 5. 提供清晰的设计文档、实现文档、使用说明和格式校验。
+6. 以 `catalogs/manifests.xlsx` 为单一事实来源（DSN-20261128-001）：自有仓库属性经自动化同步，人工知识列（purpose/contents/relations/linkfiles 等）永不覆盖。
 
 ## 设计原则
 
 ### 单一事实来源
 
-所有仓库定义都来自 `catalogs/*.json`。生成器会先加载并合并多个 catalog，再渲染为目标 XML 文件。
+所有仓库定义都来自 `catalogs/manifests.xlsx`（4 sheets：repos/remotes/config/readme，见 DSN-20261128-001）。生成器通过 `tools/generate_manifests.py --excel` 读取该工作簿并渲染为目标 XML 文件。过渡期旧 `catalogs/*.json` 仅作只读快照保留（D5），Excel 内容镜像见 `catalogs/manifests-excel-snapshot.json`。
 
 ### 工程与产物分离
 
@@ -47,9 +48,9 @@
 ```text
 manifests/
 ├── catalogs/
-│   ├── cpp.json
-│   ├── zeek-zhao.json
-│   └── ...
+│   ├── manifests.xlsx               # 单一事实来源（4 sheets）
+│   ├── manifests-excel-snapshot.json
+│   └── *.json                       # 过渡期只读快照（D5）
 ├── docs/
 │   ├── design.md
 │   └── implementation.md
@@ -60,7 +61,9 @@ manifests/
 │   └── generated/
 ├── tools/
 │   ├── generate_manifests.py
-│   ├── extract_repositories.py
+│   ├── sync_self_repos.py
+│   ├── validate_manifests_xlsx.py
+│   ├── catalog_to_markdown.py
 │   └── tests/
 ├── .pre-commit-config.yaml
 └── README.md
@@ -111,7 +114,7 @@ manifests/
 
 ### 生成流程
 
-1. 读取 `catalogs/*.json`
+1. 读取数据源：`catalogs/manifests.xlsx`（`--excel`，主路径）或过渡期 `catalogs/*.json`
 2. 按顺序合并 `remotes`、`owners` 和 `repositories`
 3. 计算每个仓库的协议、remote、groups
 4. 渲染 `_remotes.xml`
@@ -123,6 +126,8 @@ manifests/
 1. `generate_manifests.py --check` 校验生成结果是否与磁盘一致
 2. `pre-commit` 负责 XML/JSON/行尾格式校验
 3. 单元测试校验 remote 选择、多 catalog 合并、linkfile 输出
+4. `validate_manifests_xlsx.py` 校验 Excel 结构与规则；`--normalize` 冻结首行、统一列宽与下拉
+5. CI：`excel-validate`（人工流转 Excel 修改分支）与 `excel-sync`（同步自有仓库并确定性重建，无变更不提交）
 
 ## 风险与约束
 

@@ -38,5 +38,6 @@ repo sync -c -j30 sample/docker-sample
 ## 维护约定
 
 - 示例清单由 `tools/generate_manifests.py` 生成，不手工修改。
+- 示例仓库由 `catalogs/manifests.xlsx` 的 config 表（`quickstart_https_repo` / `quickstart_self_repo`）配置。
 - 示例仓库应尽量满足“单仓可直接拉取、依赖少、说明成本低”。
 - 如果示例仓库变更，应同步更新本文件中的命令和仓库说明。
