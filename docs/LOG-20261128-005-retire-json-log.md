@@ -5,7 +5,7 @@
 | 日期 | 2026-11-28 |
 | 执行者 | zeek.zhao（Agent 代执行） |
 | 关联 | TSK/PLN-20261128-005 / DSN-20261128-001 决策 D5 |
-| 分支 | feat/excel-retire-json（基于 main，PR 待合并） |
+| 分支 | feat/excel-retire-json（基于 main，PR #4 已合并） |
 
 ## 1. 变更记录
 
@@ -20,7 +20,8 @@
 1. `python3 tools/generate_manifests.py --excel --check`：通过。
 2. pre-commit `--all-files`：9 钩子全过。
 3. `grep -rn "过渡" README.md`：无遗留。
-4. CI：push / pull_request 双绿（结果见 PR）。
+4. CI：push / pull_request 双绿（push 46055225252 / pull_request 46055236136）。
+5. PR #4 合并：本地 --no-ff 合并提交 77d5ea9（身份合规）推送 main，PR 自动标记 MERGED；main CI 绿（run 46056043753）。feat/excel-retire-json 分支保留未删。
 
 ## 3. 影响面确认
 
