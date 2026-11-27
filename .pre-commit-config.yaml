@@ -13,12 +13,6 @@ repos:
         args: ['--no-sort-keys', '--autofix', '--indent=2']
 -   repo: local
     hooks:
-    -   id: generate-manifests-check
-        name: generate manifests check (json)
-        entry: python3 tools/generate_manifests.py --check
-        language: system
-        pass_filenames: false
-        files: '^(catalogs/.*\.json|manifests/_remotes\.xml|manifests/default\.xml|manifests/generated/.*\.xml)$'
     -   id: generate-manifests-excel-check
         name: generate manifests check (excel)
         entry: python3 tools/generate_manifests.py --excel --check
