@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="ops/srvkit" remote="github_git" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>

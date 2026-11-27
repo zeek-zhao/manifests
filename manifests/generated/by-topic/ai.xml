@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="ai/meetnote" remote="github_git" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/ai-workflow" remote="github_git" groups="ai,github" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>

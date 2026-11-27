@@ -1,0 +1,62 @@
+name: excel-sync
+
+# DSN §11: manual entry point. Refreshes self-repo facts from the GitHub API
+# into catalogs/manifests.xlsx, regenerates manifests deterministically from
+# the workbook and commits the diff (if any) with [skip ci].
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install openpyxl
+        run: python -m pip install openpyxl
+
+      # sync_self_repos.py reads private repos via /user/repos, which needs a
+      # classic PAT with repo scope (zeek-zhao). GITHUB_TOKEN alone cannot list
+      # a user's private repositories. Without the secret the sync is skipped
+      # and the run only regenerates from the current workbook.
+      - name: Sync self repos into workbook
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::warning::secret GH_PAT not set - skipping self-repo sync"
+          else
+            python3 tools/sync_self_repos.py
+          fi
+
+      - name: Regenerate manifests & catalog.md from workbook
+        run: |
+          python3 tools/generate_manifests.py --excel
+          python3 tools/generate_manifests.py --excel --export-json catalogs/manifests-excel-snapshot.json
+          python3 tools/generate_manifests.py --excel --check
+          python3 tools/catalog_to_markdown.py
+          python3 tools/catalog_to_markdown.py --check
+
+      - name: Commit regeneration (skipped when nothing changed)
+        run: |
+          git config user.name "zeek.zhao"
+          git config user.email "zeek.zhao@foxmail.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes after regeneration."
+          else
+            git commit -m "chore(manifest): regenerate from excel [skip ci]"
+            git push
+          fi

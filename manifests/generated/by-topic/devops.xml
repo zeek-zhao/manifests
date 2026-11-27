@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="devops/orgflow-devops" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-jenkins" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>
