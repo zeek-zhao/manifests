@@ -11,7 +11,7 @@ repo sync -j30
 
 ## 目录说明
 
-- `catalogs/`：仓库配置数据源，`manifests.xlsx` 为单一事实来源（过渡期旧 JSON 保留只读）
+- `catalogs/`：仓库配置数据源，`manifests.xlsx` 为单一事实来源；`manifests-excel-snapshot.json` 为生成器导出的机器可读快照（随 Excel 同步更新，便于 PR 审阅）
 - `manifests/`：生成后的清单目录
 - `manifests/generated/`：按维度拆分的清单
 - `manifests/examples/`：面向 `repo init` 的最小示例清单
@@ -36,7 +36,6 @@ pre-commit run --all-files
 
 - pre-commit-hooks：check-xml、check-json、行尾与空白规范
 - pretty-format-json：统一 JSON 格式（2 空格，保持原 key 顺序）
-- 本地钩子 generate-manifests-check：JSON 数据源生成一致性检查（过渡期）
 - 本地钩子 generate-manifests-excel-check：Excel 数据源生成一致性检查
 - 本地钩子 validate-manifests-xlsx：catalogs/manifests.xlsx 结构与规则校验
 - 本地钩子 catalog-markdown-check：docs/catalog.md 与 Excel 数据一致
