@@ -194,7 +194,10 @@ def ctr_enc(args, sub):
 
 def stage_encrypt(args, entries, image):
     ctx = Path(args.ctx) / args.group
-    ctr_enc(args, ["images", "import", "--no-unpack", "--base-name-compare=false", image])
+    # docker save 明文 tar 仅存在于构建机 ctx 目录内（红线 2：不出构建机，随清理销毁）
+    img_tar = ctx / "image.tar"
+    sh(["docker", "save", image, "-o", str(img_tar)])
+    ctr_enc(args, ["images", "import", "--no-unpack", str(img_tar)])
     man = json.loads((ctx / "pools-manifest.json").read_text(encoding="utf-8"))
     for m in man["repos"]:
         if m["encrypted"]:
