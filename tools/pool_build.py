@@ -165,8 +165,14 @@ def stage_fetch(args, entries):
             head = sh(["git", "-C", str(bare), "rev-parse", "HEAD"], capture=True)
             tmp = tars / ("%s.tar.tmp" % ent["name"])
             final = tars / ("%s.tar" % ent["name"])
+            # runner 预装 git-lfs 时，.gitattributes 的 filter=lfs 标记会让 archive 触发
+            # clean filter（指针→对象转换，上游 404 即 128）——archive 同样禁用 lfs filter。
             with open(tmp, "wb") as fh:
-                subprocess.run(["git", "-C", str(bare), "archive", "--format=tar", head],
+                subprocess.run(["git", "-C", str(bare),
+                                "-c", "filter.lfs.process=",
+                                "-c", "filter.lfs.clean=cat",
+                                "-c", "filter.lfs.required=false",
+                                "archive", "--format=tar", head],
                                stdout=fh, check=True)
             tmp.rename(final)  # 原子落盘：tar 完整写完才出现在正式路径
             digest = hashlib.sha256(final.read_bytes()).hexdigest()
