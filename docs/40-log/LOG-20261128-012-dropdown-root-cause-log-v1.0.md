@@ -22,6 +22,11 @@
 - 本地重生成：normalize（自检过）→ generate → catalog.md（274 行）→ 解包断言 5 个 DV 均无 `showDropDown`、sqref 含第 1 行。
 - 全量复查：`--excel --check`/`validate`/`catalog.md --check` 过；快照字节不变；4 图表保留；readme 30 格（15 行）；TagCategories 统计!$A$15:$A$28 14 类；动态统计 132 行、属性列值域纯 public/private；orgflow-devops1 零残留；维度文件 29 个与 default.xml 引用集完全一致。
 
+## 2.1 CI 与合并记录
+
+- PR #11 CI 双绿：push run 46127708126 / pull_request run 46127746563
+- 合并提交 e052796 已推送 main（1126f13..e052796，ls-remote 核验送达后才删分支）；PR #11 状态 MERGED（2026-11-28T08:53:06Z）
+
 ## 3. 复查发现与清理（遗漏清单）
 
 1. `manifests/generated/by-language/linux.xml`：TSK-010 将 5 个误填 linux 的 language 修正后，该文件无成员且不被 default.xml 引用——stale 残留，已 `git rm`（generate 不自动删除 stale 产物属已知设计，清理依赖任务书动作，GUIDE/LOG 已提示）。
