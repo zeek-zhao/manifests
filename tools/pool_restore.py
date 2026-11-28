@@ -166,10 +166,18 @@ def fetch_repo_tar(image, meta, repo, key=None, decoder="ctd-decoder", work=None
             dec_tar = work / "plain-layer.bin"
             http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, layer["digest"]), tok, dec_tar)
 
-        got = hashlib.sha256(Path(dec_tar).read_bytes()).hexdigest()
+        # 每仓一层：层 blob 解包后，仓 tar 位于镜像 fs 内的 entry["path"]——对账对象是它
+        ex = work / "extracted"
+        ex.mkdir(exist_ok=True)
+        with tarfile.open(dec_tar) as tf:
+            tf.extractall(ex, filter="data")
+        target = ex / (entry.get("path") or entry.get("tar"))
+        if not target.exists():
+            raise RuntimeError("层内未找到 %s（层解包异常）" % (entry.get("path") or entry.get("tar")))
+        got = hashlib.sha256(target.read_bytes()).hexdigest()
         if got != entry["sha256"]:
             raise RuntimeError("sha256 对账失败 %s != %s" % (got[:16], entry["sha256"][:16]))
-        return repo_path, pools_man, entry, Path(dec_tar)
+        return repo_path, pools_man, entry, target
     finally:
         if own_work:
             shutil.rmtree(work, ignore_errors=True)
@@ -185,11 +193,11 @@ def main(argv=None):
     p.add_argument("--out", default="restore", help="还原输出目录")
     args = p.parse_args(argv)
 
-    repo_path, pools_man, entry, dec_tar = fetch_repo_tar(
+    repo_path, pools_man, entry, tar_p = fetch_repo_tar(
         args.image, args.meta, args.repo, key=args.key, decoder=args.decoder)
-    with tarfile.open(dec_tar) as tf:
-        tf.extractall(args.out, filter="data")
     target = Path(args.out) / (entry.get("path") or entry.get("tar"))  # path=新 schema；tar=demo 历史版
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(tar_p, target)
     got = hashlib.sha256(target.read_bytes()).hexdigest()
     print("RESTORE_OK %s -> %s（sha256 %s… 对账一致）" % (args.repo, target, got[:16]))
     # pools-manifest.json 随还原落盘，便于二次对账与追溯
