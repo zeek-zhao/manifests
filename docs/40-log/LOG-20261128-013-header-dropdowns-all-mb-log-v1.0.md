@@ -23,6 +23,11 @@
 - 解包终态：**showDropDown=0 次**（Excel/WPS 双端均显示箭头，TSK-012 机制生效）；26 个 list DV 全部双段 sqref 含第 1 行；第 2 行污染=0；内联超 255=0；DD1 已定义且被引用。
 - openpyxl 读回 DV 数==表头列数；`--excel --check`、`validate`、`catalog.md --check` 全过；快照重导出；stats 89/90 github 仓有指标（orgflow-devops1 上游已删 404 常态留空）。
 
+## 2.1 CI 与合并记录
+
+- PR #12 CI 双绿：push run 46130705560 / pull_request run 46130740992
+- 合并提交 e72b854 已推送 main（b6cc7c0..e72b854，ls-remote 核验送达后才删分支）；PR #12 状态 MERGED（2026-11-28T09:31:44Z）
+
 ## 3. 事故与教训
 
 1. **自检误报 626**：normalize 反复失败于「内联 >255 字符 (626)」，但解包显示全部合规——monkeypatch 抓现场实证：**openpyxl 将非 ASCII 字符写为 `&#NNNNN;` 数字实体**，标签分类内联 raw=626、unescape 后仅 115；`_verify` 子元素组漏做 unescape（属性式组有）导致字节级误判。修复=子元素组补 unescape。教训：XML 层断言必须按**解码后字符数**度量；数值型 NCR 是 openpyxl 对非 ASCII 的标准输出，Excel/WPS 均正确解码，与兼容性无关。
