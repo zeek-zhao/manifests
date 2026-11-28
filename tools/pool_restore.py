@@ -29,7 +29,11 @@ import urllib.error
 from pathlib import Path
 
 
-def http_json(url, token=None, accept="application/vnd.oci.image.manifest.v1+json"):
+def http_json(url, token=None, accept=(
+        "application/vnd.oci.image.index.v1+json, "
+        "application/vnd.oci.image.manifest.v1+json, "
+        "application/vnd.docker.distribution.manifest.v2+json, "
+        "application/vnd.docker.distribution.manifest.list.v2+json")):
     req = urllib.request.Request(url)
     if token:
         req.add_header("Authorization", "Bearer %s" % token)
@@ -127,6 +131,14 @@ def main(argv=None):
         # meta 镜像 → payload.bin（按加密 blob digest 前 12 位命名）
         meta_tok = ghcr_token(meta_path)[0]
         meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s" % (meta_path, meta_ref), meta_tok)
+        if "layers" not in meta_man and "manifests" in meta_man:
+            # buildx attestation index：取目标平台单 manifest 再拉一层
+            cand = [m for m in meta_man["manifests"]
+                    if (m.get("platform") or {}).get("architecture") not in ("unknown", None)]
+            if len(cand) != 1:
+                raise RuntimeError("meta 镜像 index 无法唯一定位目标 manifest（%d 候选）" % len(cand))
+            meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s"
+                                 % (meta_path, cand[0]["digest"]), meta_tok)
         meta_layer = meta_man["layers"][0]
         meta_blob = Path(work) / "meta.tar"
         http_blob("https://ghcr.io/v2/%s/blobs/%s" % (meta_path, meta_layer["digest"]), meta_tok, meta_blob)

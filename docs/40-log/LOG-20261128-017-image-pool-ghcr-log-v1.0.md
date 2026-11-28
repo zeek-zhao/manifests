@@ -61,9 +61,24 @@
 ### 待收口
 - 包 public 化（F-20，待 OWNER UI）；匿名拉取复验；CI 试点 run（本次 push 触发）；robot/qt 等全组扩展；F-19 上游对齐观察。
 
+### A7 CI 试点（app 组，run1~run18，全绿收口）
+- 失败→修复序列（每轮 push 触发重跑）：
+  | run | 步骤 | 症状 | 修复 |
+  |---|---|---|---|
+  | 1/2 | containerd 安装 | tar 无根目录包装，--strip-components 反剥 | install -D + test -x |
+  | 3 | import | ctr images import 吃 tar 不吃镜像引用（漏 docker save） | encrypt 阶段补 save |
+  | 4/5 | daemon | socket root 属主拒绝→rootless 启动受限 | root daemon + chmod 666 + 失败打印日志 |
+  | 6/7/8 | 红线 | 误拦（加密实际成功） | ①列值判据（6 列=加密）②③layerinfo capture=True（sh 默认直通返回空串）+ ctr_enc 透传 capture |
+  | 9 | push | content digest not found | docker build 关 provenance/sbom（buildx attestation manifest 的 blob 不入 save） |
+  | 10~18 | meta | genpayload 五连修：树内子目录（payload.go 包名冲突）→文件名对齐→参数化重写（containerd proto shim；本地 golang:1.26-alpine 容器验证 BUILD_OK+payload 308B）→CWD 树内（go run 模块解析基于 CWD）→GENPAYLOAD_DIR 子目录+setup-go 1.26（imgcrypt go.mod 要求）→djson/out 绝对路径（go run CWD 相对路径 panic） |
+- **run 46155148582（tag run-18）全绿**：fetch→scan→encrypt→红线 push→meta 全链；ghcr 产物=run-18（5 层，layer0/1 encrypted=True）+run-18-meta（payloads .bin+.json）。
+- 消费侧还原（pool_restore）三缺陷修复后 **RESTORE_OK 双样本 PASS**：①http_json Accept 扩四类型（docker media type 404）；②meta manifest 为 buildx attestation index（无 layers 键）→index 解包；③匿名 token 对 private 包 401（回退分支已含）。kuaidian.tar 48bf8004…、linkManager.tar df3b5e3a…（内置对账一致；与 Demo 8af80c/75fed2 差异=CI fetch HEAD 更新）。
+- 改进项：pool_restore 还原目录未落 pools-manifest.json；stage_meta build 未关 provenance（CI 下轮生效）；ghcr 失败轮 tag 待清理。
+
 ## 变更记录
 
 | 版本 | 日期 | 说明 |
 |---|---|---|
 | v1.0 | 2026-11-28 | 首版，A1~A3 记录 |
 | v1.1 | 2026-11-28 | A4~A6：Demo 端到端 PASS、工具三件套与冒烟、CI 工作流；F-19/F-20 |
+| v1.2 | 2026-11-28 | A7：CI 试点 run1~run18 全绿、消费侧还原双样本 PASS、run 序列缺陷与教训 |
