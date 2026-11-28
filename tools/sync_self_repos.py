@@ -8,7 +8,7 @@ obsidian multi-branch checkout are never touched):
   2. platform      <- github (rows already on another platform are skipped, K5)
   3. description   <- GitHub API description
   4. 仓库属性    <- GitHub API visibility 原值（public/private，TSK-009 起英文值域）
-  5. 仓库大小(KB) <- GitHub API size（KB，TSK-009 起刷新）
+  5. 仓库大小(MB) <- GitHub API size/1024（MB 保留 1 位小数，TSK-013 起单位统一 MB）
   5. protocol      <- cleared; the workbook stores the per-row preference and
                       auto rows stay protocol-less (K6)
   6. path          <- project/<repo> when empty
@@ -155,9 +155,10 @@ def main() -> int:
             ws.cell(row=r, column=col["仓库属性"]).value = visibility
             row_changes.append(f"仓库属性={visibility}")
         api_size = repo.get("size")
-        if api_size is not None and str(ws.cell(row=r, column=col["仓库大小(KB)"]).value or "").strip() != str(api_size):
-            ws.cell(row=r, column=col["仓库大小(KB)"]).value = int(api_size)
-            row_changes.append(f"仓库大小(KB)={api_size}")
+        mb_value = round(api_size / 1024, 1) if api_size is not None else None
+        if mb_value is not None and str(ws.cell(row=r, column=col["仓库大小(MB)"]).value or "").strip() != str(mb_value):
+            ws.cell(row=r, column=col["仓库大小(MB)"]).value = mb_value
+            row_changes.append(f"仓库大小(MB)={mb_value}")
         if str(ws.cell(row=r, column=col["protocol"]).value or "").strip():
             ws.cell(row=r, column=col["protocol"]).value = None
             row_changes.append("protocol 清空（K6）")
@@ -180,7 +181,7 @@ def main() -> int:
             "protocol": None,
             "description": repo.get("description") or "",
             "仓库属性": "private" if (repo.get("visibility") == "private" or repo.get("private")) else "public",
-            "仓库大小(KB)": repo.get("size"),
+            "仓库大小(MB)": round(repo["size"] / 1024, 1) if repo.get("size") is not None else None,
         }
         for key, value in defaults.items():
             if key in col:

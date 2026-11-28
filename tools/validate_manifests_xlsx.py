@@ -60,7 +60,7 @@ COLUMN_DOCS = {
         "relations": "仓库间关系（人工知识列）",
         "仓库属性": "public/private（自有行由 excel-sync 按 API visibility 刷新）",
         "标签分类": "统一标签体系（下拉可选，清单维护于统计表）",
-        "仓库大小(KB)": "仓库体积 KB（自有行由 excel-sync 刷新；gitlab/yoctoproject 无公开 API 留空）",
+        "仓库大小(MB)": "仓库体积 MB（自有行由 excel-sync 刷新；gitlab/yoctoproject 无公开 API 留空）",
         "suggested_action": "维护建议（保留/更新/待确认/废弃，自由文本）",
         "note": "备注（上游消失标注等）",
     },
@@ -174,12 +174,12 @@ README_ROWS = [
     ("A.流程|1", "修改入口：CI 人工触发 excel-validate，基于 base 分支（默认 main）创建 excel/update-<时间戳> 分支并完成校验与规范化（含下拉与统计公式刷新），产生且仅一个提交，不自动合并。"),
     ("A.流程|2", "人工流转：拉取该分支→本地修改 Excel→推送→合并回主分支→删除该分支。"),
     ("A.流程|3", "合并后人工触发 excel-sync：同步自有仓库（上游消失的行将被删除、新增仓库自动追加）→刷新动态统计与图表→确定性重建 manifests→--check→有差异才提交（[skip ci]）。"),
-    ("A.流程|4", "自有行（name 以 config.self_owner 开头）由自动化维护：branch/platform/description/仓库属性/仓库大小自动刷新；人工维护 path（已有值不覆盖）与 groups/topic/知识列（永不覆盖）。"),
+    ("A.流程|4", "自有行（name 以 config.self_owner 开头）由自动化维护：branch/platform/description/仓库属性/仓库大小(MB)自动刷新；人工维护 path（已有值不覆盖）与 groups/topic/知识列（永不覆盖）。"),
     ("B.结构|1", "repos/remotes/config 三表均为三行结构：第 1 行表头（下拉自第 1 行即可点选）/第 2 行列说明/第 3 行起数据。"),
     ("B.结构|2", "标签分类列下拉=内联枚举（14 类）+TagCategories 命名区域双保险；统计表按 public/private 与标签自动计数（COUNTIF/COUNTA）。"),
     ("B.字典|repos.protocol", "https/git；留空继承 config.default_protocol。"),
     ("B.字典|repos.仓库属性", "public/private（GitHub API 实值，excel-sync 自动刷新）。"),
-    ("B.字典|repos.仓库大小(KB)", "GitHub API size 字段（KB），excel-sync 自动刷新；gitee 等平台无对应 API 指标则留空。"),
+    ("B.字典|repos.仓库大小(MB)", "GitHub API size/1024（MB，保留 1 位小数），excel-sync 自动刷新；gitee 等平台无对应 API 指标则留空。"),
     ("B.字典|repos.topic", "主题标签，驱动 by-topic 维度文件与 groups 派生属性（TSK-010）。"),
     ("B.字典|repos.language", "语言标签，驱动 by-language 维度；excel-sync 对 github 自有行按 GitHub API 实测回填。"),
     ("B.字典|动态统计", "GitHub API 实时拉取 stars/forks/size/pushed_at，含 4 张图表（标签分布条形/平台饼/size Top15 条形/public-private 饼）；gitee/gitlab/yoctoproject 平台指标留空。"),
@@ -198,15 +198,64 @@ def _refresh_readme(wb) -> None:
         ws.cell(row=i, column=2).value = v
 
 
+def _collect_values(ws) -> dict:
+    """逐列收集数据全集（第 3 行起，排除第 2 行说明行），去重排序去空（TSK-013）。"""
+    header = [c.value for c in ws[1]]
+    out = {}
+    for idx, col_name in enumerate(header, start=1):
+        vals = sorted({
+            str(ws.cell(row=r, column=idx).value).strip()
+            for r in range(3, ws.max_row + 1)
+            if ws.cell(row=r, column=idx).value not in (None, "")
+        })
+        if vals:
+            out[col_name] = vals
+    return out
+
+
+def _dropdown_source(wb, col_name: str, values: list, dd_state: dict) -> str:
+    """超长值域写入「下拉源」sheet 新列并注册 DD<n> 命名区域，返回区域名。"""
+    if "下拉源" not in wb.sheetnames:
+        wb.create_sheet("下拉源")
+    ws = wb["下拉源"]
+    dd_state["idx"] += 1
+    idx = dd_state["idx"]
+    letter = get_column_letter(idx)
+    ws.cell(row=1, column=idx).value = col_name
+    for i, v in enumerate(values, start=2):
+        ws.cell(row=i, column=idx).value = v
+    name = f"DD{idx}"
+    wb.defined_names[name] = DefinedName(
+        name, attr_text=f"下拉源!${letter}$2:${letter}${1 + len(values)}"
+    )
+    return name
+
+
+def _apply_column_dv(ws, col_name: str, values: list, wb, dd_state: dict) -> None:
+    """单列 DV：值域内联 ≤255 字符，否则引用下拉源命名区域；sqref 双段（第 1 行 + 第 3 行起，排除第 2 行）。"""
+    header = [c.value for c in ws[1]]
+    letter = get_column_letter(header.index(col_name) + 1)
+    inline = '"' + ",".join(values) + '"'
+    if len(inline) <= 255:
+        formula1 = inline
+    else:
+        formula1 = _dropdown_source(wb, col_name, values, dd_state)
+    dv = DataValidation(
+        type="list", formula1=formula1, allow_blank=True, showErrorMessage=False
+    )
+    dv.add(f"{letter}1")
+    dv.add(f"{letter}3:{letter}1000")
+    ws.add_data_validation(dv)
+
+
 def _apply_formatting(path: Path, platform_values: list) -> None:
     wb = load_workbook(path)
-    enum_columns = {
-        "protocol": ["https", "git"],
-        "仓库属性": VISIBILITY_VALUES,
-        "suggested_action": ["保留", "更新", "待确认", "废弃"],
-    }
-    if platform_values:
-        enum_columns["platform"] = platform_values
+    # 重建下拉源：清除旧 sheet 与 DD* 命名区域（TSK-013）
+    if "下拉源" in wb.sheetnames:
+        wb.remove(wb["下拉源"])
+    for n in [n for n in wb.defined_names if n.startswith("DD")]:
+        del wb.defined_names[n]
+    dd_state = {"idx": 0}
     try:
         repos = wb["repos"]
         header = [c.value for c in repos[1]]
@@ -215,40 +264,53 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
             ws = wb[name]
             _style_sheet(ws, [c.value for c in ws[1]], band=True)
             _tight_widths(ws)
-        # refresh dropdowns: remove old ones on repos, re-add non-strict hints.
-        # 范围从第 1 行开始（TSK-011）：表头单元格即可点选下拉（用户复查确认）。
-        for dv in list(repos.data_validations.dataValidation):
-            repos.data_validations.dataValidation.remove(dv)
-        for column, values in enum_columns.items():
-            if column not in header:
-                continue
-            letter = get_column_letter(header.index(column) + 1)
-            dv = DataValidation(
-                type="list",
-                formula1='"' + ",".join(values) + '"',
-                allow_blank=True,
-                showErrorMessage=False,
-            )
-            dv.add(f"{letter}1:{letter}1000")
-            repos.add_data_validation(dv)
-        # 标签分类下拉双保险（TSK-009 #3）：
-        # ① 内联枚举串（任何 Excel/WPS 版本直接可点选；由统计表清单生成）；
-        # ② TagCategories 命名区域（文档化引用，跨表单区域引用的规范写法）。
+        _refresh_readme(wb)
+        # 清空四表旧 DV 后按「每列一枚举」矩阵重建（TSK-013：第 1 行每列可点选，第 2 行排除）。
+        for sheet_name in ("repos", "remotes", "config", "readme"):
+            ws = wb[sheet_name]
+            for dv in list(ws.data_validations.dataValidation):
+                ws.data_validations.dataValidation.remove(dv)
+        values_by_sheet = {
+            n: _collect_values(wb[n]) for n in ("remotes", "config", "readme")
+        }
+        repo_vals = _collect_values(repos)
+        # 枚举固定列：固定值域优先于数据全集（维持既有语义）。
+        repo_vals["protocol"] = ["https", "git"]
+        repo_vals["仓库属性"] = VISIBILITY_VALUES
+        repo_vals["标签分类"] = list(TAG_CATEGORIES)
+        if platform_values:
+            repo_vals["platform"] = platform_values
+        repo_vals["suggested_action"] = ["保留", "更新", "待确认", "废弃"]
+        for col_name in header:  # 值域治理：空列补占位；自由文本/超长值域列配占位枚举
+            vals = repo_vals.get(col_name)
+            if not vals:
+                repo_vals[col_name] = ["（暂无可选项）"]
+            elif max(len(str(v)) for v in vals) > 40 or len(
+                '"' + ",".join(str(v) for v in vals) + '"'
+            ) > 255:
+                repo_vals[col_name] = ["（自由填写）"]
+        for col_name, vals in repo_vals.items():
+            if col_name in header and vals:
+                _apply_column_dv(repos, col_name, vals, wb, dd_state)
+        for sheet_name in ("remotes", "config", "readme"):
+            ws = wb[sheet_name]
+            for col_name, vals in values_by_sheet[sheet_name].items():
+                _apply_column_dv(ws, col_name, vals, wb, dd_state)
+        # openpyxl 层自检：repos DV 数 == 表头列数；sqref 不含第 2 行。
+        expect = len(header)
+        got = len(repos.data_validations.dataValidation)
+        if got != expect:
+            raise ValueError(f"repos 表 DV 数 {got} != 表头列数 {expect}")
+        for dv in repos.data_validations.dataValidation:
+            for seg in str(dv.sqref).split():
+                if re.fullmatch(r"[A-Z]+2", seg) or re.search(r"[A-Z]+2:", seg):
+                    raise ValueError(f"repos 表 sqref 覆盖了第 2 行说明行: {seg}")
+        # 标签分类下拉双保险（TSK-009 #3）：内联枚举串 + TagCategories 命名区域。
         if "TagCategories" in wb.defined_names:
             del wb.defined_names["TagCategories"]
         wb.defined_names["TagCategories"] = DefinedName(
             "TagCategories", attr_text=f"统计!$A${tag_start}:$A${tag_end}"
         )
-        tag_letter = get_column_letter(header.index("标签分类") + 1)
-        dv = DataValidation(
-            type="list",
-            formula1='"' + ",".join(TAG_CATEGORIES) + '"',
-            allow_blank=True,
-            showErrorMessage=False,
-        )
-        dv.add(f"{tag_letter}1:{tag_letter}1000")
-        repos.add_data_validation(dv)
-        _refresh_readme(wb)
         wb.save(path)
         # openpyxl 3.1.x 强制为每个 DV 写出 showDropDown="0"：
         # Excel 对该属性语义反转（0=显示箭头），而 WPS 等按字面义处理（0=不显示）。
@@ -276,7 +338,8 @@ def _sanitize_dropdowns(path: Path) -> None:
 
 
 def _verify_dropdowns(path: Path) -> None:
-    """Post-save assertions: no showDropDown attr, sqref covers header row."""
+    """Post-save assertions: no showDropDown attr; sqref covers header row and
+    never row 2; formula1 is a quoted inline list (<=255 chars) or a DD<n> name."""
     with zipfile.ZipFile(path) as z:
         for name in z.namelist():
             if not re.match(r"xl/worksheets/sheet\d+\.xml$", name):
@@ -284,27 +347,43 @@ def _verify_dropdowns(path: Path) -> None:
             xml = z.read(name).decode("utf-8")
             if 'showDropDown="' in xml:
                 raise ValueError(f"{name}: showDropDown attribute still present")
+            for seg in re.findall(r'sqref="([^"]+)"', xml):
+                for part in seg.split():
+                    if re.fullmatch(r"[A-Z]+2", part) or re.search(r"[A-Z]+2:", part):
+                        raise ValueError(f"{name}: sqref 覆盖了第 2 行说明行: {part}")
         # repos sheet: every list DV must start at row 1 with a quoted inline list
+        # (<=255 chars) or a DD<n> defined-name reference (TSK-013).
+        workbook_xml = z.read("xl/workbook.xml").decode("utf-8")
+        defined = set(re.findall(r'<definedName name="(DD\d+)"', workbook_xml))
         xml = z.read("xl/worksheets/sheet1.xml").decode("utf-8")
         dvs = 0
         for tag in re.finditer(r"<dataValidation\b[^>]*>", xml):
             t = tag.group(0)
-            ms = re.search(r'sqref="([A-Z]+)(\d+):', t)
+            ms = re.search(r'sqref="([^"]+)"', t)
             if 'type="list"' not in t:
                 if ms:
                     raise ValueError(f"repos sheet: non-list DV at {ms.group(0)}")
                 continue
-            if not ms or ms.group(2) != "1":
+            # 双段 sqref（TSK-013）：如 "A1 A3:A1000" —— 必须含第 1 行段且不含第 2 行段。
+            if not ms or not any(
+                re.fullmatch(r"[A-Z]+1", p) for p in ms.group(1).split()
+            ):
                 raise ValueError(
-                    f"repos sheet: list DV must start at row 1, got {t[:120]}"
+                    f"repos sheet: list DV must cover row 1, got {t[:140]}"
                 )
             dvs += 1
+        import html as _html
+
+        for f1 in [_html.unescape(m.group(1)) for m in re.finditer(r"<formula1>([^<]*)</formula1>", xml)] + [
+            _html.unescape(m.group(1)) for m in re.finditer(r'formula1="([^"]*)"', xml)
+        ]:
+            if f1.startswith('"') and f1.endswith('"'):
+                if len(f1) > 255:
+                    raise ValueError(f"repos sheet: inline list >255 chars ({len(f1)})")
+            elif not re.fullmatch(r"DD\d+", f1) or f1 not in defined:
+                raise ValueError(f"repos sheet: bad formula1 {f1!r}")
         if dvs == 0:
             raise ValueError("repos sheet: no list data validations found")
-        for m in re.finditer(r"<formula1>([^<]*)</formula1>", xml):
-            f1 = m.group(1)
-            if not (f1.startswith('"') and f1.endswith('"')):
-                raise ValueError(f"repos sheet: unquoted inline list {f1!r}")
 
 
 def main() -> int:

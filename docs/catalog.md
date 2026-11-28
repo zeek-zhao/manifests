@@ -140,7 +140,7 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 
 ## 清单明细 (130)
 
-| path | name | branch | topic | language | platform | groups | 大小(KB) |
+| path | name | branch | topic | language | platform | groups | 大小(MB) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | c++/cmake-examples | fatezrl/cmake-examples.git | master |   | c/c++ | gitee | gitee,visibility-public |   |
 | esp/esp32_100ask_project | weidongshan/esp32_100ask_project.git | master | esp | c/c++ | gitee | esp,gitee,visibility-public |   |
@@ -170,96 +170,96 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 | vue/variant-form | vdpadmin/variant-form.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
 | vue/vue-big-screen-plugin | MTrun/vue-big-screen-plugin.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
 | vue/vxe-table | xuliangzhan_admin/vxe-table.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
-| ai/ai-workflow | zeek-zhao/ai-workflow.git | main | ai | shell | github | ai,github,visibility-private | 487 |
-| ai/meetnote | zeek-zhao/meetnote.git | main | ai | python | github | ai,github,visibility-private | 4100 |
-| app/kuaidian | zeek-zhao/kuaidian.git | main | app | nodejs | github | app,github,visibility-private | 1445 |
-| app/link-manager | zeek-zhao/linkManager.git | main | app | nodejs | github | app,github,visibility-private | 151 |
-| app/worth-track | zeek-zhao/WorthTrack.git | main | app | mixed | github | app,github,visibility-public | 928 |
-| blog/ai-obsidian | zeek-zhao/ai-obsidian.git | main | blog | python | github | blog,github,visibility-private | 34831 |
-| blog/hexo-engine | zeek-zhao/hexo-engine.git | main | blog | nodejs | github | blog,github,visibility-public | 3032 |
-| blog/pagepipe | zeek-zhao/PagePipe.git | main | blog | nodejs | github | blog,github,visibility-private | 16 |
-| blog/zeek-zhao.github.io | zeek-zhao/zeek-zhao.github.io.git | main | blog | mixed | github | blog,github,visibility-public | 26890 |
-| c++/C-C- | tangtangcoding/C-C-.git | main |   | c/c++ | github | github,visibility-public | 2072 |
-| c++/CGraph | ChunelFeng/CGraph.git | main |   | c/c++ | github | github,visibility-public | 6756 |
-| c++/CThreadPool | ChunelFeng/CThreadPool.git | main |   | c/c++ | github | github,visibility-public | 188 |
-| c++/bazel_examples | bazelbuild/examples.git | main |   | c/c++ | github | github,visibility-public | 3365 |
-| c++/examples_CMake | jacking75/examples_CMake.git | master |   | c/c++ | github | github,visibility-public | 1449 |
-| devops/orgflow-devops | zeek-zhao/orgflow-devops.git | main | devops | python | github | devops,github,visibility-public | 2678 |
-| devops/orgflow-jenkins | zeek-zhao/orgflow-jenkins.git | main | devops | python | github | devops,github,visibility-private | 1652 |
-| esp/ESP8266-Demos | AngelLiang/ESP8266-Demos.git | master | esp | c/c++ | github | esp,github,visibility-public | 1288 |
-| linux/driver/linux-driver | zeek-zhao/linux-driver.git | main | linux | c/c++ | github | linux,github,visibility-private | 2889 |
-| linux/free-rtos-demo | zeek-zhao/free-rtos-demo.git | main | linux | c/c++ | github | linux,github,visibility-private | 1844 |
-| linux/kernel/flash-linux0.11-talk | sunym1993/flash-linux0.11-talk.git | main | linux | c/c++ | github | linux,github,visibility-public | 184307 |
-| linux/yocto/yp-distro | zeek-zhao/yp-distro.git | main | linux | mixed | github | linux,github,visibility-public | 2038 |
-| log/EasyLogger | armink/EasyLogger.git | master | log | c/c++ | github | log,github,visibility-public | 3521 |
-| log/PlotJuggler | facontidavide/PlotJuggler.git | main | log | c/c++ | github | log,github,visibility-public | 104572 |
-| log/easyloggingpp | abumq/easyloggingpp.git | master | log | c/c++ | github | log,github,visibility-public | 31048 |
-| log/rosconsole | ros/rosconsole.git | noetic-devel | log | c/c++ | github | log,github,visibility-public | 7309 |
-| log/rqt_plot | ros-visualization/rqt_plot.git | master | log | c/c++ | github | log,github,visibility-public | 464 |
-| log/spdlog | gabime/spdlog.git | v2.x | log | c/c++ | github | log,github,visibility-public | 43061 |
-| log/spdlog_demo | Fibird/spdlog_demo.git | master | log | c/c++ | github | log,github,visibility-public | 1 |
-| ops/srvkit | zeek-zhao/srvkit.git | main |   | python | github | github,visibility-private | 1056 |
-| project/FlexDev-Ent | zeek-zhao/FlexDev-Ent.git | main |   | nodejs | github | github,visibility-private | 1663 |
-| project/PromWatch | zeek-zhao/PromWatch.git | main | linux | shell | github | github,linux,visibility-private | 240 |
-| project/ROS-Academy-for-Beginners | zeek-zhao/ROS-Academy-for-Beginners.git | master | robot | cmake | github | robot,github,visibility-public | 79733 |
-| project/ai-book | zeek-zhao/ai-book.git | main | ai | python | github | ai,github,visibility-private | 5758 |
-| project/ai-docker | zeek-zhao/ai-docker.git | main | ai | python | github | ai,github,visibility-public | 600 |
-| project/ai-mcp | zeek-zhao/ai-mcp.git | main | ai | powershell | github | ai,github,visibility-public | 470 |
-| project/ai-server | zeek-zhao/ai-server.git | main | ai | shell | github | ai,github,visibility-private | 4175 |
-| project/ai-tools | zeek-zhao/ai-tools.git | main | ai | nodejs | github | ai,github,visibility-private | 78 |
-| project/backup | zeek-zhao/backup.git | main | tools | mixed | github | tools,github,visibility-private | 10105 |
-| project/devops | zeek-zhao/devops.git | main |   | nodejs | github | github,visibility-private | 159073 |
-| project/fron-backframe | zeek-zhao/fron-backframe.git | main |   | nodejs | github | vue,github,visibility-private | 2159 |
-| project/fron-backframe-refactor | zeek-zhao/fron-backframe-refactor.git | main |   | nodejs | github | github,visibility-private | 551 |
-| project/jenkins | zeek-zhao/jenkins.git | main | linux | shell | github | github,linux,visibility-private | 3464 |
-| project/jenkins-Shared-Library1 | zeek-zhao/jenkins-Shared-Library1.git | main | devops | groovy | github | devops,github,visibility-public | 38 |
-| project/manifests | zeek-zhao/manifests.git | main | linux | python | github | github,linux,visibility-public | 520 |
-| project/nas-server | zeek-zhao/nas-server.git | main | linux | shell | github | github,linux,visibility-private | 180 |
-| project/obsidian | zeek-zhao/obsidian.git | main |   | nodejs | github | github,visibility-private | 32079 |
-| project/obsidian-md | zeek-zhao/obsidian.git | markdown |   | nodejs | github | github,visibility-private | 32079 |
-| project/obsidian/attachments | zeek-zhao/attachments.git | main |   | nodejs | github | github,visibility-public | 38041 |
-| project/package-manager | zeek-zhao/package-manager.git | main |   | c/c++ | github | github,visibility-private | 13016 |
-| project/poky | zeek-zhao/poky.git | main |   | c/c++ | github | github,visibility-private | 2188 |
-| project/ros_21_tutorials | zeek-zhao/ros_21_tutorials.git | master | robot | cmake | github | robot,github,visibility-public | 54793 |
-| project/src800-bootloader | zeek-zhao/src800-bootloader.git | main |   | c/c++ | github | github,visibility-private | 11965 |
-| project/tabharbor | zeek-zhao/tabharbor.git | main | app | nodejs | github | app,github,visibility-public | 1526 |
-| project/wf4-selftest | zeek-zhao/wf4-selftest.git | main | tools | mixed | github | tools,github,visibility-private | 1 |
-| qt/qt-learn-code | zeek-zhao/qt-learn-code.git | main | qt | c/c++ | github | qt,github,visibility-private | 41576 |
-| robot/6-robot/wpb_cv | 6-robot/wpb_cv.git | master | robot | python | github | robot,github,visibility-public | 14771 |
-| robot/6-robot/wpb_home | 6-robot/wpb_home.git | master | robot | python | github | robot,github,visibility-public | 7018 |
-| robot/6-robot/wpr_simulation | 6-robot/wpr_simulation.git | master | robot | python | github | robot,github,visibility-public | 7647 |
-| robot/Autodrive_Toolchain | ChenJiahao031008/Autodrive_Toolchain.git | main | robot | python | github | robot,github,visibility-public | 145531 |
-| robot/ROBOTIS-GIT/DynamixelSDK | ROBOTIS-GIT/DynamixelSDK.git | master | robot | python | github | robot,github,visibility-public | 28989 |
-| robot/ROBOTIS-GIT/hls_lfcd_lds_driver | ROBOTIS-GIT/hls_lfcd_lds_driver.git | master | robot | python | github | robot,github,visibility-public | 136 |
-| robot/ROBOTIS-GIT/turtlebot3_msgs | ROBOTIS-GIT/turtlebot3_msgs.git | master | robot | python | github | robot,github,visibility-public | 81 |
-| robot/ROBOTIS-GIT/turtlebot3_simulations | ROBOTIS-GIT/turtlebot3_simulations.git | master | robot | python | github | robot,github,visibility-public | 43450 |
-| robot/ZZX_RUN | kkmd66/ZZX_RUN.git | master | robot | python | github | robot,github,visibility-public | 3751 |
-| robot/autoware | autowarefoundation/autoware.git | main | robot | c/c++ | github | robot,github,visibility-public | 2459 |
-| robot/autoware2020-course | t-thanh/autoware2020-course.git | master | robot | c/c++ | github | robot,github,visibility-public | 238159 |
-| robot/frobot | zeek-zhao/frobot.git | main | robot | python | github | robot,github,visibility-private | 38318 |
-| robot/ros | zeek-zhao/ros.git | main | robot | c/c++ | github | robot,github,visibility-private | 19158 |
-| robot/ros2/demos | ros2/demos.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 5921 |
-| robot/ros2/examples | ros2/examples.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 1937 |
-| robot/ros_21_tutorials | huchunxu/ros_21_tutorials.git | master | robot | c/c++ | github | robot,github,visibility-public | 54793 |
-| robot/ros_exploring | huchunxu/ros_exploring.git | master | robot | c/c++ | github | robot,github,visibility-public | 150733 |
-| sample/LanguageLearning | zeek-zhao/LanguageLearning.git | main |   | mixed | github | github,visibility-private | 240723 |
-| sample/base-sample | zeek-zhao/base-sample.git | main |   | mixed | github | github,visibility-private | 702 |
-| sample/cpp-sample | zeek-zhao/cpp-sample.git | main |   | c/c++ | github | github,visibility-private | 496 |
-| sample/database-sample | zeek-zhao/database-sample.git | main |   | nodejs | github | github,visibility-private | 127 |
-| sample/devbox | zeek-zhao/devbox.git | main |   | mixed | github | github,visibility-public | 4095 |
-| sample/docker-sample | zeek-zhao/docker-sample.git | main |   | nodejs | github | github,visibility-private | 135 |
-| sample/go-sample | zeek-zhao/go-sample.git | main |   | go | github | github,visibility-private | 24023 |
-| sample/java-sample | zeek-zhao/java-sample.git | main |   | mixed | github | github,visibility-private | 65683 |
-| sample/java-sample/src/jenkins-shared-library | zeek-zhao/jenkins-shared-library.git | main |   | nodejs | github | devops,github,visibility-public | 99 |
-| sample/obsidian-sample | zeek-zhao/obsidian-sample.git | main |   | nodejs | github | github,visibility-public | 34145 |
-| sample/product-sample | zeek-zhao/product-sample.git | main |   | mixed | github | github,visibility-public | 32 |
-| sample/python-sample | zeek-zhao/python-sample.git | main |   | python | github | github,visibility-private | 420 |
-| sample/python-sample/src/ai-knowledge | zeek-zhao/ai-knowledge.git | main |   | python | github | ai,github,visibility-private | 630 |
-| sample/rust-sample | zeek-zhao/rust-sample.git | main |   | rust | github | github,visibility-private | 700 |
-| sample/standard-version | zeek-zhao/standard-version.git | main |   | mixed | github | github,visibility-private | 37 |
-| sample/vue-sample | zeek-zhao/vue-sample.git | main |   | nodejs | github | github,visibility-private | 144 |
-| tools/vim/PowerVim | youngyangyang04/PowerVim.git | master | tools | mixed | github | tools,github,visibility-public | 6176 |
-| vue/quasar-tutorial | dongwa/quasar-tutorial.git | master | vue | nodejs | github | vue,github,visibility-public | 721 |
+| ai/ai-workflow | zeek-zhao/ai-workflow.git | main | ai | shell | github | ai,github,visibility-private | 0.5 |
+| ai/meetnote | zeek-zhao/meetnote.git | main | ai | python | github | ai,github,visibility-private | 4 |
+| app/kuaidian | zeek-zhao/kuaidian.git | main | app | nodejs | github | app,github,visibility-private | 1.4 |
+| app/link-manager | zeek-zhao/linkManager.git | main | app | nodejs | github | app,github,visibility-private | 0.1 |
+| app/worth-track | zeek-zhao/WorthTrack.git | main | app | mixed | github | app,github,visibility-public | 0.9 |
+| blog/ai-obsidian | zeek-zhao/ai-obsidian.git | main | blog | python | github | blog,github,visibility-private | 34 |
+| blog/hexo-engine | zeek-zhao/hexo-engine.git | main | blog | nodejs | github | blog,github,visibility-public | 3 |
+| blog/pagepipe | zeek-zhao/PagePipe.git | main | blog | nodejs | github | blog,github,visibility-private | 0 |
+| blog/zeek-zhao.github.io | zeek-zhao/zeek-zhao.github.io.git | main | blog | mixed | github | blog,github,visibility-public | 26.3 |
+| c++/C-C- | tangtangcoding/C-C-.git | main |   | c/c++ | github | github,visibility-public | 2 |
+| c++/CGraph | ChunelFeng/CGraph.git | main |   | c/c++ | github | github,visibility-public | 6.6 |
+| c++/CThreadPool | ChunelFeng/CThreadPool.git | main |   | c/c++ | github | github,visibility-public | 0.2 |
+| c++/bazel_examples | bazelbuild/examples.git | main |   | c/c++ | github | github,visibility-public | 3.3 |
+| c++/examples_CMake | jacking75/examples_CMake.git | master |   | c/c++ | github | github,visibility-public | 1.4 |
+| devops/orgflow-devops | zeek-zhao/orgflow-devops.git | main | devops | python | github | devops,github,visibility-public | 2.6 |
+| devops/orgflow-jenkins | zeek-zhao/orgflow-jenkins.git | main | devops | python | github | devops,github,visibility-private | 1.6 |
+| esp/ESP8266-Demos | AngelLiang/ESP8266-Demos.git | master | esp | c/c++ | github | esp,github,visibility-public | 1.3 |
+| linux/driver/linux-driver | zeek-zhao/linux-driver.git | main | linux | c/c++ | github | linux,github,visibility-private | 2.8 |
+| linux/free-rtos-demo | zeek-zhao/free-rtos-demo.git | main | linux | c/c++ | github | linux,github,visibility-private | 1.8 |
+| linux/kernel/flash-linux0.11-talk | sunym1993/flash-linux0.11-talk.git | main | linux | c/c++ | github | linux,github,visibility-public | 180 |
+| linux/yocto/yp-distro | zeek-zhao/yp-distro.git | main | linux | mixed | github | linux,github,visibility-public | 2 |
+| log/EasyLogger | armink/EasyLogger.git | master | log | c/c++ | github | log,github,visibility-public | 3.4 |
+| log/PlotJuggler | facontidavide/PlotJuggler.git | main | log | c/c++ | github | log,github,visibility-public | 102.1 |
+| log/easyloggingpp | abumq/easyloggingpp.git | master | log | c/c++ | github | log,github,visibility-public | 30.3 |
+| log/rosconsole | ros/rosconsole.git | noetic-devel | log | c/c++ | github | log,github,visibility-public | 7.1 |
+| log/rqt_plot | ros-visualization/rqt_plot.git | master | log | c/c++ | github | log,github,visibility-public | 0.5 |
+| log/spdlog | gabime/spdlog.git | v2.x | log | c/c++ | github | log,github,visibility-public | 42.1 |
+| log/spdlog_demo | Fibird/spdlog_demo.git | master | log | c/c++ | github | log,github,visibility-public | 0 |
+| ops/srvkit | zeek-zhao/srvkit.git | main |   | python | github | github,visibility-private | 1 |
+| project/FlexDev-Ent | zeek-zhao/FlexDev-Ent.git | main |   | nodejs | github | github,visibility-private | 1.6 |
+| project/PromWatch | zeek-zhao/PromWatch.git | main | linux | shell | github | github,linux,visibility-private | 0.2 |
+| project/ROS-Academy-for-Beginners | zeek-zhao/ROS-Academy-for-Beginners.git | master | robot | cmake | github | robot,github,visibility-public | 77.9 |
+| project/ai-book | zeek-zhao/ai-book.git | main | ai | python | github | ai,github,visibility-private | 5.6 |
+| project/ai-docker | zeek-zhao/ai-docker.git | main | ai | python | github | ai,github,visibility-public | 0.6 |
+| project/ai-mcp | zeek-zhao/ai-mcp.git | main | ai | powershell | github | ai,github,visibility-public | 0.5 |
+| project/ai-server | zeek-zhao/ai-server.git | main | ai | shell | github | ai,github,visibility-private | 4.1 |
+| project/ai-tools | zeek-zhao/ai-tools.git | main | ai | nodejs | github | ai,github,visibility-private | 0.1 |
+| project/backup | zeek-zhao/backup.git | main | tools | mixed | github | tools,github,visibility-private | 9.9 |
+| project/devops | zeek-zhao/devops.git | main |   | nodejs | github | github,visibility-private | 155.3 |
+| project/fron-backframe | zeek-zhao/fron-backframe.git | main |   | nodejs | github | vue,github,visibility-private | 2.1 |
+| project/fron-backframe-refactor | zeek-zhao/fron-backframe-refactor.git | main |   | nodejs | github | github,visibility-private | 0.5 |
+| project/jenkins | zeek-zhao/jenkins.git | main | linux | shell | github | github,linux,visibility-private | 3.4 |
+| project/jenkins-Shared-Library1 | zeek-zhao/jenkins-Shared-Library1.git | main | devops | groovy | github | devops,github,visibility-public | 0 |
+| project/manifests | zeek-zhao/manifests.git | main | linux | python | github | github,linux,visibility-public | 0.5 |
+| project/nas-server | zeek-zhao/nas-server.git | main | linux | shell | github | github,linux,visibility-private | 0.2 |
+| project/obsidian | zeek-zhao/obsidian.git | main |   | nodejs | github | github,visibility-private | 31.3 |
+| project/obsidian-md | zeek-zhao/obsidian.git | markdown |   | nodejs | github | github,visibility-private | 31.3 |
+| project/obsidian/attachments | zeek-zhao/attachments.git | main |   | nodejs | github | github,visibility-public | 37.1 |
+| project/package-manager | zeek-zhao/package-manager.git | main |   | c/c++ | github | github,visibility-private | 12.7 |
+| project/poky | zeek-zhao/poky.git | main |   | c/c++ | github | github,visibility-private | 2.1 |
+| project/ros_21_tutorials | zeek-zhao/ros_21_tutorials.git | master | robot | cmake | github | robot,github,visibility-public | 53.5 |
+| project/src800-bootloader | zeek-zhao/src800-bootloader.git | main |   | c/c++ | github | github,visibility-private | 11.7 |
+| project/tabharbor | zeek-zhao/tabharbor.git | main | app | nodejs | github | app,github,visibility-public | 1.5 |
+| project/wf4-selftest | zeek-zhao/wf4-selftest.git | main | tools | mixed | github | tools,github,visibility-private | 0 |
+| qt/qt-learn-code | zeek-zhao/qt-learn-code.git | main | qt | c/c++ | github | qt,github,visibility-private | 40.6 |
+| robot/6-robot/wpb_cv | 6-robot/wpb_cv.git | master | robot | python | github | robot,github,visibility-public | 14.4 |
+| robot/6-robot/wpb_home | 6-robot/wpb_home.git | master | robot | python | github | robot,github,visibility-public | 6.9 |
+| robot/6-robot/wpr_simulation | 6-robot/wpr_simulation.git | master | robot | python | github | robot,github,visibility-public | 7.5 |
+| robot/Autodrive_Toolchain | ChenJiahao031008/Autodrive_Toolchain.git | main | robot | python | github | robot,github,visibility-public | 142.1 |
+| robot/ROBOTIS-GIT/DynamixelSDK | ROBOTIS-GIT/DynamixelSDK.git | master | robot | python | github | robot,github,visibility-public | 28.3 |
+| robot/ROBOTIS-GIT/hls_lfcd_lds_driver | ROBOTIS-GIT/hls_lfcd_lds_driver.git | master | robot | python | github | robot,github,visibility-public | 0.1 |
+| robot/ROBOTIS-GIT/turtlebot3_msgs | ROBOTIS-GIT/turtlebot3_msgs.git | master | robot | python | github | robot,github,visibility-public | 0.1 |
+| robot/ROBOTIS-GIT/turtlebot3_simulations | ROBOTIS-GIT/turtlebot3_simulations.git | master | robot | python | github | robot,github,visibility-public | 42.4 |
+| robot/ZZX_RUN | kkmd66/ZZX_RUN.git | master | robot | python | github | robot,github,visibility-public | 3.7 |
+| robot/autoware | autowarefoundation/autoware.git | main | robot | c/c++ | github | robot,github,visibility-public | 2.4 |
+| robot/autoware2020-course | t-thanh/autoware2020-course.git | master | robot | c/c++ | github | robot,github,visibility-public | 232.6 |
+| robot/frobot | zeek-zhao/frobot.git | main | robot | python | github | robot,github,visibility-private | 37.4 |
+| robot/ros | zeek-zhao/ros.git | main | robot | c/c++ | github | robot,github,visibility-private | 18.7 |
+| robot/ros2/demos | ros2/demos.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 5.8 |
+| robot/ros2/examples | ros2/examples.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 1.9 |
+| robot/ros_21_tutorials | huchunxu/ros_21_tutorials.git | master | robot | c/c++ | github | robot,github,visibility-public | 53.5 |
+| robot/ros_exploring | huchunxu/ros_exploring.git | master | robot | c/c++ | github | robot,github,visibility-public | 147.2 |
+| sample/LanguageLearning | zeek-zhao/LanguageLearning.git | main |   | mixed | github | github,visibility-private | 235.1 |
+| sample/base-sample | zeek-zhao/base-sample.git | main |   | mixed | github | github,visibility-private | 0.7 |
+| sample/cpp-sample | zeek-zhao/cpp-sample.git | main |   | c/c++ | github | github,visibility-private | 0.5 |
+| sample/database-sample | zeek-zhao/database-sample.git | main |   | nodejs | github | github,visibility-private | 0.1 |
+| sample/devbox | zeek-zhao/devbox.git | main |   | mixed | github | github,visibility-public | 4 |
+| sample/docker-sample | zeek-zhao/docker-sample.git | main |   | nodejs | github | github,visibility-private | 0.1 |
+| sample/go-sample | zeek-zhao/go-sample.git | main |   | go | github | github,visibility-private | 23.5 |
+| sample/java-sample | zeek-zhao/java-sample.git | main |   | mixed | github | github,visibility-private | 64.1 |
+| sample/java-sample/src/jenkins-shared-library | zeek-zhao/jenkins-shared-library.git | main |   | nodejs | github | devops,github,visibility-public | 0.1 |
+| sample/obsidian-sample | zeek-zhao/obsidian-sample.git | main |   | nodejs | github | github,visibility-public | 33.3 |
+| sample/product-sample | zeek-zhao/product-sample.git | main |   | mixed | github | github,visibility-public | 0 |
+| sample/python-sample | zeek-zhao/python-sample.git | main |   | python | github | github,visibility-private | 0.4 |
+| sample/python-sample/src/ai-knowledge | zeek-zhao/ai-knowledge.git | main |   | python | github | ai,github,visibility-private | 0.6 |
+| sample/rust-sample | zeek-zhao/rust-sample.git | main |   | rust | github | github,visibility-private | 0.7 |
+| sample/standard-version | zeek-zhao/standard-version.git | main |   | mixed | github | github,visibility-private | 0 |
+| sample/vue-sample | zeek-zhao/vue-sample.git | main |   | nodejs | github | github,visibility-private | 0.1 |
+| tools/vim/PowerVim | youngyangyang04/PowerVim.git | master | tools | mixed | github | tools,github,visibility-public | 6 |
+| vue/quasar-tutorial | dongwa/quasar-tutorial.git | master | vue | nodejs | github | vue,github,visibility-public | 0.7 |
 | rk/buildroot | firefly-linux/buildroot.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
 | rk/docs | firefly-linux/docs.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
 | rk/docs-soc_internal | firefly-linux/docs-soc_internal.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
