@@ -20,7 +20,6 @@
     <project path="blog/ai-obsidian" remote="github_https" groups="blog,github,visibility-private" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
     <project path="ai/meetnote" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
     <project path="ops/srvkit" remote="github_https" groups="github,visibility-private" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/ai-book" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-book.git" dest-branch="main" revision="refs/heads/main" />

@@ -2474,34 +2474,12 @@
       "description": "企业 DevOps 平台引导：Jenkins 编排 + LDAP + Caddy + Nexus",
       "purpose": "企业 DevOps 平台引导工程（orgflow 主入口）",
       "contents": "Jenkins 编排+LDAP+Caddy+Nexus 引导配置",
-      "relations": "orgflow-jenkins 为其 Jenkins API 层；orgflow-devops1 为其副本（待去重）；devops 杂项待并入",
+      "relations": "orgflow-jenkins 为其 Jenkins API 层；devops 杂项待并入",
       "仓库属性": "public",
       "标签分类": "DevOps与CI/CD",
       "仓库大小(KB)": "2678",
       "suggested_action": "保留",
       "note": ""
-    },
-    {
-      "name": "zeek-zhao/orgflow-devops1.git",
-      "path": "devops/orgflow-devops1",
-      "branch": "main",
-      "platform": "github",
-      "protocol": "git",
-      "topic": "devops",
-      "language": "python",
-      "groups": [
-        "devops"
-      ],
-      "linkfiles": [],
-      "description": "Enterprise DevOps platform bootstrap: Jenkins orchestration + LDAP auth + Caddy gateway + Nexus — config-as-code, single repo",
-      "purpose": "企业 DevOps 平台引导（副本行）",
-      "contents": "同 orgflow-devops（英文描述版本）",
-      "relations": "与 orgflow-devops 重复，待保留其一",
-      "仓库属性": "private",
-      "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "",
-      "suggested_action": "待确认：与 orgflow-devops 描述相同，保留其一",
-      "note": "上游已删除，待人工确认"
     },
     {
       "name": "zeek-zhao/orgflow-jenkins.git",

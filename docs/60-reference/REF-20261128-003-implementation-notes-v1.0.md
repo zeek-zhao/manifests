@@ -84,7 +84,7 @@
 
 - `generate_manifests.py`：新增 `--excel` 数据源（读 `catalogs/manifests.xlsx`）、`--xlsx` 覆盖路径、`--export-json` 快照导出、Excel 规则校验（name/path/platform/protocol/slug 冲突等）、remotes 代理规则（`use_proxy_https`）、quickstart 改由 config 表驱动。
 - `validate_manifests_xlsx.py`（新增）：结构校验 / 规范化（冻结首行、列宽、下拉）/ 快照导出。
-- `sync_self_repos.py`（新增）：GitHub API 同步自有仓库（branch/platform/description/visibility 刷新、protocol 清空、path 补齐、上游消失标注、新仓库追加、知识列永不覆盖），支持 `--dry-run`。
+- `sync_self_repos.py`（新增）：GitHub API 同步自有仓库（branch/platform/description/visibility 刷新、protocol 清空、path 补齐、**上游消失删行（TSK-011：认证列表为唯一真源，倒序遍历删行）**、新仓库追加、知识列永不覆盖），支持 `--dry-run`。
 - `catalog_to_markdown.py`：数据源改为 Excel，`docs/catalog.md` 随之重生成。
 - `.github/workflows/excel-validate.yml` / `excel-sync.yml`（新增人工流转链路）；`.pre-commit-config.yaml` 增加 Excel 校验钩子；`tools/enrich_catalog.py` 退役删除（D6）。
 - 验收：`--excel` 与过渡期 JSON 两种数据源的生成产物逐字节一致；`sync_self_repos.py --dry-run` 实测动作与设计预期一致。
