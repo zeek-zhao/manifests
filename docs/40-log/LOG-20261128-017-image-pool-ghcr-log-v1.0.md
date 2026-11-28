@@ -75,6 +75,19 @@
 - 消费侧还原（pool_restore）三缺陷修复后 **RESTORE_OK 双样本 PASS**：①http_json Accept 扩四类型（docker media type 404）；②meta manifest 为 buildx attestation index（无 layers 键）→index 解包；③匿名 token 对 private 包 401（回退分支已含）。kuaidian.tar 48bf8004…、linkManager.tar df3b5e3a…（内置对账一致；与 Demo 8af80c/75fed2 差异=CI fetch HEAD 更新）。
 - 改进项：pool_restore 还原目录未落 pools-manifest.json；stage_meta build 未关 provenance（CI 下轮生效）；ghcr 失败轮 tag 待清理。
 
+### A8~A9：public 复验、组扩展（robot/qt）与 LFS 攻坚（run19~run26）
+
+- **public 匿名复验 PASS**（用户 UI 设 public 后）：匿名 token 交换 200 + manifest 拉取 200，R3 完全闭环。
+- 组盘点：robot 20 仓（跳过 apollo 3312.8MB 后池内 19 仓 ~876MB，含 2 private=zeek-zhao/ros+frobot）、qt 4 仓（跳过 qtkaifajingyan 622.5MB 后池内 3 仓 ~225MB，含 1 private=qt-learn-code）；config/pool-groups.txt=app,qt,robot（组清单唯一出处，workflow plan 兜底读）。
+- **run 修复链**：run19 plan 缺 checkout → d599a21；run20 qt 失败=load_group 丢 origin（快照 path 列为组前缀路径非 URL，repo_url 兜底 owner 错拼 cocowts 仓）→ 修复=entry 加 origin 原样+repo_url 优先 origin；run21~23 robot 失败=t-thanh/autoware2020-course 上游 LFS 对象 404：
+  - abcf622 fetch 增强：GIT_LFS_SKIP_SMUDGE=1+HTTP/1.1+重试 3 次+降级跳过（skipped 入 manifest，不炸整组）——run22 证伪 SKIP_SMUDGE 对 mirror clone 的 fetch 路径无效；
+  - 1ee61dc clone 直接禁用 `-c filter.lfs.process= -c filter.lfs.smudge=cat -c filter.lfs.required=false`（指针文件原样入池）——本地宿主实证 clone exit=0+archive 正常（宿主无 git-lfs）；
+  - d352bc5 archive 同步禁用（runner 预装 git-lfs 时 .gitattributes 的 filter=lfs 使 archive 触发 clean filter→404→128）。
+- **门禁分级修正**：robot run 卡 pool_scan——frobot 内 .env/*.pem 命中（fast-rtps 官方示例演示证书）。修正=按层加密状态分级：明文层（public 仓）命中=拦截无例外；加密层（private 仓）命中=告警记录不拦构建（POOL_SCAN_WARN）。
+- **run 46162266660（tag run-26）三组全绿**：plan/qt/app/robot 全 success；run-26 加密语义验证=robot 20 层、加密层 [15,16]（ros+frobot）。
+- **消费侧还原抽验全 PASS**（ctd-decoder 重建后）：frobot.tar 553b92f1bac42092…、qt-learn-code.tar fe4b592a92b364bd…（内置对账一致）。
+- 教训：mirror clone 走 fetch 路径，SKIP_SMUDGE 只控 checkout/smudge——彻底禁用需 clone 与 archive 两处 -c filter.lfs.*；门禁例外不能靠白名单放行，按"防线覆盖状态"分级才是自洽语义。
+
 ## 变更记录
 
 | 版本 | 日期 | 说明 |
@@ -82,3 +95,4 @@
 | v1.0 | 2026-11-28 | 首版，A1~A3 记录 |
 | v1.1 | 2026-11-28 | A4~A6：Demo 端到端 PASS、工具三件套与冒烟、CI 工作流；F-19/F-20 |
 | v1.2 | 2026-11-28 | A7：CI 试点 run1~run18 全绿、消费侧还原双样本 PASS、run 序列缺陷与教训 |
+| v1.3 | 2026-11-29 | A8~A9：public 复验 PASS、robot/qt 组扩展全绿（run-26）、LFS 攻坚三连修、门禁分级修正、还原抽验 PASS |
