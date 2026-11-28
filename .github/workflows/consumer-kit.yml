@@ -17,6 +17,7 @@ on:
     paths:
       - ".github/workflows/consumer-kit.yml"
       - "tools/pool_restore.py"
+      - "tools/pool_mirror.py"
 
 permissions:
   contents: read
@@ -46,7 +47,7 @@ jobs:
         run: |
           set -euxo pipefail
           mkdir -p kit
-          cp tools/pool_restore.py kit/
+          cp tools/pool_restore.py tools/pool_mirror.py kit/
           cp "$RUNNER_TEMP/ctd-decoder" kit/
           cat > kit/README.txt <<'EOF'
           manifests-pool 消费套件（离线工作流）
@@ -71,10 +72,18 @@ jobs:
             预期：RESTORE_OK <仓库> -> restore/pools/<组>/<仓库>.tar（sha256 … 对账一致）
 
           三、取 public 仓库（明文层）：命令同上（无加密层时直接对账落盘）。
+          四、镜像仓库落位（M15 新增；池产物 format=git-mirror）
+            python3 pool_mirror.py \
+              --image ghcr.io/zeek-zhao/manifests-pool-<组>:<tag> \
+              --meta  ghcr.io/zeek-zhao/manifests-pool-<组>:<tag>-meta \
+              --all --key <私钥> --decoder ./ctd-decoder \
+              --mirror-root ~/mirror [--flat]
+            预期：MIRROR_OK <仓> -> ~/mirror/<组>/<仓>.git；生成 mirror-manifest-<组>.txt
+                  与 pool-manifest.xml（remote fetch 指向本地路径，repo sync --local-only 直接用）。
 
           完整文档：GUIDE-20261128-017-pool-consume（manifests 仓库 docs/00-guide/）。
           EOF
-          (cd kit && sha256sum pool_restore.py ctd-decoder README.txt > checksums.txt)
+          (cd kit && sha256sum pool_restore.py pool_mirror.py ctd-decoder README.txt > checksums.txt)
           (cd kit && sha256sum -c checksums.txt)
           ls -la kit/
 
@@ -83,7 +92,7 @@ jobs:
           set -euxo pipefail
           cat > kit/Dockerfile <<'DOCKERFILE'
           FROM scratch
-          COPY pool_restore.py ctd-decoder README.txt checksums.txt /kit/
+          COPY pool_restore.py pool_mirror.py ctd-decoder README.txt checksums.txt /kit/
           DOCKERFILE
           echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u zeek-zhao --password-stdin
           docker build --provenance=false --sbom=false -t ghcr.io/zeek-zhao/manifests-pool-kit:latest kit/

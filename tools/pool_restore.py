@@ -92,54 +92,51 @@ def decode_layer(decoder, key_file, enc_blob, payload_bin, out_tar, work):
         os.close(3)
 
 
-def main(argv=None):
-    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("--image", required=True, help="主组镜像（ghcr.io/owner/manifests-pool-<g>:tag）")
-    p.add_argument("--meta", required=True, help="meta 镜像（同 tag + -meta）")
-    p.add_argument("--repo", required=True, help="要还原的仓库名（纯名）")
-    p.add_argument("--layer", type=int, default=None, help="层号（缺省按 pools-manifest 查 --repo）")
-    p.add_argument("--key", default=None, help="JWE 私钥路径（PKCS8；仅还原加密层时必填，public 明文层可省）")
-    p.add_argument("--decoder", default="ctd-decoder", help="ctd-decoder 路径")
-    p.add_argument("--out", default="restore", help="还原输出目录")
-    args = p.parse_args(argv)
 
-    if ":" not in args.image.rsplit("/", 1)[-1] or ":" not in args.meta.rsplit("/", 1)[-1]:
-        raise RuntimeError("--image/--meta 必须带 tag")
-    repo_path = args.image.rsplit(":", 1)[0].replace("https://", "").split("/", 1)[1]
-    meta_path = args.meta.rsplit(":", 1)[0].split("/", 1)[1]
-    ref = args.image.rsplit(":", 1)[1]
-    meta_ref = args.meta.rsplit(":", 1)[1]
+def fetch_repo_tar(image, meta, repo, key=None, decoder="ctd-decoder", work=None, quiet=False):
+    """拉取某仓库在组镜像中的层 tar（加密层解密/明文直拉）并完成 sha256 对账。
 
-    tok, mode = ghcr_token(repo_path)
-    print("token: %s" % mode)
+    返回 (repo_path, pools_man, entry, tar_path)；work 为 None 时自建临时目录并自清。
+    """
+    if ":" not in image.rsplit("/", 1)[-1] or ":" not in meta.rsplit("/", 1)[-1]:
+        raise RuntimeError("镜像引用必须带 tag")
+    repo_path = image.rsplit(":", 1)[0].replace("https://", "").split("/", 1)[1]
+    meta_path = meta.rsplit(":", 1)[0].split("/", 1)[1]
+    ref = image.rsplit(":", 1)[1]
+    meta_ref = meta.rsplit(":", 1)[1]
+    own_work = work is None
+    work = Path(tempfile.mkdtemp(prefix="pool-restore-")) if own_work else Path(work)
 
-    work = tempfile.mkdtemp(prefix="pool-restore-")
     try:
+        tok, mode = ghcr_token(repo_path)
+        if not quiet:
+            print("token: %s" % mode)
+
         man = http_json("https://ghcr.io/v2/%s/manifests/%s" % (repo_path, ref), tok)
         # 尾层 = pools-manifest.json（FROM scratch 尾层 COPY）
         tail = man["layers"][-1]
-        tail_blob = Path(work) / "tail.tar"
+        tail_blob = work / "tail.tar"
         http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, tail["digest"]), tok, tail_blob)
         with tarfile.open(tail_blob) as tf:
             member = [m for m in tf.getmembers() if m.name.endswith("pools-manifest.json")][0]
             pools_man = json.load(tf.extractfile(member))
+
         def entry_name(m):
             # 新 schema 用 name；demo 历史 schema 用 repo(owner/name)——向后兼容
             return m.get("name") or m.get("repo", "").rsplit("/", 1)[-1]
 
-        entry = next((m for m in pools_man["repos"] if entry_name(m) == args.repo), None)
+        entry = next((m for m in pools_man["repos"] if entry_name(m) == repo), None)
         if entry is None:
             raise RuntimeError("pools-manifest 中无仓库 %s（可用: %s）"
-                               % (args.repo, [entry_name(m) for m in pools_man["repos"]]))
-        layer_idx = args.layer if args.layer is not None else entry["layer_index"]
-        layer = man["layers"][layer_idx]
+                               % (repo, [entry_name(m) for m in pools_man["repos"]]))
+        layer = man["layers"][entry["layer_index"]]
 
         # 拉层：加密层走 meta payload + ctd-decoder；明文层（public）直接落 tar
-        is_encrypted = layer["mediaType"].endswith("+encrypted") or "enc.keys.jwe" in str(layer.get("annotations") or {})
+        is_encrypted = layer["mediaType"].endswith("+encrypted") or \
+            "enc.keys.jwe" in str(layer.get("annotations") or {})
         if is_encrypted:
-            if not args.key:
-                raise RuntimeError("仓库 %s 位于加密层，还原需 --key <JWE 私钥>" % args.repo)
-            # meta 镜像 → payload.bin（按加密 blob digest 前 12 位命名）
+            if not key:
+                raise RuntimeError("仓库 %s 位于加密层，还原需 --key <JWE 私钥>" % repo)
             meta_tok = ghcr_token(meta_path)[0]
             meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s" % (meta_path, meta_ref), meta_tok)
             if "layers" not in meta_man and "manifests" in meta_man:
@@ -151,44 +148,55 @@ def main(argv=None):
                 meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s"
                                      % (meta_path, cand[0]["digest"]), meta_tok)
             meta_layer = meta_man["layers"][0]
-            meta_blob = Path(work) / "meta.tar"
+            meta_blob = work / "meta.tar"
             http_blob("https://ghcr.io/v2/%s/blobs/%s" % (meta_path, meta_layer["digest"]), meta_tok, meta_blob)
             with tarfile.open(meta_blob) as tf:
                 for m in tf.getmembers():
                     tf.extract(m, work, filter="data")
-            payload_bin = Path(work) / "payloads" / ("%s.bin" % layer["digest"].split(":")[1][:12])
+            payload_bin = work / "payloads" / ("%s.bin" % layer["digest"].split(":")[1][:12])
             if not payload_bin.exists():
-                raise RuntimeError("meta 镜像缺 payload：%s（可用: %s）"
-                                   % (payload_bin.name, [p.name for p in (Path(work) / 'payloads').glob('*.bin')]))
-            # 拉加密层 → 解密
-            enc_blob = Path(work) / "enc-layer.bin"
+                raise RuntimeError("meta 镜像缺 payload：%s（可用: %s）" % (
+                    payload_bin.name,
+                    [p.name for p in (work / "payloads").glob("*.bin")]))
+            enc_blob = work / "enc-layer.bin"
             http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, layer["digest"]), tok, enc_blob)
-            dec_tar = Path(work) / "dec-layer.tar"
-            decode_layer(args.decoder, args.key, enc_blob, payload_bin, dec_tar, work)
+            dec_tar = work / "dec-layer.tar"
+            decode_layer(decoder, key, enc_blob, payload_bin, dec_tar, work)
         else:
-            dec_tar = Path(work) / "plain-layer.bin"
+            dec_tar = work / "plain-layer.bin"
             http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, layer["digest"]), tok, dec_tar)
-        with tarfile.open(dec_tar) as tf:
-            tf.extractall(args.out, filter="data")
-        want = entry["sha256"]
-        target = Path(args.out) / (entry.get("path") or entry.get("tar"))  # path=新 schema；tar=demo 历史版
-        got = hashlib.sha256(target.read_bytes()).hexdigest()
-        if got != want:
-            raise RuntimeError("sha256 对账失败 %s != %s" % (got[:16], want[:16]))
-        print("RESTORE_OK %s -> %s（sha256 %s… 对账一致）" % (args.repo, target, got[:16]))
-        # 改进项（LOG v1.2）：pools-manifest.json 随还原落盘，便于二次对账与追溯
-        man_out = Path(args.out) / "pools-manifest.json"
-        man_out.write_text(json.dumps(pools_man, ensure_ascii=False, indent=2), encoding="utf-8")
-        print("manifest -> %s" % man_out)
+
+        got = hashlib.sha256(Path(dec_tar).read_bytes()).hexdigest()
+        if got != entry["sha256"]:
+            raise RuntimeError("sha256 对账失败 %s != %s" % (got[:16], entry["sha256"][:16]))
+        return repo_path, pools_man, entry, Path(dec_tar)
     finally:
-        shutil.rmtree(work, ignore_errors=True)
+        if own_work:
+            shutil.rmtree(work, ignore_errors=True)
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--image", required=True, help="主组镜像（ghcr.io/owner/manifests-pool-<g>:tag）")
+    p.add_argument("--meta", required=True, help="meta 镜像（同 tag + -meta）")
+    p.add_argument("--repo", required=True, help="要还原的仓库名（纯名）")
+    p.add_argument("--key", default=None, help="JWE 私钥路径（PKCS8；仅还原加密层时必填，public 明文层可省）")
+    p.add_argument("--decoder", default="ctd-decoder", help="ctd-decoder 路径")
+    p.add_argument("--out", default="restore", help="还原输出目录")
+    args = p.parse_args(argv)
+
+    repo_path, pools_man, entry, dec_tar = fetch_repo_tar(
+        args.image, args.meta, args.repo, key=args.key, decoder=args.decoder)
+    with tarfile.open(dec_tar) as tf:
+        tf.extractall(args.out, filter="data")
+    target = Path(args.out) / (entry.get("path") or entry.get("tar"))  # path=新 schema；tar=demo 历史版
+    got = hashlib.sha256(target.read_bytes()).hexdigest()
+    print("RESTORE_OK %s -> %s（sha256 %s… 对账一致）" % (args.repo, target, got[:16]))
+    # pools-manifest.json 随还原落盘，便于二次对账与追溯
+    man_out = Path(args.out) / "pools-manifest.json"
+    man_out.write_text(json.dumps(pools_man, ensure_ascii=False, indent=2), encoding="utf-8")
+    print("manifest -> %s" % man_out)
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except (RuntimeError, KeyError) as e:
-        import traceback
-        traceback.print_exc()
-        print("FATAL: %s" % e, file=sys.stderr)
-        sys.exit(2)
+    main()

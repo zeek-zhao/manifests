@@ -165,14 +165,12 @@ def stage_fetch(args, entries):
             head = sh(["git", "-C", str(bare), "rev-parse", "HEAD"], capture=True)
             tmp = tars / ("%s.tar.tmp" % ent["name"])
             final = tars / ("%s.tar" % ent["name"])
-            # runner 预装 git-lfs 时，.gitattributes 的 filter=lfs 标记会让 archive 触发
-            # clean filter（指针→对象转换，上游 404 即 128）——archive 同样禁用 lfs filter。
+            # 产物 = mirror bare 本体（M15：下载对象从 HEAD 快照改为仓库镜像，
+            # 消费侧解压落位后 repo 可直接 file:// 指向；clone 已禁用 lfs filter，
+            # 指针文件原样入池，打包本身不触发任何 git filter）。
+            ent["head"] = head
             with open(tmp, "wb") as fh:
-                subprocess.run(["git", "-C", str(bare),
-                                "-c", "filter.lfs.process=",
-                                "-c", "filter.lfs.clean=cat",
-                                "-c", "filter.lfs.required=false",
-                                "archive", "--format=tar", head],
+                subprocess.run(["tar", "-C", str(bare), "-cf", "-", "."],
                                stdout=fh, check=True)
             tmp.rename(final)  # 原子落盘：tar 完整写完才出现在正式路径
             digest = hashlib.sha256(final.read_bytes()).hexdigest()
@@ -205,6 +203,7 @@ def stage_build(args, entries, image):
     manifest = {
         "group": args.group,
         "image": image,
+        "format": "git-mirror",
         "jwe_recipient": str(Path(args.jwe_pub).resolve()),
         "lfs_policy": "LFS 指针随池分发，大文件内容不含（与普通 clone 语义一致；GIT_LFS_SKIP_SMUDGE=1）",
         "skipped": json.loads((ctx / "skipped.json").read_text(encoding="utf-8"))
@@ -212,6 +211,7 @@ def stage_build(args, entries, image):
         "repos": [
             {
                 "name": ent["name"],
+                "head": ent.get("head", ""),
                 "layer_index": i,
                 "path": "pools/%s/%s.tar" % (args.group, ent["name"]),
                 "encrypted": ent["encrypted"],
