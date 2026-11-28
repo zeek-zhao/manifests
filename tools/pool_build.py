@@ -284,14 +284,19 @@ def stage_meta(args, entries, image):
         raise RuntimeError("ghcr manifest 中未见加密层（annotations 缺失）")
     for l in jwe_layers:
         out = payloads / ("%s.bin" % l["digest"].split(":")[1][:12])
-        # genpayload 依赖 imgcrypt/typeurl 包：独立目录跑需要 go.mod；
-        # GENPAYLOAD_FILE 指到 imgcrypt 源码树内的单文件时依赖已齐（CI 路径）。
-        go_src = os.environ.get("GENPAYLOAD_FILE") or str(
-            Path(__file__).resolve().parent / "pool-tools" / "genpayload")
+        # genpayload 依赖 imgcrypt/typeurl 包：go run 的模块解析基于 CWD，
+        # 必须在含 go.mod 的 imgcrypt 源码树内执行（GENPAYLOAD_DIR=树根）。
+        gen_dir = os.environ.get("GENPAYLOAD_DIR")
+        if gen_dir:
+            go_file, go_cwd = str(Path(gen_dir) / "genpayload_ci.go"), gen_dir
+        else:
+            go_file = str(Path(__file__).resolve().parent / "pool-tools" / "genpayload")
+            go_cwd = None
         djson = payloads / ("d-%s.json" % l["digest"].split(":")[1][:12])
         djson.write_text(json.dumps(l), encoding="utf-8")
-        sh(["go", "run", go_src, "--descriptor", str(djson), "--out", str(out)],
-           env={"GOPROXY": os.environ.get("GOPROXY", "https://proxy.golang.org,direct")})
+        sh(["go", "run", go_file, "--descriptor", str(djson), "--out", str(out)],
+           env={"GOPROXY": os.environ.get("GOPROXY", "https://proxy.golang.org,direct")},
+           cwd=go_cwd)
     mlines = ["FROM scratch", "COPY payloads/ payloads/"]
     (ctx / "Dockerfile.meta").write_text("\n".join(mlines) + "\n", encoding="utf-8")
     meta_image = image + "-meta"
