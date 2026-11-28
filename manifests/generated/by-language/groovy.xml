@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="project/jenkins-Shared-Library1" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/jenkins-Shared-Library1.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>

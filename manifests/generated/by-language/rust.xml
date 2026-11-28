@@ -3,5 +3,5 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="sample/rust-sample" remote="github_https" groups="sample,github,visibility-private" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/rust-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

@@ -5,4 +5,9 @@
 
     <project path="ai/meetnote" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
     <project path="ai/ai-workflow" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-book" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-book.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-docker" remote="github_https" groups="ai,github,visibility-public" name="zeek-zhao/ai-docker.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-mcp" remote="github_https" groups="ai,github,visibility-public" name="zeek-zhao/ai-mcp.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-server" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-server.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-tools" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-tools.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

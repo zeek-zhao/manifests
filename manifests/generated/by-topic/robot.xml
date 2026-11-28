@@ -21,4 +21,6 @@
     <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,visibility-public" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/ros" remote="github_https" groups="robot,github,visibility-private" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/frobot" remote="github_https" groups="robot,github,visibility-private" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ROS-Academy-for-Beginners" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ROS-Academy-for-Beginners.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/ros_21_tutorials" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

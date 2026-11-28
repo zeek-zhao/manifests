@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="project/nas-server" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/PromWatch" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/jenkins" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/ai-workflow" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-server" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-server.git" dest-branch="main" revision="refs/heads/main" />
+</manifest>

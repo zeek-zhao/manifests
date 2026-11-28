@@ -13,7 +13,7 @@
     <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
     <project path="openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,visibility-public" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
     <project path="openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,visibility-public" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="qemu/qemu" remote="gitee_https" groups="qemu,gitee,visibility-public" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qemu/qemu" remote="gitee_https" groups="gitee,visibility-public" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,visibility-public" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,visibility-public" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,visibility-public" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
@@ -45,19 +45,19 @@
     <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="c++/CGraph" remote="github_https" groups="c++,github,visibility-public" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="c++/CThreadPool" remote="github_https" groups="c++,github,visibility-public" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="c++/C-C-" remote="github_https" groups="c++,github,visibility-public" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="c++/cmake-examples" remote="gitee_https" groups="c++,gitee,visibility-public" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="c++/examples_CMake" remote="github_https" groups="c++,github,visibility-public" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="c++/bazel_examples" remote="github_https" groups="c++,github,visibility-public" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/package-manager" remote="github_https" groups="c++,project,github,visibility-private" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/CGraph" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/CThreadPool" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/C-C-" remote="github_https" groups="github,visibility-public" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/cmake-examples" remote="gitee_https" groups="gitee,visibility-public" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="c++/examples_CMake" remote="github_https" groups="github,visibility-public" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="c++/bazel_examples" remote="github_https" groups="github,visibility-public" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/package-manager" remote="github_https" groups="github,visibility-private" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/driver/linux-driver" remote="github_https" groups="linux,github,visibility-private" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/free-rtos-demo" remote="github_https" groups="linux,github,visibility-private" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
     <project path="qt/qt-learn-code" remote="github_https" groups="qt,github,visibility-private" name="zeek-zhao/qt-learn-code.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/ros" remote="github_https" groups="robot,github,visibility-private" name="zeek-zhao/ros.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/poky" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/cpp-sample" remote="github_https" groups="sample,github,visibility-private" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/src800-bootloader" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/poky" remote="github_https" groups="github,visibility-private" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/cpp-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/src800-bootloader" remote="github_https" groups="github,visibility-private" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
     <project path="todo/alpu" remote="gitee_git" groups="linux,gitee,visibility-public" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

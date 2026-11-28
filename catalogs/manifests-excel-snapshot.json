@@ -226,11 +226,9 @@
       "branch": "master",
       "platform": "gitee",
       "protocol": "",
-      "topic": "qemu",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "qemu"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "百问网 QEMU 仿真环境工程",
       "purpose": "无板卡仿真学习 IMX6ULL",
@@ -1414,11 +1412,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "CGraph C++ DAG 任务流调度框架（ChunelFeng）",
       "purpose": "无三方依赖的并行任务编排",
@@ -1436,11 +1432,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "C++ 线程池实现（ChunelFeng）",
       "purpose": "线程池原理与实践",
@@ -1458,11 +1452,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "C/C++ 面试与学习资料整理（tangtangcoding）",
       "purpose": "C/C++ 求职知识体系",
@@ -1480,11 +1472,9 @@
       "branch": "master",
       "platform": "gitee",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "CMake 教程示例（fatezrl）",
       "purpose": "CMake 系统学习",
@@ -1502,11 +1492,9 @@
       "branch": "master",
       "platform": "github",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "CMake 示例集（jacking75，游戏服务向）",
       "purpose": "CMake 实践参考",
@@ -1524,11 +1512,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Bazel 官方示例仓（bazelbuild）",
       "purpose": "Bazel 构建学习入口",
@@ -1547,10 +1533,8 @@
       "platform": "github",
       "protocol": "",
       "topic": "linux",
-      "language": "linux",
-      "groups": [
-        "project"
-      ],
+      "language": "python",
+      "groups": [],
       "linkfiles": [],
       "description": "repo manifest 多仓库清单管理工程：catalogs/*.json 生成多维度 XML 清单",
       "purpose": "全组织多仓检出的唯一事实源与清单工程主仓",
@@ -1569,10 +1553,8 @@
       "platform": "github",
       "protocol": "",
       "topic": "linux",
-      "language": "linux",
-      "groups": [
-        "project"
-      ],
+      "language": "shell",
+      "groups": [],
       "linkfiles": [],
       "description": "SWD NAS 服务平台文档中心",
       "purpose": "SWD NAS 服务平台文档中心",
@@ -1591,10 +1573,8 @@
       "platform": "github",
       "protocol": "",
       "topic": "linux",
-      "language": "linux",
-      "groups": [
-        "project"
-      ],
+      "language": "shell",
+      "groups": [],
       "linkfiles": [],
       "description": "Prometheus + Grafana + Uptime Kuma 监控栈部署文档",
       "purpose": "监控栈部署指南工程",
@@ -1612,7 +1592,7 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
       "groups": [
         "vue"
@@ -1634,11 +1614,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "fron-backframe 的可持续重构工程",
       "purpose": "fron-backframe 的可持续重构工程",
@@ -1656,11 +1634,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "企业级研发效能平台（Vue3 + Go，五大领域整合）",
       "purpose": "企业级研发效能平台",
@@ -1679,10 +1655,8 @@
       "platform": "github",
       "protocol": "",
       "topic": "linux",
-      "language": "linux",
-      "groups": [
-        "project"
-      ],
+      "language": "shell",
+      "groups": [],
       "linkfiles": [],
       "description": "Jenkins 一键部署工程（Docker + JCasC + JJB + 共享库）",
       "purpose": "Jenkins 一键部署工程",
@@ -1700,12 +1674,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "c++",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "c++",
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Conan 包管理器 demo / 部署 / 笔记",
       "purpose": "Conan C++ 包管理实践工程",
@@ -1833,11 +1804,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "DevOps 配置杂项（shell 脚本与配置，待整理并入 orgflow 体系）",
       "purpose": "DevOps 配置杂项仓",
@@ -1855,11 +1824,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Yocto/Poky 定制发行版（Vela，DISTRO=vela）",
       "purpose": "自研 Yocto 发行版（Vela）主仓",
@@ -1877,11 +1844,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Obsidian 笔记库（obsidian / markdown 双分支挂载）",
       "purpose": "个人知识库 Obsidian 挂载点（notes 内容）",
@@ -1899,11 +1864,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Obsidian 笔记附件库（图片等静态资源）",
       "purpose": "Obsidian 笔记静态资源库",
@@ -1921,11 +1884,9 @@
       "branch": "markdown",
       "platform": "github",
       "protocol": "git",
-      "topic": "project",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Obsidian 笔记库（obsidian / markdown 双分支挂载）",
       "purpose": "同 obsidian 仓 markdown 分支的独立挂载",
@@ -1943,11 +1904,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Obsidian 插件示例工程",
       "purpose": "Obsidian 插件开发示例",
@@ -1965,11 +1924,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "数据库示例工程",
       "purpose": "数据库示例工程",
@@ -1987,11 +1944,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Vue 示例工程",
       "purpose": "Vue 示例工程",
@@ -2009,11 +1964,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "rust",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Rust 示例工程",
       "purpose": "Rust 示例工程",
@@ -2031,11 +1984,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "mixed",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "standard-version 语义化版本管理演示",
       "purpose": "语义化版本管理演示",
@@ -2053,11 +2004,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "mixed",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "base-sample",
       "purpose": "编程基础示例仓",
@@ -2075,11 +2024,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "python",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "python-sample",
       "purpose": "Python 示例工程",
@@ -2097,11 +2044,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "go",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Go 示例工程",
       "purpose": "Go 示例工程",
@@ -2119,11 +2064,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "mixed",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Java 示例工程",
       "purpose": "Java 示例工程",
@@ -2141,10 +2084,10 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "python",
       "groups": [
-        "sample"
+        "ai"
       ],
       "linkfiles": [],
       "description": "AI 知识整理示例工程（catalog 中挂 python-sample 子路径）",
@@ -2163,10 +2106,10 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "nodejs",
       "groups": [
-        "sample"
+        "devops"
       ],
       "linkfiles": [],
       "description": "Jenkins 共享库（现行版本）",
@@ -2185,11 +2128,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "C++ 示例工程",
       "purpose": "C++ 示例工程",
@@ -2207,11 +2148,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "mixed",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "各语言学习练习",
       "purpose": "多语言学习练习仓",
@@ -2229,11 +2168,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "mixed",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "产品示例工程",
       "purpose": "产品原型示例仓",
@@ -2251,11 +2188,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "nodejs",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [
         {
           "src": ".",
@@ -2290,11 +2225,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "project",
+      "topic": "",
       "language": "c/c++",
-      "groups": [
-        "project"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "SRC800 bootloader 项目",
       "purpose": "SRC800 bootloader 项目",
@@ -2445,7 +2378,7 @@
       "platform": "github",
       "protocol": "",
       "topic": "ai",
-      "language": "linux",
+      "language": "shell",
       "groups": [
         "ai"
       ],
@@ -2598,11 +2531,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "ops",
+      "topic": "",
       "language": "python",
-      "groups": [
-        "ops"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "Ansible-based batch Linux server inspection/maintenance tool: 15 types of collection, change ops, HTML reports, alerts and agent second phase",
       "purpose": "Linux 服务器批量巡检/维护工具",
@@ -2642,11 +2573,9 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "sample",
+      "topic": "",
       "language": "mixed",
-      "groups": [
-        "sample"
-      ],
+      "groups": [],
       "linkfiles": [],
       "description": "十轨学习仓库：9 门语言 + shared 工具箱 · 821 个可跑用例 · 11 层镜像 · 门禁 CI · v0.1.0",
       "purpose": "可运行学习母仓（九条轨道）",
@@ -2664,9 +2593,11 @@
       "branch": "master",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "robot",
+      "language": "cmake",
+      "groups": [
+        "robot"
+      ],
       "linkfiles": [],
       "description": "中国大学MOOC《机器人操作系统入门》课程代码示例",
       "purpose": "教学参考：保存中国大学MOOC《机器人操作系统入门》课程配套代码，作为 ROS 学习基准副本（自有同步）",
@@ -2684,9 +2615,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "ai",
+      "language": "python",
+      "groups": [
+        "ai"
+      ],
       "linkfiles": [],
       "description": "",
       "purpose": "据名称与分组推断/待核：AI 方向学习笔记、书稿或文档沉淀",
@@ -2704,9 +2637,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "ai",
+      "language": "python",
+      "groups": [
+        "ai"
+      ],
       "linkfiles": [],
       "description": "",
       "purpose": "据名称与分组推断/待核：AI 相关 Docker 镜像构建与容器化运行环境",
@@ -2724,9 +2659,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "ai",
+      "language": "powershell",
+      "groups": [
+        "ai"
+      ],
       "linkfiles": [],
       "description": "",
       "purpose": "据名称与分组推断/待核：MCP（Model Context Protocol）服务器/客户端实践",
@@ -2744,9 +2681,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "ai",
+      "language": "shell",
+      "groups": [
+        "ai"
+      ],
       "linkfiles": [],
       "description": "",
       "purpose": "据名称与分组推断/待核：AI 能力服务端（推理/API 服务）",
@@ -2764,9 +2703,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "ai",
+      "language": "nodejs",
+      "groups": [
+        "ai"
+      ],
       "linkfiles": [],
       "description": "",
       "purpose": "据名称与分组推断/待核：AI 辅助开发脚本与工具集合",
@@ -2784,9 +2725,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "tools",
+      "language": "mixed",
+      "groups": [
+        "tools"
+      ],
       "linkfiles": [],
       "description": "",
       "purpose": "据名称与分组推断/待核：配置与数据的备份归档仓",
@@ -2804,9 +2747,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "devops",
+      "language": "groovy",
+      "groups": [
+        "devops"
+      ],
       "linkfiles": [],
       "description": "旧版 Jenkins 共享库（已归档，现行版本见 jenkins-shared-library）",
       "purpose": "历史归档：旧版 Jenkins Pipeline 共享库，仅供追溯，勿在此继续演进（上游描述：已归档，现行版本见 jenkins-shared-library）",
@@ -2824,9 +2769,11 @@
       "branch": "master",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "robot",
+      "language": "cmake",
+      "groups": [
+        "robot"
+      ],
       "linkfiles": [],
       "description": "《古月 · ROS入门21讲》课件&源码",
       "purpose": "教学参考：《古月·ROS入门21讲》课件与源码的自有同步副本",
@@ -2844,9 +2791,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "app",
+      "language": "nodejs",
+      "groups": [
+        "app"
+      ],
       "linkfiles": [],
       "description": "TabHarbor v2 — Chrome MV3 标签管理扩展：窗口/分组/标签三层树 · 严格实时同步 · TDD+BDD 闭环",
       "purpose": "个人产品：TabHarbor v2 —— Chrome MV3 标签管理扩展（窗口/分组/标签三层树·严格实时同步）",
@@ -2864,9 +2813,11 @@
       "branch": "main",
       "platform": "github",
       "protocol": "",
-      "topic": "",
-      "language": "",
-      "groups": [],
+      "topic": "tools",
+      "language": "mixed",
+      "groups": [
+        "tools"
+      ],
       "linkfiles": [],
       "description": "WF4 工作流自检仓库（issue→分支→验收→PR→合并 全链路验证，可随时删除）",
       "purpose": "工程流程自检：验证 issue→分支→验收→PR→合并全链路（上游描述：验证完可删除）",

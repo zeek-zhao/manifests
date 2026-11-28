@@ -41,6 +41,18 @@ jobs:
             python3 tools/sync_self_repos.py
           fi
 
+      # stats_report.py refreshes the 动态统计 sheet (stars/forks/size/pushed_at)
+      # from the GitHub API and rebuilds its charts. Uses the same PAT as the
+      # sync step; without it private repos are simply missing metrics.
+      - name: Refresh dynamic stats sheet & charts
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::warning::secret GH_PAT not set - stats metrics will be partial"
+          fi
+          python3 tools/stats_report.py
+
       - name: Regenerate manifests & catalog.md from workbook
         run: |
           python3 tools/generate_manifests.py --excel

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="project/ROS-Academy-for-Beginners" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ROS-Academy-for-Beginners.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/ros_21_tutorials" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
+</manifest>

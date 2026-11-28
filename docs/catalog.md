@@ -143,7 +143,7 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 
 | path | name | branch | topic | language | platform | groups | 大小(KB) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| c++/cmake-examples | fatezrl/cmake-examples.git | master | c++ | c/c++ | gitee | c++,gitee,visibility-public |   |
+| c++/cmake-examples | fatezrl/cmake-examples.git | master |   | c/c++ | gitee | gitee,visibility-public |   |
 | esp/esp32_100ask_project | weidongshan/esp32_100ask_project.git | master | esp | c/c++ | gitee | esp,gitee,visibility-public |   |
 | linux/driver/embed_linux_tutorial | Embedfire/embed_linux_tutorial.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
 | linux/driver/imx6ull_NoosProgramProject | weidongshan/imx6ull_NoosProgramProject.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
@@ -154,7 +154,7 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 | linux/uboot/Buildroot | weidongshan/Buildroot.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
 | openharmony/kernel_liteos_a_note | weharmony/kernel_liteos_a_note.git | master | openharmony | c/c++ | gitee | openharmony,gitee,visibility-public |   |
 | openharmony/openharmony-oer | openatom-university/openharmony-oer.git | master | openharmony | c/c++ | gitee | openharmony,gitee,visibility-public |   |
-| qemu/qemu | weidongshan/qemu.git | master | qemu | c/c++ | gitee | qemu,gitee,visibility-public |   |
+| qemu/qemu | weidongshan/qemu.git | master |   | c/c++ | gitee | gitee,visibility-public |   |
 | qt/DBoS-Desktop | weidongshan/DBoS-Desktop.git | master | qt | c/c++ | gitee | qt,gitee,visibility-public |   |
 | qt/QWidgetDemo | feiyangqingyun/QWidgetDemo.git | master | qt | c/c++ | gitee | qt,gitee,visibility-public |   |
 | qt/qtkaifajingyan | feiyangqingyun/qtkaifajingyan.git | master | qt | c/c++ | gitee | qt,gitee,visibility-public |   |
@@ -171,7 +171,7 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 | vue/variant-form | vdpadmin/variant-form.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
 | vue/vue-big-screen-plugin | MTrun/vue-big-screen-plugin.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
 | vue/vxe-table | xuliangzhan_admin/vxe-table.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
-| ai/ai-workflow | zeek-zhao/ai-workflow.git | main | ai | linux | github | ai,github,visibility-private | 487 |
+| ai/ai-workflow | zeek-zhao/ai-workflow.git | main | ai | shell | github | ai,github,visibility-private | 487 |
 | ai/meetnote | zeek-zhao/meetnote.git | main | ai | python | github | ai,github,visibility-private | 4100 |
 | app/kuaidian | zeek-zhao/kuaidian.git | main | app | nodejs | github | app,github,visibility-private | 1445 |
 | app/link-manager | zeek-zhao/linkManager.git | main | app | nodejs | github | app,github,visibility-private | 151 |
@@ -180,11 +180,11 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 | blog/hexo-engine | zeek-zhao/hexo-engine.git | main | blog | nodejs | github | blog,github,visibility-public | 3032 |
 | blog/pagepipe | zeek-zhao/PagePipe.git | main | blog | nodejs | github | blog,github,visibility-private | 16 |
 | blog/zeek-zhao.github.io | zeek-zhao/zeek-zhao.github.io.git | main | blog | mixed | github | blog,github,visibility-public | 26890 |
-| c++/C-C- | tangtangcoding/C-C-.git | main | c++ | c/c++ | github | c++,github,visibility-public | 2072 |
-| c++/CGraph | ChunelFeng/CGraph.git | main | c++ | c/c++ | github | c++,github,visibility-public | 6756 |
-| c++/CThreadPool | ChunelFeng/CThreadPool.git | main | c++ | c/c++ | github | c++,github,visibility-public | 188 |
-| c++/bazel_examples | bazelbuild/examples.git | main | c++ | c/c++ | github | c++,github,visibility-public | 3365 |
-| c++/examples_CMake | jacking75/examples_CMake.git | master | c++ | c/c++ | github | c++,github,visibility-public | 1449 |
+| c++/C-C- | tangtangcoding/C-C-.git | main |   | c/c++ | github | github,visibility-public | 2072 |
+| c++/CGraph | ChunelFeng/CGraph.git | main |   | c/c++ | github | github,visibility-public | 6756 |
+| c++/CThreadPool | ChunelFeng/CThreadPool.git | main |   | c/c++ | github | github,visibility-public | 188 |
+| c++/bazel_examples | bazelbuild/examples.git | main |   | c/c++ | github | github,visibility-public | 3365 |
+| c++/examples_CMake | jacking75/examples_CMake.git | master |   | c/c++ | github | github,visibility-public | 1449 |
 | devops/orgflow-devops | zeek-zhao/orgflow-devops.git | main | devops | python | github | devops,github,visibility-public | 2678 |
 | devops/orgflow-devops1 | zeek-zhao/orgflow-devops1.git | main | devops | python | github | devops,github,visibility-private |   |
 | devops/orgflow-jenkins | zeek-zhao/orgflow-jenkins.git | main | devops | python | github | devops,github,visibility-private | 1652 |
@@ -200,32 +200,32 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 | log/rqt_plot | ros-visualization/rqt_plot.git | master | log | c/c++ | github | log,github,visibility-public | 464 |
 | log/spdlog | gabime/spdlog.git | v2.x | log | c/c++ | github | log,github,visibility-public | 43061 |
 | log/spdlog_demo | Fibird/spdlog_demo.git | master | log | c/c++ | github | log,github,visibility-public | 1 |
-| ops/srvkit | zeek-zhao/srvkit.git | main | ops | python | github | ops,github,visibility-private | 1056 |
-| project/FlexDev-Ent | zeek-zhao/FlexDev-Ent.git | main | project | nodejs | github | project,github,visibility-private | 1663 |
-| project/PromWatch | zeek-zhao/PromWatch.git | main | linux | linux | github | project,github,linux,visibility-private | 240 |
-| project/ROS-Academy-for-Beginners | zeek-zhao/ROS-Academy-for-Beginners.git | master |   |   | github | github,visibility-public | 79733 |
-| project/ai-book | zeek-zhao/ai-book.git | main |   |   | github | github,visibility-private | 5758 |
-| project/ai-docker | zeek-zhao/ai-docker.git | main |   |   | github | github,visibility-public | 600 |
-| project/ai-mcp | zeek-zhao/ai-mcp.git | main |   |   | github | github,visibility-public | 470 |
-| project/ai-server | zeek-zhao/ai-server.git | main |   |   | github | github,visibility-private | 4175 |
-| project/ai-tools | zeek-zhao/ai-tools.git | main |   |   | github | github,visibility-private | 78 |
-| project/backup | zeek-zhao/backup.git | main |   |   | github | github,visibility-private | 10105 |
-| project/devops | zeek-zhao/devops.git | main | project | nodejs | github | project,github,visibility-private | 159073 |
-| project/fron-backframe | zeek-zhao/fron-backframe.git | main | project | nodejs | github | vue,github,project,visibility-private | 2159 |
-| project/fron-backframe-refactor | zeek-zhao/fron-backframe-refactor.git | main | project | nodejs | github | project,github,visibility-private | 551 |
-| project/jenkins | zeek-zhao/jenkins.git | main | linux | linux | github | project,github,linux,visibility-private | 3464 |
-| project/jenkins-Shared-Library1 | zeek-zhao/jenkins-Shared-Library1.git | main |   |   | github | github,visibility-public | 38 |
-| project/manifests | zeek-zhao/manifests.git | main | linux | linux | github | project,github,linux,visibility-public | 520 |
-| project/nas-server | zeek-zhao/nas-server.git | main | linux | linux | github | project,github,linux,visibility-private | 180 |
-| project/obsidian | zeek-zhao/obsidian.git | main | project | nodejs | github | project,github,visibility-private | 32079 |
-| project/obsidian-md | zeek-zhao/obsidian.git | markdown | project | nodejs | github | project,github,visibility-private | 32079 |
-| project/obsidian/attachments | zeek-zhao/attachments.git | main | project | nodejs | github | project,github,visibility-public | 38041 |
-| project/package-manager | zeek-zhao/package-manager.git | main | c++ | c/c++ | github | c++,project,github,visibility-private | 13016 |
-| project/poky | zeek-zhao/poky.git | main | project | c/c++ | github | project,github,visibility-private | 2188 |
-| project/ros_21_tutorials | zeek-zhao/ros_21_tutorials.git | master |   |   | github | github,visibility-public | 54793 |
-| project/src800-bootloader | zeek-zhao/src800-bootloader.git | main | project | c/c++ | github | project,github,visibility-private | 11965 |
-| project/tabharbor | zeek-zhao/tabharbor.git | main |   |   | github | github,visibility-public | 1526 |
-| project/wf4-selftest | zeek-zhao/wf4-selftest.git | main |   |   | github | github,visibility-private | 1 |
+| ops/srvkit | zeek-zhao/srvkit.git | main |   | python | github | github,visibility-private | 1056 |
+| project/FlexDev-Ent | zeek-zhao/FlexDev-Ent.git | main |   | nodejs | github | github,visibility-private | 1663 |
+| project/PromWatch | zeek-zhao/PromWatch.git | main | linux | shell | github | github,linux,visibility-private | 240 |
+| project/ROS-Academy-for-Beginners | zeek-zhao/ROS-Academy-for-Beginners.git | master | robot | cmake | github | robot,github,visibility-public | 79733 |
+| project/ai-book | zeek-zhao/ai-book.git | main | ai | python | github | ai,github,visibility-private | 5758 |
+| project/ai-docker | zeek-zhao/ai-docker.git | main | ai | python | github | ai,github,visibility-public | 600 |
+| project/ai-mcp | zeek-zhao/ai-mcp.git | main | ai | powershell | github | ai,github,visibility-public | 470 |
+| project/ai-server | zeek-zhao/ai-server.git | main | ai | shell | github | ai,github,visibility-private | 4175 |
+| project/ai-tools | zeek-zhao/ai-tools.git | main | ai | nodejs | github | ai,github,visibility-private | 78 |
+| project/backup | zeek-zhao/backup.git | main | tools | mixed | github | tools,github,visibility-private | 10105 |
+| project/devops | zeek-zhao/devops.git | main |   | nodejs | github | github,visibility-private | 159073 |
+| project/fron-backframe | zeek-zhao/fron-backframe.git | main |   | nodejs | github | vue,github,visibility-private | 2159 |
+| project/fron-backframe-refactor | zeek-zhao/fron-backframe-refactor.git | main |   | nodejs | github | github,visibility-private | 551 |
+| project/jenkins | zeek-zhao/jenkins.git | main | linux | shell | github | github,linux,visibility-private | 3464 |
+| project/jenkins-Shared-Library1 | zeek-zhao/jenkins-Shared-Library1.git | main | devops | groovy | github | devops,github,visibility-public | 38 |
+| project/manifests | zeek-zhao/manifests.git | main | linux | python | github | github,linux,visibility-public | 520 |
+| project/nas-server | zeek-zhao/nas-server.git | main | linux | shell | github | github,linux,visibility-private | 180 |
+| project/obsidian | zeek-zhao/obsidian.git | main |   | nodejs | github | github,visibility-private | 32079 |
+| project/obsidian-md | zeek-zhao/obsidian.git | markdown |   | nodejs | github | github,visibility-private | 32079 |
+| project/obsidian/attachments | zeek-zhao/attachments.git | main |   | nodejs | github | github,visibility-public | 38041 |
+| project/package-manager | zeek-zhao/package-manager.git | main |   | c/c++ | github | github,visibility-private | 13016 |
+| project/poky | zeek-zhao/poky.git | main |   | c/c++ | github | github,visibility-private | 2188 |
+| project/ros_21_tutorials | zeek-zhao/ros_21_tutorials.git | master | robot | cmake | github | robot,github,visibility-public | 54793 |
+| project/src800-bootloader | zeek-zhao/src800-bootloader.git | main |   | c/c++ | github | github,visibility-private | 11965 |
+| project/tabharbor | zeek-zhao/tabharbor.git | main | app | nodejs | github | app,github,visibility-public | 1526 |
+| project/wf4-selftest | zeek-zhao/wf4-selftest.git | main | tools | mixed | github | tools,github,visibility-private | 1 |
 | qt/qt-learn-code | zeek-zhao/qt-learn-code.git | main | qt | c/c++ | github | qt,github,visibility-private | 41576 |
 | robot/6-robot/wpb_cv | 6-robot/wpb_cv.git | master | robot | python | github | robot,github,visibility-public | 14771 |
 | robot/6-robot/wpb_home | 6-robot/wpb_home.git | master | robot | python | github | robot,github,visibility-public | 7018 |
@@ -244,22 +244,22 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 | robot/ros2/examples | ros2/examples.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 1937 |
 | robot/ros_21_tutorials | huchunxu/ros_21_tutorials.git | master | robot | c/c++ | github | robot,github,visibility-public | 54793 |
 | robot/ros_exploring | huchunxu/ros_exploring.git | master | robot | c/c++ | github | robot,github,visibility-public | 150733 |
-| sample/LanguageLearning | zeek-zhao/LanguageLearning.git | main | sample | mixed | github | sample,github,visibility-private | 240723 |
-| sample/base-sample | zeek-zhao/base-sample.git | main | sample | mixed | github | sample,github,visibility-private | 702 |
-| sample/cpp-sample | zeek-zhao/cpp-sample.git | main | sample | c/c++ | github | sample,github,visibility-private | 496 |
-| sample/database-sample | zeek-zhao/database-sample.git | main | sample | nodejs | github | sample,github,visibility-private | 127 |
-| sample/devbox | zeek-zhao/devbox.git | main | sample | mixed | github | sample,github,visibility-public | 4095 |
-| sample/docker-sample | zeek-zhao/docker-sample.git | main | sample | nodejs | github | sample,github,visibility-private | 135 |
-| sample/go-sample | zeek-zhao/go-sample.git | main | sample | go | github | sample,github,visibility-private | 24023 |
-| sample/java-sample | zeek-zhao/java-sample.git | main | sample | mixed | github | sample,github,visibility-private | 65683 |
-| sample/java-sample/src/jenkins-shared-library | zeek-zhao/jenkins-shared-library.git | main | sample | nodejs | github | sample,github,visibility-public | 99 |
-| sample/obsidian-sample | zeek-zhao/obsidian-sample.git | main | sample | nodejs | github | sample,github,visibility-public | 34145 |
-| sample/product-sample | zeek-zhao/product-sample.git | main | sample | mixed | github | sample,github,visibility-public | 32 |
-| sample/python-sample | zeek-zhao/python-sample.git | main | sample | python | github | sample,github,visibility-private | 420 |
-| sample/python-sample/src/ai-knowledge | zeek-zhao/ai-knowledge.git | main | sample | python | github | sample,github,visibility-private | 630 |
-| sample/rust-sample | zeek-zhao/rust-sample.git | main | sample | rust | github | sample,github,visibility-private | 700 |
-| sample/standard-version | zeek-zhao/standard-version.git | main | sample | mixed | github | sample,github,visibility-private | 37 |
-| sample/vue-sample | zeek-zhao/vue-sample.git | main | sample | nodejs | github | sample,github,visibility-private | 144 |
+| sample/LanguageLearning | zeek-zhao/LanguageLearning.git | main |   | mixed | github | github,visibility-private | 240723 |
+| sample/base-sample | zeek-zhao/base-sample.git | main |   | mixed | github | github,visibility-private | 702 |
+| sample/cpp-sample | zeek-zhao/cpp-sample.git | main |   | c/c++ | github | github,visibility-private | 496 |
+| sample/database-sample | zeek-zhao/database-sample.git | main |   | nodejs | github | github,visibility-private | 127 |
+| sample/devbox | zeek-zhao/devbox.git | main |   | mixed | github | github,visibility-public | 4095 |
+| sample/docker-sample | zeek-zhao/docker-sample.git | main |   | nodejs | github | github,visibility-private | 135 |
+| sample/go-sample | zeek-zhao/go-sample.git | main |   | go | github | github,visibility-private | 24023 |
+| sample/java-sample | zeek-zhao/java-sample.git | main |   | mixed | github | github,visibility-private | 65683 |
+| sample/java-sample/src/jenkins-shared-library | zeek-zhao/jenkins-shared-library.git | main |   | nodejs | github | devops,github,visibility-public | 99 |
+| sample/obsidian-sample | zeek-zhao/obsidian-sample.git | main |   | nodejs | github | github,visibility-public | 34145 |
+| sample/product-sample | zeek-zhao/product-sample.git | main |   | mixed | github | github,visibility-public | 32 |
+| sample/python-sample | zeek-zhao/python-sample.git | main |   | python | github | github,visibility-private | 420 |
+| sample/python-sample/src/ai-knowledge | zeek-zhao/ai-knowledge.git | main |   | python | github | ai,github,visibility-private | 630 |
+| sample/rust-sample | zeek-zhao/rust-sample.git | main |   | rust | github | github,visibility-private | 700 |
+| sample/standard-version | zeek-zhao/standard-version.git | main |   | mixed | github | github,visibility-private | 37 |
+| sample/vue-sample | zeek-zhao/vue-sample.git | main |   | nodejs | github | github,visibility-private | 144 |
 | tools/vim/PowerVim | youngyangyang04/PowerVim.git | master | tools | mixed | github | tools,github,visibility-public | 6176 |
 | vue/quasar-tutorial | dongwa/quasar-tutorial.git | master | vue | nodejs | github | vue,github,visibility-public | 721 |
 | rk/buildroot | firefly-linux/buildroot.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |

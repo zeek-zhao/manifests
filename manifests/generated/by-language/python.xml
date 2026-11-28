@@ -13,13 +13,16 @@
     <project path="robot/6-robot/wpb_cv" remote="github_https" groups="robot,github,visibility-public" name="6-robot/wpb_cv.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/ZZX_RUN" remote="github_https" groups="robot,github,visibility-public" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
     <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,visibility-public" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/manifests" remote="github_https" groups="github,linux,visibility-public" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />
     <project path="robot/frobot" remote="github_https" groups="robot,github,visibility-private" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample" remote="github_https" groups="sample,github,visibility-private" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample/src/ai-knowledge" remote="github_https" groups="sample,github,visibility-private" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample/src/ai-knowledge" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
     <project path="blog/ai-obsidian" remote="github_https" groups="blog,github,visibility-private" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
     <project path="ai/meetnote" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ops/srvkit" remote="github_https" groups="ops,github,visibility-private" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ops/srvkit" remote="github_https" groups="github,visibility-private" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-book" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-book.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/ai-docker" remote="github_https" groups="ai,github,visibility-public" name="zeek-zhao/ai-docker.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

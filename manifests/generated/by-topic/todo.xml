@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-    <include name="manifests/_remotes.xml" />
-    <include name="manifests/_hooks.xml" />
-
-    <project path="todo/blog-img" remote="github_git" groups="project,github,todo" name="zeek-zhao/blog-img.git" dest-branch="main" revision="refs/heads/main" />
-</manifest>
