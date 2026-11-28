@@ -232,7 +232,8 @@ def _dropdown_source(wb, col_name: str, values: list, dd_state: dict) -> str:
 
 
 def _apply_column_dv(ws, col_name: str, values: list, wb, dd_state: dict) -> None:
-    """单列 DV：值域内联 ≤255 字符，否则引用下拉源命名区域；sqref 双段（第 1 行 + 第 3 行起，排除第 2 行）。"""
+    """单列 DV：值域内联 ≤255 字符，否则引用下拉源命名区域；sqref=第 3 行起（TSK-014：
+    第 1 行表头交互归 AutoFilter 筛选，DV 不再覆盖表头；第 2 行说明行始终排除）。"""
     header = [c.value for c in ws[1]]
     letter = get_column_letter(header.index(col_name) + 1)
     inline = '"' + ",".join(values) + '"'
@@ -243,7 +244,6 @@ def _apply_column_dv(ws, col_name: str, values: list, wb, dd_state: dict) -> Non
     dv = DataValidation(
         type="list", formula1=formula1, allow_blank=True, showErrorMessage=False
     )
-    dv.add(f"{letter}1")
     dv.add(f"{letter}3:{letter}1000")
     ws.add_data_validation(dv)
 
@@ -265,7 +265,7 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
             _style_sheet(ws, [c.value for c in ws[1]], band=True)
             _tight_widths(ws)
         _refresh_readme(wb)
-        # 清空四表旧 DV 后按「每列一枚举」矩阵重建（TSK-013：第 1 行每列可点选，第 2 行排除）。
+        # 清空四表旧 DV 后按「每列一枚举」矩阵重建（TSK-014：DV 仅数据区；表头=AutoFilter）。
         for sheet_name in ("repos", "remotes", "config", "readme"):
             ws = wb[sheet_name]
             for dv in list(ws.data_validations.dataValidation):
@@ -274,6 +274,11 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
             n: _collect_values(wb[n]) for n in ("remotes", "config", "readme")
         }
         repo_vals = _collect_values(repos)
+        # 表头筛选（TSK-014）：四表 AutoFilter，ref 自表头行 1 起覆盖实际数据区；
+        # 点击表头箭头=筛选菜单（自动列出列内去重值、勾选后隐藏不匹配行）。
+        for sheet_name in ("repos", "remotes", "config", "readme"):
+            ws = wb[sheet_name]
+            ws.auto_filter.ref = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
         # 枚举固定列：固定值域优先于数据全集（维持既有语义）。
         repo_vals["protocol"] = ["https", "git"]
         repo_vals["仓库属性"] = VISIBILITY_VALUES
@@ -296,15 +301,19 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
             ws = wb[sheet_name]
             for col_name, vals in values_by_sheet[sheet_name].items():
                 _apply_column_dv(ws, col_name, vals, wb, dd_state)
-        # openpyxl 层自检：repos DV 数 == 表头列数；sqref 不含第 2 行。
+        # openpyxl 层自检：repos DV 数 == 表头列数；sqref 不含第 1/2 行（TSK-014）。
         expect = len(header)
         got = len(repos.data_validations.dataValidation)
         if got != expect:
             raise ValueError(f"repos 表 DV 数 {got} != 表头列数 {expect}")
         for dv in repos.data_validations.dataValidation:
             for seg in str(dv.sqref).split():
-                if re.fullmatch(r"[A-Z]+2", seg) or re.search(r"[A-Z]+2:", seg):
-                    raise ValueError(f"repos 表 sqref 覆盖了第 2 行说明行: {seg}")
+                if re.fullmatch(r"[A-Z]+[12]", seg) or re.search(r"[A-Z]+[12]:", seg):
+                    raise ValueError(f"repos 表 sqref 覆盖了第 1/2 行: {seg}")
+        for sheet_name in ("repos", "remotes", "config", "readme"):
+            ref = wb[sheet_name].auto_filter.ref
+            if not ref or not ref.startswith("A1:"):
+                raise ValueError(f"{sheet_name}: AutoFilter ref 缺失或未自第 1 行起: {ref!r}")
         # 标签分类下拉双保险（TSK-009 #3）：内联枚举串 + TagCategories 命名区域。
         if "TagCategories" in wb.defined_names:
             del wb.defined_names["TagCategories"]
@@ -322,7 +331,8 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
 
 
 def _sanitize_dropdowns(path: Path) -> None:
-    """Remove the showDropDown attribute from every worksheet (zip rewrite)."""
+    """zip rewrite: strip showDropDown attributes and stale x14 dataValidation
+    extLst blocks (openpyxl round-trips keep them, producing ghost dropdowns)."""
     tmp = path.with_suffix(".tmp.xlsx")
     with zipfile.ZipFile(path) as zin, zipfile.ZipFile(
         tmp, "w", zipfile.ZIP_DEFLATED
@@ -332,27 +342,60 @@ def _sanitize_dropdowns(path: Path) -> None:
             if re.match(r"xl/worksheets/sheet\d+\.xml$", item.filename):
                 xml = data.decode("utf-8")
                 xml = re.sub(r'\s+showDropDown="[01]"', "", xml)
+                # TSK-014: drop extLst blocks that only carry stale x14 data
+                # validations (openpyxl never clears extLst on DV removal).
+                xml = re.sub(
+                    r"<extLst>(?:(?!</extLst>).)*x14:dataValidations(?:(?!</extLst>).)*</extLst>",
+                    "",
+                    xml,
+                    flags=re.DOTALL,
+                )
                 data = xml.encode("utf-8")
             zout.writestr(item, data)
     tmp.replace(path)
 
 
 def _verify_dropdowns(path: Path) -> None:
-    """Post-save assertions: no showDropDown attr; sqref covers header row and
-    never row 2; formula1 is a quoted inline list (<=255 chars) or a DD<n> name."""
+    """Post-save assertions: no showDropDown attr; DV sqref never rows 1-2
+    (header interaction is AutoFilter since TSK-014); formula1 is a quoted inline
+    list (<=255 chars) or a DD<n> name; sheets 1-4 carry an A1-anchored autoFilter."""
     with zipfile.ZipFile(path) as z:
+        autofilter_sheets = []
         for name in z.namelist():
-            if not re.match(r"xl/worksheets/sheet\d+\.xml$", name):
+            ms_sheet = re.match(r"xl/worksheets/sheet(\d+)\.xml$", name)
+            if not ms_sheet:
                 continue
             xml = z.read(name).decode("utf-8")
             if 'showDropDown="' in xml:
                 raise ValueError(f"{name}: showDropDown attribute still present")
-            for seg in re.findall(r'sqref="([^"]+)"', xml):
-                for part in seg.split():
-                    if re.fullmatch(r"[A-Z]+2", part) or re.search(r"[A-Z]+2:", part):
-                        raise ValueError(f"{name}: sqref 覆盖了第 2 行说明行: {part}")
-        # repos sheet: every list DV must start at row 1 with a quoted inline list
-        # (<=255 chars) or a DD<n> defined-name reference (TSK-013).
+            af = re.search(r'<autoFilter ref="([^"]+)"/>', xml)
+            if af:
+                autofilter_sheets.append(int(ms_sheet.group(1)))
+                if not af.group(1).startswith("A1:"):
+                    raise ValueError(f"{name}: autoFilter ref not A1-anchored: {af.group(1)}")
+            if 'showDropDown="' in xml:
+                raise ValueError(f"{name}: showDropDown attribute still present")
+            if "x14:dataValidation" in xml:
+                raise ValueError(f"{name}: stale x14 dataValidation extLst remains")
+            # sqref must be read from standard <dataValidation> tags only —
+            # x14 extLst copies are stripped by _sanitize and must not resurrect.
+            for m_dv in re.finditer(r"<dataValidation\b[^>]*>", xml):
+                msq = re.search(r'sqref="([^"]+)"', m_dv.group(0))
+                if not msq:
+                    continue
+                for part in msq.group(1).split():
+                    if (
+                        re.fullmatch(r"[A-Z]+[12]", part)
+                        or re.search(r"[A-Z]+[12]:", part)
+                    ):
+                        raise ValueError(f"{name}: sqref 覆盖了第 1/2 行: {part}")
+        missing = [n for n in (1, 2, 3, 4) if n not in autofilter_sheets]
+        if missing:
+            raise ValueError(
+                f"expected autoFilter on sheets 1-4 (repos/remotes/config/readme), missing {missing}; got {autofilter_sheets}"
+            )
+        # repos sheet (sheet1.xml): every list DV must start at row 3 with a quoted
+        # inline list (<=255 chars) or a DD<n> defined-name reference (TSK-013/014).
         workbook_xml = z.read("xl/workbook.xml").decode("utf-8")
         defined = set(re.findall(r'<definedName name="(DD\d+)"', workbook_xml))
         xml = z.read("xl/worksheets/sheet1.xml").decode("utf-8")
@@ -364,12 +407,12 @@ def _verify_dropdowns(path: Path) -> None:
                 if ms:
                     raise ValueError(f"repos sheet: non-list DV at {ms.group(0)}")
                 continue
-            # 双段 sqref（TSK-013）：如 "A1 A3:A1000" —— 必须含第 1 行段且不含第 2 行段。
-            if not ms or not any(
-                re.fullmatch(r"[A-Z]+1", p) for p in ms.group(1).split()
+            # TSK-014：sqref 必须为单段 X3:X1000（数据区；表头交互归 AutoFilter）。
+            if not ms or not re.fullmatch(
+                r"[A-Z]+3:[A-Z]+\d+", ms.group(1).strip()
             ):
                 raise ValueError(
-                    f"repos sheet: list DV must cover row 1, got {t[:140]}"
+                    f"repos sheet: list DV must cover data rows from row 3, got {t[:140]}"
                 )
             dvs += 1
         import html as _html

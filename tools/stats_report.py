@@ -29,6 +29,7 @@ from pathlib import Path
 import openpyxl
 from openpyxl.chart import BarChart, PieChart, Reference
 from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.utils import get_column_letter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate_manifests as gm  # noqa: E402  (load_from_excel reuse)
@@ -123,6 +124,8 @@ def build_sheet(wb, repos: list[dict], metrics: dict) -> None:
             if (row - DATA_START) % 2 == 0:
                 cell.fill = BAND_FILL
     ws.freeze_panes = "A3"
+    # 表头筛选（TSK-014）：与四表一致，AutoFilter 自表头行 1 覆盖数据区。
+    ws.auto_filter.ref = f"A1:{get_column_letter(len(HEADERS))}{row - 1}"
 
     # ---- 辅助区（公式随数据区自动更新）----
     gh_rows = DATA_START + len(repos) - 1
