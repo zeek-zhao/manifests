@@ -88,6 +88,15 @@
 - **消费侧还原抽验全 PASS**（ctd-decoder 重建后）：frobot.tar 553b92f1bac42092…、qt-learn-code.tar fe4b592a92b364bd…（内置对账一致）。
 - 教训：mirror clone 走 fetch 路径，SKIP_SMUDGE 只控 checkout/smudge——彻底禁用需 clone 与 archive 两处 -c filter.lfs.*；门禁例外不能靠白名单放行，按"防线覆盖状态"分级才是自洽语义。
 
+
+### A10：M14 消费侧离线套件与 smoke 全流程验证
+
+- kit 定稿与落地：消费套件 ghcr 镜像化（pool_restore.py+ctd-decoder 静态二进制+README+checksums.txt，FROM scratch 四文件入 /kit）；consumer-kit.yml workflow（编译 imgcrypt→组装→校验→build/push→回拉验证）四轮修复（checksums 相对路径 cd 错位/Dockerfile 缺失/docker create 需伪 CMD）后全绿，KIT_VERIFY_OK。
+- Excel 陷阱三连修：smoke 入 Excel 后 excel-sync 三败——本地 openpyxl 保存丢 autoFilter（多写点补回均败）→**终极根因=CI pip openpyxl 未钉版本漂移（XML 形态不匹配 verify 正则）**→三 workflow 钉 openpyxl==3.1.5+verify 正则放宽，excel-sync 绿、快照 smoke 组 6 仓齐。教训：CI 依赖必须钉版；verify 检查的是保存后文件非内存态。
+- smoke 冒烟组：6 仓 ≤10MB（product-sample/CThreadPool public + standard-version/database-sample/docker-sample/vue-sample private，~0.6MB），config/pool-groups.txt 加 smoke，run 46170629269（tag run-27）一次全绿。
+- pool_restore 补齐明文分支：此前所有还原均走加密路径，public 明文层还原属未验证路径（meta payload 缺失会炸）→新增 is_encrypted 分支（明文层直接拉 blob 对账落盘）+--key 改可选+decode_layer 相对路径在 cwd=work 下失效修正（abspath 预处理）。
+- **消费侧全流程演练 6/6 对账一致**：2 public 无 key（product-sample f7ac08e9…、CThreadPool）+4 private 带 key（standard-version 575041dd…、database-sample 0e4bfe96…、docker-sample 88a0f12a…、vue-sample 353c6e08…）；加密层缺 key 保护文案验证（FATAL: 位于加密层，还原需 --key）。
+- 治理：GUIDE-pool-consume 升 v1.2（离线工作流重写/kit 主线/实测矩阵）、GUIDE-image-pool-operations 升 v1.1（密钥全生命周期/kit 维护/smoke 组）、DSN 决策点全部经用户确认（状态已批准）。
 ## 变更记录
 
 | 版本 | 日期 | 说明 |
@@ -96,3 +105,4 @@
 | v1.1 | 2026-11-28 | A4~A6：Demo 端到端 PASS、工具三件套与冒烟、CI 工作流；F-19/F-20 |
 | v1.2 | 2026-11-28 | A7：CI 试点 run1~run18 全绿、消费侧还原双样本 PASS、run 序列缺陷与教训 |
 | v1.3 | 2026-11-29 | A8~A9：public 复验 PASS、robot/qt 组扩展全绿（run-26）、LFS 攻坚三连修、门禁分级修正、还原抽验 PASS |
+| v1.4 | 2026-11-29 | A10：M14 消费套件（kit）全绿、smoke 组 run-27 一次全绿、Excel 钉版三连修、还原明文分支补齐、全流程演练 6/6 |

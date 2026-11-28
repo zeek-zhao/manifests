@@ -1,13 +1,35 @@
-# GUIDE-20261129-001-image-pool-operations-v1.0
+# GUIDE-20261129-001-image-pool-operations-v1.1
 
 | 文档属性 | 内容 |
 |---|---|
-| 编号 | GUIDE-20261129-001-image-pool-operations-v1.0 |
-| 版本 | v1.0（2026-11-29） |
+| 编号 | GUIDE-20261129-001-image-pool-operations-v1.1 |
+| 版本 | v1.1（2026-11-29）：密钥全生命周期章节、消费套件（kit）构建维护、smoke 冒烟组 |
 | 编制 / 审核 | AI Agent (zeek.zhao) / 待用户审核 |
 | 状态 | 生效中 |
 | 适用 | manifests 仓库组镜像池全流程（使用者 / 管理者操作手册；分支 image-pool-ghcr） |
 | 关联 | DSN-20261128-017（方案）、GUIDE-20261128-017-pool-consume（消费侧速查）、DSN-20261129-001（LFS 规划，暂缓实施） |
+
+
+## 0-. 密钥全生命周期（管理者视角，逐步命令与预期）
+
+| 环节 | 命令 / 操作 | 预期结果 |
+|---|---|---|
+| 生成 | `openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out /home/jenkins/zeek_work/.secrets/jwe.key && openssl pkey -in .secrets/jwe.key -pubout -out keys/jwe.pub` | 私钥 PKCS8（600）；公钥 SPKI（可公开入库） |
+| 存放 | 私钥仅存工作区 `.secrets/`（权限 600）；提交前 `git status` 确认 `.secrets` 不在跟踪 | `ls -l .secrets/jwe.key` = `-rw-------` |
+| 公钥入库 | `git add keys/jwe.pub && git commit -m "feat(pool): JWE 公钥入册" && git push` | CI 加密只读仓库内公钥，私钥永不进 CI/secret |
+| 分发 | 带外渠道（加密压缩+另通道告知口令）交授权消费者；台账记录分发对象/日期 | 消费者 `.secrets/jwe.key`（600）与公钥配对可用（对账一致即验证） |
+| 验证配对 | 消费者对任意 private 仓跑还原（consume 手册步骤 5） | `RESTORE_OK … sha256 … 对账一致` |
+| 轮换 | ①生成新对（新文件名 jwe-v2.key/jwe-v2.pub）②公钥替换入库+推 CI 重建组镜像（新 tag 层用新钥）③新旧私钥并存窗口：旧 tag 用旧钥解、新 tag 用新钥解④通知消费者换钥⑤旧私钥冷存归档后销毁 | 新 tag 解密用新钥通过；旧钥从工作区移除（`.secrets/jwe.key.old` 归档或删除） |
+| 泄漏处置 | 视同全量重推：立即轮换（上一步骤）+评估泄漏窗口内被下载的镜像，必要时组镜像下架（ghcr 包 settings） | 新私钥仅新分发名单持有 |
+
+注意：轮换=新 tag 全量重推（旧 tag 仍绑旧公钥 annotations），不改动已发布 tag。
+
+## 0--. 消费套件（kit）构建与维护
+
+- workflow：`.github/workflows/consumer-kit.yml`（push 到自身/pool_restore.py 触发；dispatch 可手动）。
+- 产物：`ghcr.io/zeek-zhao/manifests-pool-kit:latest`（pool_restore.py+ctd-decoder 静态二进制+README+checksums.txt；构建后回拉校验 KIT_VERIFY_OK）。
+- 更新语义：`tools/pool_restore.py` 每次变更合入即自动重建 latest；消费者 `docker pull` 新 latest 即升级（checksums 变化属预期）。
+- 冒烟组 `smoke`（6 仓 ≤10MB，2 public+4 private）专为消费链路演练而设：`config/pool-groups.txt` 含 smoke，每次改动还原工具后建议跑一轮全流程（consume 手册 §0.1）。
 
 ## 0. 体系总览
 
@@ -229,10 +251,11 @@ chmod 600 .secrets/jwe-pool.key
 # 密钥轮换：见 D4
 ```
 
-当前产物：`run-26`（app/qt/robot 三组 + 三组 -meta），全部 public 匿名可拉；扩展组/LFS 内容池规划见 DSN-20261129-001。
+当前产物：`run-26`（app/qt/robot）与 `run-27`（smoke 冒烟组 6 仓）+ 各组 `-meta`；app 包 public 匿名可拉，其余包待 OWNER UI 公开化（F-20）；扩展组/LFS 内容池规划见 DSN-20261129-001。
 
 ## 6. 变更记录
 
 | 版本 | 日期 | 说明 |
 |---|---|---|
 | v1.0 | 2026-11-29 | 首版：A~G 全场景操作手册（清单/触发/还原/密钥/加密解密/联动对账） |
+| v1.1 | 2026-11-29 | 密钥全生命周期（生成/存放/分发/轮换/泄漏处置）；kit 构建维护；smoke 冒烟组 |
