@@ -1,1 +1,2 @@
 app,qt,robot,smoke
+# 全量四组（app,qt,robot,smoke）git-mirror 全量构建于 2026-11-29 触发一次
