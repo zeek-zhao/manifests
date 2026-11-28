@@ -1,17 +1,9 @@
-// genpayload — 生成 imgcrypt ctd-decoder 所需的 fd3 payload（io.containerd.ocicrypt.v1.Payload）。
-//
-// 背景（DSN-20261128-017）：containerd 自动解密管线在 pull 时构造的 payload TypeUrl 为空
-// （F-19），消费侧解密必须走 ctd-decoder 手动路径：密文层走 stdin，payload 走 fd3。
-// 本工具在 CI 加密完成后运行（此时加密 blob 的 digest/annotations 已定），
-// 产物 payload.bin 随 -meta 镜像分发，消费侧无需 go 环境。
-//
-// 用法: genpayload --descriptor <descriptor.json> --out <payload.bin>
-//   descriptor.json 为加密后镜像 manifest 中对应 layer 的 JSON（含 digest/annotations）。
+//go:build ignore
+
 package main
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"os"
 
@@ -23,14 +15,7 @@ import (
 )
 
 func main() {
-	descPath := flag.String("descriptor", "", "加密 layer 的 descriptor JSON 路径")
-	outPath := flag.String("out", "payload.bin", "payload 输出路径")
-	flag.Parse()
-	if *descPath == "" {
-		fmt.Fprintln(os.Stderr, "--descriptor 必填")
-		os.Exit(2)
-	}
-	data, err := os.ReadFile(*descPath)
+	data, err := os.ReadFile("/mnt/descriptor1.json")
 	if err != nil {
 		panic(err)
 	}
@@ -48,8 +33,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	if err := os.WriteFile(*out, b, 0o644); err != nil {
+	if err := os.WriteFile("/mnt/payload1.bin", b, 0644); err != nil {
 		panic(err)
 	}
-	fmt.Printf("payload: %d bytes, TypeUrl=%s\n", len(b), ta.TypeUrl)
+	fmt.Println("payload1.bin:", len(b), "bytes, TypeUrl:", ta.TypeUrl)
 }
