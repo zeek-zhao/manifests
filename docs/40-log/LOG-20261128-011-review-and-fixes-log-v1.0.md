@@ -24,7 +24,7 @@
 - XML 解包：5 个 DV sqref = E1/N1/Q1/D1/O1 + `:1000`，全部含第 1 行 ✓
 - readme sheet 15 行新文案 ✓；动态统计 4 图表保留、132 行（130 数据）✓
 - orgflow-devops1 零残留（manifests/、catalog.md、快照数据行；知识列描述已修正）✓
-- `--excel --check` / `validate` / `catalog.md --check` 全过 ✓；pre-commit 9 钩子全绿 ✓；CI 结果与合并记录待合并后补录。
+- `--excel --check` / `validate` / `catalog.md --check` 全过 ✓；pre-commit 9 钩子全绿 ✓；CI 双绿：push run 46126440189 / pull_request run 46126485089；合并提交 7dcc6c8 已推送 main（b13dc5d..7dcc6c8，ls-remote 核验送达）。
 
 ## 4. 事故与教训
 
