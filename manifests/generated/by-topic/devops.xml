@@ -6,4 +6,5 @@
     <project path="devops/orgflow-devops" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/jenkins-Shared-Library1" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/jenkins-Shared-Library1.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

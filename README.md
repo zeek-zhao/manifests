@@ -27,6 +27,7 @@ python3 tools/generate_manifests.py --excel --check
 python3 tools/validate_manifests_xlsx.py              # Excel 结构与规则校验
 python3 tools/catalog_to_markdown.py                  # 重生成 docs/catalog.md
 GH_TOKEN=<PAT> python3 tools/sync_self_repos.py --dry-run  # 自有仓库事实同步（预览）
+GH_TOKEN=<PAT> python3 tools/stats_report.py               # 动态统计 sheet 与图表刷新
 pre-commit run --all-files
 ```
 

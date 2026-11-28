@@ -13,7 +13,7 @@
     <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
     <project path="openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,visibility-public" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
     <project path="openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,visibility-public" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="qemu/qemu" remote="gitee_https" groups="qemu,gitee,visibility-public" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qemu/qemu" remote="gitee_https" groups="gitee,visibility-public" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,visibility-public" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,visibility-public" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,visibility-public" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
@@ -29,6 +29,6 @@
     <project path="vue/variant-form" remote="gitee_https" groups="vue,gitee,visibility-public" name="vdpadmin/variant-form.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,visibility-public" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/vxe-table" remote="gitee_https" groups="vue,gitee,visibility-public" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="c++/cmake-examples" remote="gitee_https" groups="c++,gitee,visibility-public" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="c++/cmake-examples" remote="gitee_https" groups="gitee,visibility-public" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="todo/alpu" remote="gitee_git" groups="linux,gitee,visibility-public" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

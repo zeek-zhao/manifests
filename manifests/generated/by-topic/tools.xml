@@ -7,4 +7,6 @@
     <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee,visibility-public" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
     <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github,visibility-public" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
     <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab,visibility-public" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="project/backup" remote="github_https" groups="tools,github,visibility-private" name="zeek-zhao/backup.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/wf4-selftest" remote="github_https" groups="tools,github,visibility-private" name="zeek-zhao/wf4-selftest.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
