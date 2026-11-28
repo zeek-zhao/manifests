@@ -10,7 +10,7 @@ repos:
     -   id: mixed-line-ending
     -   id: check-json
     -   id: pretty-format-json
-        args: ['--no-sort-keys', '--autofix', '--indent=2']
+        args: ['--no-sort-keys', '--autofix', '--indent=2', '--no-ensure-ascii']
 -   repo: local
     hooks:
     -   id: generate-manifests-excel-check

@@ -18,10 +18,10 @@ import generate_manifests as gm
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "catalog.md"
 
-CLASSIFY_COLUMNS = ["path", "category", "visibility", "description", "suggested_action"]
+CLASSIFY_COLUMNS = ["path", "标签分类", "仓库属性", "description", "suggested_action"]
 DETAIL_COLUMNS = ["path", "name", "branch", "topic", "language", "platform", "groups"]
 HEADER = {
-    "path": "path", "category": "分类", "visibility": "可见性",
+    "path": "path", "标签分类": "标签分类", "仓库属性": "仓库属性",
     "description": "描述", "suggested_action": "建议动作",
     "name": "name", "branch": "branch", "topic": "topic",
     "language": "language", "platform": "platform", "groups": "groups",
@@ -34,7 +34,7 @@ def load_catalogs():
     repos = data["repositories"]
     self_rows = [
         r for r in repos
-        if r.get("category") or str(r.get("name", "")).startswith(self_owner + "/")
+        if r.get("标签分类") or str(r.get("name", "")).startswith(self_owner + "/")
     ]
     return repos, self_rows
 
@@ -59,7 +59,7 @@ def render():
         "",
     ]
     if self_rows:
-        rows = sorted(self_rows, key=lambda r: (r.get("category", ""), r.get("path", "")))
+        rows = sorted(self_rows, key=lambda r: (r.get("标签分类", ""), r.get("path", "")))
         lines.append(f"## 自有仓库分类与建议动作 ({len(rows)})")
         lines.append("")
         lines += render_table(rows, CLASSIFY_COLUMNS)
