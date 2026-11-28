@@ -109,6 +109,7 @@
   ②解析修复改多行 python 内联，块标量（run: |）内顶格行=终止 YAML 块，workflow 解析炸——教训：块标量内一切行必须保持基准缩进，内联代码用单行；
   ③YAML 校验失败后无 set -e 仍执行了 commit/push（坏 YAML 已推远端）——教训：改 workflow 的脚本必须 set -e 或先校验后提交（M10 教训第三次复发）；
   最终修复=单行 python 列表推导（splitlines→去 #→split 逗号），本地注释样本解析 ["app","qt","robot","smoke"] 验证后推送。
+- **run-33（ed3abc2）四组全绿**：app/qt/robot/smoke 四包 run-33 tag 齐（app 5 层加密 [0,1]、robot 20 层加密 [15,16]）；消费侧混合抽验（frobot robot 组加密层+kuaidian app 组加密层）MIRROR_OK+fsck 0 错误+三列清单/XML 正确；F-23 小缺陷记录=多次单仓 --repo 调用时 pool-manifest.xml 互相覆盖（主线 --all 一次生成不受影响，文档已注明）；演练区/kit 镜像/imgcrypt-out 清理完成（0 残留）。
 
 ## 变更记录
 
