@@ -136,11 +136,18 @@ def stage_fetch(args, entries):
             auth = url.replace("https://", "https://x-access-token:%s@" % tok)
             # GIT_LFS_SKIP_SMUDGE：LFS 指针随池分发（与普通 clone 语义一致，大文件内容不含）；
             # HTTP/1.1：大仓库 HTTP2 framing 层易断流。
+            # mirror clone 的 fetch 路径不走 smudge，SKIP_SMUDGE 不够——必须直接禁用
+            # filter.lfs.*（runner 预装 git-lfs 时 filter-process 会因上游 LFS 404 炸掉 clone）。
             # 重试 3 次；仍失败则降级跳过该仓并记入 manifest.skipped（不炸整组）。
             err = None
             for attempt in range(3):
                 r = subprocess.run(
-                    ["git", "-c", "http.version=HTTP/1.1", "clone", "--mirror", "--quiet", auth, str(bare)],
+                    ["git",
+                     "-c", "filter.lfs.process=",
+                     "-c", "filter.lfs.smudge=cat",
+                     "-c", "filter.lfs.required=false",
+                     "-c", "http.version=HTTP/1.1",
+                     "clone", "--mirror", "--quiet", auth, str(bare)],
                     env={**os.environ, "GIT_LFS_SKIP_SMUDGE": "1"},
                     stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
                 if r.returncode == 0:
