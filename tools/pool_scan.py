@@ -53,18 +53,29 @@ def scan(args):
         elif m["name"] in priv_names and not m["encrypted"]:
             failures.append("manifest 条目 %s 为 private 仓但 encrypted != true（快照口径）" % m["name"])
 
-    # 3. 敏感文件名扫描
+    # 3. 敏感文件名扫描（按层加密状态分级：
+    #    明文层（public 仓）命中=拦截，无例外——公开可解包；
+    #    加密层（private 仓）命中=告警记录——内容受 JWE 层保护，可审计不拦构建）
     tars = sorted((ctx / "pools" / man["group"]).glob("*.tar"))
     if not tars:
         failures.append("组 tar 缺失: %s" % (ctx / "pools" / man["group"]))
     hits = []
+    warns = []
+    enc_by_name = {m["name"]: bool(m.get("encrypted")) for m in man["repos"]}
     for t in tars:
+        encrypted = enc_by_name.get(t.stem, False)
         with tarfile.open(t) as tf:
             for name in tf.getnames():
                 if SENSITIVE_NAME_RE.search(name):
-                    hits.append("%s :: %s" % (t.name, name))
+                    if encrypted:
+                        warns.append("%s :: %s（加密层内，记录不拦截）" % (t.name, name))
+                    else:
+                        hits.append("%s :: %s" % (t.name, name))
     if hits:
-        failures.append("敏感文件名命中:\n  " + "\n  ".join(hits[:20]))
+        failures.append("敏感文件名命中（明文层）:\n  " + "\n  ".join(hits[:20]))
+    if warns:
+        print("POOL_SCAN_WARN 敏感文件名（加密层内，已记录）:")
+        print("  " + "\n  ".join(warns[:20]))
 
     if failures:
         print("POOL_SCAN_FAIL")
