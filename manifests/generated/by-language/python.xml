@@ -3,23 +3,23 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="raspberrypi/pico-micropython" remote="gitee_https" groups="raspberrypi,gitee" name="weidongshan/pico-micropython.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ROBOTIS-GIT/DynamixelSDK" remote="github_https" groups="robot,github" name="ROBOTIS-GIT/DynamixelSDK.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ROBOTIS-GIT/hls_lfcd_lds_driver" remote="github_https" groups="robot,github" name="ROBOTIS-GIT/hls_lfcd_lds_driver.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ROBOTIS-GIT/turtlebot3_msgs" remote="github_https" groups="robot,github" name="ROBOTIS-GIT/turtlebot3_msgs.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ROBOTIS-GIT/turtlebot3_simulations" remote="github_https" groups="robot,github" name="ROBOTIS-GIT/turtlebot3_simulations.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/6-robot/wpr_simulation" remote="github_https" groups="robot,github" name="6-robot/wpr_simulation.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/6-robot/wpb_home" remote="github_https" groups="robot,github" name="6-robot/wpb_home.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/6-robot/wpb_cv" remote="github_https" groups="robot,github" name="6-robot/wpb_cv.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/ZZX_RUN" remote="github_https" groups="robot,github" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="robot/frobot" remote="github_https" groups="robot,github" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample" remote="github_https" groups="sample,github" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/python-sample/src/ai-knowledge" remote="github_https" groups="sample,github" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/ai-obsidian" remote="github_https" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ai/meetnote" remote="github_https" groups="ai,github" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-devops" remote="github_https" groups="devops,github" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ops/srvkit" remote="github_https" groups="ops,github" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="raspberrypi/pico-micropython" remote="gitee_https" groups="raspberrypi,gitee,visibility-公开" name="weidongshan/pico-micropython.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/DynamixelSDK" remote="github_https" groups="robot,github,visibility-公开" name="ROBOTIS-GIT/DynamixelSDK.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/hls_lfcd_lds_driver" remote="github_https" groups="robot,github,visibility-公开" name="ROBOTIS-GIT/hls_lfcd_lds_driver.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/turtlebot3_msgs" remote="github_https" groups="robot,github,visibility-公开" name="ROBOTIS-GIT/turtlebot3_msgs.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ROBOTIS-GIT/turtlebot3_simulations" remote="github_https" groups="robot,github,visibility-公开" name="ROBOTIS-GIT/turtlebot3_simulations.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/6-robot/wpr_simulation" remote="github_https" groups="robot,github,visibility-公开" name="6-robot/wpr_simulation.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/6-robot/wpb_home" remote="github_https" groups="robot,github,visibility-公开" name="6-robot/wpb_home.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/6-robot/wpb_cv" remote="github_https" groups="robot,github,visibility-公开" name="6-robot/wpb_cv.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/ZZX_RUN" remote="github_https" groups="robot,github,visibility-公开" name="kkmd66/ZZX_RUN.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/Autodrive_Toolchain" remote="github_https" groups="robot,github,visibility-公开" name="ChenJiahao031008/Autodrive_Toolchain.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="robot/frobot" remote="github_https" groups="robot,github,visibility-私有" name="zeek-zhao/frobot.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample" remote="github_https" groups="sample,github,visibility-私有" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/python-sample/src/ai-knowledge" remote="github_https" groups="sample,github,visibility-私有" name="zeek-zhao/ai-knowledge.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/ai-obsidian" remote="github_https" groups="blog,github,visibility-私有" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/meetnote" remote="github_https" groups="ai,github,visibility-私有" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops" remote="github_https" groups="devops,github,visibility-公开" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github,visibility-私有" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github,visibility-私有" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ops/srvkit" remote="github_https" groups="ops,github,visibility-私有" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

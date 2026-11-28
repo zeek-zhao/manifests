@@ -18,6 +18,7 @@ import generate_manifests as gm  # noqa: E402
 from openpyxl import load_workbook  # noqa: E402
 from openpyxl.styles import Font, PatternFill  # noqa: E402
 from openpyxl.utils import get_column_letter  # noqa: E402
+from openpyxl.workbook.defined_name import DefinedName  # noqa: E402
 from openpyxl.worksheet.datavalidation import DataValidation  # noqa: E402
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,7 +37,8 @@ TAG_CATEGORIES = [
 ]
 
 HEADER_FILL = PatternFill("solid", fgColor="37474F")  # 深蓝灰表头（低饱和暗色）
-BAND_FILL = PatternFill("solid", fgColor="ECEFF1")    # 浅灰蓝条纹行
+BAND_FILL_A = PatternFill("solid", fgColor="D6DEE7")  # 数据行条纹-深（偶数行）
+BAND_FILL_B = PatternFill("solid", fgColor="EBEFF4")  # 数据行条纹-浅（奇数行）
 TITLE_FILL = PatternFill("solid", fgColor="263238")   # 标题行
 
 
@@ -46,10 +48,12 @@ def _style_sheet(ws, band: bool = False) -> None:
         cell.fill = HEADER_FILL
         cell.font = Font(bold=True, color="FFFFFF")
     if band:
+        # 逐单元格双色条纹：xlsx 行级 fill 不生效（Excel/WPS 均忽略），
+        # 必须落到每个单元格；奇数行也显式着色，确保打开文件可见。
         for row_idx in range(2, ws.max_row + 1):
-            if row_idx % 2 == 0:
-                for cell in ws[row_idx]:
-                    cell.fill = BAND_FILL
+            fill = BAND_FILL_A if row_idx % 2 == 0 else BAND_FILL_B
+            for cell in ws[row_idx]:
+                cell.fill = fill
 
 
 def _rebuild_stats(wb, header: list, platform_values: list) -> tuple:
@@ -108,7 +112,7 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
         tag_start, tag_end = _rebuild_stats(wb, header, platform_values)
         for name in ("repos", "remotes", "config", "readme"):
             ws = wb[name]
-            _style_sheet(ws, band=(name == "repos"))
+            _style_sheet(ws, band=True)
             for column_cells in ws.columns:
                 width = max(
                     (len(str(c.value)) if c.value is not None else 0)
@@ -132,11 +136,17 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
             )
             dv.add(f"{letter}2:{letter}1000")
             repos.add_data_validation(dv)
-        # 标签分类下拉：引用统计表分类清单（单一维护点）
+        # 标签分类下拉：命名区域引用统计表分类清单（单一维护点）。
+        # 跨表 DV 直引（统计!$A$15:$A$29）在 Excel/WPS 兼容性差，必须走命名区域。
+        if "TagCategories" in wb.defined_names:
+            del wb.defined_names["TagCategories"]
+        wb.defined_names["TagCategories"] = DefinedName(
+            "TagCategories", attr_text=f"统计!$A${tag_start}:$A${tag_end}"
+        )
         tag_letter = get_column_letter(header.index("标签分类") + 1)
         dv = DataValidation(
             type="list",
-            formula1=f"统计!$A${tag_start}:$A${tag_end}",
+            formula1="TagCategories",
             allow_blank=True,
             showErrorMessage=False,
         )
