@@ -67,15 +67,18 @@ def host_of(platform):
 
 
 def repo_url(entry):
+    """clone URL：优先 origin（快照 name 列=真实 owner/repo.git）。
+
+    注意：item["name"] 是 pure_name（剥 owner 的纯名，仅用于 tar/层内文件名），
+    不能用于拼 URL——快照 path 列是组前缀路径（qt/DBoS-Desktop）也不是 GitHub 身份。
+    """
     host = host_of(entry.get("platform"))
-    path = str(entry.get("path") or "").strip("/")
-    raw = str(entry.get("name") or "").strip("/")
-    if not path:
-        # path 缺省时用 name 推导（name 可能是完整相对路径 zeek-zhao/xxx.git）
-        path = raw if "/" in raw else "zeek-zhao/%s.git" % raw
-    if not path.endswith(".git"):
-        path += ".git"
-    return "https://%s/%s" % (host, path), path
+    raw = str(entry.get("origin") or entry.get("name") or "").strip("/")
+    if "/" not in raw:
+        raw = "zeek-zhao/%s" % raw
+    if not raw.endswith(".git"):
+        raw += ".git"
+    return "https://%s/%s" % (host, raw), raw
 
 
 def pure_name(entry):
@@ -102,6 +105,7 @@ def load_group(snapshot_path, group, big_mb):
             size = 0.0
         item = {
             "name": pure_name(r),
+            "origin": str(r.get("name") or "").strip(),
             "platform": r.get("platform", "github"),
             "encrypted": str(r.get("仓库属性", "")).strip() == "private",
             "size_mb": size,
