@@ -31,4 +31,5 @@
 
 ## 4. CI 与合并记录
 
-- CI runs 待补录（合并后回填）。
+- PR #14 CI 双绿：push run 46137846870 / pull_request run 46137894949
+- 合并提交 06340f1 已推送 main（f76ad18..06340f1，ls-remote 核验送达后才删分支）；PR #14 状态 MERGED（2026-11-28T11:03:13Z）
