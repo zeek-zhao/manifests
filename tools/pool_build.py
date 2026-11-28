@@ -284,10 +284,13 @@ def stage_meta(args, entries, image):
         raise RuntimeError("ghcr manifest 中未见加密层（annotations 缺失）")
     for l in jwe_layers:
         out = payloads / ("%s.bin" % l["digest"].split(":")[1][:12])
-        go_src = Path(__file__).resolve().parent / "pool-tools" / "genpayload"
+        # genpayload 依赖 imgcrypt/typeurl 包：独立目录跑需要 go.mod；
+        # GENPAYLOAD_FILE 指到 imgcrypt 源码树内的单文件时依赖已齐（CI 路径）。
+        go_src = os.environ.get("GENPAYLOAD_FILE") or str(
+            Path(__file__).resolve().parent / "pool-tools" / "genpayload")
         djson = payloads / ("d-%s.json" % l["digest"].split(":")[1][:12])
         djson.write_text(json.dumps(l), encoding="utf-8")
-        sh(["go", "run", str(go_src), "--descriptor", str(djson), "--out", str(out)],
+        sh(["go", "run", go_src, "--descriptor", str(djson), "--out", str(out)],
            env={"GOPROXY": os.environ.get("GOPROXY", "https://proxy.golang.org,direct")})
     mlines = ["FROM scratch", "COPY payloads/ payloads/"]
     (ctx / "Dockerfile.meta").write_text("\n".join(mlines) + "\n", encoding="utf-8")

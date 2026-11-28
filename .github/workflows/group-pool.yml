@@ -140,6 +140,8 @@ jobs:
 
       - name: meta 镜像（payloads 分发，消费侧零 go 依赖）
         run: |
+          cp tools/pool-tools/genpayload/main.go /tmp/imgcrypt-src/genpayload_ci.go
+          export GENPAYLOAD_FILE=/tmp/imgcrypt-src/genpayload_ci.go
           echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u zeek-zhao --password-stdin
           python3 tools/pool_build.py --stage meta --group "$GROUP" --tag "$TAG" --ctx out/pool
 
