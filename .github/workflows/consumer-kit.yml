@@ -93,7 +93,7 @@ jobs:
         run: |
           set -euxo pipefail
           docker pull ghcr.io/zeek-zhao/manifests-pool-kit:latest
-          docker create --name kitv ghcr.io/zeek-zhao/manifests-pool-kit:latest
+          docker create --name kitv --entrypoint /bin/true ghcr.io/zeek-zhao/manifests-pool-kit:latest
           docker cp kitv:/kit ./kit-verify && docker rm kitv
           (cd kit-verify && sha256sum -c checksums.txt)
           test -x kit-verify/ctd-decoder && echo KIT_VERIFY_OK
