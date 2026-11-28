@@ -74,14 +74,7 @@ jobs:
           fi
           TAG="${TAG_IN:-run-${GITHUB_RUN_NUMBER}}"
           {
-            echo "matrix={\"group\":$(printf '%s' "$GROUPS" | python3 -c '
-import json, sys
-groups = []
-for line in sys.stdin.read().splitlines():
-    line = line.split("#", 1)[0].strip()   # 支持整行与行内注释
-    if line:
-        groups.extend(g.strip() for g in line.split(",") if g.strip())
-print(json.dumps(groups))')}"
+            echo "matrix={\"group\":$(printf '%s' "$GROUPS" | python3 -c 'import json,sys; print(json.dumps([g.strip() for line in sys.stdin.read().splitlines() for g in line.split("#",1)[0].strip().split(",") if g.strip()]))')}"
             echo "tag=$TAG"
           } >> "$GITHUB_OUTPUT"
 
