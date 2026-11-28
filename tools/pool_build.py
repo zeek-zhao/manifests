@@ -181,7 +181,9 @@ def stage_build(args, entries, image):
         lines.append("COPY pools/%s/%s.tar pools/%s/" % (args.group, ent["name"], args.group))
     lines.append("COPY pools-manifest.json pools/%s/" % args.group)
     (ctx / "Dockerfile").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    sh(["docker", "build", "--no-cache", "-t", image, str(ctx)])
+    sh(["docker", "build", "--no-cache",
+        "--provenance=false", "--sbom=false",
+        "-t", image, str(ctx)])
     return manifest
 
 
