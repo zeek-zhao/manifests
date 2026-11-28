@@ -75,7 +75,7 @@ jobs:
           完整文档：GUIDE-20261128-017-pool-consume（manifests 仓库 docs/00-guide/）。
           EOF
           (cd kit && sha256sum pool_restore.py ctd-decoder README.txt > checksums.txt)
-          sha256sum -c kit/checksums.txt
+          (cd kit && sha256sum -c checksums.txt)
           ls -la kit/
 
       - name: 构建并推送 kit 镜像
