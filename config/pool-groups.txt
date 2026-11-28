@@ -1,1 +1,1 @@
-app,qt,robot
+app,qt,robot,smoke

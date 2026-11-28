@@ -1348,7 +1348,9 @@
       "仓库属性": "public",
       "topic": "",
       "language": "c/c++",
-      "groups": [],
+      "groups": [
+        "smoke"
+      ],
       "linkfiles": [],
       "description": "C++ 线程池实现（ChunelFeng）",
       "purpose": "线程池原理与实践",
@@ -1450,7 +1452,7 @@
       "contents": "catalogs/*.json 数据源、tools 生成器与校验、多维度 manifest XML 产物、AGENTS 与 docs 文档",
       "relations": "引用全部其他仓库；与 Firefly rk/manifests 同类工程对照；各组检出总入口",
       "标签分类": "元工具与工程流程",
-      "仓库大小(MB)": "0.5",
+      "仓库大小(MB)": "1.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1816,7 +1818,9 @@
       "仓库属性": "private",
       "topic": "",
       "language": "nodejs",
-      "groups": [],
+      "groups": [
+        "smoke"
+      ],
       "linkfiles": [],
       "description": "数据库示例工程",
       "purpose": "数据库示例工程",
@@ -1835,7 +1839,9 @@
       "仓库属性": "private",
       "topic": "",
       "language": "nodejs",
-      "groups": [],
+      "groups": [
+        "smoke"
+      ],
       "linkfiles": [],
       "description": "Vue 示例工程",
       "purpose": "Vue 示例工程",
@@ -1873,7 +1879,9 @@
       "仓库属性": "private",
       "topic": "",
       "language": "mixed",
-      "groups": [],
+      "groups": [
+        "smoke"
+      ],
       "linkfiles": [],
       "description": "standard-version 语义化版本管理演示",
       "purpose": "语义化版本管理演示",
@@ -2048,7 +2056,9 @@
       "仓库属性": "public",
       "topic": "",
       "language": "mixed",
-      "groups": [],
+      "groups": [
+        "smoke"
+      ],
       "linkfiles": [],
       "description": "产品示例工程",
       "purpose": "产品原型示例仓",
@@ -2067,7 +2077,9 @@
       "仓库属性": "private",
       "topic": "",
       "language": "nodejs",
-      "groups": [],
+      "groups": [
+        "smoke"
+      ],
       "linkfiles": [
         {
           "src": ".",
@@ -2194,7 +2206,7 @@
       "contents": "Hexo 构建产物（静态站点）",
       "relations": "hexo-engine 自动发布目标；博客链路第 3 环",
       "标签分类": "博客与知识发布",
-      "仓库大小(MB)": "26.3",
+      "仓库大小(MB)": "25.9",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2341,7 +2353,7 @@
       "contents": "Jenkins 编排+LDAP+Caddy+Nexus 引导配置",
       "relations": "orgflow-jenkins 为其 Jenkins API 层；devops 杂项待并入",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(MB)": "2.6",
+      "仓库大小(MB)": "3",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2402,7 +2414,7 @@
       "contents": "dunfell/kirkstone/scarthgap/wrynose 多版本构建矩阵",
       "relations": "基于外部 yoctoproject/poky；与自研 poky（Vela）互补",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(MB)": "2",
+      "仓库大小(MB)": "1.8",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2463,7 +2475,7 @@
       "contents": "待核（上游未设描述；推断为 markdown 笔记/书稿类内容）",
       "relations": "ai- 前缀系列仓之一；与 ai-mcp/ai-server/ai-tools 构成个人 AI 工作线",
       "标签分类": "AI应用与工具",
-      "仓库大小(MB)": "5.6",
+      "仓库大小(MB)": "5.9",
       "suggested_action": "",
       "note": ""
     },
@@ -2631,7 +2643,7 @@
       "contents": "MV3 扩展源码（service worker/popup/options）与 TDD+BDD 测试闭环",
       "relations": "独立浏览器工具产品线；无仓库间依赖",
       "标签分类": "独立产品与应用",
-      "仓库大小(MB)": "1.5",
+      "仓库大小(MB)": "1.8",
       "suggested_action": "",
       "note": ""
     },
@@ -2653,6 +2665,63 @@
       "relations": "服务 jenkins/workflow 工程线验证；可随时删除",
       "标签分类": "元工具与工程流程",
       "仓库大小(MB)": "0",
+      "suggested_action": "",
+      "note": ""
+    },
+    {
+      "name": "zeek-zhao/HuiYan.git",
+      "path": "project/HuiYan",
+      "branch": "main",
+      "platform": "github",
+      "仓库属性": "public",
+      "topic": "",
+      "language": "",
+      "groups": [],
+      "linkfiles": [],
+      "description": "",
+      "purpose": "",
+      "contents": "",
+      "relations": "",
+      "标签分类": "",
+      "仓库大小(MB)": "4.7",
+      "suggested_action": "",
+      "note": ""
+    },
+    {
+      "name": "zeek-zhao/OmniGame.git",
+      "path": "project/OmniGame",
+      "branch": "main",
+      "platform": "github",
+      "仓库属性": "public",
+      "topic": "",
+      "language": "",
+      "groups": [],
+      "linkfiles": [],
+      "description": "Flutter + C++ cross-platform game framework (memory match & snake) with Docker dev workflow",
+      "purpose": "",
+      "contents": "",
+      "relations": "",
+      "标签分类": "",
+      "仓库大小(MB)": "0.2",
+      "suggested_action": "",
+      "note": ""
+    },
+    {
+      "name": "zeek-zhao/agent-harness.git",
+      "path": "project/agent-harness",
+      "branch": "main",
+      "platform": "github",
+      "仓库属性": "public",
+      "topic": "",
+      "language": "",
+      "groups": [],
+      "linkfiles": [],
+      "description": "",
+      "purpose": "",
+      "contents": "",
+      "relations": "",
+      "标签分类": "",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "",
       "note": ""
     }
