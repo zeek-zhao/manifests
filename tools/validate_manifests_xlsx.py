@@ -27,7 +27,9 @@ from openpyxl.worksheet.datavalidation import DataValidation  # noqa: E402
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_XLSX = PROJECT_ROOT / "catalogs" / "manifests.xlsx"
 DEFAULT_SNAPSHOT = PROJECT_ROOT / "catalogs" / "manifests-excel-snapshot.json"
-MAX_COL_WIDTH = 28          # 紧凑列宽上限（TSK-009 D-5）
+MAX_COL_WIDTH = 28          # 兼容保留（TSK-015 分级后未直接使用）
+MAX_WRAP_WIDTH = 26         # 长文本列（wrap）上限（TSK-015 D-4）
+MAX_PLAIN_WIDTH = 18        # 普通列上限（TSK-015 D-4）
 DOCS_ROW = 2                # 列说明行
 DATA_START_ROW = 3          # 与 gm.DATA_START_ROW 一致
 
@@ -49,7 +51,6 @@ COLUMN_DOCS = {
         "path": "检出路径（唯一，不以 / 开头；自有行空则 sync 补 project/<repo>）",
         "branch": "分支（自有行由 excel-sync 按 API default_branch 刷新）",
         "platform": "托管平台 gitee/github/gitlab/yoctoproject（外键→remotes 表）",
-        "protocol": "协议覆盖 https/git（留空=default_protocol；自有行由 sync 清空）",
         "topic": "主题（slug 用于 by-topic 维度）",
         "language": "主语言（slug 用于 by-language 维度）",
         "groups": "手填同步组，逗号分隔；生成时自动追加 platform/topic/visibility-public|private 派生组",
@@ -113,19 +114,29 @@ def _style_sheet(ws, header: list, band: bool = False) -> None:
                     cell.alignment = Alignment(wrap_text=True, vertical="top")
 
 
+NARROW_COLUMNS = {"branch", "platform", "仓库属性", "标签分类", "仓库大小(MB)",
+                  "suggested_action", "value", "key", "区块"}
+
+
 def _tight_widths(ws) -> None:
-    """紧凑列宽：内容自适应（CJK 按双宽计），封顶 28；不设固定行高（打开自动）。"""
+    """紧凑列宽三级（TSK-015 #2）：长文本列 26 封顶（wrap）；普通列 18 封顶；
+    窄值列按内容+2、不设下限，整表尽量一页可视。不设固定行高（打开自动）。"""
     for column_cells in ws.columns:
         letter = get_column_letter(column_cells[0].column)
         header_name = str(ws.cell(1, column_cells[0].column).value or "")
         cjk_width = 0
         for c in column_cells:
+            if c.row == 2:
+                continue  # TSK-015：说明行文本不参与列宽（靠 wrap 显示），窄列不被撑宽
             v = str(c.value) if c.value is not None else ""
             w = sum(2 if ord(ch) > 0x2E7F else 1 for ch in v)
             cjk_width = max(cjk_width, w)
-        width = min(cjk_width + 2, MAX_COL_WIDTH)
         if header_name in WRAP_COLUMNS:
-            width = min(max(width, 14), MAX_COL_WIDTH)
+            width = min(max(cjk_width + 2, 14), MAX_WRAP_WIDTH)
+        elif header_name in NARROW_COLUMNS:
+            width = min(max(cjk_width + 2, 8), MAX_PLAIN_WIDTH)
+        else:
+            width = min(cjk_width + 2, MAX_PLAIN_WIDTH)
         ws.column_dimensions[letter].width = width
 
 
@@ -177,7 +188,6 @@ README_ROWS = [
     ("A.流程|4", "自有行（name 以 config.self_owner 开头）由自动化维护：branch/platform/description/仓库属性/仓库大小(MB)自动刷新；人工维护 path（已有值不覆盖）与 groups/topic/知识列（永不覆盖）。"),
     ("B.结构|1", "repos/remotes/config 三表均为三行结构：第 1 行表头（下拉自第 1 行即可点选）/第 2 行列说明/第 3 行起数据。"),
     ("B.结构|2", "标签分类列下拉=内联枚举（14 类）+TagCategories 命名区域双保险；统计表按 public/private 与标签自动计数（COUNTIF/COUNTA）。"),
-    ("B.字典|repos.protocol", "https/git；留空继承 config.default_protocol。"),
     ("B.字典|repos.仓库属性", "public/private（GitHub API 实值，excel-sync 自动刷新）。"),
     ("B.字典|repos.仓库大小(MB)", "GitHub API size/1024（MB，保留 1 位小数），excel-sync 自动刷新；gitee 等平台无对应 API 指标则留空。"),
     ("B.字典|repos.topic", "主题标签，驱动 by-topic 维度文件与 groups 派生属性（TSK-010）。"),
@@ -248,6 +258,31 @@ def _apply_column_dv(ws, col_name: str, values: list, wb, dd_state: dict) -> Non
     ws.add_data_validation(dv)
 
 
+def _rebuild_total_row(ws) -> None:
+    """TSK-015 #3：repos 表末尾「合计」行（仓库大小(MB) 列 SUM 数据区，加粗）。
+    先删旧合计行再重建，保证幂等；数据行数以最后一个非空 name 行为准。"""
+    for r in range(DATA_START_ROW, ws.max_row + 1):
+        if str(ws.cell(row=r, column=1).value or "").strip() == "合计":
+            ws.delete_rows(r)
+            break
+    last = DATA_START_ROW - 1
+    for r in range(DATA_START_ROW, ws.max_row + 1):
+        if str(ws.cell(row=r, column=1).value or "").strip():
+            last = r
+    size_col = None
+    for c in range(1, ws.max_column + 1):
+        if str(ws.cell(row=1, column=c).value or "").strip() == "仓库大小(MB)":
+            size_col = c
+            break
+    total_row = last + 1
+    ws.cell(row=total_row, column=1).value = "合计"
+    if size_col:
+        letter = get_column_letter(size_col)
+        ws.cell(row=total_row, column=size_col).value = f"=SUM({letter}{DATA_START_ROW}:{letter}{last})"
+    for c in range(1, ws.max_column + 1):
+        ws.cell(row=total_row, column=c).font = Font(bold=True)
+
+
 def _apply_formatting(path: Path, platform_values: list) -> None:
     wb = load_workbook(path)
     # 重建下拉源：清除旧 sheet 与 DD* 命名区域（TSK-013）
@@ -260,6 +295,7 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
         repos = wb["repos"]
         header = [c.value for c in repos[1]]
         tag_start, tag_end = _rebuild_stats(wb, header, platform_values)
+        _rebuild_total_row(repos)  # TSK-015：合计行幂等重建（在样式前，行数纳入条纹区间可接受）
         for name in ("repos", "remotes", "config", "readme"):
             ws = wb[name]
             _style_sheet(ws, [c.value for c in ws[1]], band=True)
@@ -280,7 +316,6 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
             ws = wb[sheet_name]
             ws.auto_filter.ref = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
         # 枚举固定列：固定值域优先于数据全集（维持既有语义）。
-        repo_vals["protocol"] = ["https", "git"]
         repo_vals["仓库属性"] = VISIBILITY_VALUES
         repo_vals["标签分类"] = list(TAG_CATEGORIES)
         if platform_values:

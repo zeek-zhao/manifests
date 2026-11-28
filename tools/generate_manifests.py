@@ -22,17 +22,17 @@ INCLUDE_HEADERS = ["manifests/_remotes.xml", "manifests/_hooks.xml"]
 QUICKSTART_EXAMPLES = {
     "manifests/examples/quickstart-https.xml": {
         "repo_name": "bazelbuild/examples.git",
-        "protocol": "https",
+        "protocol": "https",  # TSK-015: 协议列已删除，全站统一 https
     },
     "manifests/examples/quickstart-zeek-zhao.xml": {
         "repo_name": "zeek-zhao/docker-sample.git",
-        "protocol": "git",
+        "protocol": "https",  # TSK-015: git 协议退役，统一 https
     },
 }
 REPO_COLUMNS = [
-    "name", "path", "branch", "platform", "protocol", "topic", "language",
+    "name", "path", "branch", "platform", "仓库属性", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "仓库属性", "标签分类", "仓库大小(MB)", "suggested_action", "note",
+    "标签分类", "仓库大小(MB)", "suggested_action", "note",
 ]
 # 三行结构（TSK-009 D-2）：第 1 行表头、第 2 行列说明、第 3 行起数据。
 DATA_START_ROW = 3
@@ -166,6 +166,8 @@ def load_from_excel(xlsx_path: Path) -> Dict:
             }
             if not any(cells.values()):
                 continue
+            if cells["name"] == "合计":
+                break  # TSK-015: 合计哨兵行之后无数据行
             name, path = cells["name"], cells["path"]
             if not NAME_RE.match(name):
                 errors.append(f"repos row {row_no}: name 格式应为 owner/repo.git（或裸 repo.git）：{name}")
@@ -181,8 +183,6 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 seen_paths[path] = row_no
             if cells["platform"] not in remotes:
                 errors.append(f"repos row {row_no}: platform 不在 remotes 表：{cells['platform']}")
-            if cells["protocol"] not in VALID_PROTOCOLS:
-                errors.append(f"repos row {row_no}: protocol 应为 https/git/留空：{cells['protocol']}")
             size_raw = cells["仓库大小(MB)"]
             if size_raw:
                 try:
@@ -206,7 +206,6 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 "path": path,
                 "branch": cells["branch"],
                 "platform": cells["platform"],
-                "preferred_protocol": cells["protocol"] or None,
                 "topic": cells["topic"],
                 "language": cells["language"],
                 "groups": _split_groups(cells["groups"]),
@@ -239,16 +238,11 @@ def load_from_excel(xlsx_path: Path) -> Dict:
         wb.close()
 
 
+
+
 def get_effective_protocol(config: Dict, repo: Dict, requested_protocol: str = None) -> str:
-    owner_name = get_owner(repo["name"])
-    owner_config = config.get("owners", {}).get(owner_name, {})
-    repo_protocol = repo.get("preferred_protocol")
-    owner_protocol = owner_config.get("preferred_protocol")
-    if requested_protocol:
-        if repo_protocol == "git" or owner_protocol == "git":
-            return "git"
-        return requested_protocol
-    return repo_protocol or owner_protocol or DEFAULT_PROTOCOL
+    """TSK-015: 协议列已删除，全站统一 https。保留签名以兼容既有调用。"""
+    return DEFAULT_PROTOCOL
 
 
 def build_groups(config: Dict, repo: Dict, protocol: str) -> List[str]:
@@ -347,7 +341,7 @@ def render_remotes(config: Dict) -> str:
     }
     remotes = config.get("remotes", {})
     use_proxy_https = bool(config.get("_use_proxy_https"))
-    for protocol in ["git", "https"]:
+    for protocol in ["https"]:  # TSK-015: 仅 https remote
         lines.append(f'    <!-- {protocol_comments[protocol]} -->')
         for platform in sorted(remotes):
             entry = remotes[platform]
@@ -376,11 +370,11 @@ def _quickstart_examples(config: Dict) -> Dict[str, Dict[str, str]]:
         return {
             "manifests/examples/quickstart-https.xml": {
                 "repo_name": https_repo,
-                "protocol": "https",
+                "protocol": "https",  # TSK-015: 协议列已删除，全站统一 https
             },
             "manifests/examples/quickstart-zeek-zhao.xml": {
                 "repo_name": self_repo,
-                "protocol": "git",
+                "protocol": "https",  # TSK-015: git 协议退役，统一 https
             },
         }
     return QUICKSTART_EXAMPLES
@@ -454,9 +448,9 @@ def load_catalogs(catalogs_dir: Path) -> List[Dict]:
 
 
 SNAPSHOT_REPO_ORDER = [
-    "name", "path", "branch", "platform", "protocol", "topic", "language",
+    "name", "path", "branch", "platform", "仓库属性", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "仓库属性", "标签分类", "仓库大小(MB)", "suggested_action", "note",
+    "标签分类", "仓库大小(MB)", "suggested_action", "note",
 ]
 
 
@@ -464,7 +458,6 @@ def export_snapshot(merged: Dict, out_path: Path) -> None:
     repositories = []
     for repo in merged.get("repositories", []):
         item = {key: repo.get(key) for key in SNAPSHOT_REPO_ORDER}
-        item["protocol"] = repo.get("preferred_protocol") or ""
         repositories.append(item)
     payload = {
         "repositories": repositories,

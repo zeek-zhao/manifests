@@ -9,8 +9,7 @@ obsidian multi-branch checkout are never touched):
   3. description   <- GitHub API description
   4. 仓库属性    <- GitHub API visibility 原值（public/private，TSK-009 起英文值域）
   5. 仓库大小(MB) <- GitHub API size/1024（MB 保留 1 位小数，TSK-013 起单位统一 MB）
-  5. protocol      <- cleared; the workbook stores the per-row preference and
-                      auto rows stay protocol-less (K6)
+  5. (protocol column removed in TSK-015; all remotes are https-only)
   6. path          <- project/<repo> when empty
   + repos that disappeared upstream get their row DELETED (TSK-011: the
     authenticated /user/repos listing is the single source of truth; gitee/
@@ -159,9 +158,6 @@ def main() -> int:
         if mb_value is not None and str(ws.cell(row=r, column=col["仓库大小(MB)"]).value or "").strip() != str(mb_value):
             ws.cell(row=r, column=col["仓库大小(MB)"]).value = mb_value
             row_changes.append(f"仓库大小(MB)={mb_value}")
-        if str(ws.cell(row=r, column=col["protocol"]).value or "").strip():
-            ws.cell(row=r, column=col["protocol"]).value = None
-            row_changes.append("protocol 清空（K6）")
         if not str(ws.cell(row=r, column=col["path"]).value or "").strip():
             ws.cell(row=r, column=col["path"]).value = "project/" + name[len(prefix):].removesuffix(".git")
             row_changes.append("path 补全")
@@ -178,7 +174,6 @@ def main() -> int:
             "path": f"project/{repo_short}",
             "branch": repo.get("default_branch", ""),
             "platform": "github",
-            "protocol": None,
             "description": repo.get("description") or "",
             "仓库属性": "private" if (repo.get("visibility") == "private" or repo.get("private")) else "public",
             "仓库大小(MB)": round(repo["size"] / 1024, 1) if repo.get("size") is not None else None,

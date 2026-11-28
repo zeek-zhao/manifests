@@ -1,0 +1,62 @@
+name: excel-autofill
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "仅填充该仓库行（owner/repo.git，留空=全表扫描空字段）"
+        required: false
+        default: ""
+      dry_run:
+        description: "仅预览不写盘"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  autofill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install openpyxl
+        run: pip install openpyxl
+
+      - name: Autofill empty fields from GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.repo }}" ]; then ARGS="$ARGS --repo ${{ inputs.repo }}"; fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          python3 tools/autofill_repos.py $ARGS
+
+      - name: Normalize workbook (must be last xlsx writer)
+        run: python3 tools/validate_manifests_xlsx.py --normalize
+
+      - name: Regenerate manifests from excel
+        run: |
+          python3 tools/generate_manifests.py --excel
+          python3 tools/generate_manifests.py --excel --check
+          python3 tools/catalog_to_markdown.py
+          python3 tools/catalog_to_markdown.py --check
+
+      - name: Commit autofill results
+        if: inputs.dry_run != true
+        run: |
+          git config user.name "zeek.zhao"
+          git config user.email "zeek.zhao@foxmail.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "无变更，跳过提交"
+          else
+            git commit -m "chore(excel): autofill repo fields [skip ci]"
+            git push
+          fi

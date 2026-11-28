@@ -18,7 +18,7 @@
     <project path="project/devops" remote="github_https" groups="github,visibility-private" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian" remote="github_https" groups="github,visibility-private" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian/attachments" remote="github_https" groups="github,visibility-public" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/obsidian-md" remote="github_git" groups="github,visibility-private" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
+    <project path="project/obsidian-md" remote="github_https" groups="github,visibility-private" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="sample/obsidian-sample" remote="github_https" groups="github,visibility-public" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/database-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/vue-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/vue-sample.git" dest-branch="main" revision="refs/heads/main" />

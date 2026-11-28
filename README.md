@@ -28,6 +28,7 @@ python3 tools/validate_manifests_xlsx.py              # Excel 结构与规则校
 python3 tools/catalog_to_markdown.py                  # 重生成 docs/catalog.md
 GH_TOKEN=<PAT> python3 tools/sync_self_repos.py --dry-run  # 自有仓库事实同步（预览）
 GH_TOKEN=<PAT> python3 tools/stats_report.py               # 动态统计 sheet 与图表刷新
+GH_TOKEN=<PAT> python3 tools/autofill_repos.py [--repo owner/repo.git]  # 新仓库空字段自动填充（TSK-015）
 pre-commit run --all-files
 ```
 

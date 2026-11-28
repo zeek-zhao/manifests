@@ -21,6 +21,6 @@
     <project path="project/jenkins" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/driver/linux-driver" remote="github_https" groups="linux,github,visibility-private" name="zeek-zhao/linux-driver.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/free-rtos-demo" remote="github_https" groups="linux,github,visibility-private" name="zeek-zhao/free-rtos-demo.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="todo/alpu" remote="gitee_git" groups="linux,gitee,visibility-public" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="todo/alpu" remote="gitee_https" groups="linux,gitee,visibility-public" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/yp-distro" remote="github_https" groups="linux,github,visibility-public" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
