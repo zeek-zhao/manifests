@@ -1,9 +1,9 @@
-# GUIDE-20261128-017-pool-consume-v1.2
+# GUIDE-20261128-017-pool-consume-v1.3
 
 | 文档属性 | 内容 |
 |---|---|
-| 编号 | GUIDE-20261128-017-pool-consume-v1.2 |
-| 版本 | v1.2（2026-11-29）：离线消费工作流重写（kit 套件为主线），实测矩阵更新 |
+| 编号 | GUIDE-20261128-017-pool-consume-v1.3 |
+| 版本 | v1.3（2026-11-29）：新增仓库本体落位工作流（git-mirror + pool_mirror，M15） |
 | 编制 / 审核 | AI Agent (zeek.zhao) / 待用户审核 |
 | 状态 | 生效中 |
 | 适用 | manifests 组镜像池消费侧（DSN-20261128-017-v1.0） |
@@ -130,6 +130,35 @@ docker rm t
 
 对 `pools-manifest.json` 中目标条目循环调用 3.1（`--repo` 换名即可；工具每次独立对账）。
 
+## 3.5 仓库本体落位（git-mirror 布局，M15 起）
+
+池内容自 run-31 起为 **git mirror 裸仓本体**（tar 内为 `./HEAD ./objects ./refs ./config` 等，pools-manifest `format: "git-mirror"`）。除"还原为 tar"外，可直接落位为可用裸仓，供 `repo`/`git clone file://` 离线使用：
+
+```bash
+# 落位命令（kit 解包目录内执行；pool_mirror.py 随 kit 分发）
+python3 pool_mirror.py --image <池镜像:tag> --meta <池镜像:tag-meta> \
+  --repo database-sample --key jwe.key --decoder ctd-decoder \
+  --mirror-root ./mirror           # 分组布局 ./mirror/<组>/<仓>.git
+  # 加 --flat                      # 平铺布局 ./mirror/<仓>.git
+  # 加 --all                       # 全部落位（替代多次 --repo）
+
+# 全部落位 + 生成 repo manifest（fetch 指向本地路径，可自定义）
+python3 pool_mirror.py --image <池镜像:tag> --meta <池镜像:tag-meta> --all \
+  --key jwe.key --decoder ctd-decoder --mirror-root ./mirror --flat \
+  --fetch-base file:///data/mirror/
+# 预期：逐仓打印 MIRROR_OK <仓> -> ./mirror/<仓>.git；
+#       生成 mirror-manifest.txt（仓<TAB>路径<TAB>HEAD 三列）与 pool-manifest.xml
+
+# repo 消费（离线）：
+repo init -u ./mirror/pool-manifest.xml && repo sync --local-only
+# 预期：各工程从 file:// 落位路径拉取，revision 与 mirror-manifest.txt 一致
+
+# 单仓 git 消费：
+git clone file://$(pwd)/mirror/<仓>.git
+```
+
+落位校验：`pool_mirror` 自动 `git rev-parse HEAD` 与池清单 `head` 字段比对（不一致拒绝落位），mirror 侧无需再手工校验哈希。sha256 对账在下载/解密阶段已内置。
+
 ## 4. 安全须知
 
 1. **密文公开 ≠ 明文公开**：加密层可被任何人下载，但没有 JWE 私钥无法解开（RFC 5652/JWE，RSA-2048）；私钥一旦泄漏，42 个私有仓的快照全部暴露——按最高等级保管（`.secrets/` 600，不落日志、不入库、不进聊天）；
@@ -152,3 +181,4 @@ docker rm t
 | v1.0 | 2026-11-28 | 首版（A8 治理，随 image-pool-ghcr 分支交付） |
 | v1.1 | 2026-11-29 | 占位符表述规范化，状态更新 |
 | v1.2 | 2026-11-29 | 离线消费工作流重写（kit 套件为主线）；smoke 组 6 仓实测矩阵；public 明文还原免 key |
+| v1.3 | 2026-11-29 | 新增「3.5 仓库本体落位」：git-mirror 布局 + pool_mirror 落位/repo XML 工作流（M15） |

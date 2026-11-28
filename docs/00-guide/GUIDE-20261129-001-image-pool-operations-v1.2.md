@@ -1,9 +1,9 @@
-# GUIDE-20261129-001-image-pool-operations-v1.1
+# GUIDE-20261129-001-image-pool-operations-v1.2
 
 | 文档属性 | 内容 |
 |---|---|
-| 编号 | GUIDE-20261129-001-image-pool-operations-v1.1 |
-| 版本 | v1.1（2026-11-29）：密钥全生命周期章节、消费套件（kit）构建维护、smoke 冒烟组 |
+| 编号 | GUIDE-20261129-001-image-pool-operations-v1.2 |
+| 版本 | v1.2（git-mirror 布局与 pool_mirror 落位工具，M15）原 v1.1（2026-11-29）：密钥全生命周期章节、消费套件（kit）构建维护、smoke 冒烟组 |
 | 编制 / 审核 | AI Agent (zeek.zhao) / 待用户审核 |
 | 状态 | 生效中 |
 | 适用 | manifests 仓库组镜像池全流程（使用者 / 管理者操作手册；分支 image-pool-ghcr） |
@@ -251,7 +251,14 @@ chmod 600 .secrets/jwe-pool.key
 # 密钥轮换：见 D4
 ```
 
-当前产物：`run-26`（app/qt/robot）与 `run-27`（smoke 冒烟组 6 仓）+ 各组 `-meta`；app 包 public 匿名可拉，其余包待 OWNER UI 公开化（F-20）；扩展组/LFS 内容池规划见 DSN-20261129-001。
+当前产物：`run-26`（app/qt/robot）与 `run-31（全量四组后更新至最新 tag；布局自 run-31 起为 git-mirror）`（smoke 冒烟组 6 仓）+ 各组 `-meta`；app 包 public 匿名可拉，其余包待 OWNER UI 公开化（F-20）；扩展组/LFS 内容池规划见 DSN-20261129-001。
+
+## 池内容布局（git-mirror，M15 起）
+
+- 池内 tar = git mirror 裸仓本体（pools-manifest `format: "git-mirror"`，repos[] 含 `head` 字段）；
+- 消费侧 `pool_mirror.py`（随 consumer-kit 分发）直接落位裸仓并生成 `mirror-manifest.txt` / `pool-manifest.xml`（`--fetch-base` 自定义 remote fetch）；
+- D3 大仓（>500MB）仍不入池，另行按需构建；
+- 旧 HEAD 快照布局（run-30 及之前）由 pool_restore 还原为 tar 后手工 `git init` 导入，仍兼容。
 
 ## 6. 变更记录
 

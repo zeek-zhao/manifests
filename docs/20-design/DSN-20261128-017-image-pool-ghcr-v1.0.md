@@ -2,7 +2,7 @@
 
 | 项 | 内容 |
 |---|---|
-| 编号 | DSN-20261128-017-image-pool-ghcr-v1.0 |
+| 编号 | DSN-20261128-017-image-pool-ghcr-v1.1 |
 | 日期 | 2026-11-28 |
 | 编制 | zeek.zhao（AI 协作） |
 | 审核 | 用户（v1→v2→v3 三轮审核，决策点 2026-11-28 确认） |
@@ -95,8 +95,19 @@ Demo 树 sha256 全等；CI run success+artifact 完整；pool_scan 零命中；
 - 已实测（2026-11-28，详见 LOG A4）：R1 PASS（imgcrypt v2.0.3 容器内编译 + 定向层加密）；R2 PASS（ghcr 接受加密 manifest，annotations 往返无损）；R4 PASS（ctd-decoder 双样本解密对账全等）；R3 部分完成（docker 拉取密文 OK，匿名拉取待包 public 化 F-20）。
 - 新增待确认：F-19（containerd pull 自动解密管线 TypeUrl 空）上游对齐后消费侧可复评；全组（robot/qt 等）扩展节奏；超大仓（apollo/qtkaifajingyan）按需独立构建的需求时机。
 
+## 13. M15 增量：池内容改 git-mirror 裸仓（已批准实施）
+
+**决策记录（2026-11-29 用户确认）**：
+- D-M15-1 池内 tar 由「HEAD 快照归档」改为 **git mirror 裸仓本体**（`tar -C bare -cf - .`，顶层 HEAD/objects/refs/config；pools-manifest 增加 `format: "git-mirror"` 与 `repos[].head`）；
+- D-M15-2 新增消费侧落位工具 `pool_mirror.py`：--repo/--all 落位裸仓、`--flat` 双布局开关（分组 `<root>/<组>/<仓>.git` / 平铺 `<root>/<仓>.git`）、`--fetch-base` 为 repo XML 的 remote fetch 配置项（默认 `file://<root>/`）、自动生成 `mirror-manifest.txt` 与 `pool-manifest.xml`、`_materialize` 原子落位+`rev-parse HEAD==entry.head` 校验。
+
+**实现**（09a5e10/88c791e）：pool_build stage_fetch 重写、pool_restore 重写（fetch_repo_tar 共用下载/解密/对账，--layer 移除）、consumer-kit 增补第五文件 pool_mirror.py。缺陷 F-21（对账对象误用层 blob）已修——对账对象=层内仓 tar（entry["path"]）。
+
+**验证**：run-29/run-30+kit 全绿；smoke 六仓全链演练（含 private 解密）MIRROR_OK 6/6、rev-parse 一致、XML fetch=file:// 正确；CThreadPool archive 215KB vs mirror 174KB（mirror 更小）、fsck 0 错误、file:// clone OK。
+
 ## 变更记录
 
 | 版本 | 日期 | 说明 |
 |---|---|---|
 | v1.0 | 2026-11-28 | 首版（v3 方案经用户三轮审核+决策点确认后落盘） |
+| v1.1 | 2026-11-29 | §13 M15 增量：git-mirror 裸仓布局 + pool_mirror 落位工具（决策已确认，已实施） |

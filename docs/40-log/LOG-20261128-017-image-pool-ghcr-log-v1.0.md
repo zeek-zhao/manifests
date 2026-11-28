@@ -97,6 +97,19 @@
 - pool_restore 补齐明文分支：此前所有还原均走加密路径，public 明文层还原属未验证路径（meta payload 缺失会炸）→新增 is_encrypted 分支（明文层直接拉 blob 对账落盘）+--key 改可选+decode_layer 相对路径在 cwd=work 下失效修正（abspath 预处理）。
 - **消费侧全流程演练 6/6 对账一致**：2 public 无 key（product-sample f7ac08e9…、CThreadPool）+4 private 带 key（standard-version 575041dd…、database-sample 0e4bfe96…、docker-sample 88a0f12a…、vue-sample 353c6e08…）；加密层缺 key 保护文案验证（FATAL: 位于加密层，还原需 --key）。
 - 治理：GUIDE-pool-consume 升 v1.2（离线工作流重写/kit 主线/实测矩阵）、GUIDE-image-pool-operations 升 v1.1（密钥全生命周期/kit 维护/smoke 组）、DSN 决策点全部经用户确认（状态已批准）。
+## A11 M15：池内容改 git-mirror + 落位工具（2026-11-29）
+
+- 需求：池内下载对象改为 Mirror 镜像本体（非 HEAD 快照），并提供 tar 解压落位命令；repo XML 自动生成（fetch=本地路径配置项）。方案经用户确认：--flat 双布局可选、repo XML 需要。
+- 实现（09a5e10）：pool_build stage_fetch 改 `tar -C bare -cf - .`（裸仓本体）+manifest `format: git-mirror`+repos[].head；pool_restore 重写（fetch_repo_tar 共用下载/解密/对账）；新增 pool_mirror.py（--repo/--all、--flat、--fetch-base、_materialize 原子落位+rev-parse 校验、mirror-manifest.txt+pool-manifest.xml）；consumer-kit 五文件同步。
+- 缺陷：F-21 重构回归（对账对象误用层 blob，应为层内仓 tar entry.path）88c791e 修复。
+- 验证：run-29（09a5e10）绿、run-30（88c791e）绿+kit 绿；本地全链演练 6/6 MIRROR_OK（private 解密对账过、rev-parse 一致、XML fetch=file:// 正确）；空 push 不命中 paths（教训：paths 触发必须变更匹配文件，空提交无效）→config 注记行触发 run-31 全量四组。
+- 本地实验：CThreadPool archive 215KB vs mirror 174KB（mirror 更小）；fsck 0 错误、file:// clone OK。
+- F-22 全量触发三连缺陷（run-31 失败→run-32/33 修复）：
+  ①给 config/pool-groups.txt 加注释行，plan 矩阵解析（逗号 split 单行）把注释当组名（job 名 "pool (smoke）git-mirror 全量构建…)"）——教训：给数据文件加注释前必须确认解析器语法（教训再度复发）；
+  ②解析修复改多行 python 内联，块标量（run: |）内顶格行=终止 YAML 块，workflow 解析炸——教训：块标量内一切行必须保持基准缩进，内联代码用单行；
+  ③YAML 校验失败后无 set -e 仍执行了 commit/push（坏 YAML 已推远端）——教训：改 workflow 的脚本必须 set -e 或先校验后提交（M10 教训第三次复发）；
+  最终修复=单行 python 列表推导（splitlines→去 #→split 逗号），本地注释样本解析 ["app","qt","robot","smoke"] 验证后推送。
+
 ## 变更记录
 
 | 版本 | 日期 | 说明 |
@@ -106,3 +119,4 @@
 | v1.2 | 2026-11-28 | A7：CI 试点 run1~run18 全绿、消费侧还原双样本 PASS、run 序列缺陷与教训 |
 | v1.3 | 2026-11-29 | A8~A9：public 复验 PASS、robot/qt 组扩展全绿（run-26）、LFS 攻坚三连修、门禁分级修正、还原抽验 PASS |
 | v1.4 | 2026-11-29 | A10：M14 消费套件（kit）全绿、smoke 组 run-27 一次全绿、Excel 钉版三连修、还原明文分支补齐、全流程演练 6/6 |
+| v1.5 | 2026-11-29 | A11：git-mirror 布局 + pool_mirror 落位工具 + F-21 修复 + run-30/31 验证 |
