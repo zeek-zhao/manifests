@@ -265,3 +265,16 @@ remote 节点名仍为 `{platform}_{protocol}`，与现有 `_remotes.xml` 兼容
 ## 13. 影响面（第二阶段实施时同步修改）
 
 `tools/generate_manifests.py`（读 Excel + remotes 代理规则 + quickstart 从 config 表读取）、`tools/sync_self_repos.py`（新增）、`tools/enrich_catalog.py`（退役，D6）、`tools/catalog_to_markdown.py`（适配 Excel 或读快照）、`.github/workflows/excel-sync.yml` 与 `excel-validate.yml`（新增，§11）、`.pre-commit-config.yaml`（Excel 校验钩子）、`README.md`、`docs/design.md`、`docs/implementation.md`、`docs/quickstart.md`。
+
+
+## 14. 变更记录（ISO 风格）
+
+| 版本 | 日期 | 变更内容 | 依据 |
+| --- | --- | --- | --- |
+| v0.1 | 2026-11-28 | 初稿：7-sheet 结构与列定义、字段映射 | 需求调研 |
+| v0.2 | 2026-11-28 | 精简为 4 sheets；自有仓库并入主表自动化维护；remotes 表升级 fetch/push URL | 用户反馈 |
+| v0.3 | 2026-11-28 | 主表扩充至 17 列（描述列 4 + 管理列 3）；新增 CI 双工作流设计 | 用户反馈 |
+| v0.4 | 2026-11-28 | 触发链路改全人工流转（excel-validate 建分支→人工合并→excel-sync） | 用户反馈 |
+| v0.5 | 2026-11-28 | 移除哈希比对，幂等改确定性重建+git diff 判变；设计定稿 | Mirror 同步约束 |
+| v1.0 | 2026-11-28 | 定稿评审通过；随 TSK-20261128-004 完成代码实施 | 用户确认 |
+| v1.1 | 2026-11-28 | 模板化改造（TSK-20261128-007）：①列名中文化 `visibility`→`仓库属性`（值域 公开/私有）、`category`→`标签分类`（统一 15 分类体系，清单维护于「统计」sheet）；②新增「统计」sheet：`COUNTA`/`COUNTIF` 整列公式随数据自动更新（总数/公开私有占比/平台分布/标签分类计数），并作为「标签分类」下拉的单一维护点（下拉引用 `统计!$A$15:$A$29`）；③暗色低饱和主题（表头 `#37474F` 白字、条纹 `#ECEFF1`）纳入 `validate --normalize`；④快照与生成 JSON 中文直出（`ensure_ascii=False`，`pretty-format-json --no-ensure-ascii`）；⑤主表增至 19 列 | 用户指令（m00807） |

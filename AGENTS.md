@@ -7,7 +7,7 @@
 | 编制 | AI Agent (zeek.zhao) |
 | 状态 | 生效中 |
 | 适用仓库 | zeek-zhao/manifests（OWNER=zeek-zhao） |
-| 当前分支 | feat/catalog-add-15-repos |
+| 当前分支 | main（基线；任务分支从 main 拉出） |
 
 ## 1. 工作流（强制）
 
@@ -29,7 +29,7 @@
   - 提 Issue 时必须标注所属分支；
   - 仅在当前分支上工作，不得跨分支操作；
   - 允许基于当前分支创建加后缀的变体分支（如 `feat/catalog-add-15-repos-xxx`）。
-- 当前分支：`feat/catalog-add-15-repos`。
+- 当前基线分支：`main`（历史分支 feat/catalog-add-15-repos 已合并删除）。
 
 ## 4. 凭证与安全（强制）
 
@@ -43,6 +43,7 @@
 
 ## 6. 文档编号规则
 
-- `docs/` 下任务与过程记录命名：`<类型>-<YYYYMMDD>-<序号>-<slug>.md`；
-- 类型：`TSK`=任务书，`PLN`=落地计划，`LOG`=AI 操作日志，`RPT`=报告，`DSN`=设计文档（方案类，须含设计决策点与待确认项，审核通过后方可实施）；
-- 每份文档须含文档头（编号/版本/日期/编制/审核/状态），符合 ISO 质量记录风格。
+- `docs/` 按类别目录组织：`00-guide`（使用说明 GUIDE）、`10-task`（任务书 TSK）、`20-design`（设计文档 DSN）、`30-plan`（落地计划 PLN）、`40-log`（操作日志 LOG）、`50-report`（报告 RPT）、`60-reference`（参考文档 REF）；
+- 命名（ISO 风格）：`<类型>-<YYYYMMDD>-<序号>-<slug>-v<major>.<minor>.md`（如 `TSK-20261128-007-excel-template-docs-rev-v1.0.md`）；生成产物 `docs/catalog.md` 由工具路径固定，保留在 docs 根，不参与编号；
+- 类型：`TSK`=任务书，`PLN`=落地计划，`LOG`=AI 操作日志，`RPT`=报告，`DSN`=设计文档（方案类，须含设计决策点与待确认项，审核通过后方可实施），`GUIDE`=使用说明，`REF`=参考文档；
+- 每份文档须含文档头（编号/版本/日期/编制/审核/状态），符合 ISO 质量记录风格；内容实质变更须递增版本号并在文末（或文头）维护变更记录。

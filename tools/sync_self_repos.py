@@ -7,7 +7,7 @@ obsidian multi-branch checkout are never touched):
   1. branch        <- GitHub default_branch
   2. platform      <- github (rows already on another platform are skipped, K5)
   3. description   <- GitHub API description
-  4. visibility    <- GitHub API visibility
+  4. 仓库属性    <- GitHub API visibility 映射为 公开/私有
   5. protocol      <- cleared; the workbook stores the per-row preference and
                       auto rows stay protocol-less (K6)
   6. path          <- project/<repo> when empty
@@ -149,10 +149,10 @@ def main() -> int:
         if str(ws.cell(row=r, column=col["description"]).value or "").strip() != description.strip():
             ws.cell(row=r, column=col["description"]).value = description
             row_changes.append("description=API")
-        visibility = repo.get("visibility") or ("private" if repo.get("private") else "public")
-        if str(ws.cell(row=r, column=col["visibility"]).value or "").strip() != visibility:
-            ws.cell(row=r, column=col["visibility"]).value = visibility
-            row_changes.append(f"visibility={visibility}")
+        visibility = "私有" if (repo.get("visibility") == "private" or repo.get("private")) else "公开"
+        if str(ws.cell(row=r, column=col["仓库属性"]).value or "").strip() != visibility:
+            ws.cell(row=r, column=col["仓库属性"]).value = visibility
+            row_changes.append(f"仓库属性={visibility}")
         if str(ws.cell(row=r, column=col["protocol"]).value or "").strip():
             ws.cell(row=r, column=col["protocol"]).value = None
             row_changes.append("protocol 清空（K6）")
@@ -174,7 +174,7 @@ def main() -> int:
             "platform": "github",
             "protocol": None,
             "description": repo.get("description") or "",
-            "visibility": repo.get("visibility") or ("private" if repo.get("private") else "public"),
+            "仓库属性": "私有" if (repo.get("visibility") == "private" or repo.get("private")) else "公开",
         }
         for key, value in defaults.items():
             if key in col:

@@ -11,12 +11,12 @@ repo sync -j30
 
 ## 目录说明
 
-- `catalogs/`：仓库配置数据源，`manifests.xlsx` 为单一事实来源；`manifests-excel-snapshot.json` 为生成器导出的机器可读快照（随 Excel 同步更新，便于 PR 审阅）
+- `catalogs/`：仓库配置数据源，`manifests.xlsx` 为单一事实来源（19 列主表 + 统计 sheet，详见使用说明）；`manifests-excel-snapshot.json` 为生成器导出的机器可读快照（中文直出，随 Excel 同步更新，便于 PR 审阅）
 - `manifests/`：生成后的清单目录
 - `manifests/generated/`：按维度拆分的清单
 - `manifests/examples/`：面向 `repo init` 的最小示例清单
 - `tools/`：生成、校验、Excel 数据源与自有仓库同步脚本
-- `docs/`：设计、实现、快速上手和关键字文档
+- `docs/`：按 ISO 文档规范分类（`00-guide` 使用说明 / `10-task` 任务书 / `20-design` 设计 / `30-plan` 计划 / `40-log` 日志 / `50-report` 报告 / `60-reference` 参考），命名 `<类型>-<日期>-<序号>-<主题>-v<版本>.md`，详见 [使用说明](docs/00-guide/GUIDE-20261128-001-manifest-usage-guide-v1.0.md)
 
 ## 生成与校验
 
@@ -35,7 +35,7 @@ pre-commit run --all-files
 当前仓库使用 pre-commit 保证 JSON、XML 和生成结果一致性。配置文件是 .pre-commit-config.yaml，包含以下类型检查：
 
 - pre-commit-hooks：check-xml、check-json、行尾与空白规范
-- pretty-format-json：统一 JSON 格式（2 空格，保持原 key 顺序）
+- pretty-format-json：统一 JSON 格式（2 空格，保持原 key 顺序，中文直出不转义）
 - 本地钩子 generate-manifests-excel-check：Excel 数据源生成一致性检查
 - 本地钩子 validate-manifests-xlsx：catalogs/manifests.xlsx 结构与规则校验
 - 本地钩子 catalog-markdown-check：docs/catalog.md 与 Excel 数据一致
@@ -216,11 +216,12 @@ python3 tools/generate_manifests.py --check
 
 ## 参考文档
 
-- `docs/quickstart.md`
-- `docs/manifest-keywords.md`
-- `docs/design.md`
-- `docs/implementation.md`
-- `docs/pre-commit.md`
+- [使用说明（清单结构/字段含义/同步流程/统计表）](docs/00-guide/GUIDE-20261128-001-manifest-usage-guide-v1.0.md)
+- [快速上手](docs/00-guide/GUIDE-20261128-002-quickstart-v1.0.md)
+- [Repo 清单关键字参考](docs/60-reference/REF-20261128-004-manifest-keywords-v1.0.md)
+- [架构与设计](docs/60-reference/REF-20261128-002-architecture-v1.0.md)
+- [实现要点](docs/60-reference/REF-20261128-003-implementation-notes-v1.0.md)
+- [pre-commit 钩子说明](docs/60-reference/REF-20261128-001-pre-commit-v1.0.md)
 - [Git Repo - Google](https://gerrit.googlesource.com/git-repo/)
 - [Repo 清单格式文档](https://gerrit.googlesource.com/git-repo/+/HEAD/docs/manifest-format.md)
 - [Android 官方 Repo 命令参考资料](https://source.android.com/source/using-repo?hl=zh-cn)

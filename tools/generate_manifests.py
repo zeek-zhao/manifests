@@ -32,7 +32,7 @@ QUICKSTART_EXAMPLES = {
 REPO_COLUMNS = [
     "name", "path", "branch", "platform", "protocol", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "visibility", "category", "suggested_action", "note",
+    "仓库属性", "标签分类", "suggested_action", "note",
 ]
 REMOTE_COLUMNS = ["platform", "https_url", "git_url", "proxy_https_url"]
 VALID_PROTOCOLS = {"", "https", "git"}
@@ -205,8 +205,8 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 "purpose": cells["purpose"],
                 "contents": cells["contents"],
                 "relations": cells["relations"],
-                "visibility": cells["visibility"],
-                "category": cells["category"],
+                "仓库属性": cells["仓库属性"],
+                "标签分类": cells["标签分类"],
                 "suggested_action": cells["suggested_action"],
                 "note": cells["note"],
                 "_row": row_no,
@@ -441,7 +441,7 @@ def load_catalogs(catalogs_dir: Path) -> List[Dict]:
 SNAPSHOT_REPO_ORDER = [
     "name", "path", "branch", "platform", "protocol", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "visibility", "category", "suggested_action", "note",
+    "仓库属性", "标签分类", "suggested_action", "note",
 ]
 
 
@@ -464,9 +464,11 @@ def export_snapshot(merged: Dict, out_path: Path) -> None:
         "config": merged.get("config", {}),
     }
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    # keep default ensure_ascii=True: committed JSON catalogs are \uXXXX-escaped
-    # by the pretty-format-json pre-commit hook, and the snapshot must match.
-    out_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    # TSK-007 #1: Chinese characters are written as-is (no \uXXXX escapes);
+    # the pretty-format-json hook now runs with --no-ensure-ascii to match.
+    out_path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
 
 def write_plan(root: Path, plan: Dict[str, str]) -> None:
