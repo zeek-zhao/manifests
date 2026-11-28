@@ -10,7 +10,9 @@ Modes:
   --export-json  additionally export a JSON snapshot of the workbook
 """
 import argparse
+import re
 import sys
+import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -248,8 +250,61 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
         repos.add_data_validation(dv)
         _refresh_readme(wb)
         wb.save(path)
+        # openpyxl 3.1.x 强制为每个 DV 写出 showDropDown="0"：
+        # Excel 对该属性语义反转（0=显示箭头），而 WPS 等按字面义处理（0=不显示）。
+        # 唯一双兼容写法是省略属性 → 保存后用 zip 后处理剥除，并自检。
+        _sanitize_dropdowns(path)
+        _verify_dropdowns(path)
     finally:
         wb.close()
+
+
+def _sanitize_dropdowns(path: Path) -> None:
+    """Remove the showDropDown attribute from every worksheet (zip rewrite)."""
+    tmp = path.with_suffix(".tmp.xlsx")
+    with zipfile.ZipFile(path) as zin, zipfile.ZipFile(
+        tmp, "w", zipfile.ZIP_DEFLATED
+    ) as zout:
+        for item in zin.infolist():
+            data = zin.read(item.filename)
+            if re.match(r"xl/worksheets/sheet\d+\.xml$", item.filename):
+                xml = data.decode("utf-8")
+                xml = re.sub(r'\s+showDropDown="[01]"', "", xml)
+                data = xml.encode("utf-8")
+            zout.writestr(item, data)
+    tmp.replace(path)
+
+
+def _verify_dropdowns(path: Path) -> None:
+    """Post-save assertions: no showDropDown attr, sqref covers header row."""
+    with zipfile.ZipFile(path) as z:
+        for name in z.namelist():
+            if not re.match(r"xl/worksheets/sheet\d+\.xml$", name):
+                continue
+            xml = z.read(name).decode("utf-8")
+            if 'showDropDown="' in xml:
+                raise ValueError(f"{name}: showDropDown attribute still present")
+        # repos sheet: every list DV must start at row 1 with a quoted inline list
+        xml = z.read("xl/worksheets/sheet1.xml").decode("utf-8")
+        dvs = 0
+        for tag in re.finditer(r"<dataValidation\b[^>]*>", xml):
+            t = tag.group(0)
+            ms = re.search(r'sqref="([A-Z]+)(\d+):', t)
+            if 'type="list"' not in t:
+                if ms:
+                    raise ValueError(f"repos sheet: non-list DV at {ms.group(0)}")
+                continue
+            if not ms or ms.group(2) != "1":
+                raise ValueError(
+                    f"repos sheet: list DV must start at row 1, got {t[:120]}"
+                )
+            dvs += 1
+        if dvs == 0:
+            raise ValueError("repos sheet: no list data validations found")
+        for m in re.finditer(r"<formula1>([^<]*)</formula1>", xml):
+            f1 = m.group(1)
+            if not (f1.startswith('"') and f1.endswith('"')):
+                raise ValueError(f"repos sheet: unquoted inline list {f1!r}")
 
 
 def main() -> int:

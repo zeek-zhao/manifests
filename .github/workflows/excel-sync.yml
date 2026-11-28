@@ -53,6 +53,13 @@ jobs:
           fi
           python3 tools/stats_report.py
 
+      # openpyxl round-trips (sync/stats above) re-add showDropDown="0"; WPS
+      # hides the dropdown arrow for that attribute (Excel inverts its meaning).
+      # normalize must be the LAST writer of the workbook: it strips the
+      # attribute via zip post-processing and self-verifies dropdowns (TSK-012).
+      - name: Normalize workbook (dropdowns/style/readme)
+        run: python3 tools/validate_manifests_xlsx.py --normalize
+
       - name: Regenerate manifests & catalog.md from workbook
         run: |
           python3 tools/generate_manifests.py --excel
