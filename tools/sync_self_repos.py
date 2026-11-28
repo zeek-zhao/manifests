@@ -192,6 +192,11 @@ def main() -> int:
     if not actions:
         print("no changes")
         return 0
+    # openpyxl 重存会丢 autoFilter（validate_manifests_xlsx 在 sheets 1-4 强制要求）——保存前统一回填。
+    for name in wb.sheetnames[:4]:
+        ws = wb[name]
+        if not ws.auto_filter.ref:
+            ws.auto_filter.ref = ws.dimensions
     wb.save(args.xlsx)
     print(f"saved {args.xlsx}; {len(actions)} action(s):")
     for action in actions:
