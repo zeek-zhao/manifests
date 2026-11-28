@@ -81,6 +81,10 @@ jobs:
       - name: 构建并推送 kit 镜像
         run: |
           set -euxo pipefail
+          cat > kit/Dockerfile <<'DOCKERFILE'
+          FROM scratch
+          COPY pool_restore.py ctd-decoder README.txt checksums.txt /kit/
+          DOCKERFILE
           echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u zeek-zhao --password-stdin
           docker build --provenance=false --sbom=false -t ghcr.io/zeek-zhao/manifests-pool-kit:latest kit/
           docker push ghcr.io/zeek-zhao/manifests-pool-kit:latest
