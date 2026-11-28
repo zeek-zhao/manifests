@@ -57,6 +57,9 @@ jobs:
       matrix: ${{ steps.split.outputs.matrix }}
       tag: ${{ steps.split.outputs.tag }}
     steps:
+      - name: 检出（读组清单）
+        uses: actions/checkout@v4
+
       - name: 生成组矩阵与 tag
         id: split
         env:
