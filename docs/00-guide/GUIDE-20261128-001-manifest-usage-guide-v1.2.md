@@ -26,20 +26,20 @@ manifests.xlsx ──generate_manifests.py──▶ manifests/*.xml（repo 清�
 
 | Sheet | 用途 | 维护方式 |
 | --- | --- | --- |
-| `repos` | 主表，每个仓库一行（131 行） | 人工/自动化混合 |
+| `repos` | 主表，每个仓库一行（130 行 + 末尾合计行） | 人工/自动化混合 |
 | `remotes` | 平台 URL 映射（fetch/push/代理），4 平台 | 人工，行内零 URL |
-| `config` | 全局键值（default_protocol/self_owner/use_proxy_https/quickstart 两键） | 人工 |
+| `config` | 全局键值（self_owner/use_proxy_https/quickstart 两键；default_protocol 已随协议列退役删除，TSK-015） | 人工 |
 | `readme` | 流程说明 + 字段字典 + 填写指引 | 人工 |
 | `统计` | 自动统计（公式），同时维护标签分类清单 | 公式自动 + 分类清单人工 |
 | `动态统计` | GitHub API 实时拉取的仓库指标（stars/forks/size/pushed_at）+ 4 张原生图表 | `tools/stats_report.py` 全权重建，勿手改 |
 
-`repos` 主表 18 列（TSK-009 新增 `仓库大小(KB)`，并修正此前误记的 19 列）：
+`repos` 主表 17 列（TSK-015 删除协议列、仓库属性移至原协议位置）：
 
-- **结构列（自动维护，人工勿改）**：`name`（owner/repo.git，唯一键）、`path`（检出路径，自有行空则自动补 `project/<repo>`）、`branch`（自有行以 API default_branch 为准）、`platform`（gitee/github/gitlab/yoctoproject，外键→remotes 表）、`protocol`（自有行由 sync 清空，生成器按 default_protocol 补 https）、`description`（自有行来自 API）。
+- **结构列（自动维护，人工勿改）**：`name`（owner/repo.git，唯一键）、`path`（检出路径，自有行空则自动补 `project/<repo>`）、`branch`（自有行以 API default_branch 为准）、`platform`（gitee/github/gitlab/yoctoproject，外键→remotes 表）、`description`（自有行来自 API）。**协议列已删除（TSK-015）：全站统一 HTTPS remote，不再维护逐仓协议**。
 - **知识列（人工维护，自动化永不覆盖）**：`purpose` 仓库用途、`contents` 主要内容、`relations` 仓库间关系。
-- **管理列（人工维护/半自动）**：`仓库属性`（public/private 英文值域；自有行由 excel-sync 从 GitHub API 直接写入）、`标签分类`（统一 14 分类体系，下拉=内联枚举+`TagCategories` 命名区域双保险，清单维护于「统计」sheet）、`仓库大小(MB)`（TSK-013 起单位 MB=round(KB/1024,1)；自有行由 excel-sync 刷新；gitee/gitlab/yoctoproject 无公开 API 字段留空）、`suggested_action`、`note`。
+- **管理列（人工维护/半自动）**：`仓库属性`（public/private 英文值域，位于第 5 列/原协议位置；自有行由 excel-sync 从 GitHub API 直接写入）、`标签分类`（统一 14 分类体系，下拉=内联枚举+`TagCategories` 命名区域双保险，清单维护于「统计」sheet）、`仓库大小(MB)`（TSK-013 起单位 MB=round(KB/1024,1)；自有行由 excel-sync 刷新；gitee/gitlab/yoctoproject 无公开 API 字段留空）、`suggested_action`、`note`。
 - **扩展列**：`topic`、`language`、`groups`（逗号分隔；生成时自动追加 `platform`/`topic`/`visibility-{public|private}` 派生组，见 §5.2）、`linkfiles`（`src:dest` 分号分条）。
-- **表结构（TSK-009）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；列宽自适应紧凑（封顶 28 字符），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。**表头筛选（TSK-014）**：repos/remotes/config/readme/动态统计 五表第 1 行均启用 **AutoFilter 筛选**——点击表头箭头即弹出筛选菜单，自动列出该列全部去重值，勾选后**隐藏不匹配的行**（Excel/WPS 原生行为，无需预定义值）。**数据行下拉（TSK-009/013）**：第 3 行起各列保留数据验证下拉（结构化列按值域内联枚举，自由文本列配「（自由填写）」占位，值域超 255 字符自动写「下拉源」辅助 sheet 并以 `DD<n>` 命名区域引用）；第 2 行说明行不参与 DV 与筛选值列表之外的一切交互。**兼容性要点（TSK-012）**：openpyxl 会强制为每个 DV 写出 `showDropDown` 属性——Excel 对其语义反转（0=显示箭头）而 WPS 等按字面义处理（0=不显示）；因此 `validate --normalize` 保存后会通过 zip 后处理剥除该属性并自检（DV sqref 仅覆盖第 3 行起、无 x14 残留），保证 Excel/WPS 双端正常。**任何对 manifests.xlsx 的 openpyxl 读写（sync/stats_report 等）都会把该属性写回，normalize 必须是工作簿的最后一个写入者**（excel-sync 工作流已按此顺序编排）。
+- **表结构（TSK-009/015）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；**末行为「合计」行（TSK-015）：仓库大小(MB) 列 SUM 公式统计全表大小，`--normalize` 幂等重建，四工具按哨兵自动跳过，新增行由 sync 插入合计行之前**；列宽三级紧凑（TSK-015：长文本列 26 封顶 / 普通列 18 / 窄值列按内容，说明行文本不参与列宽计算），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。**表头筛选（TSK-014）**：repos/remotes/config/readme/动态统计 五表第 1 行均启用 **AutoFilter 筛选**——点击表头箭头即弹出筛选菜单，自动列出该列全部去重值，勾选后**隐藏不匹配的行**（Excel/WPS 原生行为，无需预定义值）。**数据行下拉（TSK-009/013）**：第 3 行起各列保留数据验证下拉（结构化列按值域内联枚举，自由文本列配「（自由填写）」占位，值域超 255 字符自动写「下拉源」辅助 sheet 并以 `DD<n>` 命名区域引用）；第 2 行说明行不参与 DV 与筛选值列表之外的一切交互。**兼容性要点（TSK-012）**：openpyxl 会强制为每个 DV 写出 `showDropDown` 属性——Excel 对其语义反转（0=显示箭头）而 WPS 等按字面义处理（0=不显示）；因此 `validate --normalize` 保存后会通过 zip 后处理剥除该属性并自检（DV sqref 仅覆盖第 3 行起、无 x14 残留），保证 Excel/WPS 双端正常。**任何对 manifests.xlsx 的 openpyxl 读写（sync/stats_report 等）都会把该属性写回，normalize 必须是工作簿的最后一个写入者**（excel-sync 工作流已按此顺序编排）。
 
 维度产物规则：生成列自动追加 platform/topic 到 groups；slug 规则见 REF-004。
 
@@ -50,10 +50,14 @@ manifests.xlsx ──generate_manifests.py──▶ manifests/*.xml（repo 清�
 excel-sync 为**人工触发**的 GitHub Actions 工作流（`.github/workflows/excel-sync.yml`）：
 
 1. 在 GitHub 仓库 Actions 页选择 `excel-sync` → `Run workflow`；
-2. 工作流执行：`sync_self_repos.py`（按 §8 六策略抓取名下仓库，刷新 branch/platform/description/仓库属性，清空自有行 protocol，追加新仓库；无 `GH_PAT` Secret 时仅做确定性重建并警告跳过）→ `stats_report.py`（刷新「动态统计」sheet 与 4 张图表）→ `generate_manifests.py --excel` 重建清单 → `--check` 校验 → 有差异才自动提交 `chore(manifest): regenerate from excel [skip ci]`；
+2. 工作流执行：`sync_self_repos.py`（按 §8 六策略抓取名下仓库，刷新 branch/platform/description/仓库属性，追加新仓库（插入合计行之前）；无 `GH_PAT` Secret 时仅做确定性重建并警告跳过）→ `stats_report.py`（刷新「动态统计」sheet 与 4 张图表）→ `generate_manifests.py --excel` 重建清单 → `--check` 校验 → 有差异才自动提交 `chore(manifest): regenerate from excel [skip ci]`；
 3. 拉取 main 获取结果。
 
 配套 `excel-validate.yml`（人工触发）：基于指定 base 建临时分支 `excel/update-<时间戳>`，规范化 Excel（冻结首行/列宽/暗色主题/下拉）后单提交推送，人工合并。CI 永不删除分支。
+
+### 3.1 excel-autofill 新仓库自动填充（TSK-015）
+
+人工触发 `.github/workflows/excel-autofill.yml`（入参 `repo`=单仓过滤，`dry_run`=预览）：`autofill_repos.py` 扫描 github 平台行的空字段（branch/platform/description/仓库属性/仓库大小(MB)/language）逐行调 GitHub API 填充（language 按 API 主语言映射既有 slug 体系，无主语言→mixed）→ normalize → 重建清单 → `--check` → 有差异自动提交 `chore(excel): autofill repo fields [skip ci]`。本地等效：`GH_TOKEN=<PAT> python3 tools/autofill_repos.py [--repo owner/repo.git] [--dry-run]`。知识列（purpose/contents/relations/标签分类）**永不自动填写**，留人工（Actions 环境无 LLM 凭证，采用 API+规则自动化并如实标注）。
 
 本地等效命令：
 
@@ -173,5 +177,5 @@ repo sync -j30 -c    # default.xml 聚合全部维度；-c 仅拉当前分支
 
 - **快照与 Excel 不一致怎么办？** 快照由生成器导出，不一致说明有人手改了快照；恢复方式 `python3 tools/generate_manifests.py --excel --export-json`。
 - **私有仓公开/私有如何判定？** 自有行由 excel-sync 从 GitHub API（`/user/repos`，需 `GH_PAT` Secret）直接写入 public/private 英文原值；外部行默认 public（gitee 平台行无 API 数据保持既有值）。
-- **为何协议列是空的？** 设计如此（K6）：自有行 protocol 由 sync 清空，生成器统一按 `config.default_protocol`（https）生成，避免散落协议配置。
+- **协议列去哪了？** TSK-015 已删除：全站统一 HTTPS，remote 名一律 `{platform}_https`，git 协议与代理分支退役（仓库大小列用于浅/深拷贝决策，见 REF-008）。
 - **分支规范？** 多分支开发；Issue/PR 必须标注所属分支；提交身份仅 zeek.zhao。

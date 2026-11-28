@@ -30,5 +30,5 @@
     <project path="vue/vue-big-screen-plugin" remote="gitee_https" groups="vue,gitee,visibility-public" name="MTrun/vue-big-screen-plugin.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/vxe-table" remote="gitee_https" groups="vue,gitee,visibility-public" name="xuliangzhan_admin/vxe-table.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/cmake-examples" remote="gitee_https" groups="gitee,visibility-public" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="todo/alpu" remote="gitee_git" groups="linux,gitee,visibility-public" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="todo/alpu" remote="gitee_https" groups="linux,gitee,visibility-public" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>
