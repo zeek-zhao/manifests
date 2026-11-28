@@ -165,6 +165,10 @@ def main(argv=None):
         if got != want:
             raise RuntimeError("sha256 对账失败 %s != %s" % (got[:16], want[:16]))
         print("RESTORE_OK %s -> %s（sha256 %s… 对账一致）" % (args.repo, target, got[:16]))
+        # 改进项（LOG v1.2）：pools-manifest.json 随还原落盘，便于二次对账与追溯
+        man_out = Path(args.out) / "pools-manifest.json"
+        man_out.write_text(json.dumps(pools_man, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("manifest -> %s" % man_out)
     finally:
         shutil.rmtree(work, ignore_errors=True)
 

@@ -36,6 +36,7 @@ on:
       - main
     paths:
       - ".github/workflows/group-pool.yml"
+      - "config/pool-groups.txt"
       - "tools/pool_build.py"
       - "tools/pool_restore.py"
       - "tools/pool_scan.py"
@@ -59,10 +60,15 @@ jobs:
       - name: 生成组矩阵与 tag
         id: split
         env:
-          GROUPS: ${{ inputs.groups || 'app' }}
+          GROUPS: ${{ inputs.groups }}
           TAG_IN: ${{ inputs.tag }}
         run: |
-          GROUPS="${GROUPS:-app}"
+          # 组清单唯一出处：dispatch inputs > config/pool-groups.txt（push 触发无 inputs）
+          if [ -n "$GROUPS" ]; then
+            GROUPS="$GROUPS"
+          else
+            GROUPS="$(cat config/pool-groups.txt 2>/dev/null || echo app)"
+          fi
           TAG="${TAG_IN:-run-${GITHUB_RUN_NUMBER}}"
           {
             echo "matrix={\"group\":$(printf '%s' "$GROUPS" | python3 -c 'import json,sys; print(json.dumps([g.strip() for g in sys.stdin.read().split(",") if g.strip()]))')}"

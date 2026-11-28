@@ -302,7 +302,9 @@ def stage_meta(args, entries, image):
     mlines = ["FROM scratch", "COPY payloads/ payloads/"]
     (ctx / "Dockerfile.meta").write_text("\n".join(mlines) + "\n", encoding="utf-8")
     meta_image = image + "-meta"
-    sh(["docker", "build", "--no-cache", "-t", meta_image, "-f", str(ctx / "Dockerfile.meta"), str(ctx)])
+    sh(["docker", "build", "--no-cache",
+        "--provenance=false", "--sbom=false",
+        "-t", meta_image, "-f", str(ctx / "Dockerfile.meta"), str(ctx)])
     sh(["docker", "push", meta_image])
     print("META_OK %s（payloads=%d）" % (meta_image, len(jwe_layers)))
 
