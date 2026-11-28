@@ -115,15 +115,16 @@ jobs:
           sudo tar -xzf /tmp/containerd.tgz -C /usr/local/containerd-pool
           test -x /usr/local/containerd-pool/bin/containerd
 
-      - name: 启动独立 containerd daemon（pool 命名空间）
+      - name: 启动独立 containerd daemon（pool 命名空间；当前用户，避免 socket root 属主拒绝连接）
         run: |
-          sudo /usr/local/containerd-pool/bin/containerd \
+          /usr/local/containerd-pool/bin/containerd \
             --address /tmp/pool-containerd.sock --root /tmp/pool-root --state /tmp/pool-state \
             --log-level error > /tmp/pool-containerd.log 2>&1 &
           for i in $(seq 1 30); do
             ctr-enc -a /tmp/pool-containerd.sock --namespace pool version >/dev/null 2>&1 && break
             sleep 1
           done
+          test -S /tmp/pool-containerd.sock
 
       - name: 定向加密 private 层（JWE；公钥 keys/jwe.pub）
         run: |
