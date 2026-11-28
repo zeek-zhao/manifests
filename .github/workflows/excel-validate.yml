@@ -32,7 +32,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install openpyxl
-        run: python -m pip install openpyxl
+        run: python -m pip install "openpyxl==3.1.5"
 
       - name: Create excel/update branch (fails when the name already exists)
         id: branch

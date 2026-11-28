@@ -409,7 +409,7 @@ def _verify_dropdowns(path: Path) -> None:
             xml = z.read(name).decode("utf-8")
             if 'showDropDown="' in xml:
                 raise ValueError(f"{name}: showDropDown attribute still present")
-            af = re.search(r'<autoFilter ref="([^"]+)"/>', xml)
+            af = re.search(r'<autoFilter\b[^>]*\bref="([^"]+)"', xml)
             if af:
                 autofilter_sheets.append(int(ms_sheet.group(1)))
                 if not af.group(1).startswith("A1:"):

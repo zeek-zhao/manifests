@@ -25,7 +25,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install openpyxl
-        run: python -m pip install openpyxl
+        run: python -m pip install "openpyxl==3.1.5"
 
       # sync_self_repos.py reads private repos via /user/repos, which needs a
       # classic PAT with repo scope (zeek-zhao). GITHUB_TOKEN alone cannot list
