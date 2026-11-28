@@ -53,7 +53,6 @@
     <project path="app/link-manager" remote="github_https" groups="app,github,visibility-private" name="zeek-zhao/linkManager.git" dest-branch="main" revision="refs/heads/main" />
     <project path="app/worth-track" remote="github_https" groups="app,github,visibility-public" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-devops" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/orgflow-devops.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
     <project path="devops/orgflow-jenkins" remote="github_https" groups="devops,github,visibility-private" name="zeek-zhao/orgflow-jenkins.git" dest-branch="main" revision="refs/heads/main" />
     <project path="ops/srvkit" remote="github_https" groups="github,visibility-private" name="zeek-zhao/srvkit.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/yocto/yp-distro" remote="github_https" groups="linux,github,visibility-public" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />

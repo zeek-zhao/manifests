@@ -12,7 +12,9 @@ obsidian multi-branch checkout are never touched):
   5. protocol      <- cleared; the workbook stores the per-row preference and
                       auto rows stay protocol-less (K6)
   6. path          <- project/<repo> when empty
-  + repos that disappeared upstream get a note (append-once), new upstream
+  + repos that disappeared upstream get their row DELETED (TSK-011: the
+    authenticated /user/repos listing is the single source of truth; gitee/
+    gitlab/yoctoproject rows are outside this comparison), new upstream
     repos are appended as rows with empty knowledge columns.
 Knowledge columns (purpose/contents/relations/linkfiles/note/category/...)
 are never overwritten. Requires GH_TOKEN or GITHUB_TOKEN.
@@ -33,7 +35,6 @@ except ImportError:
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_XLSX = PROJECT_ROOT / "catalogs" / "manifests.xlsx"
 API = "https://api.github.com"
-GONE_NOTE = "上游已删除，待人工确认"
 
 
 def gh_get(url: str, token: str) -> dict:
@@ -109,7 +110,9 @@ def main() -> int:
     actions = []
     max_row = ws.max_row
 
-    for r in range(3, max_row + 1):
+    # 倒序遍历（TSK-011）：删行时不影响尚未遍历的行号；seen_before 仍指序号更小
+    # 的行（同名首行），obsidian 双行语义保持——只处理首行。
+    for r in range(max_row, 2, -1):
         name = ws.cell(row=r, column=col["name"]).value
         name = str(name).strip() if name else ""
         if not name.startswith(prefix):
@@ -129,13 +132,10 @@ def main() -> int:
 
         repo = upstream.get(name)
         if not repo:
-            note = str(ws.cell(row=r, column=col["note"]).value or "")
-            if GONE_NOTE not in note:
-                suffix = ("；" if note.strip() else "") + GONE_NOTE
-                ws.cell(row=r, column=col["note"]).value = (note.rstrip() + suffix).strip()
-                actions.append(f"row {r}: {name} 上游已消失，note 标注")
-            else:
-                actions.append(f"row {r}: {name} 上游已消失（note 已标注，跳过）")
+            # TSK-011：上游已消失 → 删除整行（认证 /user/repos 列表为唯一真源；
+            # 仅影响 github 平台自有行，其他平台行在上面的 K5 分支已跳过）。
+            ws.delete_rows(r)
+            actions.append(f"row {r}: {name} 上游已消失，删除整行")
             continue
 
         row_changes = []
