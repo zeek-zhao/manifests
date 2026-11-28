@@ -21,6 +21,11 @@
 - `--excel --check` / `validate` / `catalog.md --check` 全过；catalog.md 274 行不变；快照字节不变；manifests/ 零变化——**数据零漂移**（纯交互层变更）。
 - stats 89/90 github 仓有指标（orgflow-devops1 404 常态留空）。
 
+## 2.1 CI 与合并记录
+
+- PR #13 CI 双绿：push run 46135580270 / pull_request run 46135618826
+- 合并提交 44da05e 已推送 main（cabd880..44da05e，ls-remote 核验送达后才删分支）；PR #13 状态 MERGED（2026-11-28T10:33:35Z）
+
 ## 3. 事故与教训
 
 1. **x14 幽灵 DV**（本轮新发现）：normalize 清空标准 DV 重建后 `_verify` 仍报「sqref=A1」——实证旧 DV 的 **x14 扩展副本**（extLst）被 openpyxl 往返保留，`ws.data_validations` 清理不触及 extLst。修复=sanitize 剥块+verify 断言。教训：openpyxl 对 DV 的写出存在「标准 dataValidation + extLst x14 副本」两条路径，清理必须两者兼顾；zip 层正则需区分两者（`<dataValidation\b` 不匹配 `<x14:dataValidation`，而全文 `sqref=` 匹配会误伤）。
