@@ -47,7 +47,7 @@
     <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github,visibility-public" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
     <project path="vue/quasar-tutorial" remote="github_https" groups="vue,github,visibility-public" name="dongwa/quasar-tutorial.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/CGraph" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="c++/CThreadPool" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/CThreadPool" remote="github_https" groups="smoke,github,visibility-public" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/C-C-" remote="github_https" groups="github,visibility-public" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/cmake-examples" remote="github_https" groups="github,visibility-public" name="ttroy50/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/examples_CMake" remote="github_https" groups="github,visibility-public" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
@@ -71,10 +71,10 @@
     <project path="project/obsidian/attachments" remote="github_https" groups="github,visibility-public" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/obsidian-md" remote="github_https" groups="github,visibility-private" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
     <project path="sample/obsidian-sample" remote="github_https" groups="github,visibility-public" name="zeek-zhao/obsidian-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/database-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/vue-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/vue-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/database-sample" remote="github_https" groups="smoke,github,visibility-private" name="zeek-zhao/database-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/vue-sample" remote="github_https" groups="smoke,github,visibility-private" name="zeek-zhao/vue-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/rust-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/rust-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/standard-version" remote="github_https" groups="github,visibility-private" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/standard-version" remote="github_https" groups="smoke,github,visibility-private" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/base-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/python-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/python-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/go-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/go-sample.git" dest-branch="main" revision="refs/heads/main" />
@@ -83,8 +83,8 @@
     <project path="sample/java-sample/src/jenkins-shared-library" remote="github_https" groups="devops,github,visibility-public" name="zeek-zhao/jenkins-shared-library.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/cpp-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/cpp-sample.git" dest-branch="main" revision="refs/heads/main" />
     <project path="sample/LanguageLearning" remote="github_https" groups="github,visibility-private" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/product-sample" remote="github_https" groups="github,visibility-public" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/docker-sample" remote="github_https" groups="github,visibility-private" name="zeek-zhao/docker-sample.git" dest-branch="main" revision="refs/heads/main" >
+    <project path="sample/product-sample" remote="github_https" groups="smoke,github,visibility-public" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/docker-sample" remote="github_https" groups="smoke,github,visibility-private" name="zeek-zhao/docker-sample.git" dest-branch="main" revision="refs/heads/main" >
         <linkfile src="." dest="sample/cpp-sample/docker" />
         <linkfile src="." dest="sample/python-sample/docker" />
         <linkfile src="." dest="sample/java-sample/docker" />
@@ -116,4 +116,7 @@
     <project path="project/ros_21_tutorials" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/tabharbor" remote="github_https" groups="app,github,visibility-public" name="zeek-zhao/tabharbor.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/wf4-selftest" remote="github_https" groups="tools,github,visibility-private" name="zeek-zhao/wf4-selftest.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/HuiYan" remote="github_https" groups="github,visibility-public" name="zeek-zhao/HuiYan.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/OmniGame" remote="github_https" groups="github,visibility-public" name="zeek-zhao/OmniGame.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/agent-harness" remote="github_https" groups="github,visibility-public" name="zeek-zhao/agent-harness.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
