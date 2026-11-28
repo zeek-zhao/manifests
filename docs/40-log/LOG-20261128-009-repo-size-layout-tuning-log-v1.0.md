@@ -39,7 +39,7 @@
 - 下拉：protocol/platform/仓库属性/suggested_action/标签分类 5 个，全部内联枚举、范围 3:1000；TagCategories=统计!$A$15:$A$28（14 类）。
 - 生成物：29 个维度 XML（4 platform+7 language+17 topic+1 owner）+default 索引+2 quickstart 示例；`--excel --check` 通过；catalog.md（含大小列）`--check` 通过；快照重导出（中文直出）。
 - 维度组核验：by-platform/github.xml 含 visibility-public 48 + visibility-private 43 = 91 行全覆盖。
-- pre-commit 9 钩子全绿；CI 结果待合并后补录（run id 见后续提交）。
+- pre-commit 9 钩子全绿；CI 双绿：push run 46116396914 / pull_request run 46116442775；合并后 main CI 见 LOG 补录提交。
 
 ## 5. 遗留
 
