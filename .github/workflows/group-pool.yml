@@ -100,16 +100,20 @@ jobs:
 
       - name: 安装 imgcrypt ctr-enc（v2.0.3 编译）与 containerd 静态运行时
         run: |
+          set -x
           git clone --depth 1 --branch v2.0.3 https://github.com/containerd/imgcrypt.git /tmp/imgcrypt-src
           cd /tmp/imgcrypt-src/cmd
+          mkdir -p /tmp/bin
           go build -o /tmp/bin/ctr-enc ./ctr
+          sudo install -D /tmp/bin/ctr-enc /usr/local/bin/ctr-enc
           CONTAINERD_VER=1.7.24
           curl -sfL --retry 3 --connect-timeout 30 \
             "https://github.com/containerd/containerd/releases/download/v${CONTAINERD_VER}/containerd-${CONTAINERD_VER}-linux-amd64.tar.gz" \
             -o /tmp/containerd.tgz
-          tar -xzf /tmp/containerd.tgz -C /tmp
-          sudo mv /tmp/bin/ctr-enc /usr/local/bin/ctr-enc
-          sudo mv /tmp/containerd /usr/local/containerd-pool
+          ls -la /tmp/containerd.tgz
+          sudo mkdir -p /usr/local/containerd-pool
+          sudo tar -xzf /tmp/containerd.tgz -C /usr/local/containerd-pool --strip-components=1
+          test -x /usr/local/containerd-pool/bin/containerd
 
       - name: 启动独立 containerd daemon（pool 命名空间）
         run: |
