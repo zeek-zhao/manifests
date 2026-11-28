@@ -1,9 +1,9 @@
-# GUIDE-20261128-017-pool-consume-v1.0
+# GUIDE-20261128-017-pool-consume-v1.1
 
 | 文档属性 | 内容 |
 |---|---|
-| 编号 | GUIDE-20261128-017-pool-consume-v1.0 |
-| 版本 | v1.0（2026-11-28） |
+| 编号 | GUIDE-20261128-017-pool-consume-v1.1 |
+| 版本 | v1.1（2026-11-29）：占位符表述规范化，状态更新 |
 | 编制 / 审核 | AI Agent (zeek.zhao) / 待用户审核 |
 | 状态 | 生效中 |
 | 适用 | manifests 组镜像池消费侧（DSN-20261128-017-v1.0） |
@@ -28,7 +28,7 @@ pools/<组>/pools-manifest.json # 条目：name/layer_index/encrypted/sha256/hea
 | 项 | 说明 |
 |---|---|
 | ctd-decoder | containerd 解密工具（imgcrypt v2.0.3 `cmd/ctd-decoder` 编译产物；无 release 二进制，可用 go 构建或向管理员索取） |
-| JWE 私钥 | 与构建公钥（仓库 `keys/jwe.pub`）配对的私钥，本机存放 `.secrets/jwe.key`（600） |
+| JWE 私钥 | 与构建公钥（仓库 `keys/jwe.pub`）配对的私钥，本机存放 `.secrets/jwe-pool.key`（600） |
 | Python 3.10+ | 仅标准库 |
 | token（可选） | 镜像公开后匿名可拉；若镜像仍为 private，导出 `GH_PAT` |
 
@@ -41,7 +41,7 @@ python3 tools/pool_restore.py \
   --image ghcr.io/zeek-zhao/manifests-pool-app:enc \
   --meta  ghcr.io/zeek-zhao/manifests-pool-app:enc-meta \
   --repo kuaidian \
-  --key ~/.secrets/jwe.key \
+  --key ~/.secrets/jwe-pool.key \
   --decoder ./ctd-decoder \
   --out restore/
 # 成功输出：RESTORE_OK kuaidian -> restore/pools/app/kuaidian.tar（sha256 对账一致）
