@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="linux/driver/imx6ull_NoosProgramProject" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/100ask_imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/embed_linux_tutorial" remote="github_https" groups="linux,github,visibility-public" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/lv_100ask_modules" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="openharmony/kernel_liteos_a_note" remote="github_https" groups="openharmony,github,visibility-public" name="kuangyufei/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
+</manifest>

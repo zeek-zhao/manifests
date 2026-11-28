@@ -3,6 +3,23 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
+    <project path="linux/driver/imx6ull_NoosProgramProject" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/100ask_imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/embed_linux_tutorial" remote="github_https" groups="linux,github,visibility-public" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/stm32mp157-m4" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/STM32MP157-M4_Examples.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/lv_100ask_modules" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="openharmony/kernel_liteos_a_note" remote="github_https" groups="openharmony,github,visibility-public" name="kuangyufei/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/DBoS-Desktop" remote="github_https" groups="qt,github,visibility-public" name="cocowts/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/QWidgetDemo" remote="github_https" groups="qt,github,visibility-public" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/qtkaifajingyan" remote="github_https" groups="qt,github,visibility-public" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="raspberrypi/awesome-raspberrypipico" remote="github_https" groups="raspberrypi,github,visibility-public" name="100askTeam/awesome-raspberrypipico.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/apollo" remote="github_https" groups="robot,github,visibility-public" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/docker-compose" remote="github_https" groups="tools,github,visibility-public" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-fast" remote="github_https" groups="tools,github,visibility-public" name="chenxuan520/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/gin-quasar-admin" remote="github_https" groups="vue,github,visibility-public" name="Junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/crudapi-admin-web" remote="github_https" groups="vue,github,visibility-public" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/datav-vue" remote="github_https" groups="vue,github,visibility-public" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/variant-form" remote="github_https" groups="vue,github,visibility-public" name="vform666/variant-form.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/vxe-table" remote="github_https" groups="vue,github,visibility-public" name="x-extends/vxe-table.git" dest-branch="main" revision="refs/heads/main" />
     <project path="esp/ESP8266-Demos" remote="github_https" groups="esp,github,visibility-public" name="AngelLiang/ESP8266-Demos.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github,visibility-public" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />
     <project path="log/EasyLogger" remote="github_https" groups="log,github,visibility-public" name="armink/EasyLogger.git" dest-branch="master" revision="refs/heads/master" />
@@ -32,6 +49,7 @@
     <project path="c++/CGraph" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/CThreadPool" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/C-C-" remote="github_https" groups="github,visibility-public" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="c++/cmake-examples" remote="github_https" groups="github,visibility-public" name="ttroy50/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/examples_CMake" remote="github_https" groups="github,visibility-public" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="github,visibility-public" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/manifests" remote="github_https" groups="github,linux,visibility-public" name="zeek-zhao/manifests.git" dest-branch="main" revision="refs/heads/main" />

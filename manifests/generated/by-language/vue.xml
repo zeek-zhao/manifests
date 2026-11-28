@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <include name="manifests/_remotes.xml" />
+    <include name="manifests/_hooks.xml" />
+
+    <project path="vue/gin-quasar-admin" remote="github_https" groups="vue,github,visibility-public" name="Junvary/gin-quasar-admin.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/crudapi-admin-web" remote="github_https" groups="vue,github,visibility-public" name="crudapi/crudapi-admin-web.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="vue/datav-vue" remote="github_https" groups="vue,github,visibility-public" name="pengxiaotian/datav-vue.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="vue/variant-form" remote="github_https" groups="vue,github,visibility-public" name="vform666/variant-form.git" dest-branch="master" revision="refs/heads/master" />
+</manifest>

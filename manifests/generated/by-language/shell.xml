@@ -3,6 +3,7 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
+    <project path="tools/docker-compose" remote="github_https" groups="tools,github,visibility-public" name="zhengqingya/docker-compose.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/nas-server" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/nas-server.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/PromWatch" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/PromWatch.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/jenkins" remote="github_https" groups="github,linux,visibility-private" name="zeek-zhao/jenkins.git" dest-branch="main" revision="refs/heads/main" />
