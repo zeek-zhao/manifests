@@ -2,7 +2,7 @@
 
 | 文档编号 | LOG-20261128-016 |
 | --- | --- |
-| 版本 | v1.0 |
+| 版本 | v1.1 |
 | 日期 | 2026-11-28 |
 | 作者 | zeek.zhao（Agent 代笔） |
 | 关联 | TSK-20261128-016 / REF-20261128-009 / PLN-20261128-016 |
@@ -35,7 +35,11 @@
 | 校验 | validate OK（129 仓）、catalog.md --check 过、9 钩子绿 |
 | 平台分布 | gitee 9 / github 108 / gitlab 8 / yoctoproject 4 |
 
-## 5. 遗留
+## 5. 合并与 CI（v1.1 补录）
+
+- 提交 b3ff9cd → PR #15 CI 双绿（push 46140846422 / pull_request 46140865363）→ 本地 --no-ff 合并 1e53227 推 main（8d30f30..1e53227，ls-remote 核验送达后删分支）→ PR #15 MERGED（2026-11-28T11:40:03Z）→ main CI run 46140950049 绿。
+
+## 6. 遗留
 
 - D 级 9 行维持 gitee（理由见 REF-009 §6）；AllOpenOS/linux0.11_note 疑似私有，建议人工确认可见性。
 - C 级替换基于用户授权（「abc 同意」），其中 imx6ull/stm32mp157 为名称差异仓，若后续发现不同源可按同流程回退。
