@@ -112,7 +112,7 @@ jobs:
             -o /tmp/containerd.tgz
           ls -la /tmp/containerd.tgz
           sudo mkdir -p /usr/local/containerd-pool
-          sudo tar -xzf /tmp/containerd.tgz -C /usr/local/containerd-pool --strip-components=1
+          sudo tar -xzf /tmp/containerd.tgz -C /usr/local/containerd-pool
           test -x /usr/local/containerd-pool/bin/containerd
 
       - name: 启动独立 containerd daemon（pool 命名空间）
