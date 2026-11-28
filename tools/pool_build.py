@@ -212,9 +212,11 @@ def stage_encrypt(args, entries, image):
 
 
 def redline_check(layerinfo_text, manifest):
-    """红线自检：encrypted=true 的层必须带 ENCRYPTION 标记，否则拒绝 push。
+    """红线自检：encrypted=true 的层必须加密，否则拒绝 push。
 
-    layerinfo 表格解析：跳过 # 表头行，按行首层号匹配。
+    layerinfo 数据行列结构：# DIGEST PLATFORM SIZE ENCRYPTION RECIPIENTS；
+    加密行 ENCRYPTION/RECIPIENTS 有值（split 后 >=6 段），明文行空列被 split 吃掉（4 段）。
+    注意：加密行的加密标识是列值（如 jwe），不含字面 "ENCRYPTION"（表头才有）。
     """
     rows = {}
     for line in layerinfo_text.splitlines():
@@ -223,9 +225,9 @@ def redline_check(layerinfo_text, manifest):
             continue
         parts = line.split()
         if parts and parts[0].isdigit():
-            rows[int(parts[0])] = line
+            rows[int(parts[0])] = parts
     bad = [m["layer_index"] for m in manifest["repos"]
-           if m["encrypted"] and "ENCRYPTION" not in rows.get(m["layer_index"], "")]
+           if m["encrypted"] and len(rows.get(m["layer_index"], [])) < 6]
     if bad:
         raise RuntimeError("红线拦截：private 层未加密 %s，禁止推送公开镜像" % bad)
 
