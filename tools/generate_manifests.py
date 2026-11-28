@@ -241,8 +241,17 @@ def get_effective_protocol(config: Dict, repo: Dict, requested_protocol: str = N
 
 
 def build_groups(config: Dict, repo: Dict, protocol: str) -> List[str]:
+    """手填 groups + platform + topic + visibility 派生组（TSK-008 #2）。
+
+    visibility 组为生成时派生（不入 Excel 手填列，避免与 仓库属性 列双写失同步），
+    命名与 仓库属性 列值一致：visibility-公开 / visibility-私有；空值跳过。
+    """
     repo_groups = repo.get("groups", [])
-    return unique(repo_groups + [repo["platform"], repo["topic"]])
+    derived = [repo["platform"], repo["topic"]]
+    visibility = (repo.get("仓库属性") or "").strip()
+    if visibility:
+        derived.append(f"visibility-{visibility}")
+    return unique(repo_groups + derived)
 
 
 def build_project_entry(config: Dict, repo: Dict, requested_protocol: str = None) -> Dict:

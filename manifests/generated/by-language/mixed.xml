@@ -3,16 +3,16 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="sample/standard-version" remote="github_https" groups="sample,github" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/base-sample" remote="github_https" groups="sample,github" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/java-sample" remote="github_https" groups="sample,github" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/LanguageLearning" remote="github_https" groups="sample,github" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/product-sample" remote="github_https" groups="sample,github" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/zeek-zhao.github.io" remote="github_https" groups="blog,github" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="app/worth-track" remote="github_https" groups="app,github" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="linux/yocto/yp-distro" remote="github_https" groups="linux,github" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="sample/devbox" remote="github_https" groups="sample,github" name="zeek-zhao/devbox.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="tools/vim/vim-fast" remote="gitee_https" groups="tools,gitee,visibility-公开" name="mirrorvim/vim-fast.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/PowerVim" remote="github_https" groups="tools,github,visibility-公开" name="youngyangyang04/PowerVim.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="tools/vim/vim-galore-zh_cn" remote="gitlab_https" groups="tools,gitlab,visibility-公开" name="wsdjeg/vim-galore-zh_cn.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="sample/standard-version" remote="github_https" groups="sample,github,visibility-私有" name="zeek-zhao/standard-version.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/base-sample" remote="github_https" groups="sample,github,visibility-私有" name="zeek-zhao/base-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/java-sample" remote="github_https" groups="sample,github,visibility-私有" name="zeek-zhao/java-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/LanguageLearning" remote="github_https" groups="sample,github,visibility-私有" name="zeek-zhao/LanguageLearning.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/product-sample" remote="github_https" groups="sample,github,visibility-公开" name="zeek-zhao/product-sample.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/zeek-zhao.github.io" remote="github_https" groups="blog,github,visibility-公开" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="app/worth-track" remote="github_https" groups="app,github,visibility-公开" name="zeek-zhao/WorthTrack.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="linux/yocto/yp-distro" remote="github_https" groups="linux,github,visibility-公开" name="zeek-zhao/yp-distro.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="sample/devbox" remote="github_https" groups="sample,github,visibility-公开" name="zeek-zhao/devbox.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

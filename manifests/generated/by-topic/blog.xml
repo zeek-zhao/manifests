@@ -3,8 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="blog/ai-obsidian" remote="github_https" groups="blog,github" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/hexo-engine" remote="github_https" groups="blog,github" name="zeek-zhao/hexo-engine.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/zeek-zhao.github.io" remote="github_https" groups="blog,github" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="blog/pagepipe" remote="github_https" groups="blog,github" name="zeek-zhao/PagePipe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/ai-obsidian" remote="github_https" groups="blog,github,visibility-私有" name="zeek-zhao/ai-obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/hexo-engine" remote="github_https" groups="blog,github,visibility-公开" name="zeek-zhao/hexo-engine.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/zeek-zhao.github.io" remote="github_https" groups="blog,github,visibility-公开" name="zeek-zhao/zeek-zhao.github.io.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="blog/pagepipe" remote="github_https" groups="blog,github,visibility-私有" name="zeek-zhao/PagePipe.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

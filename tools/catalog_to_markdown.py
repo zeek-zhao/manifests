@@ -30,13 +30,20 @@ HEADER = {
 
 def load_catalogs():
     data = gm.load_from_excel(gm.DEFAULT_XLSX)
-    self_owner = data["config"].get("self_owner", "")
+    config = data["config"]
+    self_owner = config.get("self_owner", "")
     repos = data["repositories"]
     self_rows = [
         r for r in repos
         if r.get("标签分类") or str(r.get("name", "")).startswith(self_owner + "/")
     ]
-    return repos, self_rows
+    # 明细表 groups 列展示派生组（手填 + platform + topic + visibility，TSK-008）
+    display = []
+    for r in repos:
+        row = dict(r)
+        row["groups"] = ",".join(gm.build_groups(config, row, None))
+        display.append(row)
+    return display, self_rows
 
 
 def render_table(rows, columns):
