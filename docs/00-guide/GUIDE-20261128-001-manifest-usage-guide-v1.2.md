@@ -37,9 +37,9 @@ manifests.xlsx ──generate_manifests.py──▶ manifests/*.xml（repo 清�
 
 - **结构列（自动维护，人工勿改）**：`name`（owner/repo.git，唯一键）、`path`（检出路径，自有行空则自动补 `project/<repo>`）、`branch`（自有行以 API default_branch 为准）、`platform`（gitee/github/gitlab/yoctoproject，外键→remotes 表）、`protocol`（自有行由 sync 清空，生成器按 default_protocol 补 https）、`description`（自有行来自 API）。
 - **知识列（人工维护，自动化永不覆盖）**：`purpose` 仓库用途、`contents` 主要内容、`relations` 仓库间关系。
-- **管理列（人工维护/半自动）**：`仓库属性`（public/private 英文值域；自有行由 excel-sync 从 GitHub API 直接写入）、`标签分类`（统一 14 分类体系，下拉=内联枚举+`TagCategories` 命名区域双保险，清单维护于「统计」sheet）、`仓库大小(KB)`（自有行由 excel-sync 刷新；gitee/gitlab/yoctoproject 无公开 API 字段留空）、`suggested_action`、`note`。
+- **管理列（人工维护/半自动）**：`仓库属性`（public/private 英文值域；自有行由 excel-sync 从 GitHub API 直接写入）、`标签分类`（统一 14 分类体系，下拉=内联枚举+`TagCategories` 命名区域双保险，清单维护于「统计」sheet）、`仓库大小(MB)`（TSK-013 起单位 MB=round(KB/1024,1)；自有行由 excel-sync 刷新；gitee/gitlab/yoctoproject 无公开 API 字段留空）、`suggested_action`、`note`。
 - **扩展列**：`topic`、`language`、`groups`（逗号分隔；生成时自动追加 `platform`/`topic`/`visibility-{public|private}` 派生组，见 §5.2）、`linkfiles`（`src:dest` 分号分条）。
-- **表结构（TSK-009）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；列宽自适应紧凑（封顶 28 字符），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。**下拉自第 1 行即可点选（TSK-011/012）**：5 个枚举下拉（protocol/platform/仓库属性/suggested_action/标签分类）范围均为 `第1行:1000`，表头单元格直接出下拉箭头。**兼容性要点（TSK-012）**：openpyxl 会强制为每个 DV 写出 `showDropDown` 属性——Excel 对其语义反转（0=显示箭头）而 WPS 等按字面义处理（0=不显示）；因此 `validate --normalize` 保存后会通过 zip 后处理剥除该属性并自检（sqref 覆盖第 1 行+内联串合法性），保证 Excel/WPS 双端均显示下拉。**任何对 manifests.xlsx 的 openpyxl 读写（sync/stats_report 等）都会把该属性写回，normalize 必须是工作簿的最后一个写入者**（excel-sync 工作流已按此顺序编排）。
+- **表结构（TSK-009）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；列宽自适应紧凑（封顶 28 字符），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。**全表头下拉（TSK-013）**：repos/remotes/config/readme 四表**每一列**第 1 行表头均可点选下拉——结构化列按值域生成内联枚举（protocol/platform/仓库属性/标签分类/suggested_action 等），自由文本列（name/path/description/purpose/contents/relations/note 等）与空值域列配「（自由填写）/（暂无可选项）」占位枚举，值域超 255 字符自动写「下拉源」辅助 sheet 并以 `DD<n>` 命名区域引用（内联串 Excel 硬上限 255）；范围均为 `第1行 + 第3行:1000` 双段，**第 2 行说明行不在下拉范围内**。**兼容性要点（TSK-012）**：openpyxl 会强制为每个 DV 写出 `showDropDown` 属性——Excel 对其语义反转（0=显示箭头）而 WPS 等按字面义处理（0=不显示）；因此 `validate --normalize` 保存后会通过 zip 后处理剥除该属性并自检（sqref 覆盖第 1 行、不碰第 2 行+内联串 ≤255 或 DD 引用合法），保证 Excel/WPS 双端均显示下拉。**任何对 manifests.xlsx 的 openpyxl 读写（sync/stats_report 等）都会把该属性写回，normalize 必须是工作簿的最后一个写入者**（excel-sync 工作流已按此顺序编排）。
 
 维度产物规则：生成列自动追加 platform/topic 到 groups；slug 规则见 REF-004。
 
@@ -81,7 +81,7 @@ pre-commit run --all-files
 
 「动态统计」sheet 由 `tools/stats_report.py` 全权重建（幂等，每次整体重建该 sheet）：
 
-- 数据区：131 行全列（name/platform/标签分类/仓库属性/stars/forks/size_KB/pushed_at），仅 github 平台行调用 GitHub API 实时拉取指标（gitee/gitlab/yoctoproject 无等价公开统计 API，留空；见 REF-006 §5）；
+- 数据区：130 行全列（name/platform/标签分类/仓库属性/stars/forks/size_MB/pushed_at），仅 github 平台行调用 GitHub API 实时拉取指标（gitee/gitlab/yoctoproject 无等价公开统计 API，留空；见 REF-006 §5）；size 单位自 TSK-013 起为 MB；
 - 图表：标签分类分布条形图、平台分布饼图、size Top15 条形图、public/private 饼图（openpyxl 原生图表，打开 Excel/WPS 即渲染）；
 - 辅助区（J 列起）：`COUNTIF` 公式随数据区自动更新，为图表数据源（避免图表跨 sheet 引用的兼容性问题）；
 - 刷新方式：excel-sync 工作流自动刷新，或本地 `GH_TOKEN=<PAT> python3 tools/stats_report.py`；

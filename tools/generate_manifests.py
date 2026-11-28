@@ -32,7 +32,7 @@ QUICKSTART_EXAMPLES = {
 REPO_COLUMNS = [
     "name", "path", "branch", "platform", "protocol", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "仓库属性", "标签分类", "仓库大小(KB)", "suggested_action", "note",
+    "仓库属性", "标签分类", "仓库大小(MB)", "suggested_action", "note",
 ]
 # 三行结构（TSK-009 D-2）：第 1 行表头、第 2 行列说明、第 3 行起数据。
 DATA_START_ROW = 3
@@ -183,9 +183,14 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 errors.append(f"repos row {row_no}: platform 不在 remotes 表：{cells['platform']}")
             if cells["protocol"] not in VALID_PROTOCOLS:
                 errors.append(f"repos row {row_no}: protocol 应为 https/git/留空：{cells['protocol']}")
-            size_raw = cells["仓库大小(KB)"]
-            if size_raw and not size_raw.isdigit():
-                errors.append(f"repos row {row_no}: 仓库大小(KB) 应为正整数（KB）或留空：{size_raw}")
+            size_raw = cells["仓库大小(MB)"]
+            if size_raw:
+                try:
+                    size_val = float(size_raw)
+                    if size_val < 0:
+                        raise ValueError
+                except ValueError:
+                    errors.append(f"repos row {row_no}: 仓库大小(MB) 应为非负数（MB，保留 1 位小数）或留空：{size_raw}")
             for field in ("topic", "language"):
                 raw = cells[field]
                 slug = slugify(raw) if raw else ""
@@ -212,7 +217,7 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 "relations": cells["relations"],
                 "仓库属性": cells["仓库属性"],
                 "标签分类": cells["标签分类"],
-                "仓库大小(KB)": cells["仓库大小(KB)"],
+                "仓库大小(MB)": cells["仓库大小(MB)"],
                 "suggested_action": cells["suggested_action"],
                 "note": cells["note"],
                 "_row": row_no,
@@ -451,7 +456,7 @@ def load_catalogs(catalogs_dir: Path) -> List[Dict]:
 SNAPSHOT_REPO_ORDER = [
     "name", "path", "branch", "platform", "protocol", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "仓库属性", "标签分类", "仓库大小(KB)", "suggested_action", "note",
+    "仓库属性", "标签分类", "仓库大小(MB)", "suggested_action", "note",
 ]
 
 

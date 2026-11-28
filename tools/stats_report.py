@@ -36,7 +36,7 @@ import generate_manifests as gm  # noqa: E402  (load_from_excel reuse)
 DEFAULT_XLSX = Path("catalogs/manifests.xlsx")
 SHEET = "动态统计"
 DATA_START = 3
-HEADERS = ["name", "platform", "标签分类", "仓库属性", "stars", "forks", "size_KB", "pushed_at"]
+HEADERS = ["name", "platform", "标签分类", "仓库属性", "stars", "forks", "size_MB", "pushed_at"]
 DOCS = {
     "name": "仓库全名 owner/repo.git（与 repos 表一致）",
     "platform": "托管平台（github 行才有 API 指标，其余平台留空）",
@@ -44,7 +44,7 @@ DOCS = {
     "仓库属性": "public/private（引自 repos 表）",
     "stars": "GitHub API stargazers_count（实时拉取）",
     "forks": "GitHub API forks_count（实时拉取）",
-    "size_KB": "GitHub API size（KB，实时拉取）",
+    "size_MB": "GitHub API size/1024（MB，实时拉取）",
     "pushed_at": "GitHub API pushed_at（UTC 日期部分）",
 }
 # 辅助区（图表数据源，避免图表跨 sheet 引用的兼容性问题）
@@ -113,7 +113,7 @@ def build_sheet(wb, repos: list[dict], metrics: dict) -> None:
             r.get("仓库属性") or "",
             m.get("stars"),
             m.get("forks"),
-            m.get("size"),
+            round((m.get("size") or 0) / 1024, 1),
             m.get("pushed_at"),
         ]
         for c, v in enumerate(vals, 1):
@@ -158,10 +158,10 @@ def build_sheet(wb, repos: list[dict], metrics: dict) -> None:
           (metrics.get(r["name"][:-4] if r["name"].endswith(".git") else r["name"]) or {}).get("size") or 0)
          for r in repos),
         key=lambda x: -x[1])[:15]
-    ws.cell(AUX_TOP_HEAD, 10).value = "size Top15（KB，图表数据源）"
+    ws.cell(AUX_TOP_HEAD, 10).value = "size Top15（MB，图表数据源）"
     for i, (n, s) in enumerate(sized):
         ws.cell(AUX_TOP_HEAD + 1 + i, 9).value = n.split("/")[-1]
-        ws.cell(AUX_TOP_HEAD + 1 + i, 10).value = s
+        ws.cell(AUX_TOP_HEAD + 1 + i, 10).value = round(s / 1024, 1)
 
     _add_charts(ws, len(labels), len(platforms), len(sized))
     _auto_width(ws)
@@ -183,7 +183,7 @@ def _add_charts(ws, n_labels: int, n_plats: int, n_top: int) -> None:
     ws.add_chart(pie, "M20")
 
     top = BarChart()
-    top.type, top.style, top.title = "bar", 10, "仓库大小 Top15（KB）"
+    top.type, top.style, top.title = "bar", 10, "仓库大小 Top15（MB）"
     top.add_data(Reference(ws, min_col=10, min_row=AUX_TOP_HEAD + 1, max_row=AUX_TOP_HEAD + n_top), titles_from_data=False)
     top.set_categories(Reference(ws, min_col=9, min_row=AUX_TOP_HEAD + 1, max_row=AUX_TOP_HEAD + n_top))
     top.height, top.width, top.legend = 10, 18, None

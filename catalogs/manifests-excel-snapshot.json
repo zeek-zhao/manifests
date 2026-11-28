@@ -18,7 +18,7 @@
       "relations": "esp 组教程线；与 AngelLiang/ESP8266-Demos 对照（ESP 双平台）",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -40,7 +40,7 @@
       "relations": "linux/driver 组；配套 embed_linux_tutorial 教程线",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -62,7 +62,7 @@
       "relations": "与 imx6ull_NoosProgramProject、stm32mp157-m4 构成教程线；linux-driver 的理论支撑",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -84,7 +84,7 @@
       "relations": "STM32MP157 双核体系（Linux 侧构建见 Buildroot 教程）",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -106,7 +106,7 @@
       "relations": "kernel 学习线；与 linux0.11_note 衔接（0.11→2.6）",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -128,7 +128,7 @@
       "relations": "衔接 linux-2.6.12；flash-linux0.11-talk（GitHub）为同主题讲解",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -150,7 +150,7 @@
       "relations": "IMX6ULL/MP157 教程体系；与自研 poky/yp-distro 构建思路对照",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -172,7 +172,7 @@
       "relations": "与 DBoS-Desktop 同作者生态（嵌入式 GUI）",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -194,7 +194,7 @@
       "relations": "openharmony 组；与 openharmony-oer 教育资源互补",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -216,7 +216,7 @@
       "relations": "与 kernel_liteos_a_note 源码注解互补",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -236,7 +236,7 @@
       "relations": "IMX6ULL 教程线（配合裸机/驱动仓库使用）",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -258,7 +258,7 @@
       "relations": "依赖 lv_100ask_modules；与 qt 组桌面 GUI 双路线对照",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -280,7 +280,7 @@
       "relations": "qt-learn-code 的进阶参考；qtkaifajingyan 为其经验文字版",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -302,7 +302,7 @@
       "relations": "配套 QWidgetDemo 实践",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -324,7 +324,7 @@
       "relations": "与 pico-micropython 配套",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -346,7 +346,7 @@
       "relations": "awesome 列表配套；Python 学习与嵌入式交叉点",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -368,7 +368,7 @@
       "relations": "robot 组自动驾驶线（autoware 对照）；仓库体积大，建议稀疏检出",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -390,7 +390,7 @@
       "relations": "tools 组；jenkins/nas-server 等自托管部署参考",
       "仓库属性": "public",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -412,7 +412,7 @@
       "relations": "tools/vim 组（与 PowerVim、vim-galore-zh_cn 对照）",
       "仓库属性": "public",
       "标签分类": "元工具与工程流程",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -434,7 +434,7 @@
       "relations": "fron-backframe 的二开上游",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -456,7 +456,7 @@
       "relations": "vue 组低代码线（variant-form 对照）",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -478,7 +478,7 @@
       "relations": "vue 组；与 gin-quasar-admin 同为管理后台路线",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -500,7 +500,7 @@
       "relations": "vue 组；与 vue-big-screen-plugin 同为大屏方案",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -522,7 +522,7 @@
       "relations": "vue 组低代码线（as-editor 对照）",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -544,7 +544,7 @@
       "relations": "datav-vue 大屏配套",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -566,7 +566,7 @@
       "relations": "vue 组企业表格基座（fron-backframe/FlexDev-Ent 可参考）",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -588,7 +588,7 @@
       "relations": "esp 组；与 gitee esp32 教程对照",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "1288",
+      "仓库大小(MB)": "1.3",
       "suggested_action": "",
       "note": ""
     },
@@ -610,7 +610,7 @@
       "relations": "与 linux0.11_note（gitee）同主题；kernel 学习线",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "184307",
+      "仓库大小(MB)": "180",
       "suggested_action": "",
       "note": ""
     },
@@ -632,7 +632,7 @@
       "relations": "log 组 C 嵌入式线；与 spdlog（C++ 线）对照",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "3521",
+      "仓库大小(MB)": "3.4",
       "suggested_action": "",
       "note": ""
     },
@@ -654,7 +654,7 @@
       "relations": "log 组 C++ 线（spdlog 竞品）",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "31048",
+      "仓库大小(MB)": "30.3",
       "suggested_action": "",
       "note": ""
     },
@@ -676,7 +676,7 @@
       "relations": "spdlog_demo 的依赖库；easyloggingpp 对照",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "43061",
+      "仓库大小(MB)": "42.1",
       "suggested_action": "",
       "note": ""
     },
@@ -698,7 +698,7 @@
       "relations": "依赖 spdlog",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "1",
+      "仓库大小(MB)": "0",
       "suggested_action": "",
       "note": ""
     },
@@ -720,7 +720,7 @@
       "relations": "log 组可视化；与 rqt_plot/ROS 生态互补（重型绘图）",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "104572",
+      "仓库大小(MB)": "102.1",
       "suggested_action": "",
       "note": ""
     },
@@ -742,7 +742,7 @@
       "relations": "ROS 生态；轻量曲线用 rqt_plot，重型分析用 PlotJuggler",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "464",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "",
       "note": ""
     },
@@ -764,7 +764,7 @@
       "relations": "ROS 核心组件；输出可视化可接 rqt_plot",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "7309",
+      "仓库大小(MB)": "7.1",
       "suggested_action": "",
       "note": ""
     },
@@ -786,7 +786,7 @@
       "relations": "ros 学习路线第 1 环→ros_exploring 进阶；本仓 ros/ 为实践",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "54793",
+      "仓库大小(MB)": "53.5",
       "suggested_action": "",
       "note": ""
     },
@@ -808,7 +808,7 @@
       "relations": "ros_21_tutorials 进阶；配合 turtlebot3_simulations 仿真",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "150733",
+      "仓库大小(MB)": "147.2",
       "suggested_action": "",
       "note": ""
     },
@@ -830,7 +830,7 @@
       "relations": "TurtleBot3 硬件体系；hls_lfcd_lds_driver 同厂商",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "28989",
+      "仓库大小(MB)": "28.3",
       "suggested_action": "",
       "note": ""
     },
@@ -852,7 +852,7 @@
       "relations": "TurtleBot3 组件（与 msgs/simulations 配套）",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "136",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "",
       "note": ""
     },
@@ -874,7 +874,7 @@
       "relations": "TurtleBot3 三件套之一（SDK/雷达/simulations）",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "81",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "",
       "note": ""
     },
@@ -896,7 +896,7 @@
       "relations": "配套 ros_exploring 教程；TurtleBot3 三件套",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "43450",
+      "仓库大小(MB)": "42.4",
       "suggested_action": "",
       "note": ""
     },
@@ -918,7 +918,7 @@
       "relations": "ROS2 入门（与 ros2/examples 并列）；ROS1→ROS2 迁移学习",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "5921",
+      "仓库大小(MB)": "5.8",
       "suggested_action": "",
       "note": ""
     },
@@ -940,7 +940,7 @@
       "relations": "ros2/demos 补充；ROS2 学习线",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "1937",
+      "仓库大小(MB)": "1.9",
       "suggested_action": "",
       "note": ""
     },
@@ -962,7 +962,7 @@
       "relations": "6-robot 教程体系（wpb_home/wpb_cv 配套）",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "7647",
+      "仓库大小(MB)": "7.5",
       "suggested_action": "",
       "note": ""
     },
@@ -984,7 +984,7 @@
       "relations": "wpr_simulation 环境配套",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "7018",
+      "仓库大小(MB)": "6.9",
       "suggested_action": "",
       "note": ""
     },
@@ -1006,7 +1006,7 @@
       "relations": "wpb_home 系列视觉篇",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "14771",
+      "仓库大小(MB)": "14.4",
       "suggested_action": "",
       "note": ""
     },
@@ -1028,7 +1028,7 @@
       "relations": "robot 组课程线",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "3751",
+      "仓库大小(MB)": "3.7",
       "suggested_action": "",
       "note": ""
     },
@@ -1050,7 +1050,7 @@
       "relations": "autoware 主仓的学习入口",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "238159",
+      "仓库大小(MB)": "232.6",
       "suggested_action": "",
       "note": ""
     },
@@ -1072,7 +1072,7 @@
       "relations": "autoware2020-course 的主仓；apollo 对照线；体积大建议稀疏检出",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "2459",
+      "仓库大小(MB)": "2.4",
       "suggested_action": "",
       "note": ""
     },
@@ -1094,7 +1094,7 @@
       "relations": "autoware/apollo 学习辅助",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "145531",
+      "仓库大小(MB)": "142.1",
       "suggested_action": "",
       "note": ""
     },
@@ -1116,7 +1116,7 @@
       "relations": "tools/vim 组（vim-fast/vim-galore-zh_cn 对照）",
       "仓库属性": "public",
       "标签分类": "元工具与工程流程",
-      "仓库大小(KB)": "6176",
+      "仓库大小(MB)": "6",
       "suggested_action": "",
       "note": ""
     },
@@ -1138,7 +1138,7 @@
       "relations": "vue 组；fron-backframe 前端栈（Quasar）的学习前置",
       "仓库属性": "public",
       "标签分类": "Web与前端",
-      "仓库大小(KB)": "721",
+      "仓库大小(MB)": "0.7",
       "suggested_action": "",
       "note": ""
     },
@@ -1160,7 +1160,7 @@
       "relations": "Firefly RK 三件套之一（kernel/buildroot/manifests）",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1182,7 +1182,7 @@
       "relations": "与 docs/firmware_doc 同体系",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1204,7 +1204,7 @@
       "relations": "kernel/u-boot 配套",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1226,7 +1226,7 @@
       "relations": "与本项目 manifests 工程同类（对照学习）；kernel/u-boot/buildroot 检出清单",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1248,7 +1248,7 @@
       "relations": "firmware_doc/docs-soc_internal 同体系",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1270,7 +1270,7 @@
       "relations": "docs 配套",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1292,7 +1292,7 @@
       "relations": "u-boot/buildroot 配套；驱动学习可参考（配合 linux-driver）",
       "仓库属性": "public",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1314,7 +1314,7 @@
       "relations": "tools/vim 组理论篇（vim-fast/PowerVim 实践对照）",
       "仓库属性": "public",
       "标签分类": "元工具与工程流程",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1336,7 +1336,7 @@
       "relations": "自研 poky（Vela）与 yp-distro 的上游基座；meta-yocto 内置",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1358,7 +1358,7 @@
       "relations": "poky 的伴生仓（补丁/CI 状态）",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1380,7 +1380,7 @@
       "relations": "poky 使用说明的官方来源",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1402,7 +1402,7 @@
       "relations": "poky 配套层；自研 DISTRO=vela 的参考",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1422,7 +1422,7 @@
       "relations": "CThreadPool 同作者配套；c++ 组框架线",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "6756",
+      "仓库大小(MB)": "6.6",
       "suggested_action": "",
       "note": ""
     },
@@ -1442,7 +1442,7 @@
       "relations": "CGraph 底层配套；cpp-sample 进阶",
       "仓库属性": "public",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "188",
+      "仓库大小(MB)": "0.2",
       "suggested_action": "",
       "note": ""
     },
@@ -1462,7 +1462,7 @@
       "relations": "c++ 组学习线；LanguageLearning/cpp-sample 延伸",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "2072",
+      "仓库大小(MB)": "2",
       "suggested_action": "",
       "note": ""
     },
@@ -1482,7 +1482,7 @@
       "relations": "c++ 组构建线；examples_CMake 对照",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "",
       "note": ""
     },
@@ -1502,7 +1502,7 @@
       "relations": "cmake-examples 对照；与 package-manager（Conan）构建衔接",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "1449",
+      "仓库大小(MB)": "1.4",
       "suggested_action": "",
       "note": ""
     },
@@ -1522,7 +1522,7 @@
       "relations": "quickstart-https.xml 示例引用本仓；与 CMake 线对照（构建系统双路线）",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "3365",
+      "仓库大小(MB)": "3.3",
       "suggested_action": "",
       "note": ""
     },
@@ -1542,7 +1542,7 @@
       "relations": "引用全部其他仓库；与 Firefly rk/manifests 同类工程对照；各组检出总入口",
       "仓库属性": "public",
       "标签分类": "元工具与工程流程",
-      "仓库大小(KB)": "520",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1562,7 +1562,7 @@
       "relations": "与 PromWatch 监控栈、srvkit 巡检工具配套构成运维线",
       "仓库属性": "private",
       "标签分类": "运维与监控",
-      "仓库大小(KB)": "180",
+      "仓库大小(MB)": "0.2",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1582,7 +1582,7 @@
       "relations": "服务 nas-server 等自托管服务的可观测性需求",
       "仓库属性": "private",
       "标签分类": "运维与监控",
-      "仓库大小(KB)": "240",
+      "仓库大小(MB)": "0.2",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1604,7 +1604,7 @@
       "relations": "上游为外部 gin-quasar-admin；fron-backframe-refactor 为其重构工程；经验沉淀入 FlexDev-Ent",
       "仓库属性": "private",
       "标签分类": "企业级项目",
-      "仓库大小(KB)": "2159",
+      "仓库大小(MB)": "2.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1624,7 +1624,7 @@
       "relations": "重构对象为 fron-backframe；产出方向为 FlexDev-Ent",
       "仓库属性": "private",
       "标签分类": "企业级项目",
-      "仓库大小(KB)": "551",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1644,7 +1644,7 @@
       "relations": "吸收 fron-backframe 及其重构工程经验的整合版",
       "仓库属性": "private",
       "标签分类": "企业级项目",
-      "仓库大小(KB)": "1663",
+      "仓库大小(MB)": "1.6",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1664,7 +1664,7 @@
       "relations": "共享库独立仓 jenkins-shared-library；orgflow-jenkins 为其 API 层演进版",
       "仓库属性": "private",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "3464",
+      "仓库大小(MB)": "3.4",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1684,7 +1684,7 @@
       "relations": "支撑 qt-learn-code/cpp-sample 等 C++ 工程的依赖管理",
       "仓库属性": "private",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "13016",
+      "仓库大小(MB)": "12.7",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1706,7 +1706,7 @@
       "relations": "配套外部教程仓 embed_linux_tutorial、imx6ull_NoosProgramProject；linux 组主线",
       "仓库属性": "private",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "2889",
+      "仓库大小(MB)": "2.8",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1728,7 +1728,7 @@
       "relations": "与 src800-bootloader 同属嵌入式与驱动轨道",
       "仓库属性": "private",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "1844",
+      "仓库大小(MB)": "1.8",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1750,7 +1750,7 @@
       "relations": "进阶参考外部 QWidgetDemo；依赖管理见 package-manager",
       "仓库属性": "private",
       "标签分类": "C++工具与桌面",
-      "仓库大小(KB)": "41576",
+      "仓库大小(MB)": "40.6",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1772,7 +1772,7 @@
       "relations": "配套外部 ros_21_tutorials、ros_exploring 学习路线；与 frobot 协作",
       "仓库属性": "private",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "19158",
+      "仓库大小(MB)": "18.7",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1794,7 +1794,7 @@
       "relations": "与 ros 仓协作；机器人组学习线见外部 turtlebot3/autoware 系列",
       "仓库属性": "private",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "38318",
+      "仓库大小(MB)": "37.4",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1814,7 +1814,7 @@
       "relations": "待整理并入 orgflow 体系（orgflow-devops）",
       "仓库属性": "private",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "159073",
+      "仓库大小(MB)": "155.3",
       "suggested_action": "待确认：无 README，补充说明或并入 orgflow 体系",
       "note": ""
     },
@@ -1834,7 +1834,7 @@
       "relations": "基于外部 yoctoproject/poky；与 yp-distro 多版本构建工程配套",
       "仓库属性": "private",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "2188",
+      "仓库大小(MB)": "2.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1854,7 +1854,7 @@
       "relations": "attachments 附件库经 linkfile 挂载；同仓 markdown 分支另行挂载 obsidian-md 行",
       "仓库属性": "private",
       "标签分类": "笔记与知识库",
-      "仓库大小(KB)": "32079",
+      "仓库大小(MB)": "31.3",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1874,7 +1874,7 @@
       "relations": "被 obsidian 经 linkfile 引用（唯一 linkfiles 使用行）",
       "仓库属性": "public",
       "标签分类": "笔记与知识库",
-      "仓库大小(KB)": "38041",
+      "仓库大小(MB)": "37.1",
       "suggested_action": "待确认：附件多为个人内容，考虑转私有",
       "note": ""
     },
@@ -1894,7 +1894,7 @@
       "relations": "与 project/obsidian 同仓双分支检出（obsidian 双分支先例）；附件共用 attachments",
       "仓库属性": "private",
       "标签分类": "笔记与知识库",
-      "仓库大小(KB)": "32079",
+      "仓库大小(MB)": "31.3",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1914,7 +1914,7 @@
       "relations": "sample 学习轨道；与 obsidian 笔记库生态呼应",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "34145",
+      "仓库大小(MB)": "33.3",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1934,7 +1934,7 @@
       "relations": "sample 轨道；devbox 毕业项目延伸",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "127",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1954,7 +1954,7 @@
       "relations": "sample 轨道；外部 vue 组生态（vxe-table 等）为进阶参考",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "144",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1974,7 +1974,7 @@
       "relations": "sample 轨道",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "700",
+      "仓库大小(MB)": "0.7",
       "suggested_action": "保留",
       "note": ""
     },
@@ -1994,7 +1994,7 @@
       "relations": "sample 轨道；同一提交规范约束本 manifests 工程",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "37",
+      "仓库大小(MB)": "0",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2014,7 +2014,7 @@
       "relations": "sample 轨道；devbox 学习体系基础项",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "702",
+      "仓库大小(MB)": "0.7",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2034,7 +2034,7 @@
       "relations": "ai-knowledge 挂其 src/ai-knowledge 子路径；sample 轨道",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "420",
+      "仓库大小(MB)": "0.4",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2054,7 +2054,7 @@
       "relations": "sample 轨道",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "24023",
+      "仓库大小(MB)": "23.5",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2074,7 +2074,7 @@
       "relations": "jenkins-shared-library 挂其 src 子路径；sample 轨道",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "65683",
+      "仓库大小(MB)": "64.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2096,7 +2096,7 @@
       "relations": "作为 python-sample 的 src/ai-knowledge 子路径挂载（catalog 唯一子路径检出先例）",
       "仓库属性": "private",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "630",
+      "仓库大小(MB)": "0.6",
       "suggested_action": "待确认：定位待明确",
       "note": ""
     },
@@ -2118,7 +2118,7 @@
       "relations": "被 jenkins 部署工程引用；orgflow-jenkins 中演进；挂 java-sample 的 src 子路径",
       "仓库属性": "public",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "99",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2138,7 +2138,7 @@
       "relations": "sample 轨道；外部 c++ 组（CGraph/cmake-examples）为进阶参考",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "496",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2158,7 +2158,7 @@
       "relations": "sample 轨道母题（各 *-sample 分语言深入）",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "240723",
+      "仓库大小(MB)": "235.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2178,7 +2178,7 @@
       "relations": "sample 轨道；独立产品线（kuaidian/linkManager/WorthTrack）的孵化区",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "32",
+      "仓库大小(MB)": "0",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2215,7 +2215,7 @@
       "relations": "sample 轨道；quickstart-zeek-zhao.xml 示例引用本仓；jenkins/devops 容器化基础",
       "仓库属性": "private",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "135",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2235,7 +2235,7 @@
       "relations": "嵌入式与驱动轨道；与 free-rtos-demo 同组",
       "仓库属性": "private",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(KB)": "11965",
+      "仓库大小(MB)": "11.7",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2257,7 +2257,7 @@
       "relations": "待定",
       "仓库属性": "public",
       "标签分类": "",
-      "仓库大小(KB)": "",
+      "仓库大小(MB)": "",
       "suggested_action": "待确认：gitee 条目，未纳入本次 GitHub 盘点",
       "note": ""
     },
@@ -2279,7 +2279,7 @@
       "relations": "下游 hexo-engine 消费构建，最终发布至 zeek-zhao.github.io；博客链路第 1 环",
       "仓库属性": "private",
       "标签分类": "博客与知识发布",
-      "仓库大小(KB)": "34831",
+      "仓库大小(MB)": "34",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2301,7 +2301,7 @@
       "relations": "上游 ai-obsidian；产物推送 zeek-zhao.github.io；博客链路第 2 环；PagePipe 为发布管道对照试验",
       "仓库属性": "public",
       "标签分类": "博客与知识发布",
-      "仓库大小(KB)": "3032",
+      "仓库大小(MB)": "3",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2323,7 +2323,7 @@
       "relations": "hexo-engine 自动发布目标；博客链路第 3 环",
       "仓库属性": "public",
       "标签分类": "博客与知识发布",
-      "仓库大小(KB)": "26890",
+      "仓库大小(MB)": "26.3",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2345,7 +2345,7 @@
       "relations": "独立于博客主链路（ai-obsidian/hexo-engine/github.io）的对照试验",
       "仓库属性": "private",
       "标签分类": "博客与知识发布",
-      "仓库大小(KB)": "16",
+      "仓库大小(MB)": "0",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2367,7 +2367,7 @@
       "relations": "AI 应用组独立产品方向",
       "仓库属性": "private",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "4100",
+      "仓库大小(MB)": "4",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2389,7 +2389,7 @@
       "relations": "支撑个人日常开发流；本 manifests 工作流亦借鉴其模式",
       "仓库属性": "private",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "487",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2411,7 +2411,7 @@
       "relations": "独立产品与应用组",
       "仓库属性": "private",
       "标签分类": "独立产品与应用",
-      "仓库大小(KB)": "1445",
+      "仓库大小(MB)": "1.4",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2433,7 +2433,7 @@
       "relations": "独立产品与应用组",
       "仓库属性": "private",
       "标签分类": "独立产品与应用",
-      "仓库大小(KB)": "151",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2455,7 +2455,7 @@
       "relations": "独立产品与应用组",
       "仓库属性": "public",
       "标签分类": "独立产品与应用",
-      "仓库大小(KB)": "928",
+      "仓库大小(MB)": "0.9",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2477,7 +2477,7 @@
       "relations": "orgflow-jenkins 为其 Jenkins API 层；devops 杂项待并入",
       "仓库属性": "public",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "2678",
+      "仓库大小(MB)": "2.6",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2499,7 +2499,7 @@
       "relations": "orgflow-devops 体系的 Jenkins 组件深化；现行共享库见 jenkins-shared-library",
       "仓库属性": "private",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "1652",
+      "仓库大小(MB)": "1.6",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2519,7 +2519,7 @@
       "relations": "ops 运维线，与 PromWatch/nas-server 互补",
       "仓库属性": "private",
       "标签分类": "运维与监控",
-      "仓库大小(KB)": "1056",
+      "仓库大小(MB)": "1",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2541,7 +2541,7 @@
       "relations": "基于外部 yoctoproject/poky；与自研 poky（Vela）互补",
       "仓库属性": "public",
       "标签分类": "Yocto与嵌入式构建",
-      "仓库大小(KB)": "2038",
+      "仓库大小(MB)": "2",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2561,7 +2561,7 @@
       "relations": "sample 系列（*-sample）为各轨道延伸；学习体系总入口",
       "仓库属性": "public",
       "标签分类": "学习与示例",
-      "仓库大小(KB)": "4095",
+      "仓库大小(MB)": "4",
       "suggested_action": "保留",
       "note": ""
     },
@@ -2583,7 +2583,7 @@
       "relations": "与《古月·ROS入门21讲》系列同属 ROS 入门教学线；自有副本对应上游 huchunxu 课程体系",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "79733",
+      "仓库大小(MB)": "77.9",
       "suggested_action": "",
       "note": ""
     },
@@ -2605,7 +2605,7 @@
       "relations": "ai- 前缀系列仓之一；与 ai-mcp/ai-server/ai-tools 构成个人 AI 工作线",
       "仓库属性": "private",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "5758",
+      "仓库大小(MB)": "5.6",
       "suggested_action": "",
       "note": ""
     },
@@ -2627,7 +2627,7 @@
       "relations": "ai- 系列；为 ai-server 等提供容器环境，与 docker-sample 同属容器参考线",
       "仓库属性": "public",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "600",
+      "仓库大小(MB)": "0.6",
       "suggested_action": "",
       "note": ""
     },
@@ -2649,7 +2649,7 @@
       "relations": "ai- 系列核心组件；与 ai-server 集成提供工具调用能力",
       "仓库属性": "public",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "470",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "",
       "note": ""
     },
@@ -2671,7 +2671,7 @@
       "relations": "ai- 系列；部署依托 ai-docker 镜像",
       "仓库属性": "private",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "4175",
+      "仓库大小(MB)": "4.1",
       "suggested_action": "",
       "note": ""
     },
@@ -2693,7 +2693,7 @@
       "relations": "ai- 系列；服务个人 AI 工作流的支撑工具",
       "仓库属性": "private",
       "标签分类": "AI应用与工具",
-      "仓库大小(KB)": "78",
+      "仓库大小(MB)": "0.1",
       "suggested_action": "",
       "note": ""
     },
@@ -2715,7 +2715,7 @@
       "relations": "ops 线；与 devbox（个人环境定义）互补",
       "仓库属性": "private",
       "标签分类": "运维与监控",
-      "仓库大小(KB)": "10105",
+      "仓库大小(MB)": "9.9",
       "suggested_action": "",
       "note": ""
     },
@@ -2737,7 +2737,7 @@
       "relations": "现行版本为 zeek-zhao/jenkins-shared-library.git；devops/CI 线",
       "仓库属性": "public",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(KB)": "38",
+      "仓库大小(MB)": "0",
       "suggested_action": "",
       "note": ""
     },
@@ -2759,7 +2759,7 @@
       "relations": "外部上游 huchunxu/ros_21_tutorials.git 的自有副本；与 ROS-Academy-for-Beginners 同属 ROS 教学线",
       "仓库属性": "public",
       "标签分类": "ROS与机器人",
-      "仓库大小(KB)": "54793",
+      "仓库大小(MB)": "53.5",
       "suggested_action": "",
       "note": ""
     },
@@ -2781,7 +2781,7 @@
       "relations": "独立浏览器工具产品线；无仓库间依赖",
       "仓库属性": "public",
       "标签分类": "独立产品与应用",
-      "仓库大小(KB)": "1526",
+      "仓库大小(MB)": "1.5",
       "suggested_action": "",
       "note": ""
     },
@@ -2803,7 +2803,7 @@
       "relations": "服务 jenkins/workflow 工程线验证；可随时删除",
       "仓库属性": "private",
       "标签分类": "元工具与工程流程",
-      "仓库大小(KB)": "1",
+      "仓库大小(MB)": "0",
       "suggested_action": "",
       "note": ""
     }
