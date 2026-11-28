@@ -126,13 +126,35 @@ def stage_fetch(args, entries):
     tars.mkdir(parents=True, exist_ok=True)
     tok = gh_pat()
     heads = {}
+    skipped = []
+    fetched = []
     for ent in entries:
         url, path = repo_url(ent)
         work = Path(tempfile.mkdtemp(prefix="pool-clone-", dir=str(ctx)))
         try:
             bare = work / "r.git"
             auth = url.replace("https://", "https://x-access-token:%s@" % tok)
-            sh(["git", "clone", "--mirror", "--quiet", auth, str(bare)])
+            # GIT_LFS_SKIP_SMUDGE：LFS 指针随池分发（与普通 clone 语义一致，大文件内容不含）；
+            # HTTP/1.1：大仓库 HTTP2 framing 层易断流。
+            # 重试 3 次；仍失败则降级跳过该仓并记入 manifest.skipped（不炸整组）。
+            err = None
+            for attempt in range(3):
+                r = subprocess.run(
+                    ["git", "-c", "http.version=HTTP/1.1", "clone", "--mirror", "--quiet", auth, str(bare)],
+                    env={**os.environ, "GIT_LFS_SKIP_SMUDGE": "1"},
+                    stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+                if r.returncode == 0:
+                    err = None
+                    break
+                err = r.stderr.decode(errors="replace").strip().splitlines()[-1:] or ["未知错误"]
+                err = err[0][:200]
+                shutil.rmtree(work, ignore_errors=True)
+                work.mkdir(parents=True, exist_ok=True)
+                bare = work / "r.git"
+            if err is not None:
+                print("  fetch %s 降级跳过：%s" % (path, err))
+                skipped.append({"name": ent["name"], "url": url, "reason": err})
+                continue
             head = sh(["git", "-C", str(bare), "rev-parse", "HEAD"], capture=True)
             tmp = tars / ("%s.tar.tmp" % ent["name"])
             final = tars / ("%s.tar" % ent["name"])
@@ -144,15 +166,19 @@ def stage_fetch(args, entries):
             ent["tar"] = str(final)
             ent["sha256"] = digest
             heads[ent["name"]] = head
+            fetched.append(ent)
             print("  fetch %s HEAD=%s sha256=%s… %dKB"
                   % (path, head[:12], digest[:16], final.stat().st_size // 1024))
         finally:
             shutil.rmtree(work, ignore_errors=True)  # 明文 clone 即删（红线 3）
+    if skipped:
+        print("  跳过 %d 仓：%s" % (len(skipped), ", ".join(s["name"] for s in skipped)))
     (ctx / "heads.json").write_text(json.dumps(heads, indent=2), encoding="utf-8")
+    (ctx / "skipped.json").write_text(json.dumps(skipped, ensure_ascii=False, indent=2), encoding="utf-8")
     leftovers = [p.name for p in ctx.rglob("*") if p.is_dir() and p.name.startswith("pool-clone-")]
     if leftovers:
         raise RuntimeError("原子性审计失败：clone 目录残留 %s" % leftovers)
-    return heads
+    return heads, skipped, fetched
 
 
 # ---------------------------------------------------------------- build
@@ -167,6 +193,9 @@ def stage_build(args, entries, image):
         "group": args.group,
         "image": image,
         "jwe_recipient": str(Path(args.jwe_pub).resolve()),
+        "lfs_policy": "LFS 指针随池分发，大文件内容不含（与普通 clone 语义一致；GIT_LFS_SKIP_SMUDGE=1）",
+        "skipped": json.loads((ctx / "skipped.json").read_text(encoding="utf-8"))
+        if (ctx / "skipped.json").exists() else [],
         "repos": [
             {
                 "name": ent["name"],
@@ -342,7 +371,8 @@ def main(argv=None):
 
     for s in stages:
         if s == "fetch":
-            heads = stage_fetch(args, entries)
+            heads, skipped, fetched = stage_fetch(args, entries)
+            entries = fetched  # 降级跳过的仓不进后续 build/encrypt/push
             for ent in oversized:
                 print("  跳过超大仓 %s（%.1fMB）：%s" % (ent["name"], ent["size_mb"], ent["reason"]))
         elif s == "build":
