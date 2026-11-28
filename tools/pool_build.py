@@ -187,9 +187,9 @@ def stage_build(args, entries, image):
 
 # ---------------------------------------------------------------- encrypt/push/meta
 
-def ctr_enc(args, sub):
+def ctr_enc(args, sub, capture=False):
     env = {"CONTAINERD_ADDRESS": args.address}
-    return sh([args.ctr_enc, "-a", args.address, "--namespace", "pool"] + sub, env=env)
+    return sh([args.ctr_enc, "-a", args.address, "--namespace", "pool"] + sub, env=env, capture=capture)
 
 
 def stage_encrypt(args, entries, image):
