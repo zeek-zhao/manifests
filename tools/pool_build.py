@@ -233,7 +233,8 @@ def redline_check(layerinfo_text, manifest):
 
 
 def stage_push(args, image):
-    info = ctr_enc(args, ["images", "layerinfo", "--platform", "linux/amd64", image])
+    info = ctr_enc(args, ["images", "layerinfo", "--platform", "linux/amd64", image], capture=True)
+    print("--- layerinfo（红线审计）---\n%s" % (info or "(空)"), flush=True)
     ctx = Path(args.ctx) / args.group
     man = json.loads((ctx / "pools-manifest.json").read_text(encoding="utf-8"))
     redline_check(info, man)
