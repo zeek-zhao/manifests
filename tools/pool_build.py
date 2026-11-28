@@ -294,7 +294,9 @@ def stage_meta(args, entries, image):
             go_cwd = None
         djson = payloads / ("d-%s.json" % l["digest"].split(":")[1][:12])
         djson.write_text(json.dumps(l), encoding="utf-8")
-        sh(["go", "run", go_file, "--descriptor", str(djson), "--out", str(out)],
+        # go run 的 CWD 在 imgcrypt 树内，descriptor/out 必须传绝对路径
+        sh(["go", "run", go_file, "--descriptor", str(djson.resolve()),
+            "--out", str(out.resolve())],
            env={"GOPROXY": os.environ.get("GOPROXY", "https://proxy.golang.org,direct")},
            cwd=go_cwd)
     mlines = ["FROM scratch", "COPY payloads/ payloads/"]
