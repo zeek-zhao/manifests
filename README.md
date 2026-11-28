@@ -1,6 +1,6 @@
 # manifests
 
-`manifests` 是多仓库 repo manifest 管理工程。它基于 `catalogs/manifests.xlsx`（Excel 单一事实来源）生成标准 XML 清单，支持按协议、平台、语言、主题和 owner 维度拆分使用。
+`manifests` 是多仓库 repo manifest 管理工程。它基于 `catalogs/manifests.xlsx`（Excel 单一事实来源）生成标准 XML 清单，支持按平台、语言、主题和 owner 维度拆分使用。
 
 ## 快速使用
 
@@ -68,9 +68,6 @@ pre-commit autoupdate
 # owner 维度：zeek-zhao（默认走 SSH）
 repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-owner/zeek-zhao.xml
 repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-owner/zeek-zhao.xml -g gitee,sample
-
-# 协议维度：仅 HTTPS
-repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-protocol/https.xml
 
 # 平台维度：仅 github
 repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/generated/by-platform/github.xml

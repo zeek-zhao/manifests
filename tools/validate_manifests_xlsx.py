@@ -3,9 +3,10 @@
 
 Modes:
   default        validate structure and rules only (CI safe, no writes)
-  --normalize    rewrite formatting: dark low-saturation theme (header/banding),
-                 freeze header row, column widths, stats sheet rebuild (live
-                 formulas), and refresh enum dropdowns (non-strict hints)
+  --normalize    rewrite formatting: three-row layout (header / column docs /
+                 data, TSK-009), dark low-saturation theme with tight column
+                 widths and wrap_text, stats sheet rebuild (live formulas),
+                 and refresh enum dropdowns (inline list + named range)
   --export-json  additionally export a JSON snapshot of the workbook
 """
 import argparse
@@ -16,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import generate_manifests as gm  # noqa: E402
 from openpyxl import load_workbook  # noqa: E402
-from openpyxl.styles import Font, PatternFill  # noqa: E402
+from openpyxl.styles import Alignment, Font, PatternFill  # noqa: E402
 from openpyxl.utils import get_column_letter  # noqa: E402
 from openpyxl.workbook.defined_name import DefinedName  # noqa: E402
 from openpyxl.worksheet.datavalidation import DataValidation  # noqa: E402
@@ -24,36 +25,106 @@ from openpyxl.worksheet.datavalidation import DataValidation  # noqa: E402
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_XLSX = PROJECT_ROOT / "catalogs" / "manifests.xlsx"
 DEFAULT_SNAPSHOT = PROJECT_ROOT / "catalogs" / "manifests-excel-snapshot.json"
-MAX_COL_WIDTH = 60
-
+MAX_COL_WIDTH = 28          # 紧凑列宽上限（TSK-009 D-5）
+DOCS_ROW = 2                # 列说明行
+DATA_START_ROW = 3          # 与 gm.DATA_START_ROW 一致
 
 # 统一标签分类体系（TSK-007 #2）：统计表为单一维护点，
-# 标签分类下拉直接引用统计表清单区域，新增分类自动纳入统计。
+# 下拉同时生成内联枚举（打开文件即生效）与命名区域（文档化引用）。
 TAG_CATEGORIES = [
     "AI应用与工具", "C++工具与桌面", "DevOps与CI/CD", "ROS与机器人",
     "Yocto与嵌入式构建", "企业级项目", "元工具与工程流程", "博客与知识发布",
-    "学习与示例", "嵌入式与驱动", "待整理", "独立产品与应用", "笔记与知识库",
+    "学习与示例", "嵌入式与驱动", "独立产品与应用", "笔记与知识库",
     "运维与监控", "Web与前端",
 ]
 
-HEADER_FILL = PatternFill("solid", fgColor="37474F")  # 深蓝灰表头（低饱和暗色）
-BAND_FILL_A = PatternFill("solid", fgColor="D6DEE7")  # 数据行条纹-深（偶数行）
-BAND_FILL_B = PatternFill("solid", fgColor="EBEFF4")  # 数据行条纹-浅（奇数行）
-TITLE_FILL = PatternFill("solid", fgColor="263238")   # 标题行
+VISIBILITY_VALUES = ["public", "private"]  # TSK-009 #5：英文值域
+
+# 列说明行文案（TSK-009 #4：第 2 行为对该列的解释）
+COLUMN_DOCS = {
+    "repos": {
+        "name": "仓库名 owner/repo.git（唯一键；yoctoproject 允许裸 repo.git）",
+        "path": "检出路径（唯一，不以 / 开头；自有行空则 sync 补 project/<repo>）",
+        "branch": "分支（自有行由 excel-sync 按 API default_branch 刷新）",
+        "platform": "托管平台 gitee/github/gitlab/yoctoproject（外键→remotes 表）",
+        "protocol": "协议覆盖 https/git（留空=default_protocol；自有行由 sync 清空）",
+        "topic": "主题（slug 用于 by-topic 维度）",
+        "language": "主语言（slug 用于 by-language 维度）",
+        "groups": "手填同步组，逗号分隔；生成时自动追加 platform/topic/visibility-public|private 派生组",
+        "linkfiles": "软链 src:dest，多条分号分隔（人工维护，自动化永不覆盖）",
+        "description": "仓库描述（自有行由 excel-sync 从 API 刷新）",
+        "purpose": "仓库用途（人工知识列，自动化永不覆盖）",
+        "contents": "主要内容（人工知识列）",
+        "relations": "仓库间关系（人工知识列）",
+        "仓库属性": "public/private（自有行由 excel-sync 按 API visibility 刷新）",
+        "标签分类": "统一标签体系（下拉可选，清单维护于统计表）",
+        "仓库大小(KB)": "仓库体积 KB（自有行由 excel-sync 刷新；gitlab/yoctoproject 无公开 API 留空）",
+        "suggested_action": "维护建议（保留/更新/待确认/废弃，自由文本）",
+        "note": "备注（上游消失标注等）",
+    },
+    "remotes": {
+        "platform": "平台名（repos.platform 外键）",
+        "https_url": "HTTPS fetch 地址",
+        "git_url": "git:// fetch 地址（可空）",
+        "proxy_https_url": "代理 HTTPS fetch 地址（use_proxy_https=TRUE 时生效）",
+    },
+    "config": {
+        "键": "配置键",
+        "值": "配置值",
+        "说明": "含义",
+    },
+}
+
+HEADER_FILL = PatternFill("solid", fgColor="37474F")   # 深蓝灰表头（低饱和暗色）
+DOCS_FILL = PatternFill("solid", fgColor="E3E9F0")     # 列说明行底色
+BAND_FILL_A = PatternFill("solid", fgColor="D6DEE7")   # 数据行条纹-深（偶数行）
+BAND_FILL_B = PatternFill("solid", fgColor="EBEFF4")   # 数据行条纹-浅（奇数行）
+TITLE_FILL = PatternFill("solid", fgColor="263238")    # 标题行
+
+# 长文本列：固定上限宽 + 单元格内换行（name/path/groups/linkfiles 内容长且相邻列非空，
+# 无法溢出显示，同样依赖换行完整呈现）
+WRAP_COLUMNS = {"name", "path", "groups", "linkfiles",
+                "description", "purpose", "contents", "relations", "suggested_action", "note"}
 
 
-def _style_sheet(ws, band: bool = False) -> None:
-    ws.freeze_panes = "A2"
+def _style_sheet(ws, header: list, band: bool = False) -> None:
+    """三行结构样式：1 表头 / 2 列说明 / 3+ 数据（双色条纹）。"""
+    ws.freeze_panes = f"A{DATA_START_ROW}"
     for cell in ws[1]:
         cell.fill = HEADER_FILL
         cell.font = Font(bold=True, color="FFFFFF")
+    sheet_docs = COLUMN_DOCS.get(ws.title, {})
+    for cell in ws[DOCS_ROW]:
+        cell.fill = DOCS_FILL
+        cell.font = Font(italic=True, size=9, color="546E7A")
+        cell.alignment = Alignment(wrap_text=True, vertical="top")
+        doc = sheet_docs.get(str(cell.value or ""), "")
+        if doc:
+            cell.value = doc
     if band:
-        # 逐单元格双色条纹：xlsx 行级 fill 不生效（Excel/WPS 均忽略），
-        # 必须落到每个单元格；奇数行也显式着色，确保打开文件可见。
-        for row_idx in range(2, ws.max_row + 1):
+        # 逐单元格双色条纹：xlsx 行级 fill 不生效（Excel/WPS 均忽略）。
+        for row_idx in range(DATA_START_ROW, ws.max_row + 1):
             fill = BAND_FILL_A if row_idx % 2 == 0 else BAND_FILL_B
             for cell in ws[row_idx]:
                 cell.fill = fill
+                if str(header[cell.column - 1] if cell.column - 1 < len(header) else "") in WRAP_COLUMNS:
+                    cell.alignment = Alignment(wrap_text=True, vertical="top")
+
+
+def _tight_widths(ws) -> None:
+    """紧凑列宽：内容自适应（CJK 按双宽计），封顶 28；不设固定行高（打开自动）。"""
+    for column_cells in ws.columns:
+        letter = get_column_letter(column_cells[0].column)
+        header_name = str(ws.cell(1, column_cells[0].column).value or "")
+        cjk_width = 0
+        for c in column_cells:
+            v = str(c.value) if c.value is not None else ""
+            w = sum(2 if ord(ch) > 0x2E7F else 1 for ch in v)
+            cjk_width = max(cjk_width, w)
+        width = min(cjk_width + 2, MAX_COL_WIDTH)
+        if header_name in WRAP_COLUMNS:
+            width = min(max(width, 14), MAX_COL_WIDTH)
+        ws.column_dimensions[letter].width = width
 
 
 def _rebuild_stats(wb, header: list, platform_values: list) -> tuple:
@@ -69,12 +140,12 @@ def _rebuild_stats(wb, header: list, platform_values: list) -> tuple:
     ws["A1"].font = Font(bold=True, size=13, color="FFFFFF")
     ws["A1"].fill = TITLE_FILL
     ws["A3"].value = "仓库总数"
-    ws["B3"].value = "=COUNTA(repos!$A:$A)-1"
-    ws["A4"].value = "公开"
-    ws["B4"].value = f'=COUNTIF(repos!${attr_letter}:${attr_letter},"公开")'
-    ws["A5"].value = "私有"
-    ws["B5"].value = f'=COUNTIF(repos!${attr_letter}:${attr_letter},"私有")'
-    ws["A6"].value = "公开占比"
+    ws["B3"].value = "=COUNTA(repos!$A:$A)-2"  # 减表头+说明行（TSK-009 三行结构）
+    ws["A4"].value = "public"
+    ws["B4"].value = f'=COUNTIF(repos!${attr_letter}:${attr_letter},"public")'
+    ws["A5"].value = "private"
+    ws["B5"].value = f'=COUNTIF(repos!${attr_letter}:${attr_letter},"private")'
+    ws["A6"].value = "public 占比"
     ws["B6"].value = "=IF(B3=0,0,B4/B3)"
     ws["B6"].number_format = "0.0%"
     ws["A8"].value = "平台分布"
@@ -101,7 +172,7 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
     wb = load_workbook(path)
     enum_columns = {
         "protocol": ["https", "git"],
-        "仓库属性": ["公开", "私有"],
+        "仓库属性": VISIBILITY_VALUES,
         "suggested_action": ["保留", "更新", "待确认", "废弃"],
     }
     if platform_values:
@@ -112,16 +183,10 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
         tag_start, tag_end = _rebuild_stats(wb, header, platform_values)
         for name in ("repos", "remotes", "config", "readme"):
             ws = wb[name]
-            _style_sheet(ws, band=True)
-            for column_cells in ws.columns:
-                width = max(
-                    (len(str(c.value)) if c.value is not None else 0)
-                    for c in column_cells
-                )
-                # CJK glyphs are roughly double-width; use a 1.9 factor cap.
-                letter = get_column_letter(column_cells[0].column)
-                ws.column_dimensions[letter].width = min(width * 1.9 + 2, MAX_COL_WIDTH)
-        # refresh dropdowns: remove old ones on repos, re-add non-strict hints
+            _style_sheet(ws, [c.value for c in ws[1]], band=True)
+            _tight_widths(ws)
+        # refresh dropdowns: remove old ones on repos, re-add non-strict hints.
+        # 范围从数据起始行（第 3 行）开始。
         for dv in list(repos.data_validations.dataValidation):
             repos.data_validations.dataValidation.remove(dv)
         for column, values in enum_columns.items():
@@ -134,10 +199,11 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
                 allow_blank=True,
                 showErrorMessage=False,
             )
-            dv.add(f"{letter}2:{letter}1000")
+            dv.add(f"{letter}{DATA_START_ROW}:{letter}1000")
             repos.add_data_validation(dv)
-        # 标签分类下拉：命名区域引用统计表分类清单（单一维护点）。
-        # 跨表 DV 直引（统计!$A$15:$A$29）在 Excel/WPS 兼容性差，必须走命名区域。
+        # 标签分类下拉双保险（TSK-009 #3）：
+        # ① 内联枚举串（任何 Excel/WPS 版本直接可点选；由统计表清单生成）；
+        # ② TagCategories 命名区域（文档化引用，跨表单区域引用的规范写法）。
         if "TagCategories" in wb.defined_names:
             del wb.defined_names["TagCategories"]
         wb.defined_names["TagCategories"] = DefinedName(
@@ -146,11 +212,11 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
         tag_letter = get_column_letter(header.index("标签分类") + 1)
         dv = DataValidation(
             type="list",
-            formula1="TagCategories",
+            formula1='"' + ",".join(TAG_CATEGORIES) + '"',
             allow_blank=True,
             showErrorMessage=False,
         )
-        dv.add(f"{tag_letter}2:{tag_letter}1000")
+        dv.add(f"{tag_letter}{DATA_START_ROW}:{tag_letter}1000")
         repos.add_data_validation(dv)
         wb.save(path)
     finally:

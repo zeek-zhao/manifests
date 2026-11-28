@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-    <include name="manifests/_remotes.xml" />
-    <include name="manifests/_hooks.xml" />
-
-    <project path="project/obsidian-md" remote="github_git" groups="project,github,visibility-私有" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
-    <project path="todo/alpu" remote="gitee_git" groups="linux,gitee,visibility-公开" name="zeek-zhao/alpu.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="devops/orgflow-devops1" remote="github_git" groups="devops,github,visibility-私有" name="zeek-zhao/orgflow-devops1.git" dest-branch="main" revision="refs/heads/main" />
-</manifest>

@@ -2,7 +2,7 @@
 
 | 文档编号 | GUIDE-20261128-001 |
 | --- | --- |
-| 版本 | v1.0 |
+| 版本 | v1.1 |
 | 日期 | 2026-11-28 |
 | 作者 | zeek.zhao（Agent 代笔） |
 | 状态 | 已发布 |
@@ -32,12 +32,13 @@ manifests.xlsx ──generate_manifests.py──▶ manifests/*.xml（repo 清�
 | `readme` | 流程说明 + 字段字典 + 填写指引 | 人工 |
 | `统计` | 自动统计（公式），同时维护标签分类清单 | 公式自动 + 分类清单人工 |
 
-`repos` 主表 19 列：
+`repos` 主表 18 列（TSK-009 新增 `仓库大小(KB)`，并修正此前误记的 19 列）：
 
 - **结构列（自动维护，人工勿改）**：`name`（owner/repo.git，唯一键）、`path`（检出路径，自有行空则自动补 `project/<repo>`）、`branch`（自有行以 API default_branch 为准）、`platform`（gitee/github/gitlab/yoctoproject，外键→remotes 表）、`protocol`（自有行由 sync 清空，生成器按 default_protocol 补 https）、`description`（自有行来自 API）。
 - **知识列（人工维护，自动化永不覆盖）**：`purpose` 仓库用途、`contents` 主要内容、`relations` 仓库间关系。
-- **管理列（人工维护）**：`仓库属性`（公开/私有；自有行由 excel-sync 从 GitHub API 刷新）、`标签分类`（统一 15 分类体系，下拉引用「统计」sheet）、`suggested_action`、`note`。
-- **扩展列**：`topic`、`language`、`groups`（逗号分隔；生成时自动追加 `platform`/`topic`/`visibility-{公开|私有}` 派生组，见 §5.2）、`linkfiles`（`src:dest` 分号分条）。
+- **管理列（人工维护/半自动）**：`仓库属性`（public/private 英文值域；自有行由 excel-sync 从 GitHub API 直接写入）、`标签分类`（统一 14 分类体系，下拉=内联枚举+`TagCategories` 命名区域双保险，清单维护于「统计」sheet）、`仓库大小(KB)`（自有行由 excel-sync 刷新；gitee/gitlab/yoctoproject 无公开 API 字段留空）、`suggested_action`、`note`。
+- **扩展列**：`topic`、`language`、`groups`（逗号分隔；生成时自动追加 `platform`/`topic`/`visibility-{public|private}` 派生组，见 §5.2）、`linkfiles`（`src:dest` 分号分条）。
+- **表结构（TSK-009）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；列宽自适应紧凑（封顶 28 字符），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。
 
 维度产物规则：生成列自动追加 platform/topic 到 groups；slug 规则见 REF-004。
 
@@ -67,14 +68,14 @@ pre-commit run --all-files
 
 「统计」sheet 全部为公式（`COUNTA`/`COUNTIF` 引用整列），随 repos 表数据自动刷新，无需手动更新：
 
-- B3 仓库总数 = `COUNTA(repos!$A:$A)-1`；
-- B4/B5 公开/私有数、B6 私有占比；
+- B3 仓库总数 = `COUNTA(repos!$A:$A)-2`（扣表头与列说明行）；
+- B4/B5 public/private 仓库数、B6 public 占比；
 - A9 起平台分布（各平台仓库数）；
-- A14 起**标签分类清单**：A15:A29 为 15 个分类，B 列 `COUNTIF(repos!$O:$O, A行)` 计数。**该区域是「标签分类」下拉的单一维护点**——新增分类只需在 A 列插入一行并同步扩下拉引用区间（`validate --normalize` 会重建下拉）。
+- A14 起**标签分类清单**：A15:A28 为 14 个分类（v1.1 移除「待整理」，原唯一成员 alpu 清空标签待人工归类），B 列 `COUNTIF(repos!$O:$O, A行)` 计数。**该区域是「标签分类」下拉的单一维护点**——新增分类只需在 A 列插入一行并同步扩下拉引用区间（`validate --normalize` 会重建下拉）。
 
 ## 5. 代码拉取方式
 
-清单 remote 以 HTTPS 为主；私有仓库（仓库属性=私有，生成组 `visibility-私有`）拉取前需先完成认证。
+清单 remote 以 HTTPS 为主；私有仓库（仓库属性=私有，生成组 `visibility-private`）拉取前需先完成认证。
 
 ### 5.1 认证方式（四选一）
 
@@ -119,13 +120,13 @@ repo init -u git@github.com:zeek-zhao/manifests.git -b main -m manifests/default
 repo sync esp/esp32_100ask_project
 ```
 
-**指定组**：按组批量拉取统一走**维度清单**（跨 repo 版本最可靠）；每个 project 的 `groups` 属性内嵌 `platform/topic/visibility-{公开|私有}`，便于自研脚本按组过滤。
+**指定组**：按组批量拉取统一走**维度清单**（跨 repo 版本最可靠）；每个 project 的 `groups` 属性内嵌 `platform/topic/visibility-{public|private}`，便于自研脚本按组过滤。
 
 ```bash
 repo init -u git@github.com:zeek-zhao/manifests.git -b main \
   -m manifests/generated/by-topic/robot.xml        # 例：robot 组
 repo sync -j30
-# 私有仓：用 by-owner/zeek-zhao.xml（认证后）或按 visibility-私有 组过滤 name 逐仓 clone
+# 私有仓：用 by-owner/zeek-zhao.xml（认证后）或按 visibility-private 组过滤 name 逐仓 clone
 ```
 
 **全部仓库**：
@@ -157,6 +158,6 @@ repo sync -j30 -c    # default.xml 聚合全部维度；-c 仅拉当前分支
 ## 8. FAQ
 
 - **快照与 Excel 不一致怎么办？** 快照由生成器导出，不一致说明有人手改了快照；恢复方式 `python3 tools/generate_manifests.py --excel --export-json`。
-- **私有仓公开/私有如何判定？** 自有行由 excel-sync 从 GitHub API（`/user/repos`，需 `GH_PAT` Secret）读取 visibility 映射为 公开/私有；外部行默认公开。
+- **私有仓公开/私有如何判定？** 自有行由 excel-sync 从 GitHub API（`/user/repos`，需 `GH_PAT` Secret）直接写入 public/private 英文原值；外部行默认 public（gitee 平台行无 API 数据保持既有值）。
 - **为何协议列是空的？** 设计如此（K6）：自有行 protocol 由 sync 清空，生成器统一按 `config.default_protocol`（https）生成，避免散落协议配置。
 - **分支规范？** 多分支开发；Issue/PR 必须标注所属分支；提交身份仅 zeek.zhao。

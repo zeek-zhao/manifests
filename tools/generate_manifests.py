@@ -32,8 +32,10 @@ QUICKSTART_EXAMPLES = {
 REPO_COLUMNS = [
     "name", "path", "branch", "platform", "protocol", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "仓库属性", "标签分类", "suggested_action", "note",
+    "仓库属性", "标签分类", "仓库大小(KB)", "suggested_action", "note",
 ]
+# 三行结构（TSK-009 D-2）：第 1 行表头、第 2 行列说明、第 3 行起数据。
+DATA_START_ROW = 3
 REMOTE_COLUMNS = ["platform", "https_url", "git_url", "proxy_https_url"]
 VALID_PROTOCOLS = {"", "https", "git"}
 NAME_RE = re.compile(r"^[^/\s]+(/[^/\s]+)?\.git$")
@@ -125,14 +127,14 @@ def load_from_excel(xlsx_path: Path) -> Dict:
 
         config: Dict[str, str] = {}
         ws = wb["config"]
-        for row in ws.iter_rows(min_row=2, values_only=True):
+        for row in ws.iter_rows(min_row=DATA_START_ROW, values_only=True):
             key = _s(row[0]) if row else ""
             if key:
                 config[key] = _s(row[1]) if len(row) > 1 else ""
 
         remotes: Dict[str, Dict[str, str]] = {}
         ws = wb["remotes"]
-        for row in ws.iter_rows(min_row=2, values_only=True):
+        for row in ws.iter_rows(min_row=DATA_START_ROW, values_only=True):
             platform = _s(row[0]) if row else ""
             if not platform:
                 continue
@@ -155,8 +157,8 @@ def load_from_excel(xlsx_path: Path) -> Dict:
         repositories: List[Dict] = []
         seen_paths: Dict[str, int] = {}
         slug_seen: Dict[str, Dict[str, str]] = {"topic": {}, "language": {}}
-        row_no = 1
-        for row in ws.iter_rows(min_row=2, values_only=True):
+        row_no = DATA_START_ROW - 1
+        for row in ws.iter_rows(min_row=DATA_START_ROW, values_only=True):
             row_no += 1
             cells = {
                 name: (_s(row[i]) if i < len(row) and row[i] is not None else "")
@@ -181,6 +183,9 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 errors.append(f"repos row {row_no}: platform 不在 remotes 表：{cells['platform']}")
             if cells["protocol"] not in VALID_PROTOCOLS:
                 errors.append(f"repos row {row_no}: protocol 应为 https/git/留空：{cells['protocol']}")
+            size_raw = cells["仓库大小(KB)"]
+            if size_raw and not size_raw.isdigit():
+                errors.append(f"repos row {row_no}: 仓库大小(KB) 应为正整数（KB）或留空：{size_raw}")
             for field in ("topic", "language"):
                 raw = cells[field]
                 slug = slugify(raw) if raw else ""
@@ -207,6 +212,7 @@ def load_from_excel(xlsx_path: Path) -> Dict:
                 "relations": cells["relations"],
                 "仓库属性": cells["仓库属性"],
                 "标签分类": cells["标签分类"],
+                "仓库大小(KB)": cells["仓库大小(KB)"],
                 "suggested_action": cells["suggested_action"],
                 "note": cells["note"],
                 "_row": row_no,
@@ -244,7 +250,8 @@ def build_groups(config: Dict, repo: Dict, protocol: str) -> List[str]:
     """手填 groups + platform + topic + visibility 派生组（TSK-008 #2）。
 
     visibility 组为生成时派生（不入 Excel 手填列，避免与 仓库属性 列双写失同步），
-    命名与 仓库属性 列值一致：visibility-公开 / visibility-私有；空值跳过。
+    组名直接跟随 仓库属性 列值（TSK-009 起值域为 public/private）：visibility-public /
+    visibility-private；空值跳过。
     """
     repo_groups = repo.get("groups", [])
     derived = [repo["platform"], repo["topic"]]
@@ -376,7 +383,6 @@ def _quickstart_examples(config: Dict) -> Dict[str, Dict[str, str]]:
 
 def build_render_plan(config: Dict) -> Dict[str, str]:
     plan: Dict[str, str] = {}
-    by_protocol: Dict[str, List[Dict]] = defaultdict(list)
     by_platform: Dict[str, List[Dict]] = defaultdict(list)
     by_language: Dict[str, List[Dict]] = defaultdict(list)
     by_topic: Dict[str, List[Dict]] = defaultdict(list)
@@ -384,9 +390,9 @@ def build_render_plan(config: Dict) -> Dict[str, str]:
 
     for repo in config.get("repositories", []):
         project = build_project_entry(config, repo)
-        protocol = get_effective_protocol(config, repo)
         owner = get_owner(repo["name"])
-        by_protocol[protocol].append(project)
+        # by-protocol 维度已移除（TSK-009 D-6/REF-006）：协议是 remote 配置属性，
+        # 不是选仓维度，default.xml 已含全部仓库。
         if repo["platform"]:
             by_platform[repo["platform"]].append(project)
         language_slug = slugify(repo["language"])
@@ -402,11 +408,6 @@ def build_render_plan(config: Dict) -> Dict[str, str]:
     plan["manifests/_hooks.xml"] = render_hooks()
 
     include_index: List[str] = []
-    for protocol, projects in sorted(by_protocol.items()):
-        path = f"manifests/generated/by-protocol/{protocol}.xml"
-        plan[path] = render_xml_manifest(projects)
-        include_index.append(f"generated/by-protocol/{protocol}.xml")
-
     for platform, projects in sorted(by_platform.items()):
         path = f"manifests/generated/by-platform/{platform}.xml"
         plan[path] = render_xml_manifest(projects)
@@ -450,7 +451,7 @@ def load_catalogs(catalogs_dir: Path) -> List[Dict]:
 SNAPSHOT_REPO_ORDER = [
     "name", "path", "branch", "platform", "protocol", "topic", "language",
     "groups", "linkfiles", "description", "purpose", "contents", "relations",
-    "仓库属性", "标签分类", "suggested_action", "note",
+    "仓库属性", "标签分类", "仓库大小(KB)", "suggested_action", "note",
 ]
 
 

@@ -7,270 +7,270 @@ Attributes are maintained in the Excel workbook (self rows are refreshed by `too
 
 | path | 标签分类 | 仓库属性 | 描述 | 建议动作 |
 | --- | --- | --- | --- | --- |
-| ai/ai-workflow | AI应用与工具 | 私有 | bash + WSL 可组合的 Git / 开发 / 合入工作流脚本集 | 保留 |
-| ai/meetnote | AI应用与工具 | 私有 | 个人跨端会议实时转写与纪要生成（Win/Linux/Android + Docker 后端） | 保留 |
-| project/ai-book | AI应用与工具 | 私有 |   |   |
-| project/ai-docker | AI应用与工具 | 公开 |   |   |
-| project/ai-mcp | AI应用与工具 | 公开 |   |   |
-| project/ai-server | AI应用与工具 | 私有 |   |   |
-| project/ai-tools | AI应用与工具 | 私有 |   |   |
-| sample/python-sample/src/ai-knowledge | AI应用与工具 | 私有 | AI 知识整理示例工程（catalog 中挂 python-sample 子路径） | 待确认：定位待明确 |
-| c++/CGraph | C++工具与桌面 | 公开 | CGraph C++ DAG 任务流调度框架（ChunelFeng） |   |
-| c++/CThreadPool | C++工具与桌面 | 公开 | C++ 线程池实现（ChunelFeng） |   |
-| log/EasyLogger | C++工具与桌面 | 公开 | EasyLogger 轻量级 C 日志库（armink） |   |
-| log/PlotJuggler | C++工具与桌面 | 公开 | PlotJuggler 时序数据可视化工具 |   |
-| log/easyloggingpp | C++工具与桌面 | 公开 | easylogging++ 单头 C++ 日志库 |   |
-| log/spdlog | C++工具与桌面 | 公开 | spdlog 高性能 C++ 日志库（事实标准之一） |   |
-| log/spdlog_demo | C++工具与桌面 | 公开 | spdlog 用法示例（Fibird） |   |
-| project/package-manager | C++工具与桌面 | 私有 | Conan 包管理器 demo / 部署 / 笔记 | 保留 |
-| qt/DBoS-Desktop | C++工具与桌面 | 公开 | 百问网基于 LVGL 的嵌入式桌面（DBoS） |   |
-| qt/QWidgetDemo | C++工具与桌面 | 公开 | 刘典武（QtCoder）QWidget 控件示例大全 |   |
-| qt/qt-learn-code | C++工具与桌面 | 私有 | Qt 学习代码（聊天 / MDI / 事件系统等示例） | 保留 |
-| qt/qtkaifajingyan | C++工具与桌面 | 公开 | Qt 开发经验汇总（Qter 社区） |   |
-| devops/orgflow-devops | DevOps与CI/CD | 公开 | 企业 DevOps 平台引导：Jenkins 编排 + LDAP + Caddy + Nexus | 保留 |
-| devops/orgflow-devops1 | DevOps与CI/CD | 私有 | Enterprise DevOps platform bootstrap: Jenkins orchestration + LDAP auth + Caddy gateway + Nexus — config-as-code, single repo | 待确认：与 orgflow-devops 描述相同，保留其一 |
-| devops/orgflow-jenkins | DevOps与CI/CD | 私有 | 组织流程整合平台：Jenkins / Jira / Gerrit / 邮件 API 层与编排 | 保留 |
-| project/devops | DevOps与CI/CD | 私有 | DevOps 配置杂项（shell 脚本与配置，待整理并入 orgflow 体系） | 待确认：无 README，补充说明或并入 orgflow 体系 |
-| project/jenkins | DevOps与CI/CD | 私有 | Jenkins 一键部署工程（Docker + JCasC + JJB + 共享库） | 保留 |
-| project/jenkins-Shared-Library1 | DevOps与CI/CD | 公开 | 旧版 Jenkins 共享库（已归档，现行版本见 jenkins-shared-library） |   |
-| sample/java-sample/src/jenkins-shared-library | DevOps与CI/CD | 公开 | Jenkins 共享库（现行版本） | 保留 |
-| tools/docker-compose | DevOps与CI/CD | 公开 | 常用服务 docker-compose 编排合集（zhengqingya） |   |
-| log/rosconsole | ROS与机器人 | 公开 | ROS1 日志子系统 rosconsole |   |
-| log/rqt_plot | ROS与机器人 | 公开 | ROS rqt 绘图插件 |   |
-| project/ROS-Academy-for-Beginners | ROS与机器人 | 公开 | 中国大学MOOC《机器人操作系统入门》课程代码示例 |   |
-| project/ros_21_tutorials | ROS与机器人 | 公开 | 《古月 · ROS入门21讲》课件&源码 |   |
-| robot/6-robot/wpb_cv | ROS与机器人 | 公开 | WPB 机器视觉版教程配套 |   |
-| robot/6-robot/wpb_home | ROS与机器人 | 公开 | 轮式机器人 WPB-HOME 教程配套 |   |
-| robot/6-robot/wpr_simulation | ROS与机器人 | 公开 | 国内机器人课程仿真包（6-robot/wpr） |   |
-| robot/Autodrive_Toolchain | ROS与机器人 | 公开 | 自动驾驶工具链学习整理（规控/仿真笔记） |   |
-| robot/ROBOTIS-GIT/DynamixelSDK | ROS与机器人 | 公开 | ROBOTIS Dynamixel 舵机官方 SDK |   |
-| robot/ROBOTIS-GIT/hls_lfcd_lds_driver | ROS与机器人 | 公开 | ROBOTIS HLS 低成本 LDS 激光雷达驱动 |   |
-| robot/ROBOTIS-GIT/turtlebot3_msgs | ROS与机器人 | 公开 | TurtleBot3 消息定义 |   |
-| robot/ROBOTIS-GIT/turtlebot3_simulations | ROS与机器人 | 公开 | TurtleBot3 Gazebo 仿真包 |   |
-| robot/ZZX_RUN | ROS与机器人 | 公开 | 机器人课程运行框架（据名称与分组推断，待核） |   |
-| robot/apollo | ROS与机器人 | 公开 | 百度 Apollo 自动驾驶开放平台 |   |
-| robot/autoware | ROS与机器人 | 公开 | Autoware.Universe 自动驾驶开源软件栈 |   |
-| robot/autoware2020-course | ROS与机器人 | 公开 | Autoware 2020 课程练习（t-thanh） |   |
-| robot/frobot | ROS与机器人 | 私有 | 机器人项目 | 保留 |
-| robot/ros | ROS与机器人 | 私有 | ROS 项目代码 | 保留 |
-| robot/ros2/demos | ROS与机器人 | 公开 | ROS2 官方演示包（demo_nodes 等） |   |
-| robot/ros2/examples | ROS与机器人 | 公开 | ROS2 官方示例集 |   |
-| robot/ros_21_tutorials | ROS与机器人 | 公开 | 古月《ROS 入门 21 讲》配套代码 |   |
-| robot/ros_exploring | ROS与机器人 | 公开 | 古月《ROS 机器人开发实践》配套代码 |   |
-| vue/as-editor | Web与前端 | 公开 | Vue 可视化拖拽页面编辑器（as-editor） |   |
-| vue/crudapi-admin-web | Web与前端 | 公开 | CrudApi 零代码后台管理前端 |   |
-| vue/datav-vue | Web与前端 | 公开 | DataV 数据大屏 Vue3 版 |   |
-| vue/gin-quasar-admin | Web与前端 | 公开 | Gin-Quasar Admin 全栈后台框架（上游） |   |
-| vue/quasar-tutorial | Web与前端 | 公开 | Quasar 框架教程代码（dongwa） |   |
-| vue/variant-form | Web与前端 | 公开 | Variant Form Vue3 低代码表单 |   |
-| vue/vue-big-screen-plugin | Web与前端 | 公开 | 大屏自适应缩放插件（scale-box） |   |
-| vue/vxe-table | Web与前端 | 公开 | Vue PC 端表格组件 vxe-table |   |
-| linux/uboot/Buildroot | Yocto与嵌入式构建 | 公开 | 百问网定制 Buildroot |   |
-| linux/yocto/meta-yocto | Yocto与嵌入式构建 | 公开 | Yocto 官方 BSP/发行版层 |   |
-| linux/yocto/poky | Yocto与嵌入式构建 | 公开 | Yocto 官方构建系统 Poky（参考发行版） |   |
-| linux/yocto/poky-contrib | Yocto与嵌入式构建 | 公开 | Poky 贡献/CI 分支仓库 |   |
-| linux/yocto/yocto-docs | Yocto与嵌入式构建 | 公开 | Yocto 官方文档源（yocto-docs） |   |
-| linux/yocto/yp-distro | Yocto与嵌入式构建 | 公开 | Yocto 多版本（dunfell/kirkstone/scarthgap/wrynose）× 双 variant 的容器化构建流水线：kas 版本锁、BATS 门禁、GHCR 构建镜像、SBOM/CVE/FOSS 合规采集。 | 保留 |
-| project/poky | Yocto与嵌入式构建 | 私有 | Yocto/Poky 定制发行版（Vela，DISTRO=vela） | 保留 |
-| rk/buildroot | Yocto与嵌入式构建 | 公开 | Firefly RK Buildroot |   |
-| project/FlexDev-Ent | 企业级项目 | 私有 | 企业级研发效能平台（Vue3 + Go，五大领域整合） | 保留 |
-| project/fron-backframe | 企业级项目 | 私有 | GQA 全栈权限管理系统（Gin-Quasar-Admin 二次开发） | 保留 |
-| project/fron-backframe-refactor | 企业级项目 | 私有 | fron-backframe 的可持续重构工程 | 保留 |
-| project/manifests | 元工具与工程流程 | 公开 | repo manifest 多仓库清单管理工程：catalogs/*.json 生成多维度 XML 清单 | 保留 |
-| project/wf4-selftest | 元工具与工程流程 | 私有 | WF4 工作流自检仓库（issue→分支→验收→PR→合并 全链路验证，可随时删除） |   |
-| tools/vim/PowerVim | 元工具与工程流程 | 公开 | PowerVim 开箱即用 C++ Vim 配置（代码随想录作者） |   |
-| tools/vim/vim-fast | 元工具与工程流程 | 公开 | 开箱即用 Vim 配置（mirrorvim） |   |
-| tools/vim/vim-galore-zh_cn | 元工具与工程流程 | 公开 | 《Vim Galore》中文翻译（wsdjeg） |   |
-| blog/ai-obsidian | 博客与知识发布 | 私有 | AI 驱动的 Obsidian 内容库（ob-content），个人博客链路的源头素材库 | 保留 |
-| blog/hexo-engine | 博客与知识发布 | 公开 | Hexo 博客装配车间：消费 ai-obsidian 内容过滤构建，CI 自动推送 github.io | 保留 |
-| blog/pagepipe | 博客与知识发布 | 私有 | 静态站发布管道试验：GitHub Actions → Cloudflare Pages，独立于博客主链路 | 保留 |
-| blog/zeek-zhao.github.io | 博客与知识发布 | 公开 | 个人主页 / 博客产物仓库（Hexo 构建产物自动发布） | 保留 |
-| c++/C-C- | 学习与示例 | 公开 | C/C++ 面试与学习资料整理（tangtangcoding） |   |
-| c++/bazel_examples | 学习与示例 | 公开 | Bazel 官方示例仓（bazelbuild） |   |
-| c++/cmake-examples | 学习与示例 | 公开 | CMake 教程示例（fatezrl） |   |
-| c++/examples_CMake | 学习与示例 | 公开 | CMake 示例集（jacking75，游戏服务向） |   |
-| linux/driver/imx6ull_NoosProgramProject | 学习与示例 | 公开 | 百问网 IMX6ULL 裸机（无 OS）程序集 |   |
-| linux/kernel/flash-linux0.11-talk | 学习与示例 | 公开 | 《Linux 内核 0.11 源码趣谈》配套（闪客） |   |
-| linux/kernel/linux-2.6.12 | 学习与示例 | 公开 | Linux 2.6.12 内核源码（学习用经典版本） |   |
-| linux/kernel/linux0.11_note | 学习与示例 | 公开 | Linux 0.11 内核中文注释与笔记 |   |
-| openharmony/kernel_liteos_a_note | 学习与示例 | 公开 | OpenHarmony LiteOS-A 内核注解（鸿蒙内核源码分析） |   |
-| openharmony/openharmony-oer | 学习与示例 | 公开 | 开放原子 OpenHarmony 开源教育轨资源 |   |
-| sample/LanguageLearning | 学习与示例 | 私有 | 各语言学习练习 | 保留 |
-| sample/base-sample | 学习与示例 | 私有 | base-sample | 保留 |
-| sample/cpp-sample | 学习与示例 | 私有 | C++ 示例工程 | 保留 |
-| sample/database-sample | 学习与示例 | 私有 | 数据库示例工程 | 保留 |
-| sample/devbox | 学习与示例 | 公开 | 十轨学习仓库：9 门语言 + shared 工具箱 · 821 个可跑用例 · 11 层镜像 · 门禁 CI · v0.1.0 | 保留 |
-| sample/docker-sample | 学习与示例 | 私有 | Docker 示例工程 | 保留 |
-| sample/go-sample | 学习与示例 | 私有 | Go 示例工程 | 保留 |
-| sample/java-sample | 学习与示例 | 私有 | Java 示例工程 | 保留 |
-| sample/obsidian-sample | 学习与示例 | 公开 | Obsidian 插件示例工程 | 保留 |
-| sample/product-sample | 学习与示例 | 公开 | 产品示例工程 | 保留 |
-| sample/python-sample | 学习与示例 | 私有 | python-sample | 保留 |
-| sample/rust-sample | 学习与示例 | 私有 | Rust 示例工程 | 保留 |
-| sample/standard-version | 学习与示例 | 私有 | standard-version 语义化版本管理演示 | 保留 |
-| sample/vue-sample | 学习与示例 | 私有 | Vue 示例工程 | 保留 |
-| esp/ESP8266-Demos | 嵌入式与驱动 | 公开 | ESP8266 SDK 示例集（AngelLiang） |   |
-| esp/esp32_100ask_project | 嵌入式与驱动 | 公开 | 百问网 ESP32 教程配套项目码 |   |
-| linux/driver/embed_linux_tutorial | 嵌入式与驱动 | 公开 | 野火《嵌入式Linux驱动开发指南》配套示例代码 |   |
-| linux/driver/linux-driver | 嵌入式与驱动 | 私有 | Linux 驱动开发练习与模板工程 | 保留 |
-| linux/driver/stm32mp157-m4 | 嵌入式与驱动 | 公开 | 百问网 STM32MP157 Cortex-M4 裸机例程 |   |
-| linux/free-rtos-demo | 嵌入式与驱动 | 私有 | STM32F407 + FreeRTOS 模板工程与测试例程 | 保留 |
-| linux/lv_100ask_modules | 嵌入式与驱动 | 公开 | 百问网 LVGL 组件模块集 |   |
-| project/src800-bootloader | 嵌入式与驱动 | 私有 | SRC800 bootloader 项目 | 保留 |
-| qemu/qemu | 嵌入式与驱动 | 公开 | 百问网 QEMU 仿真环境工程 |   |
-| raspberrypi/awesome-raspberrypipico | 嵌入式与驱动 | 公开 | 树莓派 Pico（RP2040）资料汇总 |   |
-| raspberrypi/pico-micropython | 嵌入式与驱动 | 公开 | 树莓派 Pico MicroPython 固件与示例 |   |
-| rk/docs | 嵌入式与驱动 | 公开 | Firefly 文档中心 |   |
-| rk/docs-soc_internal | 嵌入式与驱动 | 公开 | Firefly SoC 内部资料文档 |   |
-| rk/firmware_doc | 嵌入式与驱动 | 公开 | Firefly 固件说明文档 |   |
-| rk/kernel | 嵌入式与驱动 | 公开 | Firefly RK Linux 内核 |   |
-| rk/manifests | 嵌入式与驱动 | 公开 | Firefly RK 多仓库 manifest（repo 清单） |   |
-| rk/u-boot | 嵌入式与驱动 | 公开 | Firefly RK 平台 U-Boot（板级定制） |   |
-| todo/alpu | 待整理 | 公开 |   | 待确认：gitee 条目，未纳入本次 GitHub 盘点 |
-| app/kuaidian | 独立产品与应用 | 私有 | 筷点小馆 · 微信小程序点单系统（原生小程序 + 微信云开发） | 保留 |
-| app/link-manager | 独立产品与应用 | 私有 | 本地优先的 Chrome 侧边栏扩展：统一管理打开标签页、已保存页面与浏览器书签 | 保留 |
-| app/worth-track | 独立产品与应用 | 公开 | Flutter 记账 + A股/场内基金跟踪，数据 100% 本地存储 | 保留 |
-| project/tabharbor | 独立产品与应用 | 公开 | TabHarbor v2 — Chrome MV3 标签管理扩展：窗口/分组/标签三层树 · 严格实时同步 · TDD+BDD 闭环 |   |
-| project/obsidian | 笔记与知识库 | 私有 | Obsidian 笔记库（obsidian / markdown 双分支挂载） | 保留 |
-| project/obsidian-md | 笔记与知识库 | 私有 | Obsidian 笔记库（obsidian / markdown 双分支挂载） | 保留 |
-| project/obsidian/attachments | 笔记与知识库 | 公开 | Obsidian 笔记附件库（图片等静态资源） | 待确认：附件多为个人内容，考虑转私有 |
-| ops/srvkit | 运维与监控 | 私有 | Ansible-based batch Linux server inspection/maintenance tool: 15 types of collection, change ops, HTML reports, alerts and agent second phase | 保留 |
-| project/PromWatch | 运维与监控 | 私有 | Prometheus + Grafana + Uptime Kuma 监控栈部署文档 | 保留 |
-| project/backup | 运维与监控 | 私有 |   |   |
-| project/nas-server | 运维与监控 | 私有 | SWD NAS 服务平台文档中心 | 保留 |
+| todo/alpu |   | public |   | 待确认：gitee 条目，未纳入本次 GitHub 盘点 |
+| ai/ai-workflow | AI应用与工具 | private | bash + WSL 可组合的 Git / 开发 / 合入工作流脚本集 | 保留 |
+| ai/meetnote | AI应用与工具 | private | 个人跨端会议实时转写与纪要生成（Win/Linux/Android + Docker 后端） | 保留 |
+| project/ai-book | AI应用与工具 | private |   |   |
+| project/ai-docker | AI应用与工具 | public |   |   |
+| project/ai-mcp | AI应用与工具 | public |   |   |
+| project/ai-server | AI应用与工具 | private |   |   |
+| project/ai-tools | AI应用与工具 | private |   |   |
+| sample/python-sample/src/ai-knowledge | AI应用与工具 | private | AI 知识整理示例工程（catalog 中挂 python-sample 子路径） | 待确认：定位待明确 |
+| c++/CGraph | C++工具与桌面 | public | CGraph C++ DAG 任务流调度框架（ChunelFeng） |   |
+| c++/CThreadPool | C++工具与桌面 | public | C++ 线程池实现（ChunelFeng） |   |
+| log/EasyLogger | C++工具与桌面 | public | EasyLogger 轻量级 C 日志库（armink） |   |
+| log/PlotJuggler | C++工具与桌面 | public | PlotJuggler 时序数据可视化工具 |   |
+| log/easyloggingpp | C++工具与桌面 | public | easylogging++ 单头 C++ 日志库 |   |
+| log/spdlog | C++工具与桌面 | public | spdlog 高性能 C++ 日志库（事实标准之一） |   |
+| log/spdlog_demo | C++工具与桌面 | public | spdlog 用法示例（Fibird） |   |
+| project/package-manager | C++工具与桌面 | private | Conan 包管理器 demo / 部署 / 笔记 | 保留 |
+| qt/DBoS-Desktop | C++工具与桌面 | public | 百问网基于 LVGL 的嵌入式桌面（DBoS） |   |
+| qt/QWidgetDemo | C++工具与桌面 | public | 刘典武（QtCoder）QWidget 控件示例大全 |   |
+| qt/qt-learn-code | C++工具与桌面 | private | Qt 学习代码（聊天 / MDI / 事件系统等示例） | 保留 |
+| qt/qtkaifajingyan | C++工具与桌面 | public | Qt 开发经验汇总（Qter 社区） |   |
+| devops/orgflow-devops | DevOps与CI/CD | public | 企业 DevOps 平台引导：Jenkins 编排 + LDAP + Caddy + Nexus | 保留 |
+| devops/orgflow-devops1 | DevOps与CI/CD | private | Enterprise DevOps platform bootstrap: Jenkins orchestration + LDAP auth + Caddy gateway + Nexus — config-as-code, single repo | 待确认：与 orgflow-devops 描述相同，保留其一 |
+| devops/orgflow-jenkins | DevOps与CI/CD | private | 组织流程整合平台：Jenkins / Jira / Gerrit / 邮件 API 层与编排 | 保留 |
+| project/devops | DevOps与CI/CD | private | DevOps 配置杂项（shell 脚本与配置，待整理并入 orgflow 体系） | 待确认：无 README，补充说明或并入 orgflow 体系 |
+| project/jenkins | DevOps与CI/CD | private | Jenkins 一键部署工程（Docker + JCasC + JJB + 共享库） | 保留 |
+| project/jenkins-Shared-Library1 | DevOps与CI/CD | public | 旧版 Jenkins 共享库（已归档，现行版本见 jenkins-shared-library） |   |
+| sample/java-sample/src/jenkins-shared-library | DevOps与CI/CD | public | Jenkins 共享库（现行版本） | 保留 |
+| tools/docker-compose | DevOps与CI/CD | public | 常用服务 docker-compose 编排合集（zhengqingya） |   |
+| log/rosconsole | ROS与机器人 | public | ROS1 日志子系统 rosconsole |   |
+| log/rqt_plot | ROS与机器人 | public | ROS rqt 绘图插件 |   |
+| project/ROS-Academy-for-Beginners | ROS与机器人 | public | 中国大学MOOC《机器人操作系统入门》课程代码示例 |   |
+| project/ros_21_tutorials | ROS与机器人 | public | 《古月 · ROS入门21讲》课件&源码 |   |
+| robot/6-robot/wpb_cv | ROS与机器人 | public | WPB 机器视觉版教程配套 |   |
+| robot/6-robot/wpb_home | ROS与机器人 | public | 轮式机器人 WPB-HOME 教程配套 |   |
+| robot/6-robot/wpr_simulation | ROS与机器人 | public | 国内机器人课程仿真包（6-robot/wpr） |   |
+| robot/Autodrive_Toolchain | ROS与机器人 | public | 自动驾驶工具链学习整理（规控/仿真笔记） |   |
+| robot/ROBOTIS-GIT/DynamixelSDK | ROS与机器人 | public | ROBOTIS Dynamixel 舵机官方 SDK |   |
+| robot/ROBOTIS-GIT/hls_lfcd_lds_driver | ROS与机器人 | public | ROBOTIS HLS 低成本 LDS 激光雷达驱动 |   |
+| robot/ROBOTIS-GIT/turtlebot3_msgs | ROS与机器人 | public | TurtleBot3 消息定义 |   |
+| robot/ROBOTIS-GIT/turtlebot3_simulations | ROS与机器人 | public | TurtleBot3 Gazebo 仿真包 |   |
+| robot/ZZX_RUN | ROS与机器人 | public | 机器人课程运行框架（据名称与分组推断，待核） |   |
+| robot/apollo | ROS与机器人 | public | 百度 Apollo 自动驾驶开放平台 |   |
+| robot/autoware | ROS与机器人 | public | Autoware.Universe 自动驾驶开源软件栈 |   |
+| robot/autoware2020-course | ROS与机器人 | public | Autoware 2020 课程练习（t-thanh） |   |
+| robot/frobot | ROS与机器人 | private | 机器人项目 | 保留 |
+| robot/ros | ROS与机器人 | private | ROS 项目代码 | 保留 |
+| robot/ros2/demos | ROS与机器人 | public | ROS2 官方演示包（demo_nodes 等） |   |
+| robot/ros2/examples | ROS与机器人 | public | ROS2 官方示例集 |   |
+| robot/ros_21_tutorials | ROS与机器人 | public | 古月《ROS 入门 21 讲》配套代码 |   |
+| robot/ros_exploring | ROS与机器人 | public | 古月《ROS 机器人开发实践》配套代码 |   |
+| vue/as-editor | Web与前端 | public | Vue 可视化拖拽页面编辑器（as-editor） |   |
+| vue/crudapi-admin-web | Web与前端 | public | CrudApi 零代码后台管理前端 |   |
+| vue/datav-vue | Web与前端 | public | DataV 数据大屏 Vue3 版 |   |
+| vue/gin-quasar-admin | Web与前端 | public | Gin-Quasar Admin 全栈后台框架（上游） |   |
+| vue/quasar-tutorial | Web与前端 | public | Quasar 框架教程代码（dongwa） |   |
+| vue/variant-form | Web与前端 | public | Variant Form Vue3 低代码表单 |   |
+| vue/vue-big-screen-plugin | Web与前端 | public | 大屏自适应缩放插件（scale-box） |   |
+| vue/vxe-table | Web与前端 | public | Vue PC 端表格组件 vxe-table |   |
+| linux/uboot/Buildroot | Yocto与嵌入式构建 | public | 百问网定制 Buildroot |   |
+| linux/yocto/meta-yocto | Yocto与嵌入式构建 | public | Yocto 官方 BSP/发行版层 |   |
+| linux/yocto/poky | Yocto与嵌入式构建 | public | Yocto 官方构建系统 Poky（参考发行版） |   |
+| linux/yocto/poky-contrib | Yocto与嵌入式构建 | public | Poky 贡献/CI 分支仓库 |   |
+| linux/yocto/yocto-docs | Yocto与嵌入式构建 | public | Yocto 官方文档源（yocto-docs） |   |
+| linux/yocto/yp-distro | Yocto与嵌入式构建 | public | Yocto 多版本（dunfell/kirkstone/scarthgap/wrynose）× 双 variant 的容器化构建流水线：kas 版本锁、BATS 门禁、GHCR 构建镜像、SBOM/CVE/FOSS 合规采集。 | 保留 |
+| project/poky | Yocto与嵌入式构建 | private | Yocto/Poky 定制发行版（Vela，DISTRO=vela） | 保留 |
+| rk/buildroot | Yocto与嵌入式构建 | public | Firefly RK Buildroot |   |
+| project/FlexDev-Ent | 企业级项目 | private | 企业级研发效能平台（Vue3 + Go，五大领域整合） | 保留 |
+| project/fron-backframe | 企业级项目 | private | GQA 全栈权限管理系统（Gin-Quasar-Admin 二次开发） | 保留 |
+| project/fron-backframe-refactor | 企业级项目 | private | fron-backframe 的可持续重构工程 | 保留 |
+| project/manifests | 元工具与工程流程 | public | repo manifest 多仓库清单管理工程：catalogs/*.json 生成多维度 XML 清单 | 保留 |
+| project/wf4-selftest | 元工具与工程流程 | private | WF4 工作流自检仓库（issue→分支→验收→PR→合并 全链路验证，可随时删除） |   |
+| tools/vim/PowerVim | 元工具与工程流程 | public | PowerVim 开箱即用 C++ Vim 配置（代码随想录作者） |   |
+| tools/vim/vim-fast | 元工具与工程流程 | public | 开箱即用 Vim 配置（mirrorvim） |   |
+| tools/vim/vim-galore-zh_cn | 元工具与工程流程 | public | 《Vim Galore》中文翻译（wsdjeg） |   |
+| blog/ai-obsidian | 博客与知识发布 | private | AI 驱动的 Obsidian 内容库（ob-content），个人博客链路的源头素材库 | 保留 |
+| blog/hexo-engine | 博客与知识发布 | public | Hexo 博客装配车间：消费 ai-obsidian 内容过滤构建，CI 自动推送 github.io | 保留 |
+| blog/pagepipe | 博客与知识发布 | private | 静态站发布管道试验：GitHub Actions → Cloudflare Pages，独立于博客主链路 | 保留 |
+| blog/zeek-zhao.github.io | 博客与知识发布 | public | 个人主页 / 博客产物仓库（Hexo 构建产物自动发布） | 保留 |
+| c++/C-C- | 学习与示例 | public | C/C++ 面试与学习资料整理（tangtangcoding） |   |
+| c++/bazel_examples | 学习与示例 | public | Bazel 官方示例仓（bazelbuild） |   |
+| c++/cmake-examples | 学习与示例 | public | CMake 教程示例（fatezrl） |   |
+| c++/examples_CMake | 学习与示例 | public | CMake 示例集（jacking75，游戏服务向） |   |
+| linux/driver/imx6ull_NoosProgramProject | 学习与示例 | public | 百问网 IMX6ULL 裸机（无 OS）程序集 |   |
+| linux/kernel/flash-linux0.11-talk | 学习与示例 | public | 《Linux 内核 0.11 源码趣谈》配套（闪客） |   |
+| linux/kernel/linux-2.6.12 | 学习与示例 | public | Linux 2.6.12 内核源码（学习用经典版本） |   |
+| linux/kernel/linux0.11_note | 学习与示例 | public | Linux 0.11 内核中文注释与笔记 |   |
+| openharmony/kernel_liteos_a_note | 学习与示例 | public | OpenHarmony LiteOS-A 内核注解（鸿蒙内核源码分析） |   |
+| openharmony/openharmony-oer | 学习与示例 | public | 开放原子 OpenHarmony 开源教育轨资源 |   |
+| sample/LanguageLearning | 学习与示例 | private | 各语言学习练习 | 保留 |
+| sample/base-sample | 学习与示例 | private | base-sample | 保留 |
+| sample/cpp-sample | 学习与示例 | private | C++ 示例工程 | 保留 |
+| sample/database-sample | 学习与示例 | private | 数据库示例工程 | 保留 |
+| sample/devbox | 学习与示例 | public | 十轨学习仓库：9 门语言 + shared 工具箱 · 821 个可跑用例 · 11 层镜像 · 门禁 CI · v0.1.0 | 保留 |
+| sample/docker-sample | 学习与示例 | private | Docker 示例工程 | 保留 |
+| sample/go-sample | 学习与示例 | private | Go 示例工程 | 保留 |
+| sample/java-sample | 学习与示例 | private | Java 示例工程 | 保留 |
+| sample/obsidian-sample | 学习与示例 | public | Obsidian 插件示例工程 | 保留 |
+| sample/product-sample | 学习与示例 | public | 产品示例工程 | 保留 |
+| sample/python-sample | 学习与示例 | private | python-sample | 保留 |
+| sample/rust-sample | 学习与示例 | private | Rust 示例工程 | 保留 |
+| sample/standard-version | 学习与示例 | private | standard-version 语义化版本管理演示 | 保留 |
+| sample/vue-sample | 学习与示例 | private | Vue 示例工程 | 保留 |
+| esp/ESP8266-Demos | 嵌入式与驱动 | public | ESP8266 SDK 示例集（AngelLiang） |   |
+| esp/esp32_100ask_project | 嵌入式与驱动 | public | 百问网 ESP32 教程配套项目码 |   |
+| linux/driver/embed_linux_tutorial | 嵌入式与驱动 | public | 野火《嵌入式Linux驱动开发指南》配套示例代码 |   |
+| linux/driver/linux-driver | 嵌入式与驱动 | private | Linux 驱动开发练习与模板工程 | 保留 |
+| linux/driver/stm32mp157-m4 | 嵌入式与驱动 | public | 百问网 STM32MP157 Cortex-M4 裸机例程 |   |
+| linux/free-rtos-demo | 嵌入式与驱动 | private | STM32F407 + FreeRTOS 模板工程与测试例程 | 保留 |
+| linux/lv_100ask_modules | 嵌入式与驱动 | public | 百问网 LVGL 组件模块集 |   |
+| project/src800-bootloader | 嵌入式与驱动 | private | SRC800 bootloader 项目 | 保留 |
+| qemu/qemu | 嵌入式与驱动 | public | 百问网 QEMU 仿真环境工程 |   |
+| raspberrypi/awesome-raspberrypipico | 嵌入式与驱动 | public | 树莓派 Pico（RP2040）资料汇总 |   |
+| raspberrypi/pico-micropython | 嵌入式与驱动 | public | 树莓派 Pico MicroPython 固件与示例 |   |
+| rk/docs | 嵌入式与驱动 | public | Firefly 文档中心 |   |
+| rk/docs-soc_internal | 嵌入式与驱动 | public | Firefly SoC 内部资料文档 |   |
+| rk/firmware_doc | 嵌入式与驱动 | public | Firefly 固件说明文档 |   |
+| rk/kernel | 嵌入式与驱动 | public | Firefly RK Linux 内核 |   |
+| rk/manifests | 嵌入式与驱动 | public | Firefly RK 多仓库 manifest（repo 清单） |   |
+| rk/u-boot | 嵌入式与驱动 | public | Firefly RK 平台 U-Boot（板级定制） |   |
+| app/kuaidian | 独立产品与应用 | private | 筷点小馆 · 微信小程序点单系统（原生小程序 + 微信云开发） | 保留 |
+| app/link-manager | 独立产品与应用 | private | 本地优先的 Chrome 侧边栏扩展：统一管理打开标签页、已保存页面与浏览器书签 | 保留 |
+| app/worth-track | 独立产品与应用 | public | Flutter 记账 + A股/场内基金跟踪，数据 100% 本地存储 | 保留 |
+| project/tabharbor | 独立产品与应用 | public | TabHarbor v2 — Chrome MV3 标签管理扩展：窗口/分组/标签三层树 · 严格实时同步 · TDD+BDD 闭环 |   |
+| project/obsidian | 笔记与知识库 | private | Obsidian 笔记库（obsidian / markdown 双分支挂载） | 保留 |
+| project/obsidian-md | 笔记与知识库 | private | Obsidian 笔记库（obsidian / markdown 双分支挂载） | 保留 |
+| project/obsidian/attachments | 笔记与知识库 | public | Obsidian 笔记附件库（图片等静态资源） | 待确认：附件多为个人内容，考虑转私有 |
+| ops/srvkit | 运维与监控 | private | Ansible-based batch Linux server inspection/maintenance tool: 15 types of collection, change ops, HTML reports, alerts and agent second phase | 保留 |
+| project/PromWatch | 运维与监控 | private | Prometheus + Grafana + Uptime Kuma 监控栈部署文档 | 保留 |
+| project/backup | 运维与监控 | private |   |   |
+| project/nas-server | 运维与监控 | private | SWD NAS 服务平台文档中心 | 保留 |
 
 ## 清单明细 (131)
 
-| path | name | branch | topic | language | platform | groups |
-| --- | --- | --- | --- | --- | --- | --- |
-| c++/cmake-examples | fatezrl/cmake-examples.git | master | c++ | c/c++ | gitee | c++,gitee,visibility-公开 |
-| esp/esp32_100ask_project | weidongshan/esp32_100ask_project.git | master | esp | c/c++ | gitee | esp,gitee,visibility-公开 |
-| linux/driver/embed_linux_tutorial | Embedfire/embed_linux_tutorial.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| linux/driver/imx6ull_NoosProgramProject | weidongshan/imx6ull_NoosProgramProject.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| linux/driver/stm32mp157-m4 | weidongshan/stm32mp157-m4.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| linux/kernel/linux-2.6.12 | xiebaoyou/linux-2.6.12.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| linux/kernel/linux0.11_note | AllOpenOS/linux0.11_note.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| linux/lv_100ask_modules | weidongshan/lv_100ask_modules.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| linux/uboot/Buildroot | weidongshan/Buildroot.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| openharmony/kernel_liteos_a_note | weharmony/kernel_liteos_a_note.git | master | openharmony | c/c++ | gitee | openharmony,gitee,visibility-公开 |
-| openharmony/openharmony-oer | openatom-university/openharmony-oer.git | master | openharmony | c/c++ | gitee | openharmony,gitee,visibility-公开 |
-| qemu/qemu | weidongshan/qemu.git | master | qemu | c/c++ | gitee | qemu,gitee,visibility-公开 |
-| qt/DBoS-Desktop | weidongshan/DBoS-Desktop.git | master | qt | c/c++ | gitee | qt,gitee,visibility-公开 |
-| qt/QWidgetDemo | feiyangqingyun/QWidgetDemo.git | master | qt | c/c++ | gitee | qt,gitee,visibility-公开 |
-| qt/qtkaifajingyan | feiyangqingyun/qtkaifajingyan.git | master | qt | c/c++ | gitee | qt,gitee,visibility-公开 |
-| raspberrypi/awesome-raspberrypipico | weidongshan/awesome-raspberrypipico.git | master | raspberrypi | c/c++ | gitee | raspberrypi,gitee,visibility-公开 |
-| raspberrypi/pico-micropython | weidongshan/pico-micropython.git | master | raspberrypi | python | gitee | raspberrypi,gitee,visibility-公开 |
-| robot/apollo | ApolloAuto/apollo.git | master | robot | c/c++ | gitee | robot,gitee,visibility-公开 |
-| todo/alpu | zeek-zhao/alpu.git | master | linux | c/c++ | gitee | linux,gitee,visibility-公开 |
-| tools/docker-compose | zhengqingya/docker-compose.git | master | tools | nodejs | gitee | tools,gitee,visibility-公开 |
-| tools/vim/vim-fast | mirrorvim/vim-fast.git | master | tools | mixed | gitee | tools,gitee,visibility-公开 |
-| vue/as-editor | was666/as-editor.git | master | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| vue/crudapi-admin-web | crudapi/crudapi-admin-web.git | master | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| vue/datav-vue | pengxiaotian/datav-vue.git | main | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| vue/gin-quasar-admin | junvary/gin-quasar-admin.git | main | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| vue/variant-form | vdpadmin/variant-form.git | master | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| vue/vue-big-screen-plugin | MTrun/vue-big-screen-plugin.git | master | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| vue/vxe-table | xuliangzhan_admin/vxe-table.git | master | vue | nodejs | gitee | vue,gitee,visibility-公开 |
-| ai/ai-workflow | zeek-zhao/ai-workflow.git | main | ai | linux | github | ai,github,visibility-私有 |
-| ai/meetnote | zeek-zhao/meetnote.git | main | ai | python | github | ai,github,visibility-私有 |
-| app/kuaidian | zeek-zhao/kuaidian.git | main | app | nodejs | github | app,github,visibility-私有 |
-| app/link-manager | zeek-zhao/linkManager.git | main | app | nodejs | github | app,github,visibility-私有 |
-| app/worth-track | zeek-zhao/WorthTrack.git | main | app | mixed | github | app,github,visibility-公开 |
-| blog/ai-obsidian | zeek-zhao/ai-obsidian.git | main | blog | python | github | blog,github,visibility-私有 |
-| blog/hexo-engine | zeek-zhao/hexo-engine.git | main | blog | nodejs | github | blog,github,visibility-公开 |
-| blog/pagepipe | zeek-zhao/PagePipe.git | main | blog | nodejs | github | blog,github,visibility-私有 |
-| blog/zeek-zhao.github.io | zeek-zhao/zeek-zhao.github.io.git | main | blog | mixed | github | blog,github,visibility-公开 |
-| c++/C-C- | tangtangcoding/C-C-.git | main | c++ | c/c++ | github | c++,github,visibility-公开 |
-| c++/CGraph | ChunelFeng/CGraph.git | main | c++ | c/c++ | github | c++,github,visibility-公开 |
-| c++/CThreadPool | ChunelFeng/CThreadPool.git | main | c++ | c/c++ | github | c++,github,visibility-公开 |
-| c++/bazel_examples | bazelbuild/examples.git | main | c++ | c/c++ | github | c++,github,visibility-公开 |
-| c++/examples_CMake | jacking75/examples_CMake.git | master | c++ | c/c++ | github | c++,github,visibility-公开 |
-| devops/orgflow-devops | zeek-zhao/orgflow-devops.git | main | devops | python | github | devops,github,visibility-公开 |
-| devops/orgflow-devops1 | zeek-zhao/orgflow-devops1.git | main | devops | python | github | devops,github,visibility-私有 |
-| devops/orgflow-jenkins | zeek-zhao/orgflow-jenkins.git | main | devops | python | github | devops,github,visibility-私有 |
-| esp/ESP8266-Demos | AngelLiang/ESP8266-Demos.git | master | esp | c/c++ | github | esp,github,visibility-公开 |
-| linux/driver/linux-driver | zeek-zhao/linux-driver.git | main | linux | c/c++ | github | linux,github,visibility-私有 |
-| linux/free-rtos-demo | zeek-zhao/free-rtos-demo.git | main | linux | c/c++ | github | linux,github,visibility-私有 |
-| linux/kernel/flash-linux0.11-talk | sunym1993/flash-linux0.11-talk.git | main | linux | c/c++ | github | linux,github,visibility-公开 |
-| linux/yocto/yp-distro | zeek-zhao/yp-distro.git | main | linux | mixed | github | linux,github,visibility-公开 |
-| log/EasyLogger | armink/EasyLogger.git | master | log | c/c++ | github | log,github,visibility-公开 |
-| log/PlotJuggler | facontidavide/PlotJuggler.git | main | log | c/c++ | github | log,github,visibility-公开 |
-| log/easyloggingpp | abumq/easyloggingpp.git | master | log | c/c++ | github | log,github,visibility-公开 |
-| log/rosconsole | ros/rosconsole.git | noetic-devel | log | c/c++ | github | log,github,visibility-公开 |
-| log/rqt_plot | ros-visualization/rqt_plot.git | master | log | c/c++ | github | log,github,visibility-公开 |
-| log/spdlog | gabime/spdlog.git | v2.x | log | c/c++ | github | log,github,visibility-公开 |
-| log/spdlog_demo | Fibird/spdlog_demo.git | master | log | c/c++ | github | log,github,visibility-公开 |
-| ops/srvkit | zeek-zhao/srvkit.git | main | ops | python | github | ops,github,visibility-私有 |
-| project/FlexDev-Ent | zeek-zhao/FlexDev-Ent.git | main | project | nodejs | github | project,github,visibility-私有 |
-| project/PromWatch | zeek-zhao/PromWatch.git | main | linux | linux | github | project,github,linux,visibility-私有 |
-| project/ROS-Academy-for-Beginners | zeek-zhao/ROS-Academy-for-Beginners.git | master |   |   | github | github,visibility-公开 |
-| project/ai-book | zeek-zhao/ai-book.git | main |   |   | github | github,visibility-私有 |
-| project/ai-docker | zeek-zhao/ai-docker.git | main |   |   | github | github,visibility-公开 |
-| project/ai-mcp | zeek-zhao/ai-mcp.git | main |   |   | github | github,visibility-公开 |
-| project/ai-server | zeek-zhao/ai-server.git | main |   |   | github | github,visibility-私有 |
-| project/ai-tools | zeek-zhao/ai-tools.git | main |   |   | github | github,visibility-私有 |
-| project/backup | zeek-zhao/backup.git | main |   |   | github | github,visibility-私有 |
-| project/devops | zeek-zhao/devops.git | main | project | nodejs | github | project,github,visibility-私有 |
-| project/fron-backframe | zeek-zhao/fron-backframe.git | main | project | nodejs | github | vue,github,project,visibility-私有 |
-| project/fron-backframe-refactor | zeek-zhao/fron-backframe-refactor.git | main | project | nodejs | github | project,github,visibility-私有 |
-| project/jenkins | zeek-zhao/jenkins.git | main | linux | linux | github | project,github,linux,visibility-私有 |
-| project/jenkins-Shared-Library1 | zeek-zhao/jenkins-Shared-Library1.git | main |   |   | github | github,visibility-公开 |
-| project/manifests | zeek-zhao/manifests.git | main | linux | linux | github | project,github,linux,visibility-公开 |
-| project/nas-server | zeek-zhao/nas-server.git | main | linux | linux | github | project,github,linux,visibility-私有 |
-| project/obsidian | zeek-zhao/obsidian.git | main | project | nodejs | github | project,github,visibility-私有 |
-| project/obsidian-md | zeek-zhao/obsidian.git | markdown | project | nodejs | github | project,github,visibility-私有 |
-| project/obsidian/attachments | zeek-zhao/attachments.git | main | project | nodejs | github | project,github,visibility-公开 |
-| project/package-manager | zeek-zhao/package-manager.git | main | c++ | c/c++ | github | c++,project,github,visibility-私有 |
-| project/poky | zeek-zhao/poky.git | main | project | c/c++ | github | project,github,visibility-私有 |
-| project/ros_21_tutorials | zeek-zhao/ros_21_tutorials.git | master |   |   | github | github,visibility-公开 |
-| project/src800-bootloader | zeek-zhao/src800-bootloader.git | main | project | c/c++ | github | project,github,visibility-私有 |
-| project/tabharbor | zeek-zhao/tabharbor.git | main |   |   | github | github,visibility-公开 |
-| project/wf4-selftest | zeek-zhao/wf4-selftest.git | main |   |   | github | github,visibility-私有 |
-| qt/qt-learn-code | zeek-zhao/qt-learn-code.git | main | qt | c/c++ | github | qt,github,visibility-私有 |
-| robot/6-robot/wpb_cv | 6-robot/wpb_cv.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/6-robot/wpb_home | 6-robot/wpb_home.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/6-robot/wpr_simulation | 6-robot/wpr_simulation.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/Autodrive_Toolchain | ChenJiahao031008/Autodrive_Toolchain.git | main | robot | python | github | robot,github,visibility-公开 |
-| robot/ROBOTIS-GIT/DynamixelSDK | ROBOTIS-GIT/DynamixelSDK.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/ROBOTIS-GIT/hls_lfcd_lds_driver | ROBOTIS-GIT/hls_lfcd_lds_driver.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/ROBOTIS-GIT/turtlebot3_msgs | ROBOTIS-GIT/turtlebot3_msgs.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/ROBOTIS-GIT/turtlebot3_simulations | ROBOTIS-GIT/turtlebot3_simulations.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/ZZX_RUN | kkmd66/ZZX_RUN.git | master | robot | python | github | robot,github,visibility-公开 |
-| robot/autoware | autowarefoundation/autoware.git | main | robot | c/c++ | github | robot,github,visibility-公开 |
-| robot/autoware2020-course | t-thanh/autoware2020-course.git | master | robot | c/c++ | github | robot,github,visibility-公开 |
-| robot/frobot | zeek-zhao/frobot.git | main | robot | python | github | robot,github,visibility-私有 |
-| robot/ros | zeek-zhao/ros.git | main | robot | c/c++ | github | robot,github,visibility-私有 |
-| robot/ros2/demos | ros2/demos.git | rolling | robot | c/c++ | github | robot,github,visibility-公开 |
-| robot/ros2/examples | ros2/examples.git | rolling | robot | c/c++ | github | robot,github,visibility-公开 |
-| robot/ros_21_tutorials | huchunxu/ros_21_tutorials.git | master | robot | c/c++ | github | robot,github,visibility-公开 |
-| robot/ros_exploring | huchunxu/ros_exploring.git | master | robot | c/c++ | github | robot,github,visibility-公开 |
-| sample/LanguageLearning | zeek-zhao/LanguageLearning.git | main | sample | mixed | github | sample,github,visibility-私有 |
-| sample/base-sample | zeek-zhao/base-sample.git | main | sample | mixed | github | sample,github,visibility-私有 |
-| sample/cpp-sample | zeek-zhao/cpp-sample.git | main | sample | c/c++ | github | sample,github,visibility-私有 |
-| sample/database-sample | zeek-zhao/database-sample.git | main | sample | nodejs | github | sample,github,visibility-私有 |
-| sample/devbox | zeek-zhao/devbox.git | main | sample | mixed | github | sample,github,visibility-公开 |
-| sample/docker-sample | zeek-zhao/docker-sample.git | main | sample | nodejs | github | sample,github,visibility-私有 |
-| sample/go-sample | zeek-zhao/go-sample.git | main | sample | go | github | sample,github,visibility-私有 |
-| sample/java-sample | zeek-zhao/java-sample.git | main | sample | mixed | github | sample,github,visibility-私有 |
-| sample/java-sample/src/jenkins-shared-library | zeek-zhao/jenkins-shared-library.git | main | sample | nodejs | github | sample,github,visibility-公开 |
-| sample/obsidian-sample | zeek-zhao/obsidian-sample.git | main | sample | nodejs | github | sample,github,visibility-公开 |
-| sample/product-sample | zeek-zhao/product-sample.git | main | sample | mixed | github | sample,github,visibility-公开 |
-| sample/python-sample | zeek-zhao/python-sample.git | main | sample | python | github | sample,github,visibility-私有 |
-| sample/python-sample/src/ai-knowledge | zeek-zhao/ai-knowledge.git | main | sample | python | github | sample,github,visibility-私有 |
-| sample/rust-sample | zeek-zhao/rust-sample.git | main | sample | rust | github | sample,github,visibility-私有 |
-| sample/standard-version | zeek-zhao/standard-version.git | main | sample | mixed | github | sample,github,visibility-私有 |
-| sample/vue-sample | zeek-zhao/vue-sample.git | main | sample | nodejs | github | sample,github,visibility-私有 |
-| tools/vim/PowerVim | youngyangyang04/PowerVim.git | master | tools | mixed | github | tools,github,visibility-公开 |
-| vue/quasar-tutorial | dongwa/quasar-tutorial.git | master | vue | nodejs | github | vue,github,visibility-公开 |
-| rk/buildroot | firefly-linux/buildroot.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| rk/docs | firefly-linux/docs.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| rk/docs-soc_internal | firefly-linux/docs-soc_internal.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| rk/firmware_doc | firefly-linux/firmware_doc.git | master | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| rk/kernel | firefly-linux/kernel.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| rk/manifests | firefly-linux/manifests.git | master | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| rk/u-boot | firefly-linux/u-boot.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-公开 |
-| tools/vim/vim-galore-zh_cn | wsdjeg/vim-galore-zh_cn.git | master | tools | mixed | gitlab | tools,gitlab,visibility-公开 |
-| linux/yocto/meta-yocto | meta-yocto.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-公开 |
-| linux/yocto/poky | poky.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-公开 |
-| linux/yocto/poky-contrib | poky-contrib.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-公开 |
-| linux/yocto/yocto-docs | yocto-docs.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-公开 |
+| path | name | branch | topic | language | platform | groups | 大小(KB) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| c++/cmake-examples | fatezrl/cmake-examples.git | master | c++ | c/c++ | gitee | c++,gitee,visibility-public |   |
+| esp/esp32_100ask_project | weidongshan/esp32_100ask_project.git | master | esp | c/c++ | gitee | esp,gitee,visibility-public |   |
+| linux/driver/embed_linux_tutorial | Embedfire/embed_linux_tutorial.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| linux/driver/imx6ull_NoosProgramProject | weidongshan/imx6ull_NoosProgramProject.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| linux/driver/stm32mp157-m4 | weidongshan/stm32mp157-m4.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| linux/kernel/linux-2.6.12 | xiebaoyou/linux-2.6.12.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| linux/kernel/linux0.11_note | AllOpenOS/linux0.11_note.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| linux/lv_100ask_modules | weidongshan/lv_100ask_modules.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| linux/uboot/Buildroot | weidongshan/Buildroot.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| openharmony/kernel_liteos_a_note | weharmony/kernel_liteos_a_note.git | master | openharmony | c/c++ | gitee | openharmony,gitee,visibility-public |   |
+| openharmony/openharmony-oer | openatom-university/openharmony-oer.git | master | openharmony | c/c++ | gitee | openharmony,gitee,visibility-public |   |
+| qemu/qemu | weidongshan/qemu.git | master | qemu | c/c++ | gitee | qemu,gitee,visibility-public |   |
+| qt/DBoS-Desktop | weidongshan/DBoS-Desktop.git | master | qt | c/c++ | gitee | qt,gitee,visibility-public |   |
+| qt/QWidgetDemo | feiyangqingyun/QWidgetDemo.git | master | qt | c/c++ | gitee | qt,gitee,visibility-public |   |
+| qt/qtkaifajingyan | feiyangqingyun/qtkaifajingyan.git | master | qt | c/c++ | gitee | qt,gitee,visibility-public |   |
+| raspberrypi/awesome-raspberrypipico | weidongshan/awesome-raspberrypipico.git | master | raspberrypi | c/c++ | gitee | raspberrypi,gitee,visibility-public |   |
+| raspberrypi/pico-micropython | weidongshan/pico-micropython.git | master | raspberrypi | python | gitee | raspberrypi,gitee,visibility-public |   |
+| robot/apollo | ApolloAuto/apollo.git | master | robot | c/c++ | gitee | robot,gitee,visibility-public |   |
+| todo/alpu | zeek-zhao/alpu.git | master | linux | c/c++ | gitee | linux,gitee,visibility-public |   |
+| tools/docker-compose | zhengqingya/docker-compose.git | master | tools | nodejs | gitee | tools,gitee,visibility-public |   |
+| tools/vim/vim-fast | mirrorvim/vim-fast.git | master | tools | mixed | gitee | tools,gitee,visibility-public |   |
+| vue/as-editor | was666/as-editor.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| vue/crudapi-admin-web | crudapi/crudapi-admin-web.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| vue/datav-vue | pengxiaotian/datav-vue.git | main | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| vue/gin-quasar-admin | junvary/gin-quasar-admin.git | main | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| vue/variant-form | vdpadmin/variant-form.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| vue/vue-big-screen-plugin | MTrun/vue-big-screen-plugin.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| vue/vxe-table | xuliangzhan_admin/vxe-table.git | master | vue | nodejs | gitee | vue,gitee,visibility-public |   |
+| ai/ai-workflow | zeek-zhao/ai-workflow.git | main | ai | linux | github | ai,github,visibility-private | 487 |
+| ai/meetnote | zeek-zhao/meetnote.git | main | ai | python | github | ai,github,visibility-private | 4100 |
+| app/kuaidian | zeek-zhao/kuaidian.git | main | app | nodejs | github | app,github,visibility-private | 1445 |
+| app/link-manager | zeek-zhao/linkManager.git | main | app | nodejs | github | app,github,visibility-private | 151 |
+| app/worth-track | zeek-zhao/WorthTrack.git | main | app | mixed | github | app,github,visibility-public | 928 |
+| blog/ai-obsidian | zeek-zhao/ai-obsidian.git | main | blog | python | github | blog,github,visibility-private | 34831 |
+| blog/hexo-engine | zeek-zhao/hexo-engine.git | main | blog | nodejs | github | blog,github,visibility-public | 3032 |
+| blog/pagepipe | zeek-zhao/PagePipe.git | main | blog | nodejs | github | blog,github,visibility-private | 16 |
+| blog/zeek-zhao.github.io | zeek-zhao/zeek-zhao.github.io.git | main | blog | mixed | github | blog,github,visibility-public | 26890 |
+| c++/C-C- | tangtangcoding/C-C-.git | main | c++ | c/c++ | github | c++,github,visibility-public | 2072 |
+| c++/CGraph | ChunelFeng/CGraph.git | main | c++ | c/c++ | github | c++,github,visibility-public | 6756 |
+| c++/CThreadPool | ChunelFeng/CThreadPool.git | main | c++ | c/c++ | github | c++,github,visibility-public | 188 |
+| c++/bazel_examples | bazelbuild/examples.git | main | c++ | c/c++ | github | c++,github,visibility-public | 3365 |
+| c++/examples_CMake | jacking75/examples_CMake.git | master | c++ | c/c++ | github | c++,github,visibility-public | 1449 |
+| devops/orgflow-devops | zeek-zhao/orgflow-devops.git | main | devops | python | github | devops,github,visibility-public | 2678 |
+| devops/orgflow-devops1 | zeek-zhao/orgflow-devops1.git | main | devops | python | github | devops,github,visibility-private |   |
+| devops/orgflow-jenkins | zeek-zhao/orgflow-jenkins.git | main | devops | python | github | devops,github,visibility-private | 1652 |
+| esp/ESP8266-Demos | AngelLiang/ESP8266-Demos.git | master | esp | c/c++ | github | esp,github,visibility-public | 1288 |
+| linux/driver/linux-driver | zeek-zhao/linux-driver.git | main | linux | c/c++ | github | linux,github,visibility-private | 2889 |
+| linux/free-rtos-demo | zeek-zhao/free-rtos-demo.git | main | linux | c/c++ | github | linux,github,visibility-private | 1844 |
+| linux/kernel/flash-linux0.11-talk | sunym1993/flash-linux0.11-talk.git | main | linux | c/c++ | github | linux,github,visibility-public | 184307 |
+| linux/yocto/yp-distro | zeek-zhao/yp-distro.git | main | linux | mixed | github | linux,github,visibility-public | 2038 |
+| log/EasyLogger | armink/EasyLogger.git | master | log | c/c++ | github | log,github,visibility-public | 3521 |
+| log/PlotJuggler | facontidavide/PlotJuggler.git | main | log | c/c++ | github | log,github,visibility-public | 104572 |
+| log/easyloggingpp | abumq/easyloggingpp.git | master | log | c/c++ | github | log,github,visibility-public | 31048 |
+| log/rosconsole | ros/rosconsole.git | noetic-devel | log | c/c++ | github | log,github,visibility-public | 7309 |
+| log/rqt_plot | ros-visualization/rqt_plot.git | master | log | c/c++ | github | log,github,visibility-public | 464 |
+| log/spdlog | gabime/spdlog.git | v2.x | log | c/c++ | github | log,github,visibility-public | 43061 |
+| log/spdlog_demo | Fibird/spdlog_demo.git | master | log | c/c++ | github | log,github,visibility-public | 1 |
+| ops/srvkit | zeek-zhao/srvkit.git | main | ops | python | github | ops,github,visibility-private | 1056 |
+| project/FlexDev-Ent | zeek-zhao/FlexDev-Ent.git | main | project | nodejs | github | project,github,visibility-private | 1663 |
+| project/PromWatch | zeek-zhao/PromWatch.git | main | linux | linux | github | project,github,linux,visibility-private | 240 |
+| project/ROS-Academy-for-Beginners | zeek-zhao/ROS-Academy-for-Beginners.git | master |   |   | github | github,visibility-public | 79733 |
+| project/ai-book | zeek-zhao/ai-book.git | main |   |   | github | github,visibility-private | 5758 |
+| project/ai-docker | zeek-zhao/ai-docker.git | main |   |   | github | github,visibility-public | 600 |
+| project/ai-mcp | zeek-zhao/ai-mcp.git | main |   |   | github | github,visibility-public | 470 |
+| project/ai-server | zeek-zhao/ai-server.git | main |   |   | github | github,visibility-private | 4175 |
+| project/ai-tools | zeek-zhao/ai-tools.git | main |   |   | github | github,visibility-private | 78 |
+| project/backup | zeek-zhao/backup.git | main |   |   | github | github,visibility-private | 10105 |
+| project/devops | zeek-zhao/devops.git | main | project | nodejs | github | project,github,visibility-private | 159073 |
+| project/fron-backframe | zeek-zhao/fron-backframe.git | main | project | nodejs | github | vue,github,project,visibility-private | 2159 |
+| project/fron-backframe-refactor | zeek-zhao/fron-backframe-refactor.git | main | project | nodejs | github | project,github,visibility-private | 551 |
+| project/jenkins | zeek-zhao/jenkins.git | main | linux | linux | github | project,github,linux,visibility-private | 3464 |
+| project/jenkins-Shared-Library1 | zeek-zhao/jenkins-Shared-Library1.git | main |   |   | github | github,visibility-public | 38 |
+| project/manifests | zeek-zhao/manifests.git | main | linux | linux | github | project,github,linux,visibility-public | 520 |
+| project/nas-server | zeek-zhao/nas-server.git | main | linux | linux | github | project,github,linux,visibility-private | 180 |
+| project/obsidian | zeek-zhao/obsidian.git | main | project | nodejs | github | project,github,visibility-private | 32079 |
+| project/obsidian-md | zeek-zhao/obsidian.git | markdown | project | nodejs | github | project,github,visibility-private | 32079 |
+| project/obsidian/attachments | zeek-zhao/attachments.git | main | project | nodejs | github | project,github,visibility-public | 38041 |
+| project/package-manager | zeek-zhao/package-manager.git | main | c++ | c/c++ | github | c++,project,github,visibility-private | 13016 |
+| project/poky | zeek-zhao/poky.git | main | project | c/c++ | github | project,github,visibility-private | 2188 |
+| project/ros_21_tutorials | zeek-zhao/ros_21_tutorials.git | master |   |   | github | github,visibility-public | 54793 |
+| project/src800-bootloader | zeek-zhao/src800-bootloader.git | main | project | c/c++ | github | project,github,visibility-private | 11965 |
+| project/tabharbor | zeek-zhao/tabharbor.git | main |   |   | github | github,visibility-public | 1526 |
+| project/wf4-selftest | zeek-zhao/wf4-selftest.git | main |   |   | github | github,visibility-private | 1 |
+| qt/qt-learn-code | zeek-zhao/qt-learn-code.git | main | qt | c/c++ | github | qt,github,visibility-private | 41576 |
+| robot/6-robot/wpb_cv | 6-robot/wpb_cv.git | master | robot | python | github | robot,github,visibility-public | 14771 |
+| robot/6-robot/wpb_home | 6-robot/wpb_home.git | master | robot | python | github | robot,github,visibility-public | 7018 |
+| robot/6-robot/wpr_simulation | 6-robot/wpr_simulation.git | master | robot | python | github | robot,github,visibility-public | 7647 |
+| robot/Autodrive_Toolchain | ChenJiahao031008/Autodrive_Toolchain.git | main | robot | python | github | robot,github,visibility-public | 145531 |
+| robot/ROBOTIS-GIT/DynamixelSDK | ROBOTIS-GIT/DynamixelSDK.git | master | robot | python | github | robot,github,visibility-public | 28989 |
+| robot/ROBOTIS-GIT/hls_lfcd_lds_driver | ROBOTIS-GIT/hls_lfcd_lds_driver.git | master | robot | python | github | robot,github,visibility-public | 136 |
+| robot/ROBOTIS-GIT/turtlebot3_msgs | ROBOTIS-GIT/turtlebot3_msgs.git | master | robot | python | github | robot,github,visibility-public | 81 |
+| robot/ROBOTIS-GIT/turtlebot3_simulations | ROBOTIS-GIT/turtlebot3_simulations.git | master | robot | python | github | robot,github,visibility-public | 43450 |
+| robot/ZZX_RUN | kkmd66/ZZX_RUN.git | master | robot | python | github | robot,github,visibility-public | 3751 |
+| robot/autoware | autowarefoundation/autoware.git | main | robot | c/c++ | github | robot,github,visibility-public | 2459 |
+| robot/autoware2020-course | t-thanh/autoware2020-course.git | master | robot | c/c++ | github | robot,github,visibility-public | 238159 |
+| robot/frobot | zeek-zhao/frobot.git | main | robot | python | github | robot,github,visibility-private | 38318 |
+| robot/ros | zeek-zhao/ros.git | main | robot | c/c++ | github | robot,github,visibility-private | 19158 |
+| robot/ros2/demos | ros2/demos.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 5921 |
+| robot/ros2/examples | ros2/examples.git | rolling | robot | c/c++ | github | robot,github,visibility-public | 1937 |
+| robot/ros_21_tutorials | huchunxu/ros_21_tutorials.git | master | robot | c/c++ | github | robot,github,visibility-public | 54793 |
+| robot/ros_exploring | huchunxu/ros_exploring.git | master | robot | c/c++ | github | robot,github,visibility-public | 150733 |
+| sample/LanguageLearning | zeek-zhao/LanguageLearning.git | main | sample | mixed | github | sample,github,visibility-private | 240723 |
+| sample/base-sample | zeek-zhao/base-sample.git | main | sample | mixed | github | sample,github,visibility-private | 702 |
+| sample/cpp-sample | zeek-zhao/cpp-sample.git | main | sample | c/c++ | github | sample,github,visibility-private | 496 |
+| sample/database-sample | zeek-zhao/database-sample.git | main | sample | nodejs | github | sample,github,visibility-private | 127 |
+| sample/devbox | zeek-zhao/devbox.git | main | sample | mixed | github | sample,github,visibility-public | 4095 |
+| sample/docker-sample | zeek-zhao/docker-sample.git | main | sample | nodejs | github | sample,github,visibility-private | 135 |
+| sample/go-sample | zeek-zhao/go-sample.git | main | sample | go | github | sample,github,visibility-private | 24023 |
+| sample/java-sample | zeek-zhao/java-sample.git | main | sample | mixed | github | sample,github,visibility-private | 65683 |
+| sample/java-sample/src/jenkins-shared-library | zeek-zhao/jenkins-shared-library.git | main | sample | nodejs | github | sample,github,visibility-public | 99 |
+| sample/obsidian-sample | zeek-zhao/obsidian-sample.git | main | sample | nodejs | github | sample,github,visibility-public | 34145 |
+| sample/product-sample | zeek-zhao/product-sample.git | main | sample | mixed | github | sample,github,visibility-public | 32 |
+| sample/python-sample | zeek-zhao/python-sample.git | main | sample | python | github | sample,github,visibility-private | 420 |
+| sample/python-sample/src/ai-knowledge | zeek-zhao/ai-knowledge.git | main | sample | python | github | sample,github,visibility-private | 630 |
+| sample/rust-sample | zeek-zhao/rust-sample.git | main | sample | rust | github | sample,github,visibility-private | 700 |
+| sample/standard-version | zeek-zhao/standard-version.git | main | sample | mixed | github | sample,github,visibility-private | 37 |
+| sample/vue-sample | zeek-zhao/vue-sample.git | main | sample | nodejs | github | sample,github,visibility-private | 144 |
+| tools/vim/PowerVim | youngyangyang04/PowerVim.git | master | tools | mixed | github | tools,github,visibility-public | 6176 |
+| vue/quasar-tutorial | dongwa/quasar-tutorial.git | master | vue | nodejs | github | vue,github,visibility-public | 721 |
+| rk/buildroot | firefly-linux/buildroot.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| rk/docs | firefly-linux/docs.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| rk/docs-soc_internal | firefly-linux/docs-soc_internal.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| rk/firmware_doc | firefly-linux/firmware_doc.git | master | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| rk/kernel | firefly-linux/kernel.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| rk/manifests | firefly-linux/manifests.git | master | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| rk/u-boot | firefly-linux/u-boot.git | firefly | rk | c/c++ | gitlab | rk,gitlab,visibility-public |   |
+| tools/vim/vim-galore-zh_cn | wsdjeg/vim-galore-zh_cn.git | master | tools | mixed | gitlab | tools,gitlab,visibility-public |   |
+| linux/yocto/meta-yocto | meta-yocto.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-public |   |
+| linux/yocto/poky | poky.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-public |   |
+| linux/yocto/poky-contrib | poky-contrib.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-public |   |
+| linux/yocto/yocto-docs | yocto-docs.git | master | linux | c/c++ | yoctoproject | linux,yoctoproject,visibility-public |   |

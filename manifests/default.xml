@@ -12,8 +12,6 @@
     <include name="manifests/generated/by-platform/github.xml" />
     <include name="manifests/generated/by-platform/gitlab.xml" />
     <include name="manifests/generated/by-platform/yoctoproject.xml" />
-    <include name="manifests/generated/by-protocol/git.xml" />
-    <include name="manifests/generated/by-protocol/https.xml" />
     <include name="manifests/generated/by-topic/ai.xml" />
     <include name="manifests/generated/by-topic/app.xml" />
     <include name="manifests/generated/by-topic/blog.xml" />

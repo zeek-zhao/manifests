@@ -3,6 +3,6 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="ai/meetnote" remote="github_https" groups="ai,github,visibility-私有" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="ai/ai-workflow" remote="github_https" groups="ai,github,visibility-私有" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/meetnote" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/meetnote.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="ai/ai-workflow" remote="github_https" groups="ai,github,visibility-private" name="zeek-zhao/ai-workflow.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>
