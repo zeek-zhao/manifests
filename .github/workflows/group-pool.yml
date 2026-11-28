@@ -1,0 +1,151 @@
+# group-pool.yml — 组镜像池 CI（manifests 适配，DSN-20261128-017 / ADR 决策 D1~D6）
+#
+# 阶段链：原子 fetch+build（pool_build）→ 泄漏/一致性门禁（pool_scan）→ 定向加密（ctr-enc JWE，
+# 仅 private 层）→ 红线自检后 push ghcr → -meta payload 镜像 → 清理（用户决策 D3：构建后 prune，
+# 明文 ctx 不出构建机）。
+#
+# 触发说明（平台约束 F-4）：workflow_dispatch 需 workflow 在默认分支注册方可调用；
+# 当前分支 image-pool-ghcr 阶段以 push 触发（paths 限定）执行试点，dispatch/call
+# 在合入 main 后自动生效。超大仓（>500MB，当前 apollo/qt）按 D3 决策不入池，另行按需构建。
+name: group-pool
+
+on:
+  workflow_dispatch:
+    inputs:
+      groups:
+        description: "逗号分隔的组名（如 app,qt）"
+        required: false
+        default: "app"
+      tag:
+        description: "镜像 tag（缺省 run-<run_number>）"
+        required: false
+        default: ""
+  workflow_call:
+    inputs:
+      groups:
+        required: false
+        type: string
+        default: "app"
+      tag:
+        required: false
+        type: string
+        default: ""
+  push:
+    branches:
+      - image-pool-ghcr
+      - main
+    paths:
+      - ".github/workflows/group-pool.yml"
+      - "tools/pool_build.py"
+      - "tools/pool_restore.py"
+      - "tools/pool_scan.py"
+      - "tools/pool-tools/**"
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: group-pool-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.split.outputs.matrix }}
+      tag: ${{ steps.split.outputs.tag }}
+    steps:
+      - name: 生成组矩阵与 tag
+        id: split
+        env:
+          GROUPS: ${{ inputs.groups || 'app' }}
+          TAG_IN: ${{ inputs.tag }}
+        run: |
+          GROUPS="${GROUPS:-app}"
+          TAG="${TAG_IN:-run-${GITHUB_RUN_NUMBER}}"
+          {
+            echo "matrix={\"group\":$(printf '%s' "$GROUPS" | python3 -c 'import json,sys; print(json.dumps([g.strip() for g in sys.stdin.read().split(",") if g.strip()]))')}"
+            echo "tag=$TAG"
+          } >> "$GITHUB_OUTPUT"
+
+  pool:
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+      GROUP: ${{ matrix.group }}
+      TAG: ${{ needs.plan.outputs.tag }}
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Go 工具链（genpayload 编译）
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
+      - name: 原子 fetch + build（pool_build；大仓按 D3 自动跳过）
+        run: |
+          PYTHONPATH=. python3 tools/pool_build.py \
+            --stage fetch,build --group "$GROUP" --tag "$TAG" --ctx out/pool
+
+      - name: 门禁扫描（pool_scan：ctx 审计 + manifest 一致性 + 敏感文件名）
+        run: |
+          python3 tools/pool_scan.py \
+            --ctx "out/pool/$GROUP" --snapshot catalogs/manifests-excel-snapshot.json
+
+      - name: 安装 imgcrypt ctr-enc（v2.0.3 编译）与 containerd 静态运行时
+        run: |
+          git clone --depth 1 --branch v2.0.3 https://github.com/containerd/imgcrypt.git /tmp/imgcrypt-src
+          cd /tmp/imgcrypt-src/cmd
+          go build -o /tmp/bin/ctr-enc ./ctr
+          CONTAINERD_VER=1.7.24
+          curl -sfL --retry 3 --connect-timeout 30 \
+            "https://github.com/containerd/containerd/releases/download/v${CONTAINERD_VER}/containerd-${CONTAINERD_VER}-linux-amd64.tar.gz" \
+            -o /tmp/containerd.tgz
+          tar -xzf /tmp/containerd.tgz -C /tmp
+          sudo mv /tmp/bin/ctr-enc /usr/local/bin/ctr-enc
+          sudo mv /tmp/containerd /usr/local/containerd-pool
+
+      - name: 启动独立 containerd daemon（pool 命名空间）
+        run: |
+          sudo /usr/local/containerd-pool/bin/containerd \
+            --address /tmp/pool-containerd.sock --root /tmp/pool-root --state /tmp/pool-state \
+            --log-level error > /tmp/pool-containerd.log 2>&1 &
+          for i in $(seq 1 30); do
+            ctr-enc -a /tmp/pool-containerd.sock --namespace pool version >/dev/null 2>&1 && break
+            sleep 1
+          done
+
+      - name: 定向加密 private 层（JWE；公钥 keys/jwe.pub）
+        run: |
+          python3 tools/pool_build.py --stage encrypt --group "$GROUP" --tag "$TAG" --ctx out/pool \
+            --ctr-enc ctr-enc --address /tmp/pool-containerd.sock
+
+      - name: 红线自检 + push（encrypted 层未加密即拒绝）
+        run: |
+          python3 tools/pool_build.py --stage push --group "$GROUP" --tag "$TAG" --ctx out/pool \
+            --ctr-enc ctr-enc --address /tmp/pool-containerd.sock
+
+      - name: meta 镜像（payloads 分发，消费侧零 go 依赖）
+        run: |
+          echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u zeek-zhao --password-stdin
+          python3 tools/pool_build.py --stage meta --group "$GROUP" --tag "$TAG" --ctx out/pool
+
+      - name: 清理（D3：明文 ctx 不出构建机；构建缓存 prune）
+        if: always()
+        run: |
+          rm -rf out/pool
+          docker system prune -af >/dev/null 2>&1 || true
+          docker image rm "ghcr.io/zeek-zhao/manifests-pool-$GROUP:$TAG" >/dev/null 2>&1 || true
+
+      - name: 产物摘要
+        if: always()
+        run: |
+          echo "GROUP=$GROUP TAG=$TAG"
+          echo "主镜像: ghcr.io/zeek-zhao/manifests-pool-$GROUP:$TAG"
+          echo "meta  : ghcr.io/zeek-zhao/manifests-pool-$GROUP:$TAG-meta"
