@@ -65,6 +65,12 @@ def http_blob(url, token, dest):
 
 def decode_layer(decoder, key_file, enc_blob, payload_bin, out_tar, work):
     """ctd-decoder：密文走 stdin，payload 走 fd3（imgcrypt main_unix.go payloadFD=3）。"""
+    # 子进程 cwd=work，所有相对路径先转绝对（否则在 work 下解析失败）
+    decoder = os.path.abspath(decoder)
+    key_file = os.path.abspath(key_file)
+    enc_blob = Path(enc_blob).resolve()
+    payload_bin = Path(payload_bin).resolve()
+    out_tar = Path(out_tar).resolve()
     keys_dir = Path(work) / "dec-keys"
     keys_dir.mkdir(exist_ok=True)
     shutil.copy(key_file, keys_dir / "key")
@@ -92,7 +98,7 @@ def main(argv=None):
     p.add_argument("--meta", required=True, help="meta 镜像（同 tag + -meta）")
     p.add_argument("--repo", required=True, help="要还原的仓库名（纯名）")
     p.add_argument("--layer", type=int, default=None, help="层号（缺省按 pools-manifest 查 --repo）")
-    p.add_argument("--key", required=True, help="JWE 私钥路径（PKCS8，.secrets/jwe.key）")
+    p.add_argument("--key", default=None, help="JWE 私钥路径（PKCS8；仅还原加密层时必填，public 明文层可省）")
     p.add_argument("--decoder", default="ctd-decoder", help="ctd-decoder 路径")
     p.add_argument("--out", default="restore", help="还原输出目录")
     args = p.parse_args(argv)
@@ -128,35 +134,40 @@ def main(argv=None):
         layer_idx = args.layer if args.layer is not None else entry["layer_index"]
         layer = man["layers"][layer_idx]
 
-        # meta 镜像 → payload.bin（按加密 blob digest 前 12 位命名）
-        meta_tok = ghcr_token(meta_path)[0]
-        meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s" % (meta_path, meta_ref), meta_tok)
-        if "layers" not in meta_man and "manifests" in meta_man:
-            # buildx attestation index：取目标平台单 manifest 再拉一层
-            cand = [m for m in meta_man["manifests"]
-                    if (m.get("platform") or {}).get("architecture") not in ("unknown", None)]
-            if len(cand) != 1:
-                raise RuntimeError("meta 镜像 index 无法唯一定位目标 manifest（%d 候选）" % len(cand))
-            meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s"
-                                 % (meta_path, cand[0]["digest"]), meta_tok)
-        meta_layer = meta_man["layers"][0]
-        meta_blob = Path(work) / "meta.tar"
-        http_blob("https://ghcr.io/v2/%s/blobs/%s" % (meta_path, meta_layer["digest"]), meta_tok, meta_blob)
-        with tarfile.open(meta_blob) as tf:
-            for m in tf.getmembers():
-                tf.extract(m, work, filter="data")
-        payload_bin = Path(work) / "payloads" / ("%s.bin" % layer["digest"].split(":")[1][:12])
-        if not payload_bin.exists():
-            raise RuntimeError("meta 镜像缺 payload：%s（可用: %s）"
-                               % (payload_bin.name, [p.name for p in (Path(work) / 'payloads').glob('*.bin')]))
-
-        # 拉加密层 → 解密
-        enc_blob = Path(work) / "enc-layer.bin"
-        http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, layer["digest"]), tok, enc_blob)
-        dec_tar = Path(work) / "dec-layer.tar"
-        decode_layer(args.decoder, args.key, enc_blob, payload_bin, dec_tar, work)
-        if layer["digest"].split(":")[1][:12] not in payload_bin.name:
-            pass  # 命名核对已由上方 exists 保证
+        # 拉层：加密层走 meta payload + ctd-decoder；明文层（public）直接落 tar
+        is_encrypted = layer["mediaType"].endswith("+encrypted") or "enc.keys.jwe" in str(layer.get("annotations") or {})
+        if is_encrypted:
+            if not args.key:
+                raise RuntimeError("仓库 %s 位于加密层，还原需 --key <JWE 私钥>" % args.repo)
+            # meta 镜像 → payload.bin（按加密 blob digest 前 12 位命名）
+            meta_tok = ghcr_token(meta_path)[0]
+            meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s" % (meta_path, meta_ref), meta_tok)
+            if "layers" not in meta_man and "manifests" in meta_man:
+                # buildx attestation index：取目标平台单 manifest 再拉一层
+                cand = [m for m in meta_man["manifests"]
+                        if (m.get("platform") or {}).get("architecture") not in ("unknown", None)]
+                if len(cand) != 1:
+                    raise RuntimeError("meta 镜像 index 无法唯一定位目标 manifest（%d 候选）" % len(cand))
+                meta_man = http_json("https://ghcr.io/v2/%s/manifests/%s"
+                                     % (meta_path, cand[0]["digest"]), meta_tok)
+            meta_layer = meta_man["layers"][0]
+            meta_blob = Path(work) / "meta.tar"
+            http_blob("https://ghcr.io/v2/%s/blobs/%s" % (meta_path, meta_layer["digest"]), meta_tok, meta_blob)
+            with tarfile.open(meta_blob) as tf:
+                for m in tf.getmembers():
+                    tf.extract(m, work, filter="data")
+            payload_bin = Path(work) / "payloads" / ("%s.bin" % layer["digest"].split(":")[1][:12])
+            if not payload_bin.exists():
+                raise RuntimeError("meta 镜像缺 payload：%s（可用: %s）"
+                                   % (payload_bin.name, [p.name for p in (Path(work) / 'payloads').glob('*.bin')]))
+            # 拉加密层 → 解密
+            enc_blob = Path(work) / "enc-layer.bin"
+            http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, layer["digest"]), tok, enc_blob)
+            dec_tar = Path(work) / "dec-layer.tar"
+            decode_layer(args.decoder, args.key, enc_blob, payload_bin, dec_tar, work)
+        else:
+            dec_tar = Path(work) / "plain-layer.bin"
+            http_blob("https://ghcr.io/v2/%s/blobs/%s" % (repo_path, layer["digest"]), tok, dec_tar)
         with tarfile.open(dec_tar) as tf:
             tf.extractall(args.out, filter="data")
         want = entry["sha256"]
