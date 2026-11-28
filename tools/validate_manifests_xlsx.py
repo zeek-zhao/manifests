@@ -355,6 +355,12 @@ def _apply_formatting(path: Path, platform_values: list) -> None:
         wb.defined_names["TagCategories"] = DefinedName(
             "TagCategories", attr_text=f"统计!$A${tag_start}:$A${tag_end}"
         )
+        # normalize 是工作簿最后写手：openpyxl 重存会丢 autoFilter（CI pip 未钉版本行为漂移，
+        # 前序 sync/stats 写点同样可能丢）——保存前统一回填，保证 verify 与终态成立。
+        for name in ("repos", "remotes", "config", "readme"):
+            ws = wb[name]
+            if not ws.auto_filter.ref:
+                ws.auto_filter.ref = ws.dimensions
         wb.save(path)
         # openpyxl 3.1.x 强制为每个 DV 写出 showDropDown="0"：
         # Excel 对该属性语义反转（0=显示箭头），而 WPS 等按字面义处理（0=不显示）。
