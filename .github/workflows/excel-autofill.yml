@@ -27,7 +27,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install openpyxl
-        run: pip install openpyxl
+        run: pip install "openpyxl==3.1.5"
 
       - name: Autofill empty fields from GitHub API
         env:

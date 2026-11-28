@@ -1,0 +1,99 @@
+# consumer-kit.yml — 消费套件镜像（离线消费场景，GUIDE-20261128-017-pool-consume v1.2）
+#
+# 目的：消费者可能无法访问 manifests 仓库（国内网络）。本工作流把还原所需的全部组件
+# （pool_restore.py 纯标准库 + ctd-decoder 静态二进制 + 离线指引 + sha256 校验清单）
+# 打包为公开 OCI 镜像 ghcr.io/zeek-zhao/manifests-pool-kit:latest，
+# 消费者/管理者 docker pull 后解包即得，无需 checkout 任何仓库。
+#
+# 密钥不进 kit（JWE 私钥仅离线分发，见 GUIDE-20261129-002 生产手册）。
+name: consumer-kit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - image-pool-ghcr
+      - main
+    paths:
+      - ".github/workflows/consumer-kit.yml"
+      - "tools/pool_restore.py"
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  kit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 Go 工具链（编译 ctd-decoder）
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+
+      - name: 编译 ctd-decoder（imgcrypt v2.0.3，静态 linux-amd64）
+        run: |
+          set -euxo pipefail
+          git clone -q --depth 1 -b v2.0.3 https://github.com/containerd/imgcrypt /tmp/imgcrypt-src
+          cd /tmp/imgcrypt-src/cmd
+          GOPROXY=https://goproxy.cn,direct go build -o "$RUNNER_TEMP/ctd-decoder" ./ctd-decoder
+          test -x "$RUNNER_TEMP/ctd-decoder"
+
+      - name: 组装 kit 并校验
+        run: |
+          set -euxo pipefail
+          mkdir -p kit
+          cp tools/pool_restore.py kit/
+          cp "$RUNNER_TEMP/ctd-decoder" kit/
+          cat > kit/README.txt <<'EOF'
+          manifests-pool 消费套件（离线工作流）
+          ==========================================
+          前提：python3.10+（标准库）；JWE 私钥（管理员离线分发）；
+                目标组镜像已 docker pull（或可直连 ghcr.io）。
+
+          一、解包本套件
+            docker pull ghcr.io/zeek-zhao/manifests-pool-kit:latest
+            docker create --name kit ghcr.io/zeek-zhao/manifests-pool-kit:latest
+            docker cp kit:/kit ./pool-kit && docker rm kit
+            cd pool-kit && sha256sum -c checksums.txt
+
+          二、还原 private 仓库（加密层）
+            python3 pool_restore.py \
+              --image ghcr.io/zeek-zhao/manifests-pool-<组>:<tag> \
+              --meta  ghcr.io/zeek-zhao/manifests-pool-<组>:<tag>-meta \
+              --repo <仓库名> \
+              --key <私钥路径> \
+              --decoder ./ctd-decoder \
+              --out restore/
+            预期：RESTORE_OK <仓库> -> restore/pools/<组>/<仓库>.tar（sha256 … 对账一致）
+
+          三、取 public 仓库（明文层）：命令同上（无加密层时直接对账落盘）。
+
+          完整文档：GUIDE-20261128-017-pool-consume（manifests 仓库 docs/00-guide/）。
+          EOF
+          (cd kit && sha256sum pool_restore.py ctd-decoder README.txt > checksums.txt)
+          sha256sum -c kit/checksums.txt
+          ls -la kit/
+
+      - name: 构建并推送 kit 镜像
+        run: |
+          set -euxo pipefail
+          echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u zeek-zhao --password-stdin
+          docker build --provenance=false --sbom=false -t ghcr.io/zeek-zhao/manifests-pool-kit:latest kit/
+          docker push ghcr.io/zeek-zhao/manifests-pool-kit:latest
+
+      - name: 回拉验证（kit 完整性）
+        run: |
+          set -euxo pipefail
+          docker pull ghcr.io/zeek-zhao/manifests-pool-kit:latest
+          docker create --name kitv ghcr.io/zeek-zhao/manifests-pool-kit:latest
+          docker cp kitv:/kit ./kit-verify && docker rm kitv
+          (cd kit-verify && sha256sum -c checksums.txt)
+          test -x kit-verify/ctd-decoder && echo KIT_VERIFY_OK
+
+      - name: 清理（缓存 prune，构建产物不出构建机原则）
+        if: always()
+        run: docker system prune -af >/dev/null 2>&1 || true
