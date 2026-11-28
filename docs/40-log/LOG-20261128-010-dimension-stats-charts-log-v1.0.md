@@ -27,6 +27,8 @@
 
 ## 3. 事故与修复
 
+0. **合并推送时序偏差（PR #9 状态为 CLOSED 非 MERGED）**：合并提交推送前分支已被误删，GitHub 将 PR 置为 CLOSED；随后恢复分支重试 reopen 被 GitHub 拒绝（head 提交已全部在 main，无可重开内容）。合并提交 a6aef62（本地 --no-ff，身份合规）已含 PR #9 全部 42 文件变更并推送 main 成功，内容零丢失；状态标记偏差如实记录于此。
+
 1. **API 404**：GitHub API URL 误带 `.git` 后缀致 16 次调用全 404；修正为剥离后缀后全部成功。教训：API 调用与仓库名字段的 `.git` 约定需显式转换（sync_self_repos 既有实现已正确处理）。
 2. **迁移脚本列源错判**：首轮删组仅改 groups 手填列，by-topic 文件未变化——核验发现维度文件源于 `topic` 生成列（方案阶段将两列混为一谈）。补丁双列同步执行后收敛。教训：**改动维度前必须核对生成器的真实数据源列**（REF-007 §2 已固化该机制说明）。
 3. **stale 维度文件**：生成器只写当前维度文件、不清理历史产物，`common.xml`/`todo.xml` 为更早期遗留（无 default.xml 引用）；本轮统一按「default.xml 引用集 vs 磁盘文件集」差集清理。
@@ -36,7 +38,7 @@
 - topic 列/groups 列无被删组残留；11 新仓双列补齐；language 无空值无 linux；
 - 「动态统计」sheet 133 行（含表头/说明行）、4 图表、辅助区公式正确（COUNTIF 引用数据区）；
 - `--excel --check`、`validate`、`catalog.md --check`、pre-commit 9 钩子全绿；
-- CI 结果与合并记录待合并后补录。
+- 合并提交 a6aef62 已推送 main（483349b..a6aef62）；main CI run id 见本节下方补录提交。
 
 ## 5. 遗留
 
