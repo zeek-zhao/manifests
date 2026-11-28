@@ -39,7 +39,7 @@ manifests.xlsx ──generate_manifests.py──▶ manifests/*.xml（repo 清�
 - **知识列（人工维护，自动化永不覆盖）**：`purpose` 仓库用途、`contents` 主要内容、`relations` 仓库间关系。
 - **管理列（人工维护/半自动）**：`仓库属性`（public/private 英文值域；自有行由 excel-sync 从 GitHub API 直接写入）、`标签分类`（统一 14 分类体系，下拉=内联枚举+`TagCategories` 命名区域双保险，清单维护于「统计」sheet）、`仓库大小(KB)`（自有行由 excel-sync 刷新；gitee/gitlab/yoctoproject 无公开 API 字段留空）、`suggested_action`、`note`。
 - **扩展列**：`topic`、`language`、`groups`（逗号分隔；生成时自动追加 `platform`/`topic`/`visibility-{public|private}` 派生组，见 §5.2）、`linkfiles`（`src:dest` 分号分条）。
-- **表结构（TSK-009）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；列宽自适应紧凑（封顶 28 字符），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。**下拉自第 1 行即可点选（TSK-011）**：5 个枚举下拉（protocol/platform/仓库属性/suggested_action/标签分类）范围均为 `第1行:1000`，表头单元格直接出下拉箭头。
+- **表结构（TSK-009）**：第 1 行=表头、第 2 行=列说明（灰底斜体，`--normalize` 自动重写）、第 3 行起=正式数据；列宽自适应紧凑（封顶 28 字符），长文本列（name/path/groups/linkfiles/description/purpose/contents/relations/suggested_action/note）单元格内换行完整显示。**下拉自第 1 行即可点选（TSK-011/012）**：5 个枚举下拉（protocol/platform/仓库属性/suggested_action/标签分类）范围均为 `第1行:1000`，表头单元格直接出下拉箭头。**兼容性要点（TSK-012）**：openpyxl 会强制为每个 DV 写出 `showDropDown` 属性——Excel 对其语义反转（0=显示箭头）而 WPS 等按字面义处理（0=不显示）；因此 `validate --normalize` 保存后会通过 zip 后处理剥除该属性并自检（sqref 覆盖第 1 行+内联串合法性），保证 Excel/WPS 双端均显示下拉。**任何对 manifests.xlsx 的 openpyxl 读写（sync/stats_report 等）都会把该属性写回，normalize 必须是工作簿的最后一个写入者**（excel-sync 工作流已按此顺序编排）。
 
 维度产物规则：生成列自动追加 platform/topic 到 groups；slug 规则见 REF-004。
 
