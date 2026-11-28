@@ -3,8 +3,8 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-公开" name="poky.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-公开" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-公开" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-公开" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="poky.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/yocto-docs" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="yocto-docs.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/yocto/meta-yocto" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="meta-yocto.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

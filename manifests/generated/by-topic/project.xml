@@ -3,13 +3,13 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="project/fron-backframe" remote="github_https" groups="vue,github,project,visibility-私有" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/fron-backframe-refactor" remote="github_https" groups="project,github,visibility-私有" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/FlexDev-Ent" remote="github_https" groups="project,github,visibility-私有" name="zeek-zhao/FlexDev-Ent.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/devops" remote="github_https" groups="project,github,visibility-私有" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/poky" remote="github_https" groups="project,github,visibility-私有" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/obsidian" remote="github_https" groups="project,github,visibility-私有" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/obsidian/attachments" remote="github_https" groups="project,github,visibility-公开" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="project/obsidian-md" remote="github_git" groups="project,github,visibility-私有" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
-    <project path="project/src800-bootloader" remote="github_https" groups="project,github,visibility-私有" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe" remote="github_https" groups="vue,github,project,visibility-private" name="zeek-zhao/fron-backframe.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/fron-backframe-refactor" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/fron-backframe-refactor.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/FlexDev-Ent" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/FlexDev-Ent.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/devops" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/devops.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/poky" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/poky.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/obsidian.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian/attachments" remote="github_https" groups="project,github,visibility-public" name="zeek-zhao/attachments.git" dest-branch="main" revision="refs/heads/main" />
+    <project path="project/obsidian-md" remote="github_git" groups="project,github,visibility-private" name="zeek-zhao/obsidian.git" dest-branch="markdown" revision="refs/heads/markdown" />
+    <project path="project/src800-bootloader" remote="github_https" groups="project,github,visibility-private" name="zeek-zhao/src800-bootloader.git" dest-branch="main" revision="refs/heads/main" />
 </manifest>

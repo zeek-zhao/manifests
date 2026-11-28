@@ -58,7 +58,7 @@
 
 ### HTTPS 验证
 
-优先选择公开仓库，如 GitHub 或 Gitee 公共项目，验证 `generated/by-protocol/https.xml`。
+优先选择公开仓库，如 GitHub 或 Gitee 公共项目，验证 `generated/by-platform/github.xml`（公开仓）。
 
 ### SSH 验证
 

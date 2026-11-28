@@ -19,12 +19,13 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "catalog.md"
 
 CLASSIFY_COLUMNS = ["path", "标签分类", "仓库属性", "description", "suggested_action"]
-DETAIL_COLUMNS = ["path", "name", "branch", "topic", "language", "platform", "groups"]
+DETAIL_COLUMNS = ["path", "name", "branch", "topic", "language", "platform", "groups", "仓库大小(KB)"]
 HEADER = {
     "path": "path", "标签分类": "标签分类", "仓库属性": "仓库属性",
     "description": "描述", "suggested_action": "建议动作",
     "name": "name", "branch": "branch", "topic": "topic",
     "language": "language", "platform": "platform", "groups": "groups",
+    "仓库大小(KB)": "大小(KB)",
 }
 
 
