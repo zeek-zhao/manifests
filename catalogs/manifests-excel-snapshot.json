@@ -22,13 +22,13 @@
       "note": ""
     },
     {
-      "name": "weidongshan/imx6ull_NoosProgramProject.git",
+      "name": "100askTeam/100ask_imx6ull_NoosProgramProject.git",
       "path": "linux/driver/imx6ull_NoosProgramProject",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "linux",
-      "language": "c/c++",
+      "language": "c",
       "groups": [
         "linux"
       ],
@@ -38,7 +38,7 @@
       "contents": "各外设裸机例程",
       "relations": "linux/driver 组；配套 embed_linux_tutorial 教程线",
       "标签分类": "学习与示例",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "6.9",
       "suggested_action": "",
       "note": ""
     },
@@ -46,10 +46,10 @@
       "name": "Embedfire/embed_linux_tutorial.git",
       "path": "linux/driver/embed_linux_tutorial",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "linux",
-      "language": "c/c++",
+      "language": "c",
       "groups": [
         "linux"
       ],
@@ -59,18 +59,18 @@
       "contents": "各章驱动示例",
       "relations": "与 imx6ull_NoosProgramProject、stm32mp157-m4 构成教程线；linux-driver 的理论支撑",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "258.3",
       "suggested_action": "",
       "note": ""
     },
     {
-      "name": "weidongshan/stm32mp157-m4.git",
+      "name": "100askTeam/STM32MP157-M4_Examples.git",
       "path": "linux/driver/stm32mp157-m4",
-      "branch": "master",
-      "platform": "gitee",
+      "branch": "main",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "linux",
-      "language": "c/c++",
+      "language": "mixed",
       "groups": [
         "linux"
       ],
@@ -80,7 +80,7 @@
       "contents": "M4 裸机外设例程",
       "relations": "STM32MP157 双核体系（Linux 侧构建见 Buildroot 教程）",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "82.3",
       "suggested_action": "",
       "note": ""
     },
@@ -148,13 +148,13 @@
       "note": ""
     },
     {
-      "name": "weidongshan/lv_100ask_modules.git",
+      "name": "100askTeam/lv_100ask_modules.git",
       "path": "linux/lv_100ask_modules",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "linux",
-      "language": "c/c++",
+      "language": "c",
       "groups": [
         "linux"
       ],
@@ -164,18 +164,18 @@
       "contents": "可复用 LVGL 控件/页面模块",
       "relations": "与 DBoS-Desktop 同作者生态（嵌入式 GUI）",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "0",
       "suggested_action": "",
       "note": ""
     },
     {
-      "name": "weharmony/kernel_liteos_a_note.git",
+      "name": "kuangyufei/kernel_liteos_a_note.git",
       "path": "openharmony/kernel_liteos_a_note",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "openharmony",
-      "language": "c/c++",
+      "language": "c",
       "groups": [
         "openharmony"
       ],
@@ -185,7 +185,7 @@
       "contents": "注解源码+分析文章",
       "relations": "openharmony 组；与 openharmony-oer 教育资源互补",
       "标签分类": "学习与示例",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "278.8",
       "suggested_action": "",
       "note": ""
     },
@@ -230,10 +230,10 @@
       "note": ""
     },
     {
-      "name": "weidongshan/DBoS-Desktop.git",
+      "name": "cocowts/DBoS-Desktop.git",
       "path": "qt/DBoS-Desktop",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "qt",
       "language": "c/c++",
@@ -246,7 +246,7 @@
       "contents": "桌面应用与主题",
       "relations": "依赖 lv_100ask_modules；与 qt 组桌面 GUI 双路线对照",
       "标签分类": "C++工具与桌面",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "14.9",
       "suggested_action": "",
       "note": ""
     },
@@ -254,7 +254,7 @@
       "name": "feiyangqingyun/QWidgetDemo.git",
       "path": "qt/QWidgetDemo",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "qt",
       "language": "c/c++",
@@ -267,7 +267,7 @@
       "contents": "大量控件 demo（仪表盘/自定义控件等）",
       "relations": "qt-learn-code 的进阶参考；qtkaifajingyan 为其经验文字版",
       "标签分类": "C++工具与桌面",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "169.1",
       "suggested_action": "",
       "note": ""
     },
@@ -275,10 +275,10 @@
       "name": "feiyangqingyun/qtkaifajingyan.git",
       "path": "qt/qtkaifajingyan",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "qt",
-      "language": "c/c++",
+      "language": "mixed",
       "groups": [
         "qt"
       ],
@@ -288,18 +288,18 @@
       "contents": "经验条目文档",
       "relations": "配套 QWidgetDemo 实践",
       "标签分类": "C++工具与桌面",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "622.5",
       "suggested_action": "",
       "note": ""
     },
     {
-      "name": "weidongshan/awesome-raspberrypipico.git",
+      "name": "100askTeam/awesome-raspberrypipico.git",
       "path": "raspberrypi/awesome-raspberrypipico",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "raspberrypi",
-      "language": "c/c++",
+      "language": "mixed",
       "groups": [
         "raspberrypi"
       ],
@@ -309,7 +309,7 @@
       "contents": "教程/项目链接清单",
       "relations": "与 pico-micropython 配套",
       "标签分类": "嵌入式与驱动",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "0",
       "suggested_action": "",
       "note": ""
     },
@@ -338,7 +338,7 @@
       "name": "ApolloAuto/apollo.git",
       "path": "robot/apollo",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "robot",
       "language": "c/c++",
@@ -351,7 +351,7 @@
       "contents": "感知/规划/控制完整代码",
       "relations": "robot 组自动驾驶线（autoware 对照）；仓库体积大，建议稀疏检出",
       "标签分类": "ROS与机器人",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "3312.8",
       "suggested_action": "",
       "note": ""
     },
@@ -359,10 +359,10 @@
       "name": "zhengqingya/docker-compose.git",
       "path": "tools/docker-compose",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "tools",
-      "language": "nodejs",
+      "language": "shell",
       "groups": [
         "tools"
       ],
@@ -372,18 +372,18 @@
       "contents": "中间件与工具栈 compose 文件",
       "relations": "tools 组；jenkins/nas-server 等自托管部署参考",
       "标签分类": "DevOps与CI/CD",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "203.3",
       "suggested_action": "",
       "note": ""
     },
     {
-      "name": "mirrorvim/vim-fast.git",
+      "name": "chenxuan520/vim-fast.git",
       "path": "tools/vim/vim-fast",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "tools",
-      "language": "mixed",
+      "language": "vim script",
       "groups": [
         "tools"
       ],
@@ -393,18 +393,18 @@
       "contents": "插件化配置",
       "relations": "tools/vim 组（与 PowerVim、vim-galore-zh_cn 对照）",
       "标签分类": "元工具与工程流程",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "3.5",
       "suggested_action": "",
       "note": ""
     },
     {
-      "name": "junvary/gin-quasar-admin.git",
+      "name": "Junvary/gin-quasar-admin.git",
       "path": "vue/gin-quasar-admin",
       "branch": "main",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "vue",
-      "language": "nodejs",
+      "language": "vue",
       "groups": [
         "vue"
       ],
@@ -414,28 +414,7 @@
       "contents": "RBAC/代码生成等",
       "relations": "fron-backframe 的二开上游",
       "标签分类": "Web与前端",
-      "仓库大小(MB)": "",
-      "suggested_action": "",
-      "note": ""
-    },
-    {
-      "name": "was666/as-editor.git",
-      "path": "vue/as-editor",
-      "branch": "master",
-      "platform": "gitee",
-      "仓库属性": "public",
-      "topic": "vue",
-      "language": "nodejs",
-      "groups": [
-        "vue"
-      ],
-      "linkfiles": [],
-      "description": "Vue 可视化拖拽页面编辑器（as-editor）",
-      "purpose": "H5 页面搭建",
-      "contents": "拖拽编辑器源码",
-      "relations": "vue 组低代码线（variant-form 对照）",
-      "标签分类": "Web与前端",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "22.1",
       "suggested_action": "",
       "note": ""
     },
@@ -443,10 +422,10 @@
       "name": "crudapi/crudapi-admin-web.git",
       "path": "vue/crudapi-admin-web",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "vue",
-      "language": "nodejs",
+      "language": "vue",
       "groups": [
         "vue"
       ],
@@ -456,7 +435,7 @@
       "contents": "Vue3 管理端",
       "relations": "vue 组；与 gin-quasar-admin 同为管理后台路线",
       "标签分类": "Web与前端",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "2.5",
       "suggested_action": "",
       "note": ""
     },
@@ -464,10 +443,10 @@
       "name": "pengxiaotian/datav-vue.git",
       "path": "vue/datav-vue",
       "branch": "main",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "vue",
-      "language": "nodejs",
+      "language": "vue",
       "groups": [
         "vue"
       ],
@@ -477,18 +456,18 @@
       "contents": "大屏组件集",
       "relations": "vue 组；与 vue-big-screen-plugin 同为大屏方案",
       "标签分类": "Web与前端",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "103",
       "suggested_action": "",
       "note": ""
     },
     {
-      "name": "vdpadmin/variant-form.git",
+      "name": "vform666/variant-form.git",
       "path": "vue/variant-form",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "vue",
-      "language": "nodejs",
+      "language": "vue",
       "groups": [
         "vue"
       ],
@@ -498,7 +477,7 @@
       "contents": "表单设计器源码",
       "relations": "vue 组低代码线（as-editor 对照）",
       "标签分类": "Web与前端",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "1.5",
       "suggested_action": "",
       "note": ""
     },
@@ -524,10 +503,10 @@
       "note": ""
     },
     {
-      "name": "xuliangzhan_admin/vxe-table.git",
+      "name": "x-extends/vxe-table.git",
       "path": "vue/vxe-table",
-      "branch": "master",
-      "platform": "gitee",
+      "branch": "main",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "vue",
       "language": "nodejs",
@@ -540,7 +519,7 @@
       "contents": "表格组件库",
       "relations": "vue 组企业表格基座（fron-backframe/FlexDev-Ent 可参考）",
       "标签分类": "Web与前端",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "247.2",
       "suggested_action": "",
       "note": ""
     },
@@ -1400,13 +1379,13 @@
       "note": ""
     },
     {
-      "name": "fatezrl/cmake-examples.git",
+      "name": "ttroy50/cmake-examples.git",
       "path": "c++/cmake-examples",
       "branch": "master",
-      "platform": "gitee",
+      "platform": "github",
       "仓库属性": "public",
       "topic": "",
-      "language": "c/c++",
+      "language": "cmake",
       "groups": [],
       "linkfiles": [],
       "description": "CMake 教程示例（fatezrl）",
@@ -1414,7 +1393,7 @@
       "contents": "分级示例工程",
       "relations": "c++ 组构建线；examples_CMake 对照",
       "标签分类": "学习与示例",
-      "仓库大小(MB)": "",
+      "仓库大小(MB)": "0.5",
       "suggested_action": "",
       "note": ""
     },

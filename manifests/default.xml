@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <include name="manifests/generated/by-language/c-cpp.xml" />
+    <include name="manifests/generated/by-language/c.xml" />
     <include name="manifests/generated/by-language/cmake.xml" />
     <include name="manifests/generated/by-language/go.xml" />
     <include name="manifests/generated/by-language/groovy.xml" />
@@ -10,6 +11,8 @@
     <include name="manifests/generated/by-language/python.xml" />
     <include name="manifests/generated/by-language/rust.xml" />
     <include name="manifests/generated/by-language/shell.xml" />
+    <include name="manifests/generated/by-language/vim-script.xml" />
+    <include name="manifests/generated/by-language/vue.xml" />
     <include name="manifests/generated/by-owner/zeek-zhao.xml" />
     <include name="manifests/generated/by-platform/gitee.xml" />
     <include name="manifests/generated/by-platform/github.xml" />

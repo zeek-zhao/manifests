@@ -15,7 +15,7 @@
 | 平台 | 行数 | 可得性 | 数据状态 |
 | --- | --- | --- | --- |
 | github | 90 | ✅ `GET /repos/{owner}/{repo}` 的 `size` 字段（KB→MB） | 89/90 有值；`orgflow-devops1` 上游已删除 404，常态留空（excel-sync 会自动删行） |
-| gitee | 28 | ❌ OpenAPI v5 `GET /repos/{owner}/{repo}` **无 size 字段**（实测 20 次成功调用均返回 None） | 留空 |
+| gitee（TSK-016 后 9 行：18 行镜像已迁 github、1 行删除） | 28 | ❌ OpenAPI v5 `GET /repos/{owner}/{repo}` **无 size 字段**（实测 20 次成功调用均返回 None） | 留空 |
 | gitlab | 8 | ❌ 公开 API `GET /projects/:id` 不返回 `statistics`（需该项目 Maintainer 以上权限认证） | 留空 |
 | yoctoproject | 4 | ❌ cgit 界面无 HTTP API | 留空 |
 

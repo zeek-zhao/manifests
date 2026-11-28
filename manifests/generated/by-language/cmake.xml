@@ -3,6 +3,7 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
+    <project path="c++/cmake-examples" remote="github_https" groups="github,visibility-public" name="ttroy50/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/ROS-Academy-for-Beginners" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ROS-Academy-for-Beginners.git" dest-branch="master" revision="refs/heads/master" />
     <project path="project/ros_21_tutorials" remote="github_https" groups="robot,github,visibility-public" name="zeek-zhao/ros_21_tutorials.git" dest-branch="master" revision="refs/heads/master" />
 </manifest>

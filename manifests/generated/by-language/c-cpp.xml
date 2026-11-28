@@ -4,21 +4,14 @@
     <include name="manifests/_hooks.xml" />
 
     <project path="esp/esp32_100ask_project" remote="gitee_https" groups="esp,gitee,visibility-public" name="weidongshan/esp32_100ask_project.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee,visibility-public" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee,visibility-public" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee,visibility-public" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="openharmony/kernel_liteos_a_note" remote="gitee_https" groups="openharmony,gitee,visibility-public" name="weharmony/kernel_liteos_a_note.git" dest-branch="master" revision="refs/heads/master" />
     <project path="openharmony/openharmony-oer" remote="gitee_https" groups="openharmony,gitee,visibility-public" name="openatom-university/openharmony-oer.git" dest-branch="master" revision="refs/heads/master" />
     <project path="qemu/qemu" remote="gitee_https" groups="gitee,visibility-public" name="weidongshan/qemu.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="qt/DBoS-Desktop" remote="gitee_https" groups="qt,gitee,visibility-public" name="weidongshan/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="qt/QWidgetDemo" remote="gitee_https" groups="qt,gitee,visibility-public" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="qt/qtkaifajingyan" remote="gitee_https" groups="qt,gitee,visibility-public" name="feiyangqingyun/qtkaifajingyan.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="raspberrypi/awesome-raspberrypipico" remote="gitee_https" groups="raspberrypi,gitee,visibility-public" name="weidongshan/awesome-raspberrypipico.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="robot/apollo" remote="gitee_https" groups="robot,gitee,visibility-public" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/DBoS-Desktop" remote="github_https" groups="qt,github,visibility-public" name="cocowts/DBoS-Desktop.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="qt/QWidgetDemo" remote="github_https" groups="qt,github,visibility-public" name="feiyangqingyun/QWidgetDemo.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="robot/apollo" remote="github_https" groups="robot,github,visibility-public" name="ApolloAuto/apollo.git" dest-branch="master" revision="refs/heads/master" />
     <project path="esp/ESP8266-Demos" remote="github_https" groups="esp,github,visibility-public" name="AngelLiang/ESP8266-Demos.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github,visibility-public" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />
     <project path="log/EasyLogger" remote="github_https" groups="log,github,visibility-public" name="armink/EasyLogger.git" dest-branch="master" revision="refs/heads/master" />
@@ -48,7 +41,6 @@
     <project path="c++/CGraph" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CGraph.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/CThreadPool" remote="github_https" groups="github,visibility-public" name="ChunelFeng/CThreadPool.git" dest-branch="main" revision="refs/heads/main" />
     <project path="c++/C-C-" remote="github_https" groups="github,visibility-public" name="tangtangcoding/C-C-.git" dest-branch="main" revision="refs/heads/main" />
-    <project path="c++/cmake-examples" remote="gitee_https" groups="gitee,visibility-public" name="fatezrl/cmake-examples.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/examples_CMake" remote="github_https" groups="github,visibility-public" name="jacking75/examples_CMake.git" dest-branch="master" revision="refs/heads/master" />
     <project path="c++/bazel_examples" remote="github_https" groups="github,visibility-public" name="bazelbuild/examples.git" dest-branch="main" revision="refs/heads/main" />
     <project path="project/package-manager" remote="github_https" groups="github,visibility-private" name="zeek-zhao/package-manager.git" dest-branch="main" revision="refs/heads/main" />

@@ -3,13 +3,13 @@
     <include name="manifests/_remotes.xml" />
     <include name="manifests/_hooks.xml" />
 
-    <project path="linux/driver/imx6ull_NoosProgramProject" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/embed_linux_tutorial" remote="gitee_https" groups="linux,gitee,visibility-public" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/driver/stm32mp157-m4" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/stm32mp157-m4.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/imx6ull_NoosProgramProject" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/100ask_imx6ull_NoosProgramProject.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/embed_linux_tutorial" remote="github_https" groups="linux,github,visibility-public" name="Embedfire/embed_linux_tutorial.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/driver/stm32mp157-m4" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/STM32MP157-M4_Examples.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/kernel/linux-2.6.12" remote="gitee_https" groups="linux,gitee,visibility-public" name="xiebaoyou/linux-2.6.12.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/kernel/linux0.11_note" remote="gitee_https" groups="linux,gitee,visibility-public" name="AllOpenOS/linux0.11_note.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/uboot/Buildroot" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/Buildroot.git" dest-branch="master" revision="refs/heads/master" />
-    <project path="linux/lv_100ask_modules" remote="gitee_https" groups="linux,gitee,visibility-public" name="weidongshan/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
+    <project path="linux/lv_100ask_modules" remote="github_https" groups="linux,github,visibility-public" name="100askTeam/lv_100ask_modules.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/kernel/flash-linux0.11-talk" remote="github_https" groups="linux,github,visibility-public" name="sunym1993/flash-linux0.11-talk.git" dest-branch="main" revision="refs/heads/main" />
     <project path="linux/yocto/poky" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="poky.git" dest-branch="master" revision="refs/heads/master" />
     <project path="linux/yocto/poky-contrib" remote="yoctoproject_https" groups="linux,yoctoproject,visibility-public" name="poky-contrib.git" dest-branch="master" revision="refs/heads/master" />
