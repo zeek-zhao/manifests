@@ -203,7 +203,7 @@ def stage_encrypt(args, entries, image):
         if m["encrypted"]:
             ctr_enc(args, ["images", "encrypt", "--recipient", "jwe:" + str(Path(args.jwe_pub).resolve()),
                            "--platform", "linux/amd64", "--layer", str(m["layer_index"]), image])
-    info = ctr_enc(args, ["images", "layerinfo", "--platform", "linux/amd64", image])
+    info = ctr_enc(args, ["images", "layerinfo", "--platform", "linux/amd64", image], capture=True)
     man["_layerinfo"] = info
     (ctx / "pools-manifest.json").write_text(
         json.dumps(man, ensure_ascii=False, indent=2), encoding="utf-8")
